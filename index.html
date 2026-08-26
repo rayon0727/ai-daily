@@ -133,17 +133,7 @@
 
   .anchors{position:sticky;top:0;z-index:20;background:var(--bg);backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);box-shadow:0 1px 8px rgba(28,36,52,.05)}
-  .anchors .wrap{display:flex;flex-direction:column;gap:7px;padding-top:9px;padding-bottom:9px}
-  .nav-row{display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none}
-  .nav-row::-webkit-scrollbar{display:none}
-  .nav-label{flex-shrink:0;font-size:11px;font-weight:700;color:var(--ink-3);letter-spacing:.06em;
-    background:var(--chip-bg);border:1px solid var(--line);padding:3px 10px;border-radius:999px}
-  .nav-row a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink-2);
-    font-size:13px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);
-    white-space:nowrap;transition:all .18s;background:var(--card)}
-  .nav-row a .dot{width:7px;height:7px;border-radius:50%}
-  .nav-row a:hover{border-color:var(--accent);color:var(--accent)}
-  .nav-row a .cnt{font-size:11px;color:var(--ink-3)}
+  .anchors .wrap{padding-top:9px;padding-bottom:9px}
   .toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   #searchInput{flex:1;min-width:180px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);
     background:var(--card);color:var(--ink);font-size:13px;outline:none;transition:border .15s}
@@ -183,9 +173,12 @@
   main{padding:26px 0 40px}
   .part{margin-bottom:40px}
   .part-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
-    border-bottom:2px solid var(--line);padding-bottom:10px;margin-bottom:22px}
-  .part-index{font-size:13px;font-weight:800;color:#fff;background:var(--accent);
-    padding:3px 10px;border-radius:8px;align-self:center}
+    border-bottom:2px solid var(--line);padding-bottom:10px;margin-bottom:22px;
+    position:relative;padding-left:14px}
+  .part-head::before{content:"";position:absolute;left:0;top:4px;bottom:10px;width:4px;border-radius:4px;
+    background:var(--accent)}
+  .part-tn .part-head::before{background:#e11d48}
+  .part-aihot .part-head::before{background:#6366f1}
   .part-title{font-size:23px;font-weight:800;letter-spacing:.01em}
   .part-desc{font-size:12.5px;color:var(--ink-3)}
   .part-src{margin-left:auto;font-size:12px;color:var(--ink-3)}
@@ -194,8 +187,8 @@
 
   .section{margin-bottom:28px;scroll-margin-top:120px}
   .sec-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-  .sec-index{width:30px;height:30px;border-radius:8px;color:#fff;font-weight:700;font-size:14px;
-    display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .sec-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;
+    box-shadow:0 0 0 3px color-mix(in srgb,var(--card) 0%,transparent),0 0 0 4px var(--line)}
   .sec-title{font-size:19px;font-weight:700;letter-spacing:.02em}
   .sec-count{font-size:12px;color:var(--ink-3);background:var(--card);border:1px solid var(--line);
     padding:2px 10px;border-radius:999px;margin-left:auto}
@@ -258,6 +251,27 @@
   .empty-tip.show{display:block}
   mark{background:var(--mark-bg);color:var(--mark-ink);border-radius:3px;padding:0 1px}
 
+  .rail{position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:35;
+    display:flex;flex-direction:column;align-items:stretch;gap:2px;max-height:82vh;overflow-y:auto;
+    scrollbar-width:none;background:color-mix(in srgb,var(--card) 88%,transparent);
+    border:1px solid var(--line);border-radius:14px;padding:8px 7px;backdrop-filter:blur(8px);
+    box-shadow:0 8px 24px rgba(28,36,52,.1)}
+  .rail::-webkit-scrollbar{display:none}
+  .rail.collapsed .rail-body{display:none}
+  .rail.collapsed{padding:6px}
+  .rail-toggle{background:none;border:none;cursor:pointer;color:var(--ink-3);font-size:12px;
+    padding:3px 4px;border-radius:8px;transition:color .15s;text-align:center}
+  .rail-toggle:hover{color:var(--accent)}
+  .rail-group{font-size:10px;font-weight:800;color:var(--ink-3);letter-spacing:.06em;
+    padding:6px 8px 3px;white-space:nowrap}
+  .rail-item{display:flex;align-items:center;gap:7px;text-decoration:none;border-radius:9px;
+    padding:6px 8px;color:var(--ink-2);font-size:12px;transition:background .14s,color .14s;white-space:nowrap}
+  .rail-item .d{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .rail-item .k{font-size:10px;font-weight:800;color:var(--ink-3);min-width:12px;text-align:center}
+  .rail-item:hover{background:var(--chip-bg);color:var(--ink)}
+  .rail-item.active{background:var(--accent);color:#fff}
+  .rail-item.active .k{color:#fff}
+  @media (max-width:1150px){.rail{display:none}}
   .fab{position:fixed;right:22px;bottom:22px;display:flex;flex-direction:column;gap:10px;z-index:40}
   .fab button{width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;font-size:18px;
     background:var(--card);color:var(--ink);box-shadow:0 6px 18px rgba(28,36,52,.18);
@@ -401,8 +415,12 @@
       <a class="tool-btn" href="archive.html">📚 往期回顾</a>
       <span class="result-info" id="resultInfo"></span>
     </div>
-    <div id="anchorNav"></div>
   </div>
+</nav>
+
+<nav class="rail" id="rail">
+  <button class="rail-toggle" id="railToggle" title="收起/展开导航">«</button>
+  <div class="rail-body" id="railBody"></div>
 </nav>
 
 <main class="wrap">
@@ -723,27 +741,14 @@ if(DATA.topics && DATA.topics.length){
   tpSec.style.display = 'none';
 }
 
-// ---------- Anchor nav ----------
-let navHtml = '';
-let g = 0;
-DATA.parts.forEach((p)=>{
-  navHtml += '<div class="nav-row"><span class="nav-label">'+(p.key==='aihot'?'☀️ AI HOT':'📰 腾讯新闻')+'</span>'+
-    p.sections.map((s)=>{
-      const gi = g++;
-      return '<a href="#sec-'+gi+'"><span class="dot" style="background:'+s.color+'"></span>'+esc(s.label)+'<span class="cnt">'+s.items.length+'</span></a>';
-    }).join('')+'</div>';
-});
-document.getElementById('anchorNav').innerHTML = navHtml;
-
 // ---------- Sections & cards ----------
 const main = document.getElementById('main');
 let html = '';
 let g2 = 0;
 DATA.parts.forEach((p, pi)=>{
-  html += '<section class="part" id="part-'+pi+'">'+
+  html += '<section class="part part-'+p.key+'" id="part-'+pi+'">'+
     '<div class="part-head">'+
-      '<span class="part-index">'+String(pi+1).padStart(2,'0')+'</span>'+
-      '<span class="part-title">'+esc(p.title)+'</span>'+
+      '<span class="part-title">'+(p.key==='tn'?'📰 ':'☀️ ')+esc(p.title)+'</span>'+
       '<span class="part-desc">'+esc(p.desc)+'</span>'+
       '<span class="part-src">来源 <a href="'+esc(p.sourceUrl)+'" target="_blank" rel="noopener noreferrer">'+esc(p.sourceName)+'</a> · '+p.sections.reduce((a,s)=>a+s.items.length,0)+' 条</span>'+
     '</div>';
@@ -754,7 +759,7 @@ DATA.parts.forEach((p, pi)=>{
     const old = s.items.filter(it=>it.old);
     html += '<section class="section" id="sec-'+idx+'">'+
       '<div class="sec-head">'+
-        '<span class="sec-index" style="background:'+c+'">'+String(idx+1).padStart(2,'0')+'</span>'+
+        '<span class="sec-dot" style="background:'+c+'"></span>'+
         '<span class="sec-title">'+esc(s.label)+'</span>'+
         '<span class="sec-count">'+(old.length? fresh.length+' 新 + '+old.length+' 往期' : s.items.length+' 条')+'</span>'+
       '</div>'+
@@ -768,6 +773,42 @@ DATA.parts.forEach((p, pi)=>{
 main.innerHTML = html;
 document.getElementById('footTotal').textContent = DATA.total;
 document.getElementById('aihotFoot').href = DATA.parts.find(p=>p.key==='aihot').sourceUrl || '#';
+
+// ---------- Rail nav (side scrollspy) ----------
+const railBody = document.getElementById('railBody');
+const rail = document.getElementById('rail');
+let railHtml = '';
+let rk = 0;
+DATA.parts.forEach((p)=>{
+  railHtml += '<div class="rail-group">'+(p.key==='aihot'?'☀️ AI HOT':'📰 腾讯新闻')+'</div>';
+  p.sections.forEach((s)=>{
+    const k = ++rk;
+    railHtml += '<a class="rail-item" href="#sec-'+(k-1)+'" data-sec="'+(k-1)+'">'+
+      '<span class="k">'+k+'</span><span class="d" style="background:'+s.color+'"></span>'+
+      '<span>'+esc(s.label)+'</span></a>';
+  });
+});
+railBody.innerHTML = railHtml;
+const railItemsEls = railBody.querySelectorAll('.rail-item');
+const secEls = document.querySelectorAll('.section');
+if('IntersectionObserver' in window && secEls.length){
+  const spy = new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        const idx = Array.prototype.indexOf.call(secEls, en.target);
+        railItemsEls.forEach(el=>el.classList.toggle('active', parseInt(el.dataset.sec,10)===idx));
+      }
+    });
+  }, {rootMargin:'-15% 0px -70% 0px'});
+  secEls.forEach(s=>spy.observe(s));
+  if(railItemsEls[0]) railItemsEls[0].classList.add('active');
+}
+const railToggle = document.getElementById('railToggle');
+railToggle.addEventListener('click', ()=>{
+  const collapsed = rail.classList.toggle('collapsed');
+  railToggle.textContent = collapsed ? '»' : '«';
+  railToggle.title = collapsed ? '展开导航' : '收起导航';
+});
 
 function tagHtml(it){
   if(!it.tag) return '';
