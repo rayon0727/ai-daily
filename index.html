@@ -135,9 +135,15 @@
     border-bottom:1px solid var(--line);box-shadow:0 1px 8px rgba(28,36,52,.05)}
   .anchors .wrap{padding-top:9px;padding-bottom:9px}
   .toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-  #searchInput{flex:1;min-width:180px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);
+  .search-box{position:relative;flex:1;min-width:180px;display:flex;align-items:center}
+  #searchInput{flex:1;min-width:0;width:100%;padding:7px 34px 7px 14px;border-radius:999px;border:1px solid var(--line);
     background:var(--card);color:var(--ink);font-size:13px;outline:none;transition:border .15s}
   #searchInput:focus{border-color:var(--accent)}
+  .search-clear{position:absolute;right:7px;width:22px;height:22px;border-radius:50%;border:none;
+    background:var(--chip-bg);color:var(--ink-3);font-size:11px;cursor:pointer;display:none;
+    align-items:center;justify-content:center;transition:background .15s,color .15s}
+  .search-clear:hover{background:var(--accent);color:#fff}
+  .search-clear.show{display:inline-flex}
   .filters{display:flex;gap:6px;flex-wrap:wrap}
   .fbtn{font-size:12px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);
     background:var(--card);color:var(--ink-2);cursor:pointer;transition:all .15s}
@@ -167,6 +173,12 @@
     flex-shrink:0;padding:2px 6px}
   .fav-drawer .fav-del:hover{color:#be123c}
   .fav-empty{color:var(--ink-3);font-size:13px;padding:14px;text-align:center}
+  .fav-sync{display:flex;gap:8px;margin-top:10px}
+  .sync-panel{margin-top:10px;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--chip-bg)}
+  .sync-panel textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 12px;
+    font-size:11px;color:var(--ink-2);background:var(--card);resize:vertical;font-family:ui-monospace,Menlo,monospace;line-height:1.5}
+  .sync-panel .modal-actions{margin-top:10px}
+  .sync-panel .modal-desc{margin-top:8px;font-size:11.5px}
   .result-info{font-size:11.5px;color:var(--ink-3);display:none;align-items:center;gap:6px}
   .result-info.show{display:inline-flex}
 
@@ -348,6 +360,19 @@
     <h3>⭐ 我的收藏</h3>
     <p class="modal-desc">已收藏 <b id="favModalCount">0</b> 条 · 点标题打开原文，✕ 移除</p>
     <div class="fav-drawer" id="favDrawer"></div>
+    <div class="fav-sync">
+      <button class="modal-btn" id="favExport">⬆️ 导出同步码</button>
+      <button class="modal-btn" id="favImport">⬇️ 导入同步码</button>
+    </div>
+    <div class="sync-panel" id="syncPanel" style="display:none">
+      <textarea id="syncCode" rows="4" placeholder="粘贴或复制同步码…"></textarea>
+      <div class="modal-actions">
+        <button class="modal-btn primary" id="syncCopy">📋 复制同步码</button>
+        <button class="modal-btn primary" id="syncApply">✅ 导入收藏</button>
+        <button class="modal-btn" id="syncCancel">取消</button>
+      </div>
+      <p class="modal-desc">💡 把同步码发到微信文件传输助手，新设备粘贴即可同步收藏。</p>
+    </div>
     <div class="modal-actions">
       <button class="modal-btn primary" id="favClearAll">🗑️ 清空收藏</button>
       <button class="modal-btn" id="favDone">完成</button>
@@ -407,7 +432,10 @@
 <nav class="anchors">
   <div class="wrap">
     <div class="toolbar">
-      <input id="searchInput" type="text" placeholder="🔍 搜索标题 / 摘要，如：卫星、芯片、6G…（Esc 清除）" autocomplete="off">
+      <div class="search-box">
+        <input id="searchInput" type="text" placeholder="🔍 搜索标题 / 摘要，如：卫星、芯片、6G…（Esc 清除）" autocomplete="off">
+        <button class="search-clear" id="searchClear" title="清空搜索">✕</button>
+      </div>
       <div class="filters" id="filters">
         <button class="fbtn active" data-f="all">全部</button>
         <button class="fbtn" data-f="related">⚡ 相关</button>
@@ -613,6 +641,65 @@ document.getElementById('favClearAll').addEventListener('click', ()=>{
 });
 favMask.addEventListener('click', e=>{ if(e.target===favMask) favMask.classList.remove('show'); });
 updateFavCount();
+
+// ---------- Favorites sync code ----------
+const SYNC_PREFIX = 'AI-DAILY-FAVS:';
+const syncPanel = document.getElementById('syncPanel');
+const syncCode = document.getElementById('syncCode');
+function b64Encode(s){ return btoa(unescape(encodeURIComponent(s))); }
+function b64Decode(s){ return decodeURIComponent(escape(atob(s))); }
+document.getElementById('favExport').addEventListener('click', ()=>{
+  const favs = getFavs();
+  if(!favs.length){ toast('还没有收藏可导出'); return; }
+  syncCode.value = SYNC_PREFIX + b64Encode(JSON.stringify(favs));
+  syncPanel.style.display = 'block';
+  toast('⬆️ 已生成同步码，复制后发到微信');
+});
+document.getElementById('favImport').addEventListener('click', ()=>{
+  syncCode.value = '';
+  syncPanel.style.display = 'block';
+  syncCode.focus();
+  toast('⬇️ 粘贴微信里的同步码，点「导入收藏」');
+});
+document.getElementById('syncCopy').addEventListener('click', async ()=>{
+  if(!syncCode.value){ toast('没有可复制的同步码'); return; }
+  try{
+    await navigator.clipboard.writeText(syncCode.value);
+    toast('✅ 同步码已复制，发到微信即可');
+  }catch(e){ toast('❌ 复制失败，请手动选择复制'); }
+});
+document.getElementById('syncApply').addEventListener('click', ()=>{
+  let code = (syncCode.value||'').trim();
+  if(!code){ toast('请先粘贴同步码'); return; }
+  try{
+    if(code.indexOf(SYNC_PREFIX)===0) code = code.slice(SYNC_PREFIX.length);
+    const raw = b64Decode(code);
+    const imported = JSON.parse(raw);
+    if(!Array.isArray(imported)) throw new Error('bad format');
+    // 按 url 去重合并（保留本地，导入的补充）
+    const local = getFavs();
+    const seen = new Set(local.map(f=>f.url));
+    let added = 0;
+    imported.forEach(f=>{
+      if(f && f.url && !seen.has(f.url)){
+        local.push({n:f.n, title:f.title, source:f.source, url:f.url, favAt:f.favAt||Date.now()});
+        seen.add(f.url);
+        added++;
+      }
+    });
+    setFavs(local);
+    renderFavDrawer();
+    updateFavCount();
+    refreshFavStars();
+    syncPanel.style.display = 'none';
+    toast(added ? '✅ 导入成功，新增 '+added+' 条' : '已导入（无新增，可能已存在）');
+  }catch(e){
+    toast('❌ 同步码无效，请检查是否完整复制');
+  }
+});
+document.getElementById('syncCancel').addEventListener('click', ()=>{
+  syncPanel.style.display = 'none';
+});
 
 // ---------- Push subscription ----------
 const VAPID_PUBLIC_KEY = 'BF1_vIR0AYC4eeSh9-5mqeIstiWlr2aQBaPTwYRHj0MqIYCktEGJLpJFmymk8WGUEmKBxaDsrrLdxppv7SSPZNw';
@@ -899,9 +986,18 @@ document.querySelectorAll('.fbtn').forEach(btn=>{
     applyFilter();
   });
 });
-searchInput.addEventListener('input', ()=>{ applyFilter(); refreshHighlights(); });
+searchInput.addEventListener('input', ()=>{ syncSearchClear(); applyFilter(); refreshHighlights(); });
 searchInput.addEventListener('keydown', e=>{
-  if(e.key==='Escape'){ searchInput.value=''; applyFilter(); refreshHighlights(); }
+  if(e.key==='Escape'){ searchInput.value=''; syncSearchClear(); applyFilter(); refreshHighlights(); }
+});
+function syncSearchClear(){
+  document.getElementById('searchClear').classList.toggle('show', !!searchInput.value);
+}
+document.getElementById('searchClear').addEventListener('click', ()=>{
+  searchInput.value='';
+  syncSearchClear();
+  applyFilter(); refreshHighlights();
+  searchInput.focus();
 });
 
 function applyFilter(){
