@@ -44,3 +44,28 @@ self.addEventListener('fetch', e => {
     }))
   );
 });
+
+// ---- Push 通知 ----
+self.addEventListener('push', e => {
+  let data = { title: 'AI 晨报', body: '今日晨报已更新', url: './index.html' };
+  try { data = Object.assign(data, e.data ? e.data.json() : {}); } catch (_) {}
+  e.waitUntil(
+    self.registration.showNotification(data.title, {
+      body: data.body,
+      icon: './icon-192.png',
+      badge: './icon-192.png',
+      data: { url: data.url },
+      vibrate: [100, 60, 100]
+    })
+  );
+});
+
+self.addEventListener('notificationclick', e => {
+  e.notification.close();
+  e.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then(list => {
+      for (const c of list) { if ('focus' in c) return c.focus(); }
+      return clients.openWindow(e.notification.data.url || './index.html');
+    })
+  );
+});
