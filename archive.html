@@ -22,22 +22,6 @@
   .date{font-size:16px;font-weight:700}
   .file{font-size:12px;color:#8a93a3;word-break:break-all}
   .go{font-size:13px;font-weight:600;color:#4f46e5;flex-shrink:0}
-  .favs{background:#fff;border:1px solid #e6eaf2;border-radius:14px;padding:18px;margin-bottom:24px}
-  .favs-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-  .favs-title{font-size:15px;font-weight:800}
-  .favs-cnt{font-size:12px;color:#8a93a3;background:#f0f2f8;border:1px solid #e6eaf2;border-radius:999px;padding:1px 10px}
-  .favs-clear{margin-left:auto;font-size:12px;color:#be123c;background:none;border:1px solid #fda4af;border-radius:999px;padding:3px 12px;cursor:pointer}
-  .favs-clear:hover{background:#ffe4e6}
-  .fav-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;transition:background .13s}
-  .fav-item:hover{background:#f6f7fb}
-  .fav-item + .fav-item{border-top:1px dashed #e6eaf2}
-  .fav-star{color:#f59e0b;flex-shrink:0}
-  .fav-title{font-size:13.5px;font-weight:600;color:#1c2434;text-decoration:none;flex:1;min-width:0;line-height:1.45}
-  .fav-title:hover{color:#4f46e5}
-  .fav-meta{font-size:11px;color:#8a93a3;flex-shrink:0}
-  .fav-del{font-size:12px;color:#8a93a3;background:none;border:none;cursor:pointer;flex-shrink:0;padding:2px 6px}
-  .fav-del:hover{color:#be123c}
-  .fav-empty{color:#8a93a3;font-size:13px}
 </style>
 </head>
 <body>
@@ -45,14 +29,6 @@
   <a class="back" href="index.html">← 回到今日晨报</a>
   <h1>🗞️ AI 晨报总览 · 往期回顾</h1>
   <div class="sub">每天 09:30 自动生成 · 共 1 期</div>
-  <div class="favs" id="favsWrap">
-    <div class="favs-head">
-      <span class="favs-title">⭐ 我的收藏</span>
-      <span class="favs-cnt" id="favCnt">0 条</span>
-      <button class="favs-clear" id="favClear">清空收藏</button>
-    </div>
-    <div id="favsList"><span class="fav-empty">还没有收藏，去晨报里点卡片右上角 ☆ 收藏</span></div>
-  </div>
   <div class="list">
     <a class="item" href="ai-daily-combined-2026-08-26.html">
       <span class="no">01</span>
@@ -63,32 +39,5 @@
       <span class="go">查看 →</span>
     </a></div>
 </div>
-<script>
-(function(){
-  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
-  var favs = [];
-  try { favs = JSON.parse(localStorage.getItem('ai-daily-favs')||'[]'); } catch(e) {}
-  var list = document.getElementById('favsList');
-  var cnt = document.getElementById('favCnt');
-  if(favs.length){
-    cnt.textContent = favs.length + ' 条';
-    list.innerHTML = favs.map(function(f,i){
-      var time = f.favAt ? ' ⭐ ' + new Date(f.favAt).toLocaleDateString('zh-CN',{month:'numeric',day:'numeric'}) : '';
-      return '<div class="fav-item"><span class="fav-star">★</span>' +
-        '<a class="fav-title" href="'+esc(f.url||'#')+'" target="_blank" rel="noopener noreferrer">'+esc(f.title||'')+'</a>' +
-        '<span class="fav-meta">'+esc(f.source||'')+time+'</span>' +
-        '<button class="fav-del" onclick="delFav('+i+')" title="删除">✕</button></div>';
-    }).join('');
-  }
-  window.delFav = function(i){
-    favs.splice(i,1);
-    localStorage.setItem('ai-daily-favs', JSON.stringify(favs));
-    location.reload();
-  };
-  document.getElementById('favClear').onclick = function(){
-    if(confirm('确认清空全部收藏？')){ localStorage.removeItem('ai-daily-favs'); location.reload(); }
-  };
-})();
-</script>
 </body>
 </html>
