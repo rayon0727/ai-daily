@@ -3,11 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icon-192.png">
-<meta name="theme-color" content="#4f46e5">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>AI 每日晨报总览 · 2026年8月26日 星期三</title>
 <style>
   :root{
@@ -723,13 +718,6 @@ document.addEventListener('keydown', e=>{
   if(e.key==='t' || e.key==='T') window.scrollTo({top:0, behavior:'smooth'});
   if(e.key==='d' || e.key==='D') toggleTheme();
 });
-</script>
-<script>
-if('serviceWorker' in navigator){
-  window.addEventListener('load', ()=>{
-    navigator.serviceWorker.register('./sw.js').catch(()=>{});
-  });
-}
 </script>
 </body>
 </html>
