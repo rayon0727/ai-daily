@@ -737,8 +737,11 @@ document.getElementById('expandAll').addEventListener('click', ()=>{
 // ---------- Highlight ----------
 function applyHighlight(el){
   const q = document.getElementById('searchInput').value.trim();
-  const plain = el.getAttribute('data-plain')||'';
-  el.innerHTML = hl(plain, q);
+  // 摘要已展开时用全文做高亮源，否则用截断版
+  const src = (el.classList && el.classList.contains('summary') && el.dataset.expanded === '1')
+    ? (el.getAttribute('data-full') || '')
+    : (el.getAttribute('data-plain') || '');
+  el.innerHTML = hl(src, q);
 }
 function refreshHighlights(){
   document.querySelectorAll('.card h3 a, .card .summary, .fold-card h4 a').forEach(el=>applyHighlight(el));
