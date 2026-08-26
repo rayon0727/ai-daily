@@ -140,7 +140,7 @@
   #searchInput:focus{border-color:var(--accent)}
   .filters{display:flex;gap:6px;flex-wrap:wrap}
   .fbtn{font-size:12px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);
-    background:var(--card);color:var(--ink-2);cursor:pointer;transition:all .15s;flex:1;min-width:0;text-align:center}
+    background:var(--card);color:var(--ink-2);cursor:pointer;transition:all .15s}
   .fbtn:hover{border-color:var(--accent);color:var(--accent)}
   .fbtn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
   .tool-btn{font-size:12px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);
@@ -196,7 +196,8 @@
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:var(--grid-gap)}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
     padding:var(--card-pad) var(--card-pad) 14px;display:flex;flex-direction:column;gap:9px;
-    transition:transform .16s,box-shadow .16s;position:relative;border-top:3px solid var(--card-accent,var(--accent))}
+    transition:transform .16s,box-shadow .16s;position:relative;border-top:3px solid var(--card-accent,var(--accent));
+    min-width:0;width:100%;box-sizing:border-box}
   .card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(28,36,52,.1)}
   .card-top{display:flex;align-items:center;gap:8px}
   .fav-btn{font-size:15px;line-height:1;background:none;border:none;cursor:pointer;color:var(--ink-3);
