@@ -419,7 +419,7 @@
 </nav>
 
 <nav class="rail" id="rail">
-  <button class="rail-toggle" id="railToggle" title="收起/展开导航">«</button>
+  <button class="rail-toggle" id="railToggle" title="收起导航">»</button>
   <div class="rail-body" id="railBody"></div>
 </nav>
 
@@ -806,7 +806,7 @@ if('IntersectionObserver' in window && secEls.length){
 const railToggle = document.getElementById('railToggle');
 railToggle.addEventListener('click', ()=>{
   const collapsed = rail.classList.toggle('collapsed');
-  railToggle.textContent = collapsed ? '»' : '«';
+  railToggle.textContent = collapsed ? '«' : '»';
   railToggle.title = collapsed ? '展开导航' : '收起导航';
 });
 
