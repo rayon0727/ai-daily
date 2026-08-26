@@ -294,6 +294,19 @@
 <body>
 <div id="progress"></div>
 
+<div class="modal-mask" id="subMask">
+  <div class="modal" id="subModal">
+    <button class="modal-close" id="subClose" title="关闭">✕</button>
+    <h3>🔔 开启每日推送</h3>
+    <p class="modal-desc">订阅成功！请把下面的订阅信息 <b>复制发给小巴</b> 保存，之后每天晨报更新会自动推送到这里。</p>
+    <textarea id="subJson" readonly rows="6"></textarea>
+    <div class="modal-actions">
+      <button class="modal-btn primary" id="subCopy">📋 复制订阅信息</button>
+      <button class="modal-btn" id="subCancel">稍后再说</button>
+    </div>
+  </div>
+</div>
+
 <header class="hero">
   <div class="wrap">
     <div class="hero-top">
@@ -873,18 +886,5 @@ if('serviceWorker' in navigator){
   });
 }
 </script>
-
-<div class="modal-mask" id="subMask">
-  <div class="modal" id="subModal">
-    <button class="modal-close" id="subClose" title="关闭">✕</button>
-    <h3>🔔 开启每日推送</h3>
-    <p class="modal-desc">订阅成功！请把下面的订阅信息 <b>复制发给小巴</b> 保存，之后每天晨报更新会自动推送到这里。</p>
-    <textarea id="subJson" readonly rows="6"></textarea>
-    <div class="modal-actions">
-      <button class="modal-btn primary" id="subCopy">📋 复制订阅信息</button>
-      <button class="modal-btn" id="subCancel">稍后再说</button>
-    </div>
-  </div>
-</div>
 </body>
 </html>
