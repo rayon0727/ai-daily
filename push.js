@@ -35,8 +35,8 @@ if (!Array.isArray(subs) || !subs.length) {
 
 webpush.setVapidDetails(VAPID.subject, VAPID.publicKey, VAPID.privateKey);
 const payload = JSON.stringify({
-  title: 'AI 晨报',
-  body: '今日晨报已更新，点开查看',
+  title: process.env.TITLE || 'AI 晨报',
+  body: process.env.BODY || '今日晨报已更新，点开查看',
   url: URL,
 });
 
