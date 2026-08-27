@@ -86,6 +86,9 @@ TPL = r'''<!DOCTYPE html>
   [data-theme="dark"] .hl-label.x{color:#2dd4bf;background:#12302d}
   [data-theme="dark"] .hl-label.t{color:#93c5fd;background:#16294a}
   .hl-hot{font-size:12px;color:var(--ink-3);flex-shrink:0;white-space:nowrap;display:inline-flex;align-items:center;gap:3px}
+  .hl-sum{flex-basis:100%;font-size:12px;color:var(--ink-2);line-height:1.5;min-width:0;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+    padding-left:38px;margin-top:-4px;border-left:2px solid var(--line,#e6eaf2)}
 
   .pending{border:1px dashed var(--line);border-radius:14px;padding:22px;text-align:center;color:var(--ink-3);font-size:13px}
 
@@ -196,6 +199,7 @@ DATA.platforms.forEach((p)=>{
           '<span class="hl-word">'+esc(it.word)+'</span>'+
           (it.label? '<span class="hl-label '+labelCls(it.label)+'">'+esc(it.label)+'</span>' : '')+
           '<span class="hl-hot">🔥 '+esc(it.hot)+'</span>'+
+          (it.summary? '<span class="hl-sum">📄 '+esc(it.summary)+'</span>' : '')+
         '</a>'
       ).join('')+
     '</div>';
