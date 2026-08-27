@@ -142,10 +142,13 @@
     border-bottom:1px solid var(--line);box-shadow:0 1px 8px rgba(28,36,52,.05)}
   .anchors .wrap{padding-top:9px;padding-bottom:9px}
   .toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-  .search-box{position:relative;flex:1;min-width:180px;display:flex;align-items:center}
-  #searchInput{flex:1;min-width:0;width:100%;padding:7px 34px 7px 14px;border-radius:999px;border:1px solid var(--line);
-    background:var(--card);color:var(--ink);font-size:13px;outline:none;transition:border .15s}
-  #searchInput:focus{border-color:var(--accent)}
+  .search-bar{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);
+    border-radius:16px;padding:11px 16px;margin-bottom:22px;box-shadow:0 2px 12px rgba(28,36,52,.06)}
+  .search-box{position:relative;flex:1;min-width:0;display:flex;align-items:center}
+  #searchInput{flex:1;min-width:0;width:100%;padding:10px 40px 10px 18px;border-radius:999px;border:1px solid var(--line);
+    background:var(--chip-bg);color:var(--ink);font-size:14px;outline:none;transition:border .15s,background .15s}
+  #searchInput:focus{border-color:var(--accent);background:var(--card)}
+  .result-info{white-space:nowrap;flex-shrink:0}
   .search-clear{position:absolute;right:7px;width:22px;height:22px;border-radius:50%;border:none;
     background:var(--chip-bg);color:var(--ink-3);font-size:11px;cursor:pointer;display:none;
     align-items:center;justify-content:center;transition:background .15s,color .15s}
@@ -414,6 +417,13 @@
 </nav>
 
 <main class="wrap">
+  <div class="search-bar">
+    <div class="search-box">
+      <input id="searchInput" type="text" placeholder="🔍 搜索标题 / 摘要，如：卫星、芯片、6G…（Esc 清除）" autocomplete="off">
+      <button class="search-clear" id="searchClear" title="清空搜索">✕</button>
+    </div>
+    <span class="result-info" id="resultInfo"></span>
+  </div>
   <section class="overview">
     <div class="ov-block">
       <div class="ov-head">
@@ -448,10 +458,6 @@
 <nav class="anchors">
   <div class="wrap">
     <div class="toolbar">
-      <div class="search-box">
-        <input id="searchInput" type="text" placeholder="🔍 搜索标题 / 摘要，如：卫星、芯片、6G…（Esc 清除）" autocomplete="off">
-        <button class="search-clear" id="searchClear" title="清空搜索">✕</button>
-      </div>
       <div class="filters" id="filters">
         <button class="fbtn active" data-f="all">全部</button>
         <button class="fbtn" data-f="related">⚡ 相关</button>
@@ -461,7 +467,6 @@
       <button class="tool-btn" id="expandAll">展开全文</button>
       <button class="tool-btn fav-entry" id="favsBtn">⭐ 收藏 <span class="fav-count" id="favCount">0</span></button>
       <a class="tool-btn" href="archive.html">📚 往期回顾</a>
-      <span class="result-info" id="resultInfo"></span>
     </div>
   </div>
 </nav>
