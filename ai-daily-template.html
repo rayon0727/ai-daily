@@ -149,6 +149,7 @@
     background:var(--chip-bg);color:var(--ink);font-size:14px;outline:none;transition:border .15s,background .15s}
   #searchInput:focus{border-color:var(--accent);background:var(--card)}
   .result-info{white-space:nowrap;flex-shrink:0}
+  .search-bar .tool-btn{flex-shrink:0}
   .search-clear{position:absolute;right:7px;width:22px;height:22px;border-radius:50%;border:none;
     background:var(--chip-bg);color:var(--ink-3);font-size:11px;cursor:pointer;display:none;
     align-items:center;justify-content:center;transition:background .15s,color .15s}
@@ -423,6 +424,8 @@
       <button class="search-clear" id="searchClear" title="清空搜索">✕</button>
     </div>
     <span class="result-info" id="resultInfo"></span>
+    <button class="tool-btn fav-entry" id="favsBtn">⭐ 收藏 <span class="fav-count" id="favCount">0</span></button>
+    <a class="tool-btn" href="archive.html">📚 往期回顾</a>
   </div>
   <section class="overview">
     <div class="ov-block">
@@ -465,8 +468,6 @@
         <button class="fbtn" data-f="fresh">只看新鲜</button>
       </div>
       <button class="tool-btn" id="expandAll">展开全文</button>
-      <button class="tool-btn fav-entry" id="favsBtn">⭐ 收藏 <span class="fav-count" id="favCount">0</span></button>
-      <a class="tool-btn" href="archive.html">📚 往期回顾</a>
     </div>
   </div>
 </nav>
