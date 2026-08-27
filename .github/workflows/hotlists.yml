@@ -1,0 +1,35 @@
+name: Hotlists Refresh
+
+on:
+  schedule:
+    # 北京时间每小时 17 分（UTC 减 8 小时），避开整点与本地 09:30 晨报任务
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch hotlists & generate hot.html
+        run: |
+          python3 fetch_hotlists.py
+          python3 gen_hot.py hot.html
+        working-directory: .
+
+      - name: Commit & push
+        run: |
+          git config user.name "ai-daily-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add hot.html
+          if git diff --cached --quiet; then
+            echo "hot.html 无变化，跳过提交"
+            exit 0
+          fi
+          git commit -m "chore: refresh hotlists [skip ci]"
+          git push origin main
