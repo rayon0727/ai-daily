@@ -63,7 +63,7 @@ TPL = r'''<!DOCTYPE html>
   .pl-count{font-size:12px;color:var(--ink-3);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:2px 10px;margin-left:auto}
 
   .hl-list{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
-  .hl-item{display:flex;align-items:center;gap:12px;padding:11px 16px;text-decoration:none;transition:background .13s;min-width:0}
+  .hl-item{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:11px 16px;text-decoration:none;transition:background .13s;min-width:0}
   .hl-item:hover{background:var(--chip-bg,#f0f2f8)}
   .hl-item + .hl-item{border-top:1px dashed var(--line)}
   .hl-rank{width:26px;height:26px;border-radius:8px;font-size:13px;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--chip-bg,#eef0f6);color:var(--ink-3)}
