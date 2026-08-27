@@ -56,14 +56,13 @@ jobs:
           ls -la ai-daily-combined-*.html index.html archive.html | tail -5
 
       - name: Push notification (if subscribed)
-        run: |
-          npm install web-push --no-audit --no-fund >/dev/null 2>&1
-          VAPID_JSON="${{ secrets.VAPID_JSON }}" SUBS_JSON="${{ secrets.SUBS_JSON }}" \
-            NODE_PATH="$(pwd)/node_modules" node push.js
-        shell: bash
         env:
           VAPID_JSON: ${{ secrets.VAPID_JSON }}
           SUBS_JSON: ${{ secrets.SUBS_JSON }}
+        run: |
+          npm install web-push --no-audit --no-fund >/dev/null 2>&1
+          NODE_PATH="$(pwd)/node_modules" node push.js
+        shell: bash
 
       - name: Commit & push
         run: |
