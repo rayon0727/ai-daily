@@ -1,0 +1,78 @@
+name: Daily Report
+
+on:
+  schedule:
+    # 兜底：北京时间每天 09:30（UTC 01:30）。GitHub schedule 偶发不触发，主触发靠 cron-job.org repository_dispatch。
+    - cron: '30 1 * * *'
+  repository_dispatch:
+    types: [daily-report]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install tencent-news CLI
+        run: |
+          curl -fsSL https://mat1.gtimg.com/qqcdn/qqnews/cli/hub/tencent-news/setup.sh | sh
+          export PATH="$HOME/.tencent-news-cli/bin:$HOME/.local/bin:$PATH"
+          which tencent-news-cli || find "$HOME" -name tencent-news-cli -type f 2>/dev/null | head -1
+        shell: bash
+
+      - name: Configure API key
+        run: |
+          export PATH="$HOME/.tencent-news-cli/bin:$HOME/.local/bin:$PATH"
+          tencent-news-cli apikey-set "${{ secrets.TN_API_KEY }}"
+        shell: bash
+
+      - name: Fetch tencent news
+        run: |
+          export PATH="$HOME/.tencent-news-cli/bin:$HOME/.local/bin:$PATH"
+          tencent-news-cli hot --limit 10 > /tmp/tn_hot.txt
+          tencent-news-cli search "物联网" --limit 8 > /tmp/tn_iot_cn.txt
+          tencent-news-cli search "全球 物联网" --limit 8 > /tmp/tn_iot_global.txt
+          echo "hot: $(wc -l < /tmp/tn_hot.txt) / iot_cn: $(wc -l < /tmp/tn_iot_cn.txt) / iot_global: $(wc -l < /tmp/tn_iot_global.txt)"
+        shell: bash
+
+      - name: Fetch AIHOT daily
+        run: |
+          curl -sS --max-time 15 -A "aihot-skill/1.2.1" "https://aihot.virxact.com/api/v1/dailies/latest" -o /tmp/aihot_daily_latest.json
+          python3 -c "import json; d=json.load(open('/tmp/aihot_daily_latest.json')); print('aihot date:', d['report']['date'])"
+
+      - name: Fetch wechat media
+        run: |
+          python3 fetch_wechat_media.py || echo "wechat fetch failed, skip"
+
+      - name: Generate daily report
+        run: |
+          python3 gen_daily.py --data-dir /tmp --template ai-daily-template.html --out-dir .
+          python3 rebuild_archive.py
+          ls -la ai-daily-combined-*.html index.html archive.html | tail -5
+
+      - name: Push notification (if subscribed)
+        run: |
+          npm install web-push --no-audit --no-fund >/dev/null 2>&1
+          VAPID_JSON="${{ secrets.VAPID_JSON }}" SUBS_JSON="${{ secrets.SUBS_JSON }}" \
+            NODE_PATH="$(pwd)/node_modules" node push.js
+        shell: bash
+        env:
+          VAPID_JSON: ${{ secrets.VAPID_JSON }}
+          SUBS_JSON: ${{ secrets.SUBS_JSON }}
+
+      - name: Commit & push
+        run: |
+          git config user.name "ai-daily-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "无变化，跳过提交"
+            exit 0
+          fi
+          git commit -m "chore: daily report [skip ci]"
+          git push origin main
