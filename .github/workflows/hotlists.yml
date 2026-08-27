@@ -35,3 +35,15 @@ jobs:
           fi
           git commit -m "chore: refresh hotlists [skip ci]"
           git push origin main
+
+      - name: Notify failure
+        if: failure()
+        env:
+          VAPID_JSON: ${{ secrets.VAPID_JSON }}
+          SUBS_JSON: ${{ secrets.SUBS_JSON }}
+          TITLE: '⚠️ 热搜刷新失败'
+          BODY: '云端任务失败，请查看 GitHub Actions 日志'
+        run: |
+          npm install web-push --no-audit --no-fund >/dev/null 2>&1 || true
+          NODE_PATH="$(pwd)/node_modules" node push.js || true
+        shell: bash
