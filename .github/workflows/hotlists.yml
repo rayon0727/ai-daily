@@ -18,8 +18,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install tencent-news CLI
+        run: |
+          curl -fsSL https://mat1.gtimg.com/qqcdn/qqnews/cli/hub/tencent-news/setup.sh | sh
+          export PATH="$HOME/.tencent-news-cli/bin:$HOME/.local/bin:$PATH"
+        shell: bash
+
+      - name: Configure API key
+        run: |
+          export PATH="$HOME/.tencent-news-cli/bin:$HOME/.local/bin:$PATH"
+          tencent-news-cli apikey-set "${{ secrets.TN_API_KEY }}"
+        shell: bash
+
       - name: Fetch hotlists & generate hot.html
         run: |
+          export PATH="$HOME/.tencent-news-cli/bin:$HOME/.local/bin:$PATH"
           python3 fetch_hotlists.py
           python3 gen_hot.py hot.html
         working-directory: .
