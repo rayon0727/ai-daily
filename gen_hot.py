@@ -134,7 +134,7 @@ TPL = r'''<!DOCTYPE html>
 
 <footer>
   <div class="wrap foot-inner">
-    <span>共 <b id="footTotal">0</b> 个热词 · 数据源：<b>微博</b> / <b>今日头条</b> 官方热榜（每日 09:30 快照）</span>
+    <span>共 <b id="footTotal">0</b> 个热词 · 数据源：<b>微博</b> / <b>今日头条</b> 官方热榜（每小时自动更新）</span>
     <a class="foot-link" href="index.html">← 回今日晨报</a>
   </div>
 </footer>
