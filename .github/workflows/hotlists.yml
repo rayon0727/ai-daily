@@ -3,8 +3,8 @@ name: Hotlists Refresh
 on:
   schedule:
     # 北京时间每小时 37 分（UTC 减 8 小时），避开整点与本地 09:30 晨报任务
-    # v2: cron 从 17 分调整为 37 分（2026-08-27 强制重新注册 schedule，原 17 分从未触发）
-    - cron: '37 * * * *'
+    # v3: 临时每 5 分钟测试 schedule 是否生效（2026-08-27 强制重新注册 schedule，原 17 分从未触发）
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 permissions:
