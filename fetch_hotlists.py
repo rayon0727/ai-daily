@@ -5,7 +5,7 @@
 失败平台自动降级（items=[] 或跳过），不中断。
 抖音：官方接口需签名、第三方聚合当前网络不可达 → 暂不接入（留 key 占位，后续补）。
 """
-import json, re, sys, urllib.request
+import json, re, sys, os, shutil, subprocess, urllib.request
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"
 TIMEOUT = 12
@@ -69,6 +69,37 @@ def fetch_toutiao():
     return {"key": "toutiao", "name": "今日头条", "color": "#f02c2c", "icon": "icon-toutiao.png",
             "note": "点击热词直达原文 / 话题页", "items": items}
 
+def resolve_cli():
+    p = shutil.which('tencent-news-cli')
+    if p:
+        return p
+    alt = os.path.expanduser('~/.tencent-news-cli/bin/tencent-news-cli')
+    return alt if os.path.exists(alt) else None
+
+def search_tn_summary(word):
+    """热词反查腾讯新闻：返回第一条的摘要（摘要/来源），失败或无语义返回 None"""
+    cli = resolve_cli()
+    if not cli:
+        return None
+    try:
+        out = subprocess.run([cli, 'search', word, '--limit', '1'],
+                             capture_output=True, text=True, timeout=15).stdout
+    except Exception:
+        return None
+    if not out:
+        return None
+    m = re.search(r'^\s*\d+\.\s*标题[：:]\s*(.*)$', out, re.M)
+    if not m:
+        return None
+    title = m.group(1).strip()
+    s = re.search(r'^[ \t]*摘要[:：]\s*(.*)$', out, re.M)
+    src = re.search(r'^[ \t]*来源[:：]\s*(.*)$', out, re.M)
+    summary = re.sub(r'\s+', ' ', s.group(1)).strip() if s else ''
+    if not summary or len(summary) < 8:
+        return None
+    return {'title': title, 'summary': summary[:90],
+            'source': src.group(1).strip() if src else ''}
+
 def main():
     platforms = []
     results = []
@@ -79,6 +110,27 @@ def main():
             results.append(f"{name} OK ({len(p['items'])} 条)")
         except Exception as e:
             results.append(f"{name} FAIL ({type(e).__name__}: {str(e)[:80]})")
+
+    # 热词反查摘要：每平台 Top5，全局去重（微博/头条重合词只搜一次，重复词复用摘要）
+    seen = {}
+    enriched = 0
+    for p in platforms:
+        for it in p['items'][:5]:
+            w = it['word'].strip('#').strip()
+            if len(w) < 2:
+                continue
+            if w in seen:
+                if seen[w]:
+                    it['summary'] = seen[w]['summary']
+                    it['sum_src'] = seen[w]['source']
+                continue
+            r = search_tn_summary(w)
+            seen[w] = r
+            if r:
+                it['summary'] = r['summary']
+                it['sum_src'] = r['source']
+                enriched += 1
+    results.append(f"摘要反查 {enriched} 条")
 
     from datetime import datetime, timezone, timedelta
     bjt = timezone(timedelta(hours=8))
