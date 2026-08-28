@@ -53,39 +53,15 @@ def google_news(q, limit):
         l = re.search(r'<link>(.*?)</link>', it, re.S)
         p = re.search(r'<pubDate>(.*?)</pubDate>', it, re.S)
         d = re.search(r'<description>(.*?)</description>', it, re.S)
+        # 媒体名：Google News RSS 有独立 <source url="...">媒体名</source> 子元素
+        s = re.search(r'<source[^>]*url="[^"]*"[^>]*>(.*?)</source>', it, re.S)
         title = re.sub(r'<[^>]+>', '', html_mod.unescape(t.group(1))).strip() if t else ''
         if not title or title in ('无结果', 'No results'):
             continue
+        src = html_mod.unescape(s.group(1)).strip() if s else ''
         desc_html = html_mod.unescape(d.group(1)) if d else ''
-        # 提取来源：Google News RSS description 格式通常为 "...<媒体名> - <摘要>"
-        # 先去所有 HTML 标签，再按 " - " 分割取首段作为来源
-        desc_html = html_mod.unescape(d.group(1)) if d else ''
-        # 提取来源：Google News RSS description 里 <font color="#6f6f6f"> 通常包裹
-        # 但第一个常是摘要前段（长），媒体名通常是最短的非空内容
-        src = ''
-        candidates = []
-        for t in re.findall(r'<font[^>]*color="#6f6f6f"[^>]*>(.*?)</font>', desc_html):
-            cleaned = re.sub(r'<[^>]+>', '', t).strip()
-            if cleaned:
-                candidates.append((len(cleaned), html_mod.unescape(cleaned).strip()))
-        if candidates:
-            candidates.sort()  # 最短的当媒体名
-            src = candidates[0][1]
-        # 兜底：按 " - " 分割（旧版 RSS 结构）
-        if not src:
-            desc_clean = re.sub(r'<[^>]+>', ' ', desc_html)
-            desc_clean = html_mod.unescape(re.sub(r'\s+', ' ', desc_clean)).strip()
-            sep = re.match(r'^([^-—–]{2,15})\s*[-—–]\s*', desc_clean)
-            if sep:
-                src = sep.group(1).strip()
-                desc = desc_clean[sep.end():].strip()
-            else:
-                desc = desc_clean
-        else:
-            desc = re.sub(r'<[^>]+>', ' ', desc_html)
-            desc = html_mod.unescape(re.sub(r'\s+', ' ', desc)).strip()
-            if src and desc.startswith(src):
-                desc = re.sub(r'^[\s\xa0]+', '', desc[len(src):])
+        desc = re.sub(r'<[^>]+>', ' ', desc_html)
+        desc = html_mod.unescape(re.sub(r'\s+', ' ', desc)).strip()
         desc = re.sub(r'^[\s\xa0]+', '', desc)[:90]
         time_s = ''
         if p:
