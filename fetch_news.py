@@ -59,16 +59,32 @@ def google_news(q, limit):
         desc_html = html_mod.unescape(d.group(1)) if d else ''
         # 提取来源：Google News RSS description 格式通常为 "...<媒体名> - <摘要>"
         # 先去所有 HTML 标签，再按 " - " 分割取首段作为来源
-        desc_clean = re.sub(r'<[^>]+>', ' ', desc_html)
-        desc_clean = html_mod.unescape(re.sub(r'\s+', ' ', desc_clean)).strip()
+        desc_html = html_mod.unescape(d.group(1)) if d else ''
+        # 提取来源：Google News RSS description 里 <font color="#6f6f6f"> 通常包裹媒体名
+        # 第一个 font 常为空（Google 跳转图标），找第一个非空内容
         src = ''
-        sep_match = re.match(r'^(.+?)\s*[-—–]\s*', desc_clean)
-        if sep_match and len(sep_match.group(1)) <= 30 and not re.search(r'https?$|com$|cn$|org$', sep_match.group(1)):
-            src = sep_match.group(1).strip()
-            src = re.sub(r'[\xa0\u200b]+', '', src).strip()
-            desc = desc_clean[sep_match.end():].strip()
+        font_texts = re.findall(r'<font[^>]*color="#6f6f6f"[^>]*>(.*?)</font>', desc_html)
+        for t in font_texts:
+            cleaned = re.sub(r'<[^>]+>', '', t).strip()
+            if cleaned and len(cleaned) <= 20:
+                src = html_mod.unescape(cleaned).strip()
+                break
+        # 兜底：按 " - " 分割取短段作为来源（旧版 RSS 结构）
+        if not src:
+            desc_clean = re.sub(r'<[^>]+>', ' ', desc_html)
+            desc_clean = html_mod.unescape(re.sub(r'\s+', ' ', desc_clean)).strip()
+            sep = re.match(r'^([^-—–]{2,15})\s*[-—–]\s*', desc_clean)
+            if sep:
+                src = sep.group(1).strip()
+                desc = desc_clean[sep.end():].strip()
+            else:
+                desc = desc_clean
         else:
-            desc = desc_clean
+            desc = re.sub(r'<[^>]+>', ' ', desc_html)
+            desc = html_mod.unescape(re.sub(r'\s+', ' ', desc)).strip()
+            # 去掉开头的来源名（如果还在）
+            if src and desc.startswith(src):
+                desc = re.sub(r'^[\s\xa0]+', '', desc[len(src):])
         desc = re.sub(r'^[\s\xa0]+', '', desc)[:90]
         time_s = ''
         if p:
