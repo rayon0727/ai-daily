@@ -6,6 +6,7 @@
 抖音：官方接口需签名、第三方聚合当前网络不可达 → 暂不接入（留 key 占位，后续补）。
 """
 import json, re, sys, os, shutil, subprocess, urllib.request
+from fetch_news import google_news  # 免费搜索源（Google News RSS，云端境外可达）
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"
 TIMEOUT = 12
@@ -89,6 +90,27 @@ def fetch_toutiao():
     return {"key": "toutiao", "name": "今日头条", "color": "#f02c2c", "icon": "icon-toutiao.png",
             "note": "点击热词直达原文 / 话题页", "items": items}
 
+def fetch_baidu():
+    """百度热搜（免费匿名 JSON，top.baidu.com）：51 条，取 Top10。无热度值/标签"""
+    raw = fetch("https://top.baidu.com/api/board?platform=wise&tab=realtime")
+    d = json.loads(raw)
+    items_raw = d["data"]["cards"][0]["content"][0]["content"]
+    items = []
+    for i, it in enumerate(items_raw[:TOP_N], 1):
+        word = (it.get("word") or "").strip()
+        if not word:
+            continue
+        items.append({
+            "rank": i,
+            "word": word,
+            "hot": "",
+            "label": "",
+            "url": it.get("url") or f"https://www.baidu.com/s?wd={urllib.parse.quote(word)}",
+        })
+    return {"key": "baidu", "name": "百度热搜", "color": "#2932e1", "icon": "icon-baidu.png",
+            "note": "点击热词查看百度讨论", "items": items}
+
+
 def resolve_cli():
     p = shutil.which('tencent-news-cli')
     if p:
@@ -123,7 +145,7 @@ def search_tn_summary(word):
 def main():
     platforms = []
     results = []
-    for name, fn in (("微博", fetch_weibo), ("头条", fetch_toutiao)):
+    for name, fn in (("微博", fetch_weibo), ("头条", fetch_toutiao), ("百度", fetch_baidu)):
         try:
             p = fn()
             platforms.append(p)
@@ -131,8 +153,8 @@ def main():
         except Exception as e:
             results.append(f"{name} FAIL ({type(e).__name__}: {str(e)[:80]})")
 
-    # 热词反查摘要（方案 A：智能增量）：每平台 Top5 全局去重；
-    # 24h 内已反查过的词直接复用缓存（不消耗积分），只搜新词/过期词。
+    # 热词反查摘要（方案 A：智能增量 + 多源）：每平台 Top5 全局去重；
+    # 主源 Google News RSS（免费）→ 失败回退腾讯 search（有积分时）；24h 内命中缓存直接复用。
     # 由 ENRICH_SUMMARIES=1 开启（云端每班执行）。
     from datetime import datetime, timezone, timedelta
     bjt = timezone(timedelta(hours=8))
@@ -143,6 +165,7 @@ def main():
     cache = load_summary_cache() if enrich else {}
     seen = {}
     reused = enriched = failed = 0
+    src_google = src_tn = 0
     if enrich:
         for p in platforms:
             for it in p['items'][:5]:
@@ -157,14 +180,25 @@ def main():
                     continue
                 cached = cache.get(w)
                 if cached and (now_ts - cached['ts']) < CACHE_HOURS * 3600:
-                    # 缓存命中（24h 内）：复用，不搜索
                     it['summary'] = cached['summary']
                     it['sum_src'] = cached['source']
                     it['sum_ts'] = cached['ts']
                     seen[w] = cached
                     reused += 1
                     continue
-                r = search_tn_summary(w)
+                r = None
+                try:
+                    g = google_news(w, 1)
+                    if g:
+                        r = {'title': g[0]['title'], 'summary': g[0]['summary'],
+                             'source': g[0]['source'] or 'Google 新闻'}
+                        src_google += 1
+                except Exception:
+                    r = None
+                if not r:
+                    r = search_tn_summary(w)
+                    if r:
+                        src_tn += 1
                 if r:
                     entry = {'summary': r['summary'], 'source': r['source'], 'ts': now_ts}
                     it['summary'] = r['summary']
@@ -173,14 +207,13 @@ def main():
                     seen[w] = entry
                     enriched += 1
                 else:
-                    # 搜索失败（如积分不足）：有旧缓存则兜底复用，否则留空
                     if cached:
                         it['summary'] = cached['summary']
                         it['sum_src'] = cached['source']
                         it['sum_ts'] = cached['ts']
                         seen[w] = cached
                     failed += 1
-    results.append(f"摘要: 新搜{enriched} 复用{reused} 失败{failed}" if enrich else "摘要反查跳过（ENRICH_SUMMARIES 未开启）")
+    results.append(f"摘要: 新搜{enriched}(Google{src_google}/腾讯{src_tn}) 复用{reused} 失败{failed}" if enrich else "摘要反查跳过（ENRICH_SUMMARIES 未开启）")
 
     data = {
         "date": f"{now.year}年{now.month}月{now.day}日 星期{'一二三四五六日'[now.weekday()]}",
