@@ -1,7 +1,7 @@
 {
-  "name": "AI 每日晨报总览",
-  "short_name": "AI晨报",
-  "description": "每日 AI 与物联网资讯晨报（腾讯新闻 + AIHOT）",
+  "name": "朝闻 · 每日 AI 晨报",
+  "short_name": "朝闻",
+  "description": "每日 AI 与物联网资讯晨报（腾讯新闻 + AIHOT + 关注公众号）",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
