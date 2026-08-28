@@ -59,7 +59,9 @@ jobs:
             echo "无变化，跳过提交"
             exit 0
           fi
-          git commit -m "chore: refresh hotlists [skip ci]"
+          git commit -m "chore: refresh hotlists [skip ci]" || true
+          # 并行 workflow 防竞态：先拉再推
+          git pull --rebase origin main || true
           git push origin main
 
       - name: Notify failure
