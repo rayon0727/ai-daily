@@ -1,6 +1,6 @@
 {
  "date": "2026年8月28日 星期五",
- "fetchedAt": "2026年08月28日 16:35（北京时间）",
+ "fetchedAt": "2026年08月28日 16:45（北京时间）",
  "platforms": [
   {
    "key": "weibo",
@@ -12,7 +12,7 @@
     {
      "rank": 1,
      "word": "吉隆泥石流已致5人遇难558人失联",
-     "hot": "118万",
+     "hot": "137万",
      "label": "新",
      "url": "https://s.weibo.com/weibo?q=%E5%90%89%E9%9A%86%E6%B3%A5%E7%9F%B3%E6%B5%81%E5%B7%B2%E8%87%B45%E4%BA%BA%E9%81%87%E9%9A%BE558%E4%BA%BA%E5%A4%B1%E8%81%94",
      "summary": "西藏吉隆泥石流灾害成功搜救2人，已造成3人遇难、558人失联    thepaper.cn",
@@ -22,7 +22,7 @@
     {
      "rank": 2,
      "word": "男子面试被拒收到1000元茶水费",
-     "hot": "87万",
+     "hot": "90万",
      "label": "新",
      "url": "https://s.weibo.com/weibo?q=%E7%94%B7%E5%AD%90%E9%9D%A2%E8%AF%95%E8%A2%AB%E6%8B%92%E6%94%B6%E5%88%B01000%E5%85%83%E8%8C%B6%E6%B0%B4%E8%B4%B9",
      "summary": "男子面试被拒收到千元辛苦费    新浪财经",
@@ -32,7 +32,7 @@
     {
      "rank": 3,
      "word": "武警官兵正全力抢通道路",
-     "hot": "67万",
+     "hot": "90万",
      "label": "新",
      "url": "https://s.weibo.com/weibo?q=%E6%AD%A6%E8%AD%A6%E5%AE%98%E5%85%B5%E6%AD%A3%E5%85%A8%E5%8A%9B%E6%8A%A2%E9%80%9A%E9%81%93%E8%B7%AF",
      "summary": "京报网",
@@ -41,18 +41,18 @@
     },
     {
      "rank": 4,
-     "word": "华为阔直板开启预订",
-     "hot": "63万",
+     "word": "智元机器人戴着工牌就把金牌拿了",
+     "hot": "90万",
      "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E5%8D%8E%E4%B8%BA%E9%98%94%E7%9B%B4%E6%9D%BF%E5%BC%80%E5%90%AF%E9%A2%84%E8%AE%A2",
-     "summary": "华为Pura X View阔直板手机今日预订，16:9.5全新比例    新浪财经",
-     "sum_src": "新浪财经",
-     "sum_ts": 1787906114
+     "url": "https://s.weibo.com/weibo?q=%E6%99%BA%E5%85%83%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%88%B4%E7%9D%80%E5%B7%A5%E7%89%8C%E5%B0%B1%E6%8A%8A%E9%87%91%E7%89%8C%E6%8B%BF%E4%BA%86",
+     "summary": "智元机器人「奥运」首秀封神，戴着工牌狂揽 18 枚金牌    爱范儿",
+     "sum_src": "爱范儿",
+     "sum_ts": 1787906757
     },
     {
      "rank": 5,
      "word": "一个人的性格底色比什么都重要",
-     "hot": "63万",
+     "hot": "89万",
      "label": "",
      "url": "https://s.weibo.com/weibo?q=%E4%B8%80%E4%B8%AA%E4%BA%BA%E7%9A%84%E6%80%A7%E6%A0%BC%E5%BA%95%E8%89%B2%E6%AF%94%E4%BB%80%E4%B9%88%E9%83%BD%E9%87%8D%E8%A6%81",
      "summary": "新浪网",
@@ -61,38 +61,38 @@
     },
     {
      "rank": 6,
+     "word": "给内耗人的一句终极解药",
+     "hot": "89万",
+     "label": "新",
+     "url": "https://s.weibo.com/weibo?q=%E7%BB%99%E5%86%85%E8%80%97%E4%BA%BA%E7%9A%84%E4%B8%80%E5%8F%A5%E7%BB%88%E6%9E%81%E8%A7%A3%E8%8D%AF"
+    },
+    {
+     "rank": 7,
      "word": "BLG投诉管泽元事件",
-     "hot": "56万",
+     "hot": "88万",
      "label": "",
      "url": "https://s.weibo.com/weibo?q=BLG%E6%8A%95%E8%AF%89%E7%AE%A1%E6%B3%BD%E5%85%83%E4%BA%8B%E4%BB%B6"
     },
     {
-     "rank": 7,
+     "rank": 8,
      "word": "披哥一公个人喜爱度排名",
-     "hot": "56万",
+     "hot": "88万",
      "label": "",
      "url": "https://s.weibo.com/weibo?q=%E6%8A%AB%E5%93%A5%E4%B8%80%E5%85%AC%E4%B8%AA%E4%BA%BA%E5%96%9C%E7%88%B1%E5%BA%A6%E6%8E%92%E5%90%8D"
     },
     {
-     "rank": 8,
-     "word": "当经典的Ta痛出名场面",
-     "hot": "55万",
-     "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E5%BD%93%E7%BB%8F%E5%85%B8%E7%9A%84Ta%E7%97%9B%E5%87%BA%E5%90%8D%E5%9C%BA%E9%9D%A2"
-    },
-    {
      "rank": 9,
      "word": "吉隆口岸救援任务暂缓",
-     "hot": "55万",
+     "hot": "87万",
      "label": "",
      "url": "https://s.weibo.com/weibo?q=%E5%90%89%E9%9A%86%E5%8F%A3%E5%B2%B8%E6%95%91%E6%8F%B4%E4%BB%BB%E5%8A%A1%E6%9A%82%E7%BC%93"
     },
     {
      "rank": 10,
-     "word": "给内耗人的一句终极解药",
-     "hot": "55万",
-     "label": "新",
-     "url": "https://s.weibo.com/weibo?q=%E7%BB%99%E5%86%85%E8%80%97%E4%BA%BA%E7%9A%84%E4%B8%80%E5%8F%A5%E7%BB%88%E6%9E%81%E8%A7%A3%E8%8D%AF"
+     "word": "怪不得头发越洗越枯",
+     "hot": "87万",
+     "label": "",
+     "url": "https://s.weibo.com/weibo?q=%E6%80%AA%E4%B8%8D%E5%BE%97%E5%A4%B4%E5%8F%91%E8%B6%8A%E6%B4%97%E8%B6%8A%E6%9E%AF"
     }
    ]
   },
@@ -105,20 +105,20 @@
    "items": [
     {
      "rank": 1,
-     "word": "向西藏泥石流遇难人员默哀",
-     "hot": "7481万",
+     "word": "西藏泥石流已致5死558人失联",
+     "hot": "7556万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7678956337014869530/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678956337014869530%22%2C%22hot_board_impr_id%22%3A%22202608281635129AAE14FE326DE3907D66%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%90%91%E8%A5%BF%E8%97%8F%E6%B3%A5%E7%9F%B3%E6%B5%81%E9%81%87%E9%9A%BE%E4%BA%BA%E5%91%98%E9%BB%98%E5%93%80%22%7D&rank=&style_id=40132&topic_id=7678956337014869530",
-     "summary": "华声在线",
-     "sum_src": "中共中央政治局召开会议研究部署西藏日喀则市吉隆县泥石流灾害抢险救援工作中共中央总书记习近平主持会议",
-     "sum_ts": 1787904984
+     "url": "https://www.toutiao.com/trending/7678991442118708774/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%225%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678991442118708774%22%2C%22hot_board_impr_id%22%3A%2220260828164556752365B13E3044AF5D29%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%A5%BF%E8%97%8F%E6%B3%A5%E7%9F%B3%E6%B5%81%E5%B7%B2%E8%87%B45%E6%AD%BB558%E4%BA%BA%E5%A4%B1%E8%81%94%22%7D&rank=&style_id=40132&topic_id=7678991442118708774",
+     "summary": "【视频】西藏泥石流已致三死558人失联 包括260名外籍人员    联合早报",
+     "sum_src": "联合早报",
+     "sum_ts": 1787906757
     },
     {
      "rank": 2,
      "word": "陈武同志遗体在京火化",
-     "hot": "6769万",
+     "hot": "6837万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7678979195167277066/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678979195167277066%22%2C%22hot_board_impr_id%22%3A%22202608281635129AAE14FE326DE3907D66%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%99%88%E6%AD%A6%E5%90%8C%E5%BF%97%E9%81%97%E4%BD%93%E5%9C%A8%E4%BA%AC%E7%81%AB%E5%8C%96%22%7D&rank=&style_id=40132&topic_id=7678979195167277066",
+     "url": "https://www.toutiao.com/trending/7678979195167277066/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678979195167277066%22%2C%22hot_board_impr_id%22%3A%2220260828164556752365B13E3044AF5D29%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%99%88%E6%AD%A6%E5%90%8C%E5%BF%97%E9%81%97%E4%BD%93%E5%9C%A8%E4%BA%AC%E7%81%AB%E5%8C%96%22%7D&rank=&style_id=40132&topic_id=7678979195167277066",
      "summary": "chinanews.com.cn",
      "sum_src": "陈武同志遗体在京火化 习近平等到八宝山革命公墓送别",
      "sum_ts": 1787904984
@@ -126,7 +126,7 @@
     {
      "rank": 3,
      "word": "规上高技术制造业利润高速增长",
-     "hot": "6125万",
+     "hot": "6186万",
      "label": "热",
      "url": "https://www.toutiao.com/article/7678623050681614883",
      "summary": "央广网",
@@ -136,9 +136,9 @@
     {
      "rank": 4,
      "word": "李强：西藏泥石流灾害令人十分痛心",
-     "hot": "5542万",
+     "hot": "5598万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7678988020976242222/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678988020976242222%22%2C%22hot_board_impr_id%22%3A%22202608281635129AAE14FE326DE3907D66%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%9D%8E%E5%BC%BA%EF%BC%9A%E8%A5%BF%E8%97%8F%E6%B3%A5%E7%9F%B3%E6%B5%81%E7%81%BE%E5%AE%B3%E4%BB%A4%E4%BA%BA%E5%8D%81%E5%88%86%E7%97%9B%E5%BF%83%22%7D&rank=&style_id=40132&topic_id=7678988020976242222",
+     "url": "https://www.toutiao.com/trending/7678988020976242222/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678988020976242222%22%2C%22hot_board_impr_id%22%3A%2220260828164556752365B13E3044AF5D29%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%9D%8E%E5%BC%BA%EF%BC%9A%E8%A5%BF%E8%97%8F%E6%B3%A5%E7%9F%B3%E6%B5%81%E7%81%BE%E5%AE%B3%E4%BB%A4%E4%BA%BA%E5%8D%81%E5%88%86%E7%97%9B%E5%BF%83%22%7D&rank=&style_id=40132&topic_id=7678988020976242222",
      "summary": "川观新闻",
      "sum_src": "李强在西藏吉隆指导抢险救援和应急处置工作",
      "sum_ts": 1787904984
@@ -146,47 +146,47 @@
     {
      "rank": 5,
      "word": "比尔·盖茨发长文严厉警告人类注意AI",
-     "hot": "5014万",
+     "hot": "5065万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7678646479929577023/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678646479929577023%22%2C%22hot_board_impr_id%22%3A%22202608281635129AAE14FE326DE3907D66%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%AF%94%E5%B0%94%C2%B7%E7%9B%96%E8%8C%A8%E5%8F%91%E9%95%BF%E6%96%87%E4%B8%A5%E5%8E%89%E8%AD%A6%E5%91%8A%E4%BA%BA%E7%B1%BB%E6%B3%A8%E6%84%8FAI%22%7D&rank=&style_id=40132&topic_id=7678646479929577023",
+     "url": "https://www.toutiao.com/trending/7678646479929577023/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678646479929577023%22%2C%22hot_board_impr_id%22%3A%2220260828164556752365B13E3044AF5D29%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%AF%94%E5%B0%94%C2%B7%E7%9B%96%E8%8C%A8%E5%8F%91%E9%95%BF%E6%96%87%E4%B8%A5%E5%8E%89%E8%AD%A6%E5%91%8A%E4%BA%BA%E7%B1%BB%E6%B3%A8%E6%84%8FAI%22%7D&rank=&style_id=40132&topic_id=7678646479929577023",
      "summary": "新浪网",
      "sum_src": "比尔·盖茨罕见发长文警告人类注意AI：一些工作岗位应指定为“人类保留”",
      "sum_ts": 1787904984
     },
     {
      "rank": 6,
-     "word": "西藏泥石流灾害已致5人遇难558人失联",
-     "hot": "4537万",
+     "word": "吉隆口岸救援任务暂缓",
+     "hot": "4583万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7678991442118708774/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%225%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678991442118708774%22%2C%22hot_board_impr_id%22%3A%22202608281635129AAE14FE326DE3907D66%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%A5%BF%E8%97%8F%E6%B3%A5%E7%9F%B3%E6%B5%81%E7%81%BE%E5%AE%B3%E5%B7%B2%E8%87%B45%E4%BA%BA%E9%81%87%E9%9A%BE558%E4%BA%BA%E5%A4%B1%E8%81%94%22%7D&rank=&style_id=40132&topic_id=7678991442118708774"
+     "url": "https://www.toutiao.com/trending/7678262886829522950/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678262886829522950%22%2C%22hot_board_impr_id%22%3A%2220260828164556752365B13E3044AF5D29%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%90%89%E9%9A%86%E5%8F%A3%E5%B2%B8%E6%95%91%E6%8F%B4%E4%BB%BB%E5%8A%A1%E6%9A%82%E7%BC%93%22%7D&rank=&style_id=40132&topic_id=7678262886829522950"
     },
     {
      "rank": 7,
      "word": "四川内江5.1级地震",
-     "hot": "4106万",
+     "hot": "4147万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7678947072463044614/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678947072463044614%22%2C%22hot_board_impr_id%22%3A%22202608281635129AAE14FE326DE3907D66%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%9B%9B%E5%B7%9D%E5%86%85%E6%B1%9F5.1%E7%BA%A7%E5%9C%B0%E9%9C%87%22%7D&rank=&style_id=40132&topic_id=7678947072463044614"
+     "url": "https://www.toutiao.com/trending/7678947072463044614/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678947072463044614%22%2C%22hot_board_impr_id%22%3A%2220260828164556752365B13E3044AF5D29%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%9B%9B%E5%B7%9D%E5%86%85%E6%B1%9F5.1%E7%BA%A7%E5%9C%B0%E9%9C%87%22%7D&rank=&style_id=40132&topic_id=7678947072463044614"
     },
     {
      "rank": 8,
      "word": "人民日报评企业批量劝退应届生",
-     "hot": "3715万",
+     "hot": "3752万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7678642969230233138/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678642969230233138%22%2C%22hot_board_impr_id%22%3A%22202608281635129AAE14FE326DE3907D66%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%BA%BA%E6%B0%91%E6%97%A5%E6%8A%A5%E8%AF%84%E4%BC%81%E4%B8%9A%E6%89%B9%E9%87%8F%E5%8A%9D%E9%80%80%E5%BA%94%E5%B1%8A%E7%94%9F%22%7D&rank=&style_id=40132&topic_id=7678642969230233138"
+     "url": "https://www.toutiao.com/trending/7678642969230233138/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678642969230233138%22%2C%22hot_board_impr_id%22%3A%2220260828164556752365B13E3044AF5D29%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%BA%BA%E6%B0%91%E6%97%A5%E6%8A%A5%E8%AF%84%E4%BC%81%E4%B8%9A%E6%89%B9%E9%87%8F%E5%8A%9D%E9%80%80%E5%BA%94%E5%B1%8A%E7%94%9F%22%7D&rank=&style_id=40132&topic_id=7678642969230233138"
     },
     {
      "rank": 9,
-     "word": "吉隆口岸救援任务暂缓",
-     "hot": "3361万",
+     "word": "A股到底在等什么信号",
+     "hot": "3395万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7678262886829522950/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678262886829522950%22%2C%22hot_board_impr_id%22%3A%22202608281635129AAE14FE326DE3907D66%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%90%89%E9%9A%86%E5%8F%A3%E5%B2%B8%E6%95%91%E6%8F%B4%E4%BB%BB%E5%8A%A1%E6%9A%82%E7%BC%93%22%7D&rank=&style_id=40132&topic_id=7678262886829522950"
+     "url": "https://www.toutiao.com/trending/7678987099592199689/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678987099592199689%22%2C%22hot_board_impr_id%22%3A%2220260828164556752365B13E3044AF5D29%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22A%E8%82%A1%E5%88%B0%E5%BA%95%E5%9C%A8%E7%AD%89%E4%BB%80%E4%B9%88%E4%BF%A1%E5%8F%B7%22%7D&rank=&style_id=40132&topic_id=7678987099592199689"
     },
     {
      "rank": 10,
      "word": "哨兵报警原来是宝宝撞上汽车",
-     "hot": "3041万",
+     "hot": "3072万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7678904931500785690/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678904931500785690%22%2C%22hot_board_impr_id%22%3A%22202608281635129AAE14FE326DE3907D66%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%93%A8%E5%85%B5%E6%8A%A5%E8%AD%A6%E5%8E%9F%E6%9D%A5%E6%98%AF%E5%AE%9D%E5%AE%9D%E6%92%9E%E4%B8%8A%E6%B1%BD%E8%BD%A6%22%7D&rank=&style_id=40132&topic_id=7678904931500785690"
+     "url": "https://www.toutiao.com/trending/7678904931500785690/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678904931500785690%22%2C%22hot_board_impr_id%22%3A%2220260828164556752365B13E3044AF5D29%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%93%A8%E5%85%B5%E6%8A%A5%E8%AD%A6%E5%8E%9F%E6%9D%A5%E6%98%AF%E5%AE%9D%E5%AE%9D%E6%92%9E%E4%B8%8A%E6%B1%BD%E8%BD%A6%22%7D&rank=&style_id=40132&topic_id=7678904931500785690"
     }
    ]
   },
