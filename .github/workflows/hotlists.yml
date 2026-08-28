@@ -2,9 +2,9 @@ name: Hotlists Refresh
 
 on:
   schedule:
-    # 兜底：北京时间 08:00-24:00 每 2 小时 37 分（UTC 00,02,04,06,08,10,12,14,16 点 37 分）
+    # 兜底：北京时间 08:00-24:00 每小时 37 分（UTC 00-16 点 37 分）
     # 主触发靠 cron-job.org repository_dispatch（同节奏，需在 cron-job 同步配置）
-    - cron: '37 0,2,4,6,8,10,12,14,16 * * *'
+    - cron: '37 0-16 * * *'
   repository_dispatch:
     types: [refresh]
   workflow_dispatch:
@@ -19,12 +19,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Skip outside active window (08:00-24:00 every 2h, BJT)
+      - name: Skip outside active window (08:00-24:00 every hour, BJT)
         run: |
-          # 活跃窗口（北京时间）：00,08,10,12,14,16,18,20,22 点
+          # 活跃窗口（北京时间）：00,08-23 点（每小时一班）
           H=$(TZ=Asia/Shanghai date +%H)
           case "$H" in
-            00|08|10|12|14|16|18|20|22) echo "活跃时段 $H 点，继续";;
+            00|0[89]|1[0-9]|2[0-3]) echo "活跃时段 $H 点，继续";;
             *) echo "非活跃时段 $H 点，跳过本次"; exit 0;;
           esac
         shell: bash
@@ -44,7 +44,7 @@ jobs:
       - name: Fetch hotlists & generate hot.html
         run: |
           export PATH="$HOME/.tencent-news-cli/bin:$HOME/.local/bin:$PATH"
-          # 每班都做热词摘要反查（榜单 + 摘要一起更新）
+          # 每班反查摘要（智能增量：只搜新词，老词复用仓库 hotlists.json 缓存，省积分）
           export ENRICH_SUMMARIES=1
           python3 fetch_hotlists.py
           python3 gen_hot.py hot.html
@@ -54,9 +54,9 @@ jobs:
         run: |
           git config user.name "ai-daily-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add hot.html
+          git add hot.html hotlists.json
           if git diff --cached --quiet; then
-            echo "hot.html 无变化，跳过提交"
+            echo "无变化，跳过提交"
             exit 0
           fi
           git commit -m "chore: refresh hotlists [skip ci]"
