@@ -198,7 +198,7 @@ DATA.platforms.forEach((p)=>{
           '<span class="hl-rank'+(it.rank<=3?' r'+it.rank:'')+'">'+it.rank+'</span>'+
           '<span class="hl-word">'+esc(it.word)+'</span>'+
           (it.label? '<span class="hl-label '+labelCls(it.label)+'">'+esc(it.label)+'</span>' : '')+
-          '<span class="hl-hot">🔥 '+esc(it.hot)+'</span>'+
+          (it.hot? '<span class="hl-hot">🔥 '+esc(it.hot)+'</span>' : '')+
           (it.summary? '<span class="hl-sum">📄 '+esc(it.summary)+'</span>' : '')+
         '</a>'
       ).join('')+
