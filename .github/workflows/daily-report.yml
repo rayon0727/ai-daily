@@ -31,10 +31,12 @@ jobs:
           # 积分不足/密钥异常时不中断晨报生成（腾讯部分为空，AIHOT + 公众号照常出报）
           tencent-news-cli apikey-set "${{ secrets.TN_API_KEY }}" || echo "WARN: API key 配置失败（可能积分不足），继续生成"
 
-      - name: Fetch news (hot + Google News RSS search, fallback tencent)
+      - name: Fetch news (GNews + Google News RSS, fallback tencent)
+        env:
+          GNEWS_API_KEY: ${{ secrets.GNEWS_API_KEY }}
         run: |
           export PATH="$HOME/.tencent-news-cli/bin:$HOME/.local/bin:$PATH"
-          # Google News RSS 免费搜索（主）→ 失败回退腾讯 CLI search；热点榜保留腾讯 hot
+          # 优先 GNews API（真实摘要，免费层 100 次/天）；未配置 GNEWS_API_KEY 时回退 Google News RSS（+腾讯反查+网页兜底）
           python3 fetch_news.py /tmp
         shell: bash
 
