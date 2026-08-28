@@ -27,12 +27,19 @@ jobs:
       - name: Configure API key
         run: |
           export PATH="$HOME/.tencent-news-cli/bin:$HOME/.local/bin:$PATH"
-          tencent-news-cli apikey-set "${{ secrets.TN_API_KEY }}"
-        shell: bash
+          # 积分不足/密钥异常时不中断抓榜（热搜榜仍能出，仅摘要反查跳过）
+          tencent-news-cli apikey-set "${{ secrets.TN_API_KEY }}" || echo "WARN: API key 配置失败（可能积分不足），继续抓榜"
 
       - name: Fetch hotlists & generate hot.html
         run: |
           export PATH="$HOME/.tencent-news-cli/bin:$HOME/.local/bin:$PATH"
+          # 摘要反查只在北京时间 08:00 那次做（省积分），其余小时只抓榜
+          if [ "$(date -u +%H)" = "00" ]; then
+            export ENRICH_SUMMARIES=1
+            echo "本次运行将执行热词摘要反查（北京时间 08:00 档）"
+          else
+            echo "本次运行跳过摘要反查（省积分）"
+          fi
           python3 fetch_hotlists.py
           python3 gen_hot.py hot.html
         working-directory: .
