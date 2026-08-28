@@ -112,25 +112,28 @@ def main():
             results.append(f"{name} FAIL ({type(e).__name__}: {str(e)[:80]})")
 
     # 热词反查摘要：每平台 Top5，全局去重（微博/头条重合词只搜一次，重复词复用摘要）
+    # 默认跳过（省积分），由 ENRICH_SUMMARIES=1 开启（云端仅每天 08:00 档执行）
+    enrich = os.environ.get('ENRICH_SUMMARIES', '0') == '1'
     seen = {}
     enriched = 0
-    for p in platforms:
-        for it in p['items'][:5]:
-            w = it['word'].strip('#').strip()
-            if len(w) < 2:
-                continue
-            if w in seen:
-                if seen[w]:
-                    it['summary'] = seen[w]['summary']
-                    it['sum_src'] = seen[w]['source']
-                continue
-            r = search_tn_summary(w)
-            seen[w] = r
-            if r:
-                it['summary'] = r['summary']
-                it['sum_src'] = r['source']
-                enriched += 1
-    results.append(f"摘要反查 {enriched} 条")
+    if enrich:
+        for p in platforms:
+            for it in p['items'][:5]:
+                w = it['word'].strip('#').strip()
+                if len(w) < 2:
+                    continue
+                if w in seen:
+                    if seen[w]:
+                        it['summary'] = seen[w]['summary']
+                        it['sum_src'] = seen[w]['source']
+                    continue
+                r = search_tn_summary(w)
+                seen[w] = r
+                if r:
+                    it['summary'] = r['summary']
+                    it['sum_src'] = r['source']
+                    enriched += 1
+    results.append(f"摘要反查 {enriched} 条" if enrich else "摘要反查跳过（ENRICH_SUMMARIES 未开启）")
 
     from datetime import datetime, timezone, timedelta
     bjt = timezone(timedelta(hours=8))
