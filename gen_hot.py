@@ -13,7 +13,7 @@ TPL = r'''<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#4338ca">
-<title>🔥 全网热搜榜 · __DATE__</title>
+<title>朝闻 · 全网热搜榜 · __DATE__</title>
 <style>
   :root{
     --bg:#f4f6fb; --card:#ffffff; --ink:#1c2434; --ink-2:#5b6472; --ink-3:#8a93a3;
