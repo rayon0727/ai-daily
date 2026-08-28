@@ -14,7 +14,8 @@ TOP_N = 10
 CACHE_HOURS = 24  # 摘要缓存有效期：24 小时内同一热词不重复搜索
 
 def load_summary_cache():
-    """从上次结果（仓库 ./hotlists.json 或 /tmp/hotlists.json）读取 word -> 摘要缓存"""
+    """从上次结果（仓库 ./hotlists.json 或 /tmp/hotlists.json）读取 word -> 摘要缓存
+    过滤掉缓存里的脏数据（src 异常长、或 sum_src 含摘要关键词 → 视为不可信丢弃）"""
     cache = {}
     for cand in (os.path.join(os.getcwd(), "hotlists.json"), "/tmp/hotlists.json"):
         if not os.path.exists(cand):
@@ -24,9 +25,19 @@ def load_summary_cache():
             for pl in old.get("platforms", []):
                 for it in pl.get("items", []):
                     w = (it.get("word") or "").strip("#").strip()
-                    if w and it.get("summary") and "<" not in it["summary"]:
-                        cache[w] = {"summary": it["summary"], "source": it.get("sum_src", ""),
-                                    "ts": it.get("sum_ts") or 0}
+                    src = it.get("sum_src") or ""
+                    summary = it.get("summary") or ""
+                    if not w or not summary or "<" in summary:
+                        continue
+                    # 过滤脏 src：长度 > 12 或含摘要关键词 → 视为坏数据丢弃
+                    if len(src) > 12 or any(k in src for k in [
+                        "武警", "西藏", "陈武", "比尔", "规上", "权威", "人口",
+                        "李强", "溃泄", "我国", "韩国", "中共", "近日", "陈", "近日",
+                        "国务院", "向", "女子", "男子", "大雨", "央视",
+                    ]):
+                        continue
+                    cache[w] = {"summary": summary, "source": src,
+                                "ts": it.get("sum_ts") or 0}
             break
         except Exception:
             continue
