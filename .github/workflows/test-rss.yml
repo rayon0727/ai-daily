@@ -1,0 +1,21 @@
+name: Test RSS
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Bing News RSS (www, global)
+        run: |
+          echo "=== Bing www.bing.com ==="
+          curl -sS -L --max-time 15 -A "Mozilla/5.0" "https://www.bing.com/news/search?q=%E7%89%A9%E8%81%94%E7%BD%91&format=rss&mkt=zh-CN" -o /tmp/bing.xml
+          echo "size: $(wc -c < /tmp/bing.xml)"
+          echo "items: $(grep -c '<item>' /tmp/bing.xml)"
+          head -c 300 /tmp/bing.xml
+          echo ""
+          echo "=== Google News RSS ==="
+          curl -sS -L --max-time 15 -A "Mozilla/5.0" "https://news.google.com/rss/search?q=%E7%89%A9%E8%81%94%E7%BD%91&hl=zh-CN&gl=CN&ceid=CN:zh" -o /tmp/gn.xml
+          echo "size: $(wc -c < /tmp/gn.xml)"
+          echo "items: $(grep -c '<item>' /tmp/gn.xml)"
+          head -c 400 /tmp/gn.xml
