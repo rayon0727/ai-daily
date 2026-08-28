@@ -116,7 +116,7 @@ TPL = r'''<!DOCTYPE html>
   <div class="wrap">
     <div class="hero-top">
       <div>
-        <span class="hero-badge">🔥 全网热搜榜</span>
+        <span class="hero-badge">🗞️ 朝闻 · 全网热搜</span>
         <h1>全网热搜榜 · __DATE__</h1>
       </div>
       <button class="theme-toggle" id="themeBtn" title="切换明暗">🌙 夜间</button>
@@ -128,7 +128,7 @@ TPL = r'''<!DOCTYPE html>
 
 <nav class="tabs">
   <div class="wrap">
-    <a class="tab" href="index.html">📰 今日晨报</a>
+    <a class="tab" href="index.html">📰 今日朝闻</a>
     <a class="tab active" href="hot.html">🔥 全网热搜</a>
   </div>
 </nav>
