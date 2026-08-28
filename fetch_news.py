@@ -60,16 +60,18 @@ def google_news(q, limit):
         # 提取来源：Google News RSS description 格式通常为 "...<媒体名> - <摘要>"
         # 先去所有 HTML 标签，再按 " - " 分割取首段作为来源
         desc_html = html_mod.unescape(d.group(1)) if d else ''
-        # 提取来源：Google News RSS description 里 <font color="#6f6f6f"> 通常包裹媒体名
-        # 第一个 font 常为空（Google 跳转图标），找第一个非空内容
+        # 提取来源：Google News RSS description 里 <font color="#6f6f6f"> 通常包裹
+        # 但第一个常是摘要前段（长），媒体名通常是最短的非空内容
         src = ''
-        font_texts = re.findall(r'<font[^>]*color="#6f6f6f"[^>]*>(.*?)</font>', desc_html)
-        for t in font_texts:
+        candidates = []
+        for t in re.findall(r'<font[^>]*color="#6f6f6f"[^>]*>(.*?)</font>', desc_html):
             cleaned = re.sub(r'<[^>]+>', '', t).strip()
-            if cleaned and len(cleaned) <= 20:
-                src = html_mod.unescape(cleaned).strip()
-                break
-        # 兜底：按 " - " 分割取短段作为来源（旧版 RSS 结构）
+            if cleaned:
+                candidates.append((len(cleaned), html_mod.unescape(cleaned).strip()))
+        if candidates:
+            candidates.sort()  # 最短的当媒体名
+            src = candidates[0][1]
+        # 兜底：按 " - " 分割（旧版 RSS 结构）
         if not src:
             desc_clean = re.sub(r'<[^>]+>', ' ', desc_html)
             desc_clean = html_mod.unescape(re.sub(r'\s+', ' ', desc_clean)).strip()
@@ -82,7 +84,6 @@ def google_news(q, limit):
         else:
             desc = re.sub(r'<[^>]+>', ' ', desc_html)
             desc = html_mod.unescape(re.sub(r'\s+', ' ', desc)).strip()
-            # 去掉开头的来源名（如果还在）
             if src and desc.startswith(src):
                 desc = re.sub(r'^[\s\xa0]+', '', desc[len(src):])
         desc = re.sub(r'^[\s\xa0]+', '', desc)[:90]
