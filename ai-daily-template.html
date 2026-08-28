@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#4f46e5">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>AI 每日晨报总览 · __DATE__</title>
+<title>朝闻 · 每日 AI 晨报 · __DATE__</title>
 <style>
   :root{
     --bg:#f4f6fb; --card:#ffffff; --ink:#1c2434; --ink-2:#5b6472; --ink-3:#8a93a3;
@@ -358,7 +358,7 @@
   <div class="modal" id="subModal">
     <button class="modal-close" id="subClose" title="关闭">✕</button>
     <h3>🔔 开启每日推送</h3>
-    <p class="modal-desc">订阅成功！请把下面的订阅信息 <b>复制发给小巴</b> 保存，之后每天晨报更新会自动推送到这里。</p>
+    <p class="modal-desc">订阅成功！请把下面的订阅信息 <b>复制发给小巴</b> 保存，之后每天朝闻更新会自动推送到这里。</p>
     <textarea id="subJson" readonly rows="6"></textarea>
     <div class="modal-actions">
       <button class="modal-btn primary" id="subCopy">📋 复制订阅信息</button>
@@ -397,8 +397,8 @@
   <div class="wrap">
     <div class="hero-top">
       <div>
-        <span class="hero-badge">🗞️ AI 每日晨报总览</span>
-        <h1>AI 每日晨报总览 · __DATE__</h1>
+        <span class="hero-badge">🗞️ 朝闻 · 每日 AI 晨报</span>
+        <h1>朝闻 · __DATE__</h1>
       </div>
       <div class="hero-actions">
         <button class="push-toggle" id="pushBtn" title="开启每日推送通知">🔔 推送</button>
@@ -412,7 +412,7 @@
 
 <nav class="tabs">
   <div class="wrap">
-    <a class="tab active" href="index.html">📰 今日晨报</a>
+    <a class="tab active" href="index.html">📰 今日朝闻</a>
     <a class="tab" href="hot.html">🔥 全网热搜</a>
   </div>
 </nav>
@@ -1077,7 +1077,7 @@ function applyFilter(){
 
 // ---------- Copy full ----------
 document.getElementById('copyBtn').addEventListener('click', async ()=>{
-  let txt = '【AI 每日晨报总览 · '+DATA.date+'】\n';
+  let txt = '【朝闻 · '+DATA.date+'】\n';
   DATA.parts.forEach((p)=>{
     txt += '\n■ ' + p.title + '\n';
     p.sections.forEach((s)=>{
@@ -1096,7 +1096,7 @@ document.getElementById('copyBtn').addEventListener('click', async ()=>{
 
 // ---------- Copy mini ----------
 document.getElementById('copyMini').addEventListener('click', async ()=>{
-  let txt = '📰 【AI 晨报 · '+DATA.date+'】\n\n🎯 今日重点：\n';
+  let txt = '📰 【朝闻 · '+DATA.date+'】\n\n🎯 今日重点：\n';
   (DATA.highlights||[]).forEach((h,i)=>{
     txt += (i+1) + '. ' + h.title + '（' + h.source + '）\n';
   });
