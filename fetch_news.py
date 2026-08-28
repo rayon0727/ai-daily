@@ -56,7 +56,7 @@ def google_news(q, limit):
         title = html_mod.unescape(re.sub(r'<[^>]+>', '', t.group(1))).strip() if t else ''
         if not title or title in ('无结果', 'No results'):
             continue
-        desc_html = d.group(1) if d else ''
+        desc_html = html_mod.unescape(d.group(1)) if d else ''
         src = ''
         sm = re.search(r'<a[^>]*>([^<]+)</a>', desc_html)
         if sm:
@@ -64,7 +64,7 @@ def google_news(q, limit):
         desc = re.sub(r'<[^>]+>', ' ', desc_html)
         desc = html_mod.unescape(re.sub(r'\s+', ' ', desc)).strip()
         if src and desc.startswith(src):
-            desc = desc[len(src):].strip(' &nbsp; ')
+            desc = re.sub(r'^[\s\xa0]+', '', desc[len(src):])
         desc = desc[:90]
         time_s = ''
         if p:
