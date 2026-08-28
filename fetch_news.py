@@ -85,21 +85,49 @@ def search_tn_summary(title):
     return {'summary': summary[:90], 'source': src.group(1).strip() if src else ''}
 
 
+def resolve_google_news_url(gurl):
+    """Google News RSS 链接 → 真实文章 URL。
+
+    Google News 的 link 是 news.google.com 重定向，落地页多为 JS 跳转，
+    需从页面内 data-n-aurl 或外链解析出真实来源 URL。"""
+    try:
+        req = urllib.request.Request(gurl, headers={'User-Agent': UA})
+        with urllib.request.urlopen(req, timeout=10) as r:
+            final = r.geturl()
+            if 'news.google.com' not in final:
+                return final  # 已直接跳转到真实站点
+            raw = r.read(800000).decode('utf-8', 'ignore')
+        # Google 新闻落地页把真实 URL 放在 data-n-aurl（直链或 base64）
+        m = re.search(r'data-n-aurl="([^"]+)"', raw)
+        if m and 'news.google.com' not in m.group(1):
+            return m.group(1)
+        # 退一步：页面里的非 Google 外链
+        for mm in re.finditer(r'href="(https?://[^"]+)"', raw):
+            u = mm.group(1)
+            if 'google.com' not in u:
+                return u
+        return None
+    except Exception:
+        return None
+
+
 def fetch_meta_description(url):
     """抓取新闻原网页的 meta description（免费兜底，不依赖腾讯 CLI 积分）。
 
-    跟随 Google News 重定向到真实 URL；提取 og:description / meta description。
+    Google News 链接先解析出真实文章 URL，再提取 og:description / meta description。
     失败或内容过短返回 None（静默降级，保留原标题）。"""
     if not url:
         return None
+    # Google News 重定向链接：先解析真实文章 URL
+    if 'news.google.com' in url:
+        real = resolve_google_news_url(url)
+        if not real or 'news.google.com' in real:
+            return None
+        url = real
     try:
         req = urllib.request.Request(url, headers={'User-Agent': UA})
         with urllib.request.urlopen(req, timeout=10) as r:
             raw = r.read(400000).decode('utf-8', 'ignore')
-            final = r.geturl()
-        # 若重定向后仍是 Google News 页面（JS 跳转），meta 不可信 → 放弃
-        if 'news.google.com' in final and 'news.google.com' in url:
-            return None
         m = re.search(r'<meta[^>]+property=["\']og:description["\'][^>]+content=["\'](.*?)["\']', raw, re.I | re.S)
         if not m:
             m = re.search(r'<meta[^>]+name=["\']description["\'][^>]+content=["\'](.*?)["\']', raw, re.I | re.S)
@@ -139,6 +167,9 @@ def google_news(q, limit):
         if not title or title in ('无结果', 'No results'):
             continue
         src = html_mod.unescape(s.group(1)).strip() if s else ''
+        # 清洗 Google News 把来源名拼进 title 的写法（"真实标题 - 来源名"）
+        if src and title.endswith(src) and len(src) < len(title):
+            title = title[: -len(src)].strip().rstrip('-—–|｜ ').strip()
         desc_html = html_mod.unescape(d.group(1)) if d else ''
         desc = re.sub(r'<[^>]+>', ' ', desc_html)
         desc = html_mod.unescape(re.sub(r'\s+', ' ', desc)).strip()
