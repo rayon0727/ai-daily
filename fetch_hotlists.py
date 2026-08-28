@@ -24,7 +24,7 @@ def load_summary_cache():
             for pl in old.get("platforms", []):
                 for it in pl.get("items", []):
                     w = (it.get("word") or "").strip("#").strip()
-                    if w and it.get("summary"):
+                    if w and it.get("summary") and "<" not in it["summary"]:
                         cache[w] = {"summary": it["summary"], "source": it.get("sum_src", ""),
                                     "ts": it.get("sum_ts") or 0}
             break
