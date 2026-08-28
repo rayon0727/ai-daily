@@ -53,19 +53,23 @@ def google_news(q, limit):
         l = re.search(r'<link>(.*?)</link>', it, re.S)
         p = re.search(r'<pubDate>(.*?)</pubDate>', it, re.S)
         d = re.search(r'<description>(.*?)</description>', it, re.S)
-        title = html_mod.unescape(re.sub(r'<[^>]+>', '', t.group(1))).strip() if t else ''
+        title = re.sub(r'<[^>]+>', '', html_mod.unescape(t.group(1))).strip() if t else ''
         if not title or title in ('无结果', 'No results'):
             continue
         desc_html = html_mod.unescape(d.group(1)) if d else ''
+        # 提取来源：Google News RSS description 格式通常为 "...<媒体名> - <摘要>"
+        # 先去所有 HTML 标签，再按 " - " 分割取首段作为来源
+        desc_clean = re.sub(r'<[^>]+>', ' ', desc_html)
+        desc_clean = html_mod.unescape(re.sub(r'\s+', ' ', desc_clean)).strip()
         src = ''
-        sm = re.search(r'<a[^>]*>([^<]+)</a>', desc_html)
-        if sm:
-            src = html_mod.unescape(sm.group(1)).strip()
-        desc = re.sub(r'<[^>]+>', ' ', desc_html)
-        desc = html_mod.unescape(re.sub(r'\s+', ' ', desc)).strip()
-        if src and desc.startswith(src):
-            desc = re.sub(r'^[\s\xa0]+', '', desc[len(src):])
-        desc = desc[:90]
+        sep_match = re.match(r'^(.+?)\s*[-—–]\s*', desc_clean)
+        if sep_match and len(sep_match.group(1)) <= 30 and not re.search(r'https?$|com$|cn$|org$', sep_match.group(1)):
+            src = sep_match.group(1).strip()
+            src = re.sub(r'[\xa0\u200b]+', '', src).strip()
+            desc = desc_clean[sep_match.end():].strip()
+        else:
+            desc = desc_clean
+        desc = re.sub(r'^[\s\xa0]+', '', desc)[:90]
         time_s = ''
         if p:
             try:
