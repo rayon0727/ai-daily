@@ -10,6 +10,26 @@ import json, re, sys, os, shutil, subprocess, urllib.request
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"
 TIMEOUT = 12
 TOP_N = 10
+CACHE_HOURS = 24  # 摘要缓存有效期：24 小时内同一热词不重复搜索
+
+def load_summary_cache():
+    """从上次结果（仓库 ./hotlists.json 或 /tmp/hotlists.json）读取 word -> 摘要缓存"""
+    cache = {}
+    for cand in (os.path.join(os.getcwd(), "hotlists.json"), "/tmp/hotlists.json"):
+        if not os.path.exists(cand):
+            continue
+        try:
+            old = json.load(open(cand, encoding="utf-8"))
+            for pl in old.get("platforms", []):
+                for it in pl.get("items", []):
+                    w = (it.get("word") or "").strip("#").strip()
+                    if w and it.get("summary"):
+                        cache[w] = {"summary": it["summary"], "source": it.get("sum_src", ""),
+                                    "ts": it.get("sum_ts") or 0}
+            break
+        except Exception:
+            continue
+    return cache
 
 def fetch(url, referer=None):
     headers = {"User-Agent": UA, "Accept": "application/json,text/plain,*/*"}
@@ -111,11 +131,18 @@ def main():
         except Exception as e:
             results.append(f"{name} FAIL ({type(e).__name__}: {str(e)[:80]})")
 
-    # 热词反查摘要：每平台 Top5，全局去重（微博/头条重合词只搜一次，重复词复用摘要）
-    # 默认跳过（省积分），由 ENRICH_SUMMARIES=1 开启（云端仅每天 08:00 档执行）
+    # 热词反查摘要（方案 A：智能增量）：每平台 Top5 全局去重；
+    # 24h 内已反查过的词直接复用缓存（不消耗积分），只搜新词/过期词。
+    # 由 ENRICH_SUMMARIES=1 开启（云端每班执行）。
+    from datetime import datetime, timezone, timedelta
+    bjt = timezone(timedelta(hours=8))
+    now = datetime.now(bjt)
+    now_ts = int(now.timestamp())
+
     enrich = os.environ.get('ENRICH_SUMMARIES', '0') == '1'
+    cache = load_summary_cache() if enrich else {}
     seen = {}
-    enriched = 0
+    reused = enriched = failed = 0
     if enrich:
         for p in platforms:
             for it in p['items'][:5]:
@@ -126,25 +153,44 @@ def main():
                     if seen[w]:
                         it['summary'] = seen[w]['summary']
                         it['sum_src'] = seen[w]['source']
+                        it['sum_ts'] = seen[w]['ts']
+                    continue
+                cached = cache.get(w)
+                if cached and (now_ts - cached['ts']) < CACHE_HOURS * 3600:
+                    # 缓存命中（24h 内）：复用，不搜索
+                    it['summary'] = cached['summary']
+                    it['sum_src'] = cached['source']
+                    it['sum_ts'] = cached['ts']
+                    seen[w] = cached
+                    reused += 1
                     continue
                 r = search_tn_summary(w)
-                seen[w] = r
                 if r:
+                    entry = {'summary': r['summary'], 'source': r['source'], 'ts': now_ts}
                     it['summary'] = r['summary']
                     it['sum_src'] = r['source']
+                    it['sum_ts'] = now_ts
+                    seen[w] = entry
                     enriched += 1
-    results.append(f"摘要反查 {enriched} 条" if enrich else "摘要反查跳过（ENRICH_SUMMARIES 未开启）")
+                else:
+                    # 搜索失败（如积分不足）：有旧缓存则兜底复用，否则留空
+                    if cached:
+                        it['summary'] = cached['summary']
+                        it['sum_src'] = cached['source']
+                        it['sum_ts'] = cached['ts']
+                        seen[w] = cached
+                    failed += 1
+    results.append(f"摘要: 新搜{enriched} 复用{reused} 失败{failed}" if enrich else "摘要反查跳过（ENRICH_SUMMARIES 未开启）")
 
-    from datetime import datetime, timezone, timedelta
-    bjt = timezone(timedelta(hours=8))
-    now = datetime.now(bjt)
     data = {
         "date": f"{now.year}年{now.month}月{now.day}日 星期{'一二三四五六日'[now.weekday()]}",
         "fetchedAt": now.strftime("%Y年%m月%d日 %H:%M（北京时间）"),
         "platforms": platforms,
     }
-    with open("/tmp/hotlists.json", "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=1)
+    # 双写：/tmp 供本班生成；./hotlists.json 随仓库提交，作为下一班缓存
+    for out in ("/tmp/hotlists.json", os.path.join(os.getcwd(), "hotlists.json")):
+        with open(out, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=1)
     print(" | ".join(results))
     print("total platforms:", len(platforms), "| total items:", sum(len(p["items"]) for p in platforms))
 
