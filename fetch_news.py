@@ -144,6 +144,36 @@ def fetch_meta_description(url):
         return None
 
 
+def gnews_search(q, limit, apikey, lang='zh', country='cn'):
+    """GNews API 搜索（免费层 100 次/天，返回真实 description + 直链 url）。
+
+    摘要为真实新闻片段（非标题重复），url 为原站直链，便于网页兜底与点击。
+    需要 apikey；无 key 或异常时返回 []，由调用方回退 Google News RSS。"""
+    if not apikey:
+        return []
+    url = ('https://gnews.io/api/v4/search?q=' + urllib.parse.quote(q) +
+           f'&lang={lang}&country={country}&max={limit}&apikey={apikey}')
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': UA})
+        d = json.loads(urllib.request.urlopen(req, timeout=15).read())
+        out = []
+        for a in d.get('articles', [])[:limit]:
+            published = a.get('publishedAt') or ''
+            ts = ''
+            try:
+                ts = datetime.fromisoformat(published.replace('Z', '+00:00')).astimezone(BJT).strftime('%Y-%m-%d %H:%M')
+            except Exception:
+                ts = ''
+            out.append({'title': a.get('title', ''),
+                        'summary': (a.get('description') or '').strip()[:140],
+                        'source': (a.get('source') or {}).get('name', ''),
+                        'url': a.get('url', ''),
+                        'time': ts})
+        return out
+    except Exception:
+        return []
+
+
 def google_news(q, limit):
     """Google News RSS 搜索（免费无限量，云端境外可达）。
     返回 [{title, summary, source, url, time}]；失败/无结果返回 []"""
@@ -215,30 +245,37 @@ def main():
         f.write(hot_txt or '')
     results.append(f"hot: {'CLI' if hot_txt else 'EMPTY'}")
 
-    # 2. 物联网搜索：Google News RSS（免费）→ 失败回退腾讯 CLI search
-    for name, q in (('cn', '物联网'), ('global', '全球 物联网')):
-        recs = google_news(q, 8)
-        enriched = 0
+    # 2. 物联网搜索：GNews API（真实摘要，免费层）→ 无 key 时回退 Google News RSS（+腾讯反查+网页兜底）
+    GNEWS_KEY = os.environ.get('GNEWS_API_KEY', '')
+    for name, q, lang, country in (('cn', '物联网', 'zh', 'cn'),
+                                   ('global', 'Internet of Things', 'en', 'us')):
+        recs = gnews_search(q, 8, GNEWS_KEY, lang, country) if GNEWS_KEY else []
         if recs:
-            # 摘要质检：Google News 的 description 常与标题重复，质量差则
-            # ① 腾讯 CLI 反查（有积分时最佳）→ ② 网页 meta description 兜底（免费）→ ③ 保留原标题
-            for r in recs:
-                if is_low_quality_summary(r['title'], r['summary']):
-                    better = search_tn_summary(r['title'])
-                    if not better:
-                        md = fetch_meta_description(r.get('url'))
-                        if md:
-                            better = {'summary': md, 'source': r['source']}
-                    if better:
-                        r['summary'] = better['summary']
-                        if better.get('source'):
-                            r['source'] = better['source']
-                        enriched += 1
             txt = to_cli_text(recs)
-            tag = f'Google({len(recs)},enriched {enriched})' if enriched else f'Google({len(recs)})'
+            tag = f'GNews({len(recs)})'
         else:
-            txt = cli(['search', q], 8)
-            tag = 'CLI' if txt else 'EMPTY'
+            recs = google_news(q, 8)
+            enriched = 0
+            if recs:
+                # 摘要质检：Google News 的 description 常与标题重复，质量差则
+                # ① 腾讯 CLI 反查（有积分时最佳）→ ② 网页 meta description 兜底（免费）→ ③ 保留原标题
+                for r in recs:
+                    if is_low_quality_summary(r['title'], r['summary']):
+                        better = search_tn_summary(r['title'])
+                        if not better:
+                            md = fetch_meta_description(r.get('url'))
+                            if md:
+                                better = {'summary': md, 'source': r['source']}
+                        if better:
+                            r['summary'] = better['summary']
+                            if better.get('source'):
+                                r['source'] = better['source']
+                            enriched += 1
+                txt = to_cli_text(recs)
+                tag = f'Google({len(recs)},enriched {enriched})' if enriched else f'Google({len(recs)})'
+            else:
+                txt = cli(['search', q], 8)
+                tag = 'CLI' if txt else 'EMPTY'
         with open(f'{out_dir}/tn_iot_{name}.txt', 'w', encoding='utf-8') as f:
             f.write(txt or '')
         results.append(f"iot_{name}: {tag}")
