@@ -31,13 +31,11 @@ jobs:
           # 积分不足/密钥异常时不中断晨报生成（腾讯部分为空，AIHOT + 公众号照常出报）
           tencent-news-cli apikey-set "${{ secrets.TN_API_KEY }}" || echo "WARN: API key 配置失败（可能积分不足），继续生成"
 
-      - name: Fetch tencent news
+      - name: Fetch news (hot + Google News RSS search, fallback tencent)
         run: |
           export PATH="$HOME/.tencent-news-cli/bin:$HOME/.local/bin:$PATH"
-          tencent-news-cli hot --limit 10 > /tmp/tn_hot.txt || true
-          tencent-news-cli search "物联网" --limit 8 > /tmp/tn_iot_cn.txt || true
-          tencent-news-cli search "全球 物联网" --limit 8 > /tmp/tn_iot_global.txt || true
-          echo "hot: $(wc -l < /tmp/tn_hot.txt) / iot_cn: $(wc -l < /tmp/tn_iot_cn.txt) / iot_global: $(wc -l < /tmp/tn_iot_global.txt)"
+          # Google News RSS 免费搜索（主）→ 失败回退腾讯 CLI search；热点榜保留腾讯 hot
+          python3 fetch_news.py /tmp
         shell: bash
 
       - name: Fetch AIHOT daily
