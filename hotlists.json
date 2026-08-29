@@ -1,6 +1,6 @@
 {
  "date": "2026年8月29日 星期六",
- "fetchedAt": "2026年08月29日 18:20（北京时间）",
+ "fetchedAt": "2026年08月29日 18:42（北京时间）",
  "platforms": [
   {
    "key": "weibo",
@@ -12,7 +12,7 @@
     {
      "rank": 1,
      "word": "吉隆口岸大楼只剩钢筋骨架",
-     "hot": "158万",
+     "hot": "138万",
      "label": "热",
      "url": "https://s.weibo.com/weibo?q=%E5%90%89%E9%9A%86%E5%8F%A3%E5%B2%B8%E5%A4%A7%E6%A5%BC%E5%8F%AA%E5%89%A9%E9%92%A2%E7%AD%8B%E9%AA%A8%E6%9E%B6",
      "summary": "新浪网·    新浪网",
@@ -22,7 +22,7 @@
     {
      "rank": 2,
      "word": "刘国梁参加国际乒联会议",
-     "hot": "88万",
+     "hot": "89万",
      "label": "新",
      "url": "https://s.weibo.com/weibo?q=%E5%88%98%E5%9B%BD%E6%A2%81%E5%8F%82%E5%8A%A0%E5%9B%BD%E9%99%85%E4%B9%92%E8%81%94%E4%BC%9A%E8%AE%AE",
      "summary": "刘国梁参加国际乒联会议    凤凰网",
@@ -32,7 +32,7 @@
     {
      "rank": 3,
      "word": "第六届中国新电商大会",
-     "hot": "80万",
+     "hot": "88万",
      "label": "",
      "url": "https://s.weibo.com/weibo?q=%E7%AC%AC%E5%85%AD%E5%B1%8A%E4%B8%AD%E5%9B%BD%E6%96%B0%E7%94%B5%E5%95%86%E5%A4%A7%E4%BC%9A",
      "summary": "新华社消息丨第六届中国新电商大会在吉林举行    新华网",
@@ -41,55 +41,58 @@
     },
     {
      "rank": 4,
-     "word": "还以为姜妍生娃了",
-     "hot": "79万",
-     "label": "热",
-     "url": "https://s.weibo.com/weibo?q=%E8%BF%98%E4%BB%A5%E4%B8%BA%E5%A7%9C%E5%A6%8D%E7%94%9F%E5%A8%83%E4%BA%86",
-     "summary": "#还以为姜妍生娃了# 本来看到动态还吓一跳，还以为姜妍生娃了，结果就是一场乌龙    新浪网",
-     "sum_src": "新浪网",
-     "sum_ts": 1787996562
+     "word": "谁来了青岛也得先落地签",
+     "hot": "88万",
+     "label": "",
+     "url": "https://s.weibo.com/weibo?q=%E8%B0%81%E6%9D%A5%E4%BA%86%E9%9D%92%E5%B2%9B%E4%B9%9F%E5%BE%97%E5%85%88%E8%90%BD%E5%9C%B0%E7%AD%BE",
+     "summary": "青岛赶海大军，人比海货多，游客组团来赶海，成青岛落地签，赶海成为游客必打卡项目（半岛全媒体记者 仲维莉 编辑 杨姗姗）    搜狐网",
+     "sum_src": "搜狐网",
+     "sum_ts": 1788000151
     },
     {
      "rank": 5,
      "word": "爸妈给的十二斤水果被我扔车站了",
-     "hot": "75万",
+     "hot": "88万",
      "label": "新",
-     "url": "https://s.weibo.com/weibo?q=%E7%88%B8%E5%A6%88%E7%BB%99%E7%9A%84%E5%8D%81%E4%BA%8C%E6%96%A4%E6%B0%B4%E6%9E%9C%E8%A2%AB%E6%88%91%E6%89%94%E8%BD%A6%E7%AB%99%E4%BA%86"
+     "url": "https://s.weibo.com/weibo?q=%E7%88%B8%E5%A6%88%E7%BB%99%E7%9A%84%E5%8D%81%E4%BA%8C%E6%96%A4%E6%B0%B4%E6%9E%9C%E8%A2%AB%E6%88%91%E6%89%94%E8%BD%A6%E7%AB%99%E4%BA%86",
+     "summary": "乘客丢弃父母准备的年货|父母|十二斤水果|爱的负担_新浪新闻    新浪网",
+     "sum_src": "新浪网",
+     "sum_ts": 1788000151
     },
     {
      "rank": 6,
+     "word": "还以为姜妍生娃了",
+     "hot": "88万",
+     "label": "热",
+     "url": "https://s.weibo.com/weibo?q=%E8%BF%98%E4%BB%A5%E4%B8%BA%E5%A7%9C%E5%A6%8D%E7%94%9F%E5%A8%83%E4%BA%86"
+    },
+    {
+     "rank": 7,
      "word": "井柏然栾念在娱乐圈的资源",
-     "hot": "74万",
+     "hot": "87万",
      "label": "新",
      "url": "https://s.weibo.com/weibo?q=%E4%BA%95%E6%9F%8F%E7%84%B6%E6%A0%BE%E5%BF%B5%E5%9C%A8%E5%A8%B1%E4%B9%90%E5%9C%88%E7%9A%84%E8%B5%84%E6%BA%90"
     },
     {
-     "rank": 7,
-     "word": "一汽大众T6把4.8米纯电SUV打到13万",
-     "hot": "74万",
-     "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E4%B8%80%E6%B1%BD%E5%A4%A7%E4%BC%97T6%E6%8A%8A4.8%E7%B1%B3%E7%BA%AF%E7%94%B5SUV%E6%89%93%E5%88%B013%E4%B8%87"
-    },
-    {
      "rank": 8,
-     "word": "古茗爆单",
-     "hot": "71万",
+     "word": "SNH48年度夏日盛典接力直播",
+     "hot": "84万",
      "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E5%8F%A4%E8%8C%97%E7%88%86%E5%8D%95"
+     "url": "https://s.weibo.com/weibo?q=SNH48%E5%B9%B4%E5%BA%A6%E5%A4%8F%E6%97%A5%E7%9B%9B%E5%85%B8%E6%8E%A5%E5%8A%9B%E7%9B%B4%E6%92%AD"
     },
     {
      "rank": 9,
-     "word": "长鑫存储",
-     "hot": "70万",
-     "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E9%95%BF%E9%91%AB%E5%AD%98%E5%82%A8"
+     "word": "吉隆口岸搜救设备暂未探到生命信号",
+     "hot": "84万",
+     "label": "新",
+     "url": "https://s.weibo.com/weibo?q=%E5%90%89%E9%9A%86%E5%8F%A3%E5%B2%B8%E6%90%9C%E6%95%91%E8%AE%BE%E5%A4%87%E6%9A%82%E6%9C%AA%E6%8E%A2%E5%88%B0%E7%94%9F%E5%91%BD%E4%BF%A1%E5%8F%B7"
     },
     {
      "rank": 10,
-     "word": "所有感情好的情侣都有一个共同点",
-     "hot": "43万",
+     "word": "古茗爆单",
+     "hot": "76万",
      "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E6%89%80%E6%9C%89%E6%84%9F%E6%83%85%E5%A5%BD%E7%9A%84%E6%83%85%E4%BE%A3%E9%83%BD%E6%9C%89%E4%B8%80%E4%B8%AA%E5%85%B1%E5%90%8C%E7%82%B9"
+     "url": "https://s.weibo.com/weibo?q=%E5%8F%A4%E8%8C%97%E7%88%86%E5%8D%95"
     }
    ]
   },
@@ -103,87 +106,87 @@
     {
      "rank": 1,
      "word": "探测淤泥下20米的生命迹象",
-     "hot": "5388万",
+     "hot": "4055万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7678682396962672134/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678682396962672134%22%2C%22hot_board_impr_id%22%3A%2220260829182026EA7E6E87822BC1F91D37%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%8E%A2%E6%B5%8B%E6%B7%A4%E6%B3%A5%E4%B8%8B20%E7%B1%B3%E7%9A%84%E7%94%9F%E5%91%BD%E8%BF%B9%E8%B1%A1%22%7D&rank=&style_id=40132&topic_id=7678682396962672134",
+     "url": "https://www.toutiao.com/trending/7678682396962672134/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678682396962672134%22%2C%22hot_board_impr_id%22%3A%2220260829184228612153932E2EE7A0B1C4%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%8E%A2%E6%B5%8B%E6%B7%A4%E6%B3%A5%E4%B8%8B20%E7%B1%B3%E7%9A%84%E7%94%9F%E5%91%BD%E8%BF%B9%E8%B1%A1%22%7D&rank=&style_id=40132&topic_id=7678682396962672134",
      "summary": "探测淤泥下20米的生命迹象 一批高新装备投入吉隆核心区    杭州新闻",
      "sum_src": "杭州新闻",
      "sum_ts": 1787995226
     },
     {
      "rank": 2,
-     "word": "酒店回应280元房型国庆标价5850元",
-     "hot": "4875万",
+     "word": "酒店：280元房国庆5850元系平台生成",
+     "hot": "3669万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679380838240485938/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679380838240485938%22%2C%22hot_board_impr_id%22%3A%2220260829182026EA7E6E87822BC1F91D37%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%85%92%E5%BA%97%E5%9B%9E%E5%BA%94280%E5%85%83%E6%88%BF%E5%9E%8B%E5%9B%BD%E5%BA%86%E6%A0%87%E4%BB%B75850%E5%85%83%22%7D&rank=&style_id=40132&topic_id=7679380838240485938",
-     "summary": "广东汕头一酒店平时280元一间房，国庆期间飙到5850元？有网友猜测这是酒店设置的“防拍价”，多方回应    同花顺",
-     "sum_src": "同花顺",
-     "sum_ts": 1787998827
+     "url": "https://www.toutiao.com/trending/7679380838240485938/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679380838240485938%22%2C%22hot_board_impr_id%22%3A%2220260829184228612153932E2EE7A0B1C4%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%85%92%E5%BA%97%EF%BC%9A280%E5%85%83%E6%88%BF%E5%9B%BD%E5%BA%865850%E5%85%83%E7%B3%BB%E5%B9%B3%E5%8F%B0%E7%94%9F%E6%88%90%22%7D&rank=&style_id=40132&topic_id=7679380838240485938",
+     "summary": "酒店280元房型国庆标价5850元？汕头联合执法连夜核查：非商家自主设置，已下架    finance.sina.com.cn",
+     "sum_src": "finance.sina.com.cn",
+     "sum_ts": 1788000151
     },
     {
      "rank": 3,
      "word": "直击西藏吉隆口岸救援情况",
-     "hot": "4411万",
+     "hot": "3320万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679341313891847689/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679341313891847689%22%2C%22hot_board_impr_id%22%3A%2220260829182026EA7E6E87822BC1F91D37%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%9B%B4%E5%87%BB%E8%A5%BF%E8%97%8F%E5%90%89%E9%9A%86%E5%8F%A3%E5%B2%B8%E6%95%91%E6%8F%B4%E6%83%85%E5%86%B5%22%7D&rank=&style_id=40132&topic_id=7679341313891847689",
+     "url": "https://www.toutiao.com/trending/7679341313891847689/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679341313891847689%22%2C%22hot_board_impr_id%22%3A%2220260829184228612153932E2EE7A0B1C4%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%9B%B4%E5%87%BB%E8%A5%BF%E8%97%8F%E5%90%89%E9%9A%86%E5%8F%A3%E5%B2%B8%E6%95%91%E6%8F%B4%E6%83%85%E5%86%B5%22%7D&rank=&style_id=40132&topic_id=7679341313891847689",
      "summary": "正以抢通道路为主要目标 直击西藏吉隆口岸救援情况    中国青年网",
      "sum_src": "中国青年网",
      "sum_ts": 1787988028
     },
     {
      "rank": 4,
-     "word": "280元房型国庆价格飙至5850元合理吗",
-     "hot": "3992万",
-     "label": "热",
-     "url": "https://www.toutiao.com/trending/7679082669518360070/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679082669518360070%22%2C%22hot_board_impr_id%22%3A%2220260829182026EA7E6E87822BC1F91D37%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22280%E5%85%83%E6%88%BF%E5%9E%8B%E5%9B%BD%E5%BA%86%E4%BB%B7%E6%A0%BC%E9%A3%99%E8%87%B35850%E5%85%83%E5%90%88%E7%90%86%E5%90%97%22%7D&rank=&style_id=40132&topic_id=7679082669518360070",
-     "summary": "广东汕头一酒店平时280元一间房，国庆期间飙到5850元？有网友猜测这是酒店设置的“防拍价”，多方回应    同花顺",
-     "sum_src": "同花顺",
-     "sum_ts": 1787998827
-    },
-    {
-     "rank": 5,
      "word": "常冰玉5-4领先赵心童",
-     "hot": "3612万",
+     "hot": "3004万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7678342136147951652/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678342136147951652%22%2C%22hot_board_impr_id%22%3A%2220260829182026EA7E6E87822BC1F91D37%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%B8%B8%E5%86%B0%E7%8E%895-4%E9%A2%86%E5%85%88%E8%B5%B5%E5%BF%83%E7%AB%A5%22%7D&rank=&style_id=40132&topic_id=7678342136147951652",
+     "url": "https://www.toutiao.com/trending/7678342136147951652/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678342136147951652%22%2C%22hot_board_impr_id%22%3A%2220260829184228612153932E2EE7A0B1C4%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%B8%B8%E5%86%B0%E7%8E%895-4%E9%A2%86%E5%85%88%E8%B5%B5%E5%BF%83%E7%AB%A5%22%7D&rank=&style_id=40132&topic_id=7678342136147951652",
      "summary": "斯诺克武汉公开赛决赛第一阶段：常冰玉5-4暂时领先赵心童    企鹅体育",
      "sum_src": "企鹅体育",
      "sum_ts": 1787998827
     },
     {
-     "rank": 6,
-     "word": "长鑫存储起诉五角大楼",
-     "hot": "3268万",
+     "rank": 5,
+     "word": "陪看樊振东德国杯",
+     "hot": "2718万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7678448738088042547/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678448738088042547%22%2C%22hot_board_impr_id%22%3A%2220260829182026EA7E6E87822BC1F91D37%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%95%BF%E9%91%AB%E5%AD%98%E5%82%A8%E8%B5%B7%E8%AF%89%E4%BA%94%E8%A7%92%E5%A4%A7%E6%A5%BC%22%7D&rank=&style_id=40132&topic_id=7678448738088042547"
+     "url": "https://webcast-open.douyin.com/open/media_live/808207714751",
+     "summary": "樊振东德国杯直播在哪里看？优酷体育与影院大屏完整指南    finance.sina.com.cn",
+     "sum_src": "finance.sina.com.cn",
+     "sum_ts": 1788000151
+    },
+    {
+     "rank": 6,
+     "word": "河南师范大学董自梅教授去世",
+     "hot": "2459万",
+     "label": "热",
+     "url": "https://www.toutiao.com/trending/7679291538261901348/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%220%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679291538261901348%22%2C%22hot_board_impr_id%22%3A%2220260829184228612153932E2EE7A0B1C4%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%B2%B3%E5%8D%97%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A6%E8%91%A3%E8%87%AA%E6%A2%85%E6%95%99%E6%8E%88%E5%8E%BB%E4%B8%96%22%7D&rank=&style_id=40132&topic_id=7679291538261901348"
     },
     {
      "rank": 7,
-     "word": "3人涉“甲醛白菜”被刑拘",
-     "hot": "2957万",
+     "word": "长鑫存储起诉五角大楼",
+     "hot": "2225万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679354741146521129/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%225%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679354741146521129%22%2C%22hot_board_impr_id%22%3A%2220260829182026EA7E6E87822BC1F91D37%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%223%E4%BA%BA%E6%B6%89%E2%80%9C%E7%94%B2%E9%86%9B%E7%99%BD%E8%8F%9C%E2%80%9D%E8%A2%AB%E5%88%91%E6%8B%98%22%7D&rank=&style_id=40132&topic_id=7679354741146521129"
+     "url": "https://www.toutiao.com/trending/7678448738088042547/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678448738088042547%22%2C%22hot_board_impr_id%22%3A%2220260829184228612153932E2EE7A0B1C4%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%95%BF%E9%91%AB%E5%AD%98%E5%82%A8%E8%B5%B7%E8%AF%89%E4%BA%94%E8%A7%92%E5%A4%A7%E6%A5%BC%22%7D&rank=&style_id=40132&topic_id=7678448738088042547"
     },
     {
      "rank": 8,
-     "word": "陪看樊振东德国杯",
-     "hot": "2676万",
+     "word": "3人涉“甲醛白菜”被刑拘",
+     "hot": "2014万",
      "label": "热",
-     "url": "https://webcast-open.douyin.com/open/media_live/808207714751"
+     "url": "https://www.toutiao.com/trending/7679354741146521129/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%225%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679354741146521129%22%2C%22hot_board_impr_id%22%3A%2220260829184228612153932E2EE7A0B1C4%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%223%E4%BA%BA%E6%B6%89%E2%80%9C%E7%94%B2%E9%86%9B%E7%99%BD%E8%8F%9C%E2%80%9D%E8%A2%AB%E5%88%91%E6%8B%98%22%7D&rank=&style_id=40132&topic_id=7679354741146521129"
     },
     {
      "rank": 9,
-     "word": "小伙入读国防科大家人盛装送学",
-     "hot": "2421万",
+     "word": "泥石流冲击区域看不到任何建筑轮廓",
+     "hot": "1822万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679061831604436998/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679061831604436998%22%2C%22hot_board_impr_id%22%3A%2220260829182026EA7E6E87822BC1F91D37%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%B0%8F%E4%BC%99%E5%85%A5%E8%AF%BB%E5%9B%BD%E9%98%B2%E7%A7%91%E5%A4%A7%E5%AE%B6%E4%BA%BA%E7%9B%9B%E8%A3%85%E9%80%81%E5%AD%A6%22%7D&rank=&style_id=40132&topic_id=7679061831604436998"
+     "url": "https://www.toutiao.com/trending/7678646479946272275/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678646479946272275%22%2C%22hot_board_impr_id%22%3A%2220260829184228612153932E2EE7A0B1C4%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%B3%A5%E7%9F%B3%E6%B5%81%E5%86%B2%E5%87%BB%E5%8C%BA%E5%9F%9F%E7%9C%8B%E4%B8%8D%E5%88%B0%E4%BB%BB%E4%BD%95%E5%BB%BA%E7%AD%91%E8%BD%AE%E5%BB%93%22%7D&rank=&style_id=40132&topic_id=7678646479946272275"
     },
     {
      "rank": 10,
-     "word": "山姆回应女子用脱毛仪样品现场脱毛",
-     "hot": "2191万",
+     "word": "280元房型国庆价格飙至5850元合理吗",
+     "hot": "1649万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679334000615555108/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%220%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679334000615555108%22%2C%22hot_board_impr_id%22%3A%2220260829182026EA7E6E87822BC1F91D37%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%B1%B1%E5%A7%86%E5%9B%9E%E5%BA%94%E5%A5%B3%E5%AD%90%E7%94%A8%E8%84%B1%E6%AF%9B%E4%BB%AA%E6%A0%B7%E5%93%81%E7%8E%B0%E5%9C%BA%E8%84%B1%E6%AF%9B%22%7D&rank=&style_id=40132&topic_id=7679334000615555108"
+     "url": "https://www.toutiao.com/trending/7679082669518360070/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679082669518360070%22%2C%22hot_board_impr_id%22%3A%2220260829184228612153932E2EE7A0B1C4%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22280%E5%85%83%E6%88%BF%E5%9E%8B%E5%9B%BD%E5%BA%86%E4%BB%B7%E6%A0%BC%E9%A3%99%E8%87%B35850%E5%85%83%E5%90%88%E7%90%86%E5%90%97%22%7D&rank=&style_id=40132&topic_id=7679082669518360070"
     }
    ]
   },
@@ -216,13 +219,13 @@
     },
     {
      "rank": 3,
-     "word": "小学初中新教材替换将全面完成",
+     "word": "钢筋石笼首次运抵吉隆抢险现场",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E5%B0%8F%E5%AD%A6%E5%88%9D%E4%B8%AD%E6%96%B0%E6%95%99%E6%9D%90%E6%9B%BF%E6%8D%A2%E5%B0%86%E5%85%A8%E9%9D%A2%E5%AE%8C%E6%88%90&sa=fyb_news",
-     "summary": "手机报·早报丨全国中小学将完成新教材全部替换；个人住房贷款最长期限调整为40年    搜狐网",
+     "url": "https://m.baidu.com/s?word=%E9%92%A2%E7%AD%8B%E7%9F%B3%E7%AC%BC%E9%A6%96%E6%AC%A1%E8%BF%90%E6%8A%B5%E5%90%89%E9%9A%86%E6%8A%A2%E9%99%A9%E7%8E%B0%E5%9C%BA&sa=fyb_news",
+     "summary": "钢筋石笼运抵救援现场 用于填充、加固冲毁路基助力抢通“最后一公里”    搜狐网",
      "sum_src": "搜狐网",
-     "sum_ts": 1787992970
+     "sum_ts": 1788000151
     },
     {
      "rank": 4,
@@ -236,20 +239,20 @@
     },
     {
      "rank": 5,
-     "word": "“甲醛白菜”事件3人被刑拘",
+     "word": "多名环卫工疑坐三轮车休息被罚20元",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E2%80%9C%E7%94%B2%E9%86%9B%E7%99%BD%E8%8F%9C%E2%80%9D%E4%BA%8B%E4%BB%B63%E4%BA%BA%E8%A2%AB%E5%88%91%E6%8B%98&sa=fyb_news",
-     "summary": "涉“甲醛白菜”，3人被刑拘    凤凰网财经",
-     "sum_src": "凤凰网财经",
-     "sum_ts": 1787998827
+     "url": "https://m.baidu.com/s?word=%E5%A4%9A%E5%90%8D%E7%8E%AF%E5%8D%AB%E5%B7%A5%E7%96%91%E5%9D%90%E4%B8%89%E8%BD%AE%E8%BD%A6%E4%BC%91%E6%81%AF%E8%A2%AB%E7%BD%9A20%E5%85%83&sa=fyb_news",
+     "summary": "天津多名环卫工疑坐三轮车休息被罚20元，区城管委：正在核实-观察者网    观察者",
+     "sum_src": "观察者",
+     "sum_ts": 1788000151
     },
     {
      "rank": 6,
-     "word": "刘国梁参加国际乒联会议",
+     "word": "华为全新三折叠手机外观曝光",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E5%88%98%E5%9B%BD%E6%A2%81%E5%8F%82%E5%8A%A0%E5%9B%BD%E9%99%85%E4%B9%92%E8%81%94%E4%BC%9A%E8%AE%AE&sa=fyb_news"
+     "url": "https://m.baidu.com/s?word=%E5%8D%8E%E4%B8%BA%E5%85%A8%E6%96%B0%E4%B8%89%E6%8A%98%E5%8F%A0%E6%89%8B%E6%9C%BA%E5%A4%96%E8%A7%82%E6%9B%9D%E5%85%89&sa=fyb_news"
     },
     {
      "rank": 7,
@@ -260,10 +263,10 @@
     },
     {
      "rank": 8,
-     "word": "华为全新三折叠手机外观曝光",
+     "word": "刘国梁参加国际乒联会议",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E5%8D%8E%E4%B8%BA%E5%85%A8%E6%96%B0%E4%B8%89%E6%8A%98%E5%8F%A0%E6%89%8B%E6%9C%BA%E5%A4%96%E8%A7%82%E6%9B%9D%E5%85%89&sa=fyb_news"
+     "url": "https://m.baidu.com/s?word=%E5%88%98%E5%9B%BD%E6%A2%81%E5%8F%82%E5%8A%A0%E5%9B%BD%E9%99%85%E4%B9%92%E8%81%94%E4%BC%9A%E8%AE%AE&sa=fyb_news"
     },
     {
      "rank": 9,
@@ -274,10 +277,10 @@
     },
     {
      "rank": 10,
-     "word": "父亲实地考察物价后给女儿涨生活费",
+     "word": "小学初中新教材替换将全面完成",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E7%88%B6%E4%BA%B2%E5%AE%9E%E5%9C%B0%E8%80%83%E5%AF%9F%E7%89%A9%E4%BB%B7%E5%90%8E%E7%BB%99%E5%A5%B3%E5%84%BF%E6%B6%A8%E7%94%9F%E6%B4%BB%E8%B4%B9&sa=fyb_news"
+     "url": "https://m.baidu.com/s?word=%E5%B0%8F%E5%AD%A6%E5%88%9D%E4%B8%AD%E6%96%B0%E6%95%99%E6%9D%90%E6%9B%BF%E6%8D%A2%E5%B0%86%E5%85%A8%E9%9D%A2%E5%AE%8C%E6%88%90&sa=fyb_news"
     }
    ]
   }
