@@ -1,6 +1,6 @@
 {
  "date": "2026年8月29日 星期六",
- "fetchedAt": "2026年08月29日 21:20（北京时间）",
+ "fetchedAt": "2026年08月29日 21:42（北京时间）",
  "platforms": [
   {
    "key": "weibo",
@@ -12,7 +12,7 @@
     {
      "rank": 1,
      "word": "樊振东2比3户上隼辅",
-     "hot": "255万",
+     "hot": "306万",
      "label": "新",
      "url": "https://s.weibo.com/weibo?q=%E6%A8%8A%E6%8C%AF%E4%B8%9C2%E6%AF%943%E6%88%B7%E4%B8%8A%E9%9A%BC%E8%BE%85",
      "summary": "高抛发球主宰比赛！樊振东3-1莫维利亚努，助杜塞尔多夫追平比分    新浪网",
@@ -22,7 +22,7 @@
     {
      "rank": 2,
      "word": "吉隆口岸大楼只剩钢筋骨架",
-     "hot": "103万",
+     "hot": "107万",
      "label": "",
      "url": "https://s.weibo.com/weibo?q=%E5%90%89%E9%9A%86%E5%8F%A3%E5%B2%B8%E5%A4%A7%E6%A5%BC%E5%8F%AA%E5%89%A9%E9%92%A2%E7%AD%8B%E9%AA%A8%E6%9E%B6",
      "summary": "新浪网·    新浪网",
@@ -32,7 +32,7 @@
     {
      "rank": 3,
      "word": "中国成功研制近200项AI关键标准",
-     "hot": "79万",
+     "hot": "88万",
      "label": "新",
      "url": "https://s.weibo.com/weibo?q=%E4%B8%AD%E5%9B%BD%E6%88%90%E5%8A%9F%E7%A0%94%E5%88%B6%E8%BF%91200%E9%A1%B9AI%E5%85%B3%E9%94%AE%E6%A0%87%E5%87%86",
      "summary": "新华读报｜外媒关注：中国成功研制近200项AI关键标准    新浪财经",
@@ -42,7 +42,7 @@
     {
      "rank": 4,
      "word": "伦到武汉啦",
-     "hot": "68万",
+     "hot": "72万",
      "label": "",
      "url": "https://s.weibo.com/weibo?q=%E4%BC%A6%E5%88%B0%E6%AD%A6%E6%B1%89%E5%95%A6",
      "summary": "任嘉伦落地武汉 城市与偶像双向奔赴显文旅活力    微博",
@@ -52,7 +52,7 @@
     {
      "rank": 5,
      "word": "王菲李嫣看窦靖童音乐节",
-     "hot": "55万",
+     "hot": "53万",
      "label": "",
      "url": "https://s.weibo.com/weibo?q=%E7%8E%8B%E8%8F%B2%E6%9D%8E%E5%AB%A3%E7%9C%8B%E7%AA%A6%E9%9D%96%E7%AB%A5%E9%9F%B3%E4%B9%90%E8%8A%82",
      "summary": "王菲带女儿李嫣看窦靖童音乐节，跟着节奏摇头晃脑跟唱    手机新浪网",
@@ -61,38 +61,38 @@
     },
     {
      "rank": 6,
-     "word": "西藏泥石流救援",
-     "hot": "46万",
-     "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E8%A5%BF%E8%97%8F%E6%B3%A5%E7%9F%B3%E6%B5%81%E6%95%91%E6%8F%B4"
-    },
-    {
-     "rank": 7,
-     "word": "宋亚东VS乌马尔",
-     "hot": "42万",
-     "label": "新",
-     "url": "https://s.weibo.com/weibo?q=%E5%AE%8B%E4%BA%9A%E4%B8%9CVS%E4%B9%8C%E9%A9%AC%E5%B0%94"
-    },
-    {
-     "rank": 8,
-     "word": "用这种微信头像或被封号",
-     "hot": "40万",
-     "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E7%94%A8%E8%BF%99%E7%A7%8D%E5%BE%AE%E4%BF%A1%E5%A4%B4%E5%83%8F%E6%88%96%E8%A2%AB%E5%B0%81%E5%8F%B7"
-    },
-    {
-     "rank": 9,
      "word": "央视曝光保温杯造假套路",
-     "hot": "35万",
+     "hot": "44万",
      "label": "新",
      "url": "https://s.weibo.com/weibo?q=%E5%A4%AE%E8%A7%86%E6%9B%9D%E5%85%89%E4%BF%9D%E6%B8%A9%E6%9D%AF%E9%80%A0%E5%81%87%E5%A5%97%E8%B7%AF"
     },
     {
+     "rank": 7,
+     "word": "西藏泥石流救援",
+     "hot": "38万",
+     "label": "",
+     "url": "https://s.weibo.com/weibo?q=%E8%A5%BF%E8%97%8F%E6%B3%A5%E7%9F%B3%E6%B5%81%E6%95%91%E6%8F%B4"
+    },
+    {
+     "rank": 8,
+     "word": "少年时代2校园剧还得看真少年",
+     "hot": "38万",
+     "label": "",
+     "url": "https://s.weibo.com/weibo?q=%E5%B0%91%E5%B9%B4%E6%97%B6%E4%BB%A32%E6%A0%A1%E5%9B%AD%E5%89%A7%E8%BF%98%E5%BE%97%E7%9C%8B%E7%9C%9F%E5%B0%91%E5%B9%B4"
+    },
+    {
+     "rank": 9,
+     "word": "用这种微信头像或被封号",
+     "hot": "36万",
+     "label": "",
+     "url": "https://s.weibo.com/weibo?q=%E7%94%A8%E8%BF%99%E7%A7%8D%E5%BE%AE%E4%BF%A1%E5%A4%B4%E5%83%8F%E6%88%96%E8%A2%AB%E5%B0%81%E5%8F%B7"
+    },
+    {
      "rank": 10,
-     "word": "小米18Fold",
-     "hot": "32万",
+     "word": "房子薄成这样原来真的有人住在里面",
+     "hot": "36万",
      "label": "新",
-     "url": "https://s.weibo.com/weibo?q=%E5%B0%8F%E7%B1%B318Fold"
+     "url": "https://s.weibo.com/weibo?q=%E6%88%BF%E5%AD%90%E8%96%84%E6%88%90%E8%BF%99%E6%A0%B7%E5%8E%9F%E6%9D%A5%E7%9C%9F%E7%9A%84%E6%9C%89%E4%BA%BA%E4%BD%8F%E5%9C%A8%E9%87%8C%E9%9D%A2"
     }
    ]
   },
@@ -106,9 +106,9 @@
     {
      "rank": 1,
      "word": "钢筋石笼首次运抵吉隆抢险现场",
-     "hot": "2977万",
+     "hot": "3108万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7678682396962721286/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678682396962721286%22%2C%22hot_board_impr_id%22%3A%2220260829212024EF8EED3E6053DF65D14B%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%92%A2%E7%AD%8B%E7%9F%B3%E7%AC%BC%E9%A6%96%E6%AC%A1%E8%BF%90%E6%8A%B5%E5%90%89%E9%9A%86%E6%8A%A2%E9%99%A9%E7%8E%B0%E5%9C%BA%22%7D&rank=&style_id=40132&topic_id=7678682396962721286",
+     "url": "https://www.toutiao.com/trending/7678682396962721286/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678682396962721286%22%2C%22hot_board_impr_id%22%3A%22202608292142323BE61411473CE8B11FE5%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%92%A2%E7%AD%8B%E7%9F%B3%E7%AC%BC%E9%A6%96%E6%AC%A1%E8%BF%90%E6%8A%B5%E5%90%89%E9%9A%86%E6%8A%A2%E9%99%A9%E7%8E%B0%E5%9C%BA%22%7D&rank=&style_id=40132&topic_id=7678682396962721286",
      "summary": "钢筋石笼运抵救援现场 用于填充、加固冲毁路基助力抢通“最后一公里”    搜狐网",
      "sum_src": "搜狐网",
      "sum_ts": 1788000151
@@ -116,9 +116,9 @@
     {
      "rank": 2,
      "word": "朱忠明任上海市政府党组书记",
-     "hot": "2694万",
+     "hot": "2813万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679408094514757670/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679408094514757670%22%2C%22hot_board_impr_id%22%3A%2220260829212024EF8EED3E6053DF65D14B%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%9C%B1%E5%BF%A0%E6%98%8E%E4%BB%BB%E4%B8%8A%E6%B5%B7%E5%B8%82%E6%94%BF%E5%BA%9C%E5%85%9A%E7%BB%84%E4%B9%A6%E8%AE%B0%22%7D&rank=&style_id=40132&topic_id=7679408094514757670",
+     "url": "https://www.toutiao.com/trending/7679408094514757670/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679408094514757670%22%2C%22hot_board_impr_id%22%3A%22202608292142323BE61411473CE8B11FE5%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%9C%B1%E5%BF%A0%E6%98%8E%E4%BB%BB%E4%B8%8A%E6%B5%B7%E5%B8%82%E6%94%BF%E5%BA%9C%E5%85%9A%E7%BB%84%E4%B9%A6%E8%AE%B0%22%7D&rank=&style_id=40132&topic_id=7679408094514757670",
      "summary": "朱忠明任上海市政府党组书记    新浪财经",
      "sum_src": "新浪财经",
      "sum_ts": 1788007379
@@ -126,67 +126,67 @@
     {
      "rank": 3,
      "word": "一批高新装备投入西藏吉隆受灾核心区",
-     "hot": "2437万",
+     "hot": "2545万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679224871326338602/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679224871326338602%22%2C%22hot_board_impr_id%22%3A%2220260829212024EF8EED3E6053DF65D14B%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%80%E6%89%B9%E9%AB%98%E6%96%B0%E8%A3%85%E5%A4%87%E6%8A%95%E5%85%A5%E8%A5%BF%E8%97%8F%E5%90%89%E9%9A%86%E5%8F%97%E7%81%BE%E6%A0%B8%E5%BF%83%E5%8C%BA%22%7D&rank=&style_id=40132&topic_id=7679224871326338602",
+     "url": "https://www.toutiao.com/trending/7679224871326338602/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679224871326338602%22%2C%22hot_board_impr_id%22%3A%22202608292142323BE61411473CE8B11FE5%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%80%E6%89%B9%E9%AB%98%E6%96%B0%E8%A3%85%E5%A4%87%E6%8A%95%E5%85%A5%E8%A5%BF%E8%97%8F%E5%90%89%E9%9A%86%E5%8F%97%E7%81%BE%E6%A0%B8%E5%BF%83%E5%8C%BA%22%7D&rank=&style_id=40132&topic_id=7679224871326338602",
      "summary": "吉隆受灾核心区正加紧打通“最后一公里”；一批高新装备投入核心区搜救    搜狐网",
      "sum_src": "搜狐网",
      "sum_ts": 1788009627
     },
     {
      "rank": 4,
-     "word": "小伙从200斤减到120斤考上国防科大",
-     "hot": "2205万",
+     "word": "樊振东无缘德国杯8强",
+     "hot": "2303万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679347593157541939/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679347593157541939%22%2C%22hot_board_impr_id%22%3A%2220260829212024EF8EED3E6053DF65D14B%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%B0%8F%E4%BC%99%E4%BB%8E200%E6%96%A4%E5%87%8F%E5%88%B0120%E6%96%A4%E8%80%83%E4%B8%8A%E5%9B%BD%E9%98%B2%E7%A7%91%E5%A4%A7%22%7D&rank=&style_id=40132&topic_id=7679347593157541939",
-     "summary": "近日，在上海世界技能博物馆“CHINA白”临展上，一件作品引发众多观众驻足，它衣袂翻飞、轻纱漫卷，最薄处仅有0.2毫米。许多人凑近仔细端详，仍不敢相信：这居然是白瓷烧制而成的。这是",
-     "sum_src": "奔流新闻",
-     "sum_ts": 1788002429
+     "url": "https://www.toutiao.com/trending/7678642685917544491/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678642685917544491%22%2C%22hot_board_impr_id%22%3A%22202608292142323BE61411473CE8B11FE5%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%A8%8A%E6%8C%AF%E4%B8%9C%E6%97%A0%E7%BC%98%E5%BE%B7%E5%9B%BD%E6%9D%AF8%E5%BC%BA%22%7D&rank=&style_id=40132&topic_id=7678642685917544491",
+     "summary": "加盟新东家首败！樊振东1胜1负，杜塞尔多夫1-3无缘德国杯八强    搜狐网",
+     "sum_src": "搜狐网",
+     "sum_ts": 1788010954
     },
     {
      "rank": 5,
      "word": "日本女排爆冷无缘亚锦赛决赛",
-     "hot": "1996万",
+     "hot": "2084万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7678537037855424531/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%224%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678537037855424531%22%2C%22hot_board_impr_id%22%3A%2220260829212024EF8EED3E6053DF65D14B%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%97%A5%E6%9C%AC%E5%A5%B3%E6%8E%92%E7%88%86%E5%86%B7%E6%97%A0%E7%BC%98%E4%BA%9A%E9%94%A6%E8%B5%9B%E5%86%B3%E8%B5%9B%22%7D&rank=&style_id=40132&topic_id=7678537037855424531",
+     "url": "https://www.toutiao.com/trending/7678537037855424531/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%224%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678537037855424531%22%2C%22hot_board_impr_id%22%3A%22202608292142323BE61411473CE8B11FE5%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%97%A5%E6%9C%AC%E5%A5%B3%E6%8E%92%E7%88%86%E5%86%B7%E6%97%A0%E7%BC%98%E4%BA%9A%E9%94%A6%E8%B5%9B%E5%86%B3%E8%B5%9B%22%7D&rank=&style_id=40132&topic_id=7678537037855424531",
      "summary": "爆冷！日本女排1-3不敌泰国女排无缘亚锦赛决赛 提前无缘直通奥运    新浪新闻_手机新浪网",
      "sum_src": "新浪新闻_手机新浪网",
      "sum_ts": 1788009627
     },
     {
      "rank": 6,
-     "word": "上海一面包店货架全是照片没有面包",
-     "hot": "1806万",
+     "word": "小伙从200斤减到120斤考上国防科大",
+     "hot": "1885万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679344797761126454/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%228%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679344797761126454%22%2C%22hot_board_impr_id%22%3A%2220260829212024EF8EED3E6053DF65D14B%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%8A%E6%B5%B7%E4%B8%80%E9%9D%A2%E5%8C%85%E5%BA%97%E8%B4%A7%E6%9E%B6%E5%85%A8%E6%98%AF%E7%85%A7%E7%89%87%E6%B2%A1%E6%9C%89%E9%9D%A2%E5%8C%85%22%7D&rank=&style_id=40132&topic_id=7679344797761126454"
+     "url": "https://www.toutiao.com/trending/7679347593157541939/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679347593157541939%22%2C%22hot_board_impr_id%22%3A%22202608292142323BE61411473CE8B11FE5%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%B0%8F%E4%BC%99%E4%BB%8E200%E6%96%A4%E5%87%8F%E5%88%B0120%E6%96%A4%E8%80%83%E4%B8%8A%E5%9B%BD%E9%98%B2%E7%A7%91%E5%A4%A7%22%7D&rank=&style_id=40132&topic_id=7679347593157541939"
     },
     {
      "rank": 7,
      "word": "中方紧急调派专家赴尼泊尔实施救援",
-     "hot": "1634万",
+     "hot": "1706万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679401071524974121/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%225%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679401071524974121%22%2C%22hot_board_impr_id%22%3A%2220260829212024EF8EED3E6053DF65D14B%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%AD%E6%96%B9%E7%B4%A7%E6%80%A5%E8%B0%83%E6%B4%BE%E4%B8%93%E5%AE%B6%E8%B5%B4%E5%B0%BC%E6%B3%8A%E5%B0%94%E5%AE%9E%E6%96%BD%E6%95%91%E6%8F%B4%22%7D&rank=&style_id=40132&topic_id=7679401071524974121"
+     "url": "https://www.toutiao.com/trending/7679401071524974121/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%225%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679401071524974121%22%2C%22hot_board_impr_id%22%3A%22202608292142323BE61411473CE8B11FE5%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%AD%E6%96%B9%E7%B4%A7%E6%80%A5%E8%B0%83%E6%B4%BE%E4%B8%93%E5%AE%B6%E8%B5%B4%E5%B0%BC%E6%B3%8A%E5%B0%94%E5%AE%9E%E6%96%BD%E6%95%91%E6%8F%B4%22%7D&rank=&style_id=40132&topic_id=7679401071524974121"
     },
     {
      "rank": 8,
-     "word": "樊振东无缘德国杯8强",
-     "hot": "1478万",
+     "word": "宋亚东KO击败乌马尔",
+     "hot": "1544万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7678642685917544491/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678642685917544491%22%2C%22hot_board_impr_id%22%3A%2220260829212024EF8EED3E6053DF65D14B%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%A8%8A%E6%8C%AF%E4%B8%9C%E6%97%A0%E7%BC%98%E5%BE%B7%E5%9B%BD%E6%9D%AF8%E5%BC%BA%22%7D&rank=&style_id=40132&topic_id=7678642685917544491"
+     "url": "https://www.toutiao.com/trending/7678887027324010515/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678887027324010515%22%2C%22hot_board_impr_id%22%3A%22202608292142323BE61411473CE8B11FE5%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%AE%8B%E4%BA%9A%E4%B8%9CKO%E5%87%BB%E8%B4%A5%E4%B9%8C%E9%A9%AC%E5%B0%94%22%7D&rank=&style_id=40132&topic_id=7678887027324010515"
     },
     {
      "rank": 9,
-     "word": "余承东上手华为全新三折叠",
-     "hot": "1338万",
+     "word": "上海一面包店货架全是照片没有面包",
+     "hot": "1397万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7678532195228876854/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678532195228876854%22%2C%22hot_board_impr_id%22%3A%2220260829212024EF8EED3E6053DF65D14B%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%BD%99%E6%89%BF%E4%B8%9C%E4%B8%8A%E6%89%8B%E5%8D%8E%E4%B8%BA%E5%85%A8%E6%96%B0%E4%B8%89%E6%8A%98%E5%8F%A0%22%7D&rank=&style_id=40132&topic_id=7678532195228876854"
+     "url": "https://www.toutiao.com/trending/7679344797761126454/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%228%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679344797761126454%22%2C%22hot_board_impr_id%22%3A%22202608292142323BE61411473CE8B11FE5%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%8A%E6%B5%B7%E4%B8%80%E9%9D%A2%E5%8C%85%E5%BA%97%E8%B4%A7%E6%9E%B6%E5%85%A8%E6%98%AF%E7%85%A7%E7%89%87%E6%B2%A1%E6%9C%89%E9%9D%A2%E5%8C%85%22%7D&rank=&style_id=40132&topic_id=7679344797761126454"
     },
     {
      "rank": 10,
-     "word": "长鑫官宣LPDDR6内存量产意味着什么",
-     "hot": "1210万",
+     "word": "余承东上手华为全新三折叠",
+     "hot": "1264万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679423946327854602/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679423946327854602%22%2C%22hot_board_impr_id%22%3A%2220260829212024EF8EED3E6053DF65D14B%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%95%BF%E9%91%AB%E5%AE%98%E5%AE%A3LPDDR6%E5%86%85%E5%AD%98%E9%87%8F%E4%BA%A7%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88%22%7D&rank=&style_id=40132&topic_id=7679423946327854602"
+     "url": "https://www.toutiao.com/trending/7678532195228876854/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678532195228876854%22%2C%22hot_board_impr_id%22%3A%22202608292142323BE61411473CE8B11FE5%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%BD%99%E6%89%BF%E4%B8%9C%E4%B8%8A%E6%89%8B%E5%8D%8E%E4%B8%BA%E5%85%A8%E6%96%B0%E4%B8%89%E6%8A%98%E5%8F%A0%22%7D&rank=&style_id=40132&topic_id=7678532195228876854"
     }
    ]
   },
@@ -209,13 +209,13 @@
     },
     {
      "rank": 2,
-     "word": "探测淤泥下20米的生命迹象",
+     "word": "刚入警一年的她 失联在吉隆口岸",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E6%8E%A2%E6%B5%8B%E6%B7%A4%E6%B3%A5%E4%B8%8B20%E7%B1%B3%E7%9A%84%E7%94%9F%E5%91%BD%E8%BF%B9%E8%B1%A1&sa=fyb_news",
-     "summary": "探测淤泥下20米的生命迹象 一批高新装备投入吉隆核心区    杭州新闻",
-     "sum_src": "杭州新闻",
-     "sum_ts": 1787995226
+     "url": "https://m.baidu.com/s?word=%E5%88%9A%E5%85%A5%E8%AD%A6%E4%B8%80%E5%B9%B4%E7%9A%84%E5%A5%B9+%E5%A4%B1%E8%81%94%E5%9C%A8%E5%90%89%E9%9A%86%E5%8F%A3%E5%B2%B8&sa=fyb_news",
+     "summary": "刚入警1年的她，在吉隆口岸失联    凤凰网",
+     "sum_src": "凤凰网",
+     "sum_ts": 1788010954
     },
     {
      "rank": 3,
@@ -239,27 +239,27 @@
     },
     {
      "rank": 5,
-     "word": "一场房地产行业大变局正在发生",
+     "word": "吃水果成了情绪社交",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E4%B8%80%E5%9C%BA%E6%88%BF%E5%9C%B0%E4%BA%A7%E8%A1%8C%E4%B8%9A%E5%A4%A7%E5%8F%98%E5%B1%80%E6%AD%A3%E5%9C%A8%E5%8F%91%E7%94%9F&sa=fyb_news",
-     "summary": "现房销售时代加速到来，一场房地产行业大变局正在发生    新浪财经",
-     "sum_src": "新浪财经",
-     "sum_ts": 1788009627
+     "url": "https://m.baidu.com/s?word=%E5%90%83%E6%B0%B4%E6%9E%9C%E6%88%90%E4%BA%86%E6%83%85%E7%BB%AA%E7%A4%BE%E4%BA%A4&sa=fyb_news",
+     "summary": "吃水果成了情绪社交，中国万亿级市场考验进口品牌本土功底    第一财经",
+     "sum_src": "第一财经",
+     "sum_ts": 1788010954
     },
     {
      "rank": 6,
+     "word": "食品通胀卷土重来了吗",
+     "hot": "",
+     "label": "",
+     "url": "https://m.baidu.com/s?word=%E9%A3%9F%E5%93%81%E9%80%9A%E8%83%80%E5%8D%B7%E5%9C%9F%E9%87%8D%E6%9D%A5%E4%BA%86%E5%90%97&sa=fyb_news"
+    },
+    {
+     "rank": 7,
      "word": "用这种微信头像或被封号",
      "hot": "",
      "label": "",
      "url": "https://m.baidu.com/s?word=%E7%94%A8%E8%BF%99%E7%A7%8D%E5%BE%AE%E4%BF%A1%E5%A4%B4%E5%83%8F%E6%88%96%E8%A2%AB%E5%B0%81%E5%8F%B7&sa=fyb_news"
-    },
-    {
-     "rank": 7,
-     "word": "“山寨车鼻祖”7年来首次盈利",
-     "hot": "",
-     "label": "",
-     "url": "https://m.baidu.com/s?word=%E2%80%9C%E5%B1%B1%E5%AF%A8%E8%BD%A6%E9%BC%BB%E7%A5%96%E2%80%9D7%E5%B9%B4%E6%9D%A5%E9%A6%96%E6%AC%A1%E7%9B%88%E5%88%A9&sa=fyb_news"
     },
     {
      "rank": 8,
@@ -277,10 +277,10 @@
     },
     {
      "rank": 10,
-     "word": "赵心童vs常冰玉",
+     "word": "文牧野：吃饱了才能延续生命",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E8%B5%B5%E5%BF%83%E7%AB%A5vs%E5%B8%B8%E5%86%B0%E7%8E%89&sa=fyb_news"
+     "url": "https://m.baidu.com/s?word=%E6%96%87%E7%89%A7%E9%87%8E%EF%BC%9A%E5%90%83%E9%A5%B1%E4%BA%86%E6%89%8D%E8%83%BD%E5%BB%B6%E7%BB%AD%E7%94%9F%E5%91%BD&sa=fyb_news"
     }
    ]
   }
