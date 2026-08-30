@@ -56,31 +56,71 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const path = url.pathname;
+    const isDebug = url.searchParams.has('debug');
     let kind = null;
     if (path === '/' || path === '/index.html') kind = 'daily';
     else if (path.startsWith('/hot')) kind = 'hot';
 
     let triggered = false;
-    if (kind) triggered = await maybeTrigger(env, kind);
+    let triggerErr = null;
+    if (kind) {
+      try {
+        triggered = await maybeTrigger(env, kind);
+      } catch (e) {
+        triggerErr = String(e);
+      }
+    }
 
     const target = ORIGIN + (path === '/' ? '/index.html' : path);
 
-    // 必须新建 Request，否则原始 Host 头会被转发到 GitHub Pages，导致白屏/404。
+    // 用目标 URL 新建 Request，确保 Host 头是 rayon0727.github.io 而不是 workers.dev。
+    // 不转发 Accept-Encoding，避免压缩透传问题；不转发 Cookie/Authorization。
     const upstreamReq = new Request(target, {
       method: 'GET',
       headers: {
-        'Accept': request.headers.get('Accept') || '*/*',
-        'Accept-Language': request.headers.get('Accept-Language') || '',
-        'Accept-Encoding': request.headers.get('Accept-Encoding') || '',
-        'User-Agent': request.headers.get('User-Agent') || 'Cloudflare-Worker',
+        'Accept': request.headers.get('Accept') || 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': request.headers.get('Accept-Language') || 'zh-CN,zh;q=0.9,en;q=0.8',
+        'User-Agent': request.headers.get('User-Agent') || 'Mozilla/5.0 (compatible; Cloudflare-Worker)',
       },
     });
-    const resp = await fetch(upstreamReq);
+
+    let resp;
+    let fetchErr = null;
+    try {
+      resp = await fetch(upstreamReq);
+    } catch (e) {
+      fetchErr = String(e);
+    }
+
+    // debug 模式：返回上游请求/响应的调试信息（便于排查白屏）
+    if (isDebug) {
+      const bodyPreview = resp && resp.body ? '(stream)' : 'none';
+      return new Response(JSON.stringify({
+        worker: 'ai-daily-worker',
+        path,
+        kind,
+        target,
+        triggered,
+        triggerErr,
+        fetchErr,
+        upstreamStatus: resp ? resp.status : null,
+        upstreamStatusText: resp ? resp.statusText : null,
+        upstreamHeaders: resp ? Object.fromEntries(resp.headers.entries()) : null,
+        bodyPreview,
+      }, null, 2), {
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      });
+    }
+
+    // 若上游抓取失败或返回空 body，直接 302 跳回 GitHub Pages 原址，保证用户一定能看到内容。
+    if (!resp || !resp.ok || !resp.body) {
+      return Response.redirect(target, 302);
+    }
 
     const h = new Headers(resp.headers);
     if (kind) {
       h.set('Cache-Control', 'public, max-age=300');
-      if (triggered) h.set('x-ai-daily-rebuilding', '1'); // 告知前端：已触发后台重建
+      if (triggered) h.set('x-ai-daily-rebuilding', '1');
     }
     return new Response(resp.body, { status: resp.status, headers: h });
   },
