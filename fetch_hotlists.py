@@ -8,7 +8,8 @@
 import json, re, sys, os, shutil, subprocess, urllib.request
 from fetch_news import (google_news, is_low_quality_summary,
                         fetch_meta_description, gnews_search,
-                        summarize_with_ds)  # 免费搜索源 + 摘要质检 + 网页兜底 + GNews + DS
+                        summarize_with_ds, resolve_google_news_url,
+                        fetch_article_body)  # 免费搜索源 + 摘要质检 + 网页/正文兜底 + GNews + DS
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"
 TIMEOUT = 12
@@ -180,7 +181,7 @@ def main():
     cache = load_summary_cache() if enrich else {}
     seen = {}
     reused = enriched = failed = 0
-    src_google = src_tn = src_lowq = src_meta = src_ds = src_gnews = 0
+    src_google = src_tn = src_lowq = src_meta = src_ds = src_gnews = src_body = 0
     if enrich:
         for p in platforms:
             for it in p['items'][:5]:
@@ -204,34 +205,32 @@ def main():
                 r = None
                 material = ''
                 try:
-                    if use_ds and gnews_key:
-                        # 新管线：GNews 免费检索真实摘要+直链 → DS 压缩（省腾讯积分）
-                        gn = gnews_search(w, 1, gnews_key, 'zh', 'cn')
-                        if gn:
-                            art = gn[0]
-                            material = (art.get('summary') or '').strip()
-                            r = {'title': art.get('title', w),
-                                 'summary': material or w,
-                                 'source': art.get('source') or 'GNews',
-                                 'url': art.get('url', '')}
-                            src_gnews += 1
-                        else:
-                            # GNews 无覆盖 → Google RSS + meta 兜底（免费）
-                            g = google_news(w, 1)
-                            if g:
-                                if not is_low_quality_summary(g[0]['title'], g[0]['summary']):
-                                    material = g[0]['summary']
-                                    r = {'title': g[0]['title'], 'summary': material or w,
-                                         'source': g[0]['source'] or 'Google 新闻'}
-                                    src_google += 1
-                                else:
-                                    src_lowq += 1
-                                    d = fetch_meta_description(g[0].get('url'))
-                                    if d:
-                                        material = d
-                                        r = {'title': g[0]['title'], 'summary': d,
-                                             'source': g[0]['source'] or 'Google 新闻'}
-                                        src_meta += 1
+                    if use_ds:
+                        # 新管线（DS）：Google News RSS（免费，云端可达）取真实文章，
+                        # 解析真实 URL → 抓正文（免费）→ DS 压成一句客观事实。
+                        # 不消耗腾讯积分；仅在 Google 无覆盖 / 正文抓取失败时回退腾讯。
+                        g = google_news(w, 3)
+                        if g:
+                            for cand in g[:3]:
+                                u = cand.get('url', '')
+                                if 'news.google.com' in u:
+                                    u = resolve_google_news_url(u)
+                                if not u or 'news.google.com' in u:
+                                    continue
+                                body = fetch_article_body(u)
+                                if body and len(body) >= 40:
+                                    material = body
+                                    r = {'title': cand['title'], 'summary': cand['title'],
+                                         'source': cand['source'] or 'Google 新闻', 'url': u}
+                                    src_body += 1
+                                    break
+                            # 正文抓不到但 RSS 自带可用摘要（罕见）→ 直接用它
+                            if not material and not is_low_quality_summary(g[0]['title'], g[0]['summary']):
+                                material = g[0]['summary']
+                                r = {'title': g[0]['title'], 'summary': g[0]['summary'],
+                                     'source': g[0]['source'] or 'Google 新闻',
+                                     'url': g[0].get('url', '')}
+                                src_google += 1
                     else:
                         # 原管线（默认）：Google RSS → meta → 腾讯反查
                         g = google_news(w, 1)
@@ -251,12 +250,14 @@ def main():
                                     src_meta += 1
                 except Exception:
                     r = None
-                # DS 摘要：把检索到的素材压成一句客观事实（仅替换摘要文本，来源保留真实媒体）
+                # DS 摘要：把检索到的真实素材压成一句客观事实（仅替换摘要文本，来源保留真实媒体）
                 if r and use_ds and material and len(material) >= 8:
                     ds = summarize_with_ds(w, material, r.get('source'))
                     if ds:
                         r['summary'] = ds
                         src_ds += 1
+                    else:
+                        r = None  # DS 失败 → 走腾讯兜底
                 if not r or not r.get('summary'):
                     # 最后兜底：腾讯 search（消耗积分）
                     tn = search_tn_summary(w)
@@ -278,8 +279,8 @@ def main():
                         it['sum_ts'] = cached['ts']
                         seen[w] = cached
                     failed += 1
-    results.append("摘要: 新搜%d(GNews %d/Google %d/网页meta %d/腾讯 %d/DS压 %d/低质丢弃 %d) 复用%d 失败%d" % (
-        enriched, src_gnews, src_google, src_meta, src_tn, src_ds, src_lowq, reused, failed) if enrich else "摘要反查跳过（ENRICH_SUMMARIES 未开启）")
+    results.append("摘要: 新搜%d(Google正文 %d/Google摘要 %d/网页meta %d/腾讯 %d/DS压 %d/低质丢弃 %d) 复用%d 失败%d" % (
+        enriched, src_body, src_google, src_meta, src_tn, src_ds, src_lowq, reused, failed) if enrich else "摘要反查跳过（ENRICH_SUMMARIES 未开启）")
 
     data = {
         "date": f"{now.year}年{now.month}月{now.day}日 星期{'一二三四五六日'[now.weekday()]}",
