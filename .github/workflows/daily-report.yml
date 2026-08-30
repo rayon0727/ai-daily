@@ -57,6 +57,11 @@ jobs:
           python3 rebuild_archive.py
           ls -la ai-daily-combined-*.html index.html archive.html | tail -5
 
+      - name: Write build marker
+        run: |
+          # Worker 据此判断内容新鲜度；首次无此文件视为过期→触发重建
+          python3 -c "import json,time; open('build-daily.json','w').write(json.dumps({'ts': int(time.time())}))"
+
       - name: Push notification (if subscribed)
         env:
           VAPID_JSON: ${{ secrets.VAPID_JSON }}
