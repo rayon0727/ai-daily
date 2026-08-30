@@ -273,18 +273,28 @@ def main():
                       '智能电网', '智慧水务', '智慧燃气', '电梯物联', '商用车', '工程机械', '新能源'],
     }
     BIZ_COLORS = {'竞品动态': '#dc2626', '政策信号': '#2563eb', '潜在客户行业': '#16a34a'}
+    import re as _re
+    def _norm_title(t):
+        # 归一化标题（去空白/标点/大小写），用于跨来源去重同一篇文章
+        return _re.sub(r'[\s\W_]+', '', (t or '')).lower()
     seen_biz = set()
+    seen_biz_title = set()
     biz_sections = []
     for c in ['竞品动态', '政策信号', '潜在客户行业']:
         its = [it for it in ALL if (not it['old']) and it['n'] not in seen_biz
+               and _norm_title(it['title']) not in seen_biz_title
                and any(k in (it['title'] + ' ' + it['full']) for k in BIZ_KW[c])]
         its.sort(key=lambda x: (-x['score'], -(x['ts'] or 0)))
         items_b = []
         for it in its[:6]:
+            nt = _norm_title(it['title'])
+            if nt in seen_biz_title:
+                continue
             items_b.append({'n': it['n'], 'title': it['title'], 'full': it['full'], 'source': it['source'],
                             'time': it['time'], 'ts': it['ts'], 'url': it['url'], 'tag': c, 'topic': None,
                             'reason': c, 'score': it['score'], 'old': False})
             seen_biz.add(it['n'])
+            seen_biz_title.add(nt)
         if items_b:
             biz_sections.append({'label': c, 'color': BIZ_COLORS[c], 'items': items_b})
     if biz_sections:
