@@ -1,8 +1,8 @@
 name: Hotlists Refresh
 
-# 触发策略（已确认跳过 Cloudflare Worker，纯 GitHub Pages 部署）：
-#   1) schedule 保底——每天北京时间 09:30 / 21:30 自动刷新一次，确保热搜最旧不超过约 12h。
-#   2) workflow_dispatch——保留手动触发入口（Actions 页面点 Run workflow 可立即刷新）。
+# 双保险：
+#   1) schedule 保底——每天北京时间 09:30 / 21:30 自动刷新一次，确保久未访问时热搜也不会太久没更新。
+#   2) workflow_dispatch——Cloudflare Worker 在用户访问 /hot 且内容过期（>4h）时按需触发。
 on:
   schedule:
     - cron: '30 1,13 * * *'   # UTC 01:30 / 13:30 = 北京时间 09:30 / 21:30
@@ -44,11 +44,16 @@ jobs:
           python3 gen_hot.py hot.html
         working-directory: .
 
+      - name: Write build marker
+        run: |
+          # Worker 据此判断热搜内容新鲜度
+          python3 -c "import json,time; open('build-hot.json','w').write(json.dumps({'ts': int(time.time())}))"
+
       - name: Commit & push
         run: |
           git config user.name "ai-daily-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add hot.html hotlists.json
+          git add hot.html hotlists.json build-hot.json
           if git diff --cached --quiet; then
             echo "无变化，跳过提交"
             exit 0
