@@ -1,6 +1,6 @@
 # 朝闻 · 访问即更新（Cloudflare Worker）
 
-把晨报站从「定时自动跑」改成「只有打开页面时才可能触发重建」，彻底停止无意义的配额/算力消耗。
+把晨报站从「每小时/每天盲目自动跑」改成「访问即更新 + 每天保底两次」，在控制配额的同时保证资讯不会太久不刷新。
 
 ## 原理
 - GitHub Pages 仍是静态源（`https://rayon0727.github.io/ai-daily/`）。
@@ -36,7 +36,11 @@ wrangler deploy
 - 打开 → 若内容超过 4 小时，后台自动重建；响应头 `x-ai-daily-rebuilding: 1` 表示本次已触发重建，刷新一下即可看到新版。
 - 热搜页访问 `https://<worker>/hot.html` 即可按需刷新。
 
+## 触发策略（双保险）
+- **保底定时**：两个 workflow 的 `on.schedule` 设了 `cron: '30 1,13 * * *'`（UTC），即**北京时间每天 09:30 与 21:30 各自动重建一次**。即使你很久没访问，资讯最旧也不会超过约 12 小时。
+- **访问补充**：Worker 在你打开页面且内容超过 `STALE_HOURS`（默认 4 小时）时，再异步触发一次，让当天频繁查看时更及时。
+- 两者并存、互不冲突：定时保证最低频度，Worker 提供按需即时性。
+
 ## 关闭旧的自动触发
-- 仓库两个 workflow 已移除 `schedule` 定时与 `repository_dispatch`，不再自动跑。
-- 务必到 **cron-job.org** 把原来给 `daily-report` / `refresh` 的定时任务**停用/删除**，否则它们会继续 404。
-- （可选）若想临时手动跑一次，可在 GitHub 仓库 Actions 页面手动 `Run workflow`。
+- 旧的 cron-job.org 定时（给 `daily-report` / `refresh` 的 `repository_dispatch`）**必须停用/删除**，否则会一直 404 报错；它已被 GitHub 原生 `schedule` 取代。
+- （可选）若想临时手动跑一次，可在 GitHub 仓库 Actions 页面手动 `Run workflow`，或访问 Worker 触发。
