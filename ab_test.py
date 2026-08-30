@@ -10,7 +10,8 @@ import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fetch_hotlists import fetch_weibo, fetch_toutiao, fetch_baidu
 from fetch_news import (gnews_search, google_news, fetch_meta_description,
-                        is_low_quality_summary, search_tn_summary, summarize_with_ds)
+                        is_low_quality_summary, search_tn_summary, summarize_with_ds,
+                        resolve_google_news_url, fetch_article_body)
 
 DS_KEY = os.environ.get('DEEPSEEK_API_KEY', '')
 GNEWS_KEY = os.environ.get('GNEWS_API_KEY', '')
@@ -36,23 +37,25 @@ def load_cache():
 
 
 def treatment(w):
-    """新管线：GNews 真实片段 → DS 压成一句事实；GNews 无覆盖则 Google/meta → DS；
-    都失败才回退腾讯（兜底，计入腾讯消耗）。"""
+    """新管线：Google News RSS（免费）→ 解析真实文章 URL → 抓正文 → DS 压成一句事实。
+    Google 无覆盖 / 正文抓取失败才回退腾讯（兜底，计入腾讯消耗）。无需 GNews key。"""
     material, src = '', ''
     try:
-        if GNEWS_KEY:
-            gn = gnews_search(w, 1, GNEWS_KEY, 'zh', 'cn')
-            if gn:
-                material = (gn[0].get('summary') or '').strip()
-                src = gn[0].get('source') or 'GNews'
-        if not material:
-            g = google_news(w, 1)
-            if g and not is_low_quality_summary(g[0]['title'], g[0]['summary']):
-                material, src = g[0]['summary'], (g[0]['source'] or 'Google')
-            elif g:
-                d = fetch_meta_description(g[0].get('url'))
-                if d:
-                    material, src = d, (g[0]['source'] or 'Google-meta')
+        g = google_news(w, 3)
+        if g:
+            for cand in g[:3]:
+                u = cand.get('url', '')
+                if 'news.google.com' in u:
+                    u = resolve_google_news_url(u)
+                if not u or 'news.google.com' in u:
+                    continue
+                body = fetch_article_body(u)
+                if body and len(body) >= 40:
+                    material, src = body, cand.get('source') or 'Google 新闻'
+                    break
+            # 正文抓不到但 RSS 自带可用摘要（罕见）→ 直接用它
+            if not material and not is_low_quality_summary(g[0]['title'], g[0]['summary']):
+                material, src = g[0]['summary'], g[0]['source'] or 'Google 新闻'
     except Exception:
         pass
     if material and len(material) >= 8 and DS_KEY:
@@ -93,11 +96,11 @@ def main():
         print(f"  原({csrc}): {csum}")
         print(f"  新({ts}): {t}")
 
-    md = "# 热搜摘要 A/B 对比（原=腾讯反查 / 新=GNews+DeepSeek）\n\n"
+    md = "# 热搜摘要 A/B 对比（原=腾讯反查 / 新=Google News正文+DeepSeek）\n\n"
     md += f"- DeepSeek: {'启用' if DS_KEY else '**未配置**'}\n"
-    md += f"- GNews: {'启用' if GNEWS_KEY else '**未配置**'}\n\n"
+    md += "- 检索源: Google News RSS + 原页正文抓取（免费，不依赖 GNews key）\n\n"
     md += "> 控制组取自已提交的 hotlists.json（腾讯反查产物，不重复消耗积分）；"
-    md += "实验组为本次实时 GNews+DS 结果。\n\n"
+    md += "实验组为本次实时 Google News+正文+DS 结果。\n\n"
     cur = None
     for name, w, csum, csrc, t, ts in rows:
         if name != cur:
