@@ -1,11 +1,8 @@
 name: Daily Report
 
+# 按需触发：仅当 Cloudflare Worker 判断内容过期（用户访问时）才 workflow_dispatch。
+# 已移除 schedule 定时与 cron-job.org 的 repository_dispatch，不再自动烧配额。
 on:
-  schedule:
-    # 兜底：北京时间每天 09:30（UTC 01:30）。GitHub schedule 偶发不触发，主触发靠 cron-job.org repository_dispatch。
-    - cron: '30 1 * * *'
-  repository_dispatch:
-    types: [daily-report]
   workflow_dispatch:
 
 permissions:
@@ -54,6 +51,11 @@ jobs:
           python3 gen_daily.py --data-dir /tmp --template ai-daily-template.html --out-dir .
           python3 rebuild_archive.py
           ls -la ai-daily-combined-*.html index.html archive.html | tail -5
+
+      - name: Write build marker
+        run: |
+          # Worker 据此判断内容新鲜度；首次无此文件视为过期→触发重建
+          python3 -c "import json,time; open('build-daily.json','w').write(json.dumps({'ts': int(time.time())}))"
 
       - name: Push notification (if subscribed)
         env:
