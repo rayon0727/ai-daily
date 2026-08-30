@@ -85,6 +85,48 @@ def search_tn_summary(title):
     return {'summary': summary[:90], 'source': src.group(1).strip() if src else ''}
 
 
+def summarize_with_ds(title, text, source='', api_key=None,
+                       base='https://api.deepseek.com', model='deepseek-chat'):
+    """用 DeepSeek 把「标题 + 素材」压成一句客观中文摘要（≤40字，只陈述事实）。
+
+    不联网、不检索——只做摘要，因此必须喂入真实素材（news 片段 / meta / 正文）。
+    无 key / 异常 / 素材过短 / 退化为标题本身时返回 None，由调用方回退腾讯反查。"""
+    if not api_key:
+        api_key = os.environ.get('DEEPSEEK_API_KEY', '')
+    if not api_key:
+        return None
+    text = (text or '').strip()
+    if len(text) < 8:
+        return None
+    sys_p = ('你是新闻编辑。根据给定标题和素材，写一句客观中文摘要，不超过40字，'
+             '只陈述事实、不评论、不添加素材之外的信息。若素材不足以概括，输出标题本身。')
+    user_p = f"标题：{title}\n来源：{source}\n素材：{text[:800]}"
+    body = json.dumps({
+        "model": model,
+        "messages": [
+            {"role": "system", "content": sys_p},
+            {"role": "user", "content": user_p}
+        ],
+        "max_tokens": 80,
+        "temperature": 0.3,
+        "stream": False
+    }, ensure_ascii=False).encode('utf-8')
+    try:
+        req = urllib.request.Request(
+            base.rstrip('/') + '/v1/chat/completions',
+            data=body,
+            headers={'Authorization': 'Bearer ' + api_key,
+                     'Content-Type': 'application/json'})
+        with urllib.request.urlopen(req, timeout=20) as r:
+            d = json.loads(r.read().decode('utf-8'))
+        content = d['choices'][0]['message']['content'].strip().strip('"\'。')
+        if not content or content == title:
+            return None
+        return content[:60]
+    except Exception:
+        return None
+
+
 def resolve_google_news_url(gurl):
     """Google News RSS 链接 → 真实文章 URL。
 
