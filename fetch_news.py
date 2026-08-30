@@ -186,6 +186,46 @@ def fetch_meta_description(url):
         return None
 
 
+def fetch_article_body(url, max_chars=1200):
+    """抓取新闻原页正文（免费，不依赖腾讯 CLI 积分）。
+
+    从 HTML 抽取 <p> 段落文本，过滤脚本/导航/页脚，供 DS 摘要使用真实素材，
+    避免纯标题导致的幻觉。Google News 重定向链接先解析真实文章 URL。
+    失败 / 正文过短（<40 字）返回 None。"""
+    if not url:
+        return None
+    if 'news.google.com' in url:
+        url = resolve_google_news_url(url)
+    if not url or 'news.google.com' in url:
+        return None
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': UA})
+        with urllib.request.urlopen(req, timeout=10) as r:
+            raw = r.read(1600000).decode('utf-8', 'ignore')
+        # 去掉 script/style/head/nav/footer/header/aside/noscript
+        cleaned = re.sub(r'<(script|style|head|nav|footer|header|aside|noscript)[^>]*>.*?</\1>',
+                         ' ', raw, flags=re.S | re.I)
+        # 优先抽取 <p> 段落文本（新闻正文基本都在 <p> 里）
+        paras = re.findall(r'<p[^>]*>(.*?)</p>', cleaned, re.S | re.I)
+        texts = []
+        for p in paras:
+            t = re.sub(r'<[^>]+>', '', p)
+            t = html_mod.unescape(t).strip()
+            t = re.sub(r'\s+', ' ', t)
+            if len(t) >= 15:
+                texts.append(t)
+        body = ' '.join(texts)[:max_chars]
+        if len(body) < 40:
+            # 退一步：整页去标签取中段文本
+            no_tag = re.sub(r'<[^>]+>', ' ', cleaned)
+            no_tag = html_mod.unescape(no_tag)
+            no_tag = re.sub(r'\s+', ' ', no_tag).strip()
+            body = no_tag[:max_chars]
+        return body if len(body) >= 40 else None
+    except Exception:
+        return None
+
+
 def gnews_search(q, limit, apikey, lang='zh', country='cn'):
     """GNews API 搜索（免费层 100 次/天，返回真实 description + 直链 url）。
 
