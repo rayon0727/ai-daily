@@ -1,8 +1,11 @@
 name: Daily Report
 
-# 按需触发：仅当 Cloudflare Worker 判断内容过期（用户访问时）才 workflow_dispatch。
-# 已移除 schedule 定时与 cron-job.org 的 repository_dispatch，不再自动烧配额。
+# 双保险：
+#   1) schedule 保底——每天北京时间 09:30 / 21:30 自动重建一次，确保久未访问也不会太久没更新（最低频度每天两次）。
+#   2) workflow_dispatch——Cloudflare Worker 在用户访问且内容过期（>4h）时按需触发，做更及时的补充更新。
 on:
+  schedule:
+    - cron: '30 1,13 * * *'   # UTC 01:30 / 13:30 = 北京时间 09:30 / 21:30
   workflow_dispatch:
 
 permissions:
