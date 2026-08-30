@@ -103,6 +103,15 @@ def is_domestic_mismatch(title, full):
     tc, fc = _cjk_chars(title), _cjk_chars(f[:140])
     return len(tc) >= 3 and len(fc) >= 8 and len(set(tc) & set(fc)) == 0
 
+# 腾讯 CLI 偶发返回完全无关的正文（实测两次均命中：标题谈物联网、正文却是
+# "骑自行车必须佩戴头盔/一盔一带" 交通科普）。这些词汇与 IoT/科技毫无关系，
+# 命中即判定为垃圾正文，清空仅留标题。仅会命中真垃圾，绝不误伤正常新闻。
+JUNK_PHRASES = ['佩戴头盔', '一盔一带', '骑自行车', '骑电动车', '电动车头盔',
+                '交管局', '交通安全', '交警提醒', '酒驾']
+def is_junk_body(full):
+    f = (full or '').strip()
+    return len(f) >= 15 and any(p in f for p in JUNK_PHRASES)
+
 def main():
     global NOW
     ap = argparse.ArgumentParser()
@@ -125,6 +134,7 @@ def main():
                 ('国外·全球物联网', f'{D}/tn_iot_global.txt', '#0d9488')]
     secs_tn = []
     mismatch_count = 0
+    junk_count = 0
     foreign_kept = 0
     for label, path, color in tn_files:
         items = []
@@ -135,6 +145,10 @@ def main():
             if is_domestic_mismatch(r['title'], full):
                 full = ''
                 mismatch_count += 1
+            # 垃圾正文防护：命中交通/安全等无关词汇（实测固定错配：物联网标题→骑头盔正文）
+            elif is_junk_body(full):
+                full = ''
+                junk_count += 1
             # 国外板块：仅保留"有中文可读摘要 + 属 IoT/AI 专题"的条目——
             # 用户无法打开外链，纯英文/无中文摘要=噪声；串文（骑电动车戴头盔/秦皇岛观光等）
             # 因不含任何 IoT 关键词也会被滤掉。双重条件避免保留垃圾。
@@ -232,7 +246,7 @@ def main():
     DATA = {'date': f'{NOW.year}年{NOW.month}月{NOW.day}日 星期{weekday}', 'parts': parts, 'total': seq,
             'fetchedAt': f'{NOW.year}年{NOW.month}月{NOW.day}日 {NOW.strftime("%H:%M")}（北京时间）',
             'highlights': highlights, 'hotwords': hotwords, 'topics': topics}
-    print(f'total: {seq} | 相关: {sum(1 for it in ALL if "相关" in it["tag"])} | 往期: {sum(1 for it in ALL if it["old"])} | 串文清空: {mismatch_count} | 国外保留: {foreign_kept}条')
+    print(f'total: {seq} | 相关: {sum(1 for it in ALL if "相关" in it["tag"])} | 往期: {sum(1 for it in ALL if it["old"])} | 串文清空: {mismatch_count} | 垃圾正文清空: {junk_count} | 国外保留: {foreign_kept}条')
 
     # ---------- 生成 ----------
     tpl = open(args.template, encoding='utf-8').read()
