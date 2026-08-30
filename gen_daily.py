@@ -20,6 +20,11 @@ from datetime import datetime, timezone, timedelta
 BJT = timezone(timedelta(hours=8))
 IOT_KEYWORDS = ['物联网','卫星','芯片','5G','6G','蜂窝','模组','eSIM','eUICC','算力','运营商',
                 '低轨','半导体','工信部','行动方案','产业创新','智连']
+# 国外板块（全球 IoT/AI 专题）专属过滤词：摘要须含其一才算"相关业务动态"，
+# 用来挡掉腾讯 CLI 偶发的串文（骑电动车戴头盔 / 秦皇岛观光等无关正文）。
+FOREIGN_KW = ['物联网','卫星','低轨','星座','芯片','半导体','5G','6G','蜂窝','模组','eSIM',
+              '算力','运营商','边缘','AI','人工智能','机器人','自动驾驶','云','大模型',
+              '新能源','电池','航天','通信','智能','传感','雷达','无人机','数字孪生']
 TOPICS = [
     ('🛰️ 卫星与低轨', ['卫星','低轨','星座','航天','太空','吉利']),
     ('🔌 芯片与模组', ['芯片','半导体','蜂窝','模组','eSIM','eUICC']),
@@ -120,9 +125,8 @@ def main():
                 ('国外·全球物联网', f'{D}/tn_iot_global.txt', '#0d9488')]
     secs_tn = []
     mismatch_count = 0
+    foreign_kept = 0
     for label, path, color in tn_files:
-        if label == '国外·全球物联网':
-            continue  # 国外文章用户无法打开（外链不可达 / 多为英文无中文摘要），整段跳过
         items = []
         for r in parse_tn(path):
             ts = ts_from(r['time_raw'])
@@ -131,6 +135,14 @@ def main():
             if is_domestic_mismatch(r['title'], full):
                 full = ''
                 mismatch_count += 1
+            # 国外板块：仅保留"有中文可读摘要 + 属 IoT/AI 专题"的条目——
+            # 用户无法打开外链，纯英文/无中文摘要=噪声；串文（骑电动车戴头盔/秦皇岛观光等）
+            # 因不含任何 IoT 关键词也会被滤掉。双重条件避免保留垃圾。
+            if label == '国外·全球物联网':
+                blob = r['title'] + full
+                if len(_cjk_chars(full)) < 10 or not any(k in blob for k in FOREIGN_KW):
+                    continue
+                foreign_kept += 1
             is_hot = (label == '热点新闻')
             tag = '⚡ 相关' if is_iot(r['title'] + full) else ('🔥 热点' if is_hot else '')
             topic = topic_of(r['title'] + full)
@@ -220,7 +232,7 @@ def main():
     DATA = {'date': f'{NOW.year}年{NOW.month}月{NOW.day}日 星期{weekday}', 'parts': parts, 'total': seq,
             'fetchedAt': f'{NOW.year}年{NOW.month}月{NOW.day}日 {NOW.strftime("%H:%M")}（北京时间）',
             'highlights': highlights, 'hotwords': hotwords, 'topics': topics}
-    print(f'total: {seq} | 相关: {sum(1 for it in ALL if "相关" in it["tag"])} | 往期: {sum(1 for it in ALL if it["old"])} | 串文清空: {mismatch_count} | 国外板块: 已跳过')
+    print(f'total: {seq} | 相关: {sum(1 for it in ALL if "相关" in it["tag"])} | 往期: {sum(1 for it in ALL if it["old"])} | 串文清空: {mismatch_count} | 国外保留: {foreign_kept}条')
 
     # ---------- 生成 ----------
     tpl = open(args.template, encoding='utf-8').read()
