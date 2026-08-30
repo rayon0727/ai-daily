@@ -1,6 +1,6 @@
 {
  "date": "2026年8月30日 星期日",
- "fetchedAt": "2026年08月30日 12:20（北京时间）",
+ "fetchedAt": "2026年08月30日 12:42（北京时间）",
  "platforms": [
   {
    "key": "weibo",
@@ -12,7 +12,7 @@
     {
      "rank": 1,
      "word": "尼泊尔山洪已致675遇难2498失联",
-     "hot": "114万",
+     "hot": "116万",
      "label": "沸",
      "url": "https://s.weibo.com/weibo?q=%E5%B0%BC%E6%B3%8A%E5%B0%94%E5%B1%B1%E6%B4%AA%E5%B7%B2%E8%87%B4675%E9%81%87%E9%9A%BE2498%E5%A4%B1%E8%81%94",
      "summary": "尼泊尔山洪已致675人遇难，2498人失联    京报网",
@@ -22,7 +22,7 @@
     {
      "rank": 2,
      "word": "青春芒果夜节目单",
-     "hot": "83万",
+     "hot": "87万",
      "label": "新",
      "url": "https://s.weibo.com/weibo?q=%E9%9D%92%E6%98%A5%E8%8A%92%E6%9E%9C%E5%A4%9C%E8%8A%82%E7%9B%AE%E5%8D%95",
      "summary": "据封面新闻，8月28日，《2026青春芒果夜》节目组发布公告：因编排调整，芒果TV原定于8月28日19:30直播的《2026青春芒果夜》取消，播出时间另行安排。 27日，节目组还曾",
@@ -32,7 +32,7 @@
     {
      "rank": 3,
      "word": "西藏吉隆泥石流新闻发布会",
-     "hot": "65万",
+     "hot": "78万",
      "label": "",
      "url": "https://s.weibo.com/weibo?q=%E8%A5%BF%E8%97%8F%E5%90%89%E9%9A%86%E6%B3%A5%E7%9F%B3%E6%B5%81%E6%96%B0%E9%97%BB%E5%8F%91%E5%B8%83%E4%BC%9A",
      "summary": "吉隆泥石流新闻发布会现场默哀    凤凰网",
@@ -42,7 +42,7 @@
     {
      "rank": 4,
      "word": "金牌幼师嫁给了二级厨师",
-     "hot": "64万",
+     "hot": "76万",
      "label": "新",
      "url": "https://s.weibo.com/weibo?q=%E9%87%91%E7%89%8C%E5%B9%BC%E5%B8%88%E5%AB%81%E7%BB%99%E4%BA%86%E4%BA%8C%E7%BA%A7%E5%8E%A8%E5%B8%88",
      "summary": "“万万没想到，二十年前的童年回忆也塌房了！”近日，《中华小当家》（《中华小厨师！极》）漫画第182话的剧情引爆网络——男主角“小当家”刘昴星因一场“对决”的落败，竟遭极刑“处决”。",
@@ -51,47 +51,47 @@
     },
     {
      "rank": 5,
-     "word": "井柏然包上恩 京洛再无佳人",
-     "hot": "61万",
+     "word": "祖海高定",
+     "hot": "70万",
      "label": "新",
-     "url": "https://s.weibo.com/weibo?q=%E4%BA%95%E6%9F%8F%E7%84%B6%E5%8C%85%E4%B8%8A%E6%81%A9%20%E4%BA%AC%E6%B4%9B%E5%86%8D%E6%97%A0%E4%BD%B3%E4%BA%BA",
-     "summary": "你有没有遇到过这样的职场 —— 被面试官当众否定，连把话说完的机会都没有； 被高层骚扰了，周围人却劝你 \"算了，闹大了对你没好处\"； 好不容易鼓起勇气站出来，最该撑腰的人却在举报信",
-     "sum_src": "昏鸦的啰哩啰嗦",
-     "sum_ts": 1788063629
+     "url": "https://s.weibo.com/weibo?q=%E7%A5%96%E6%B5%B7%E9%AB%98%E5%AE%9A",
+     "summary": "祖海高定国内首穿为何花落杨紫？答案不在裙子上    qq.com",
+     "sum_src": "qq.com",
+     "sum_ts": 1788064965
     },
     {
      "rank": 6,
+     "word": "井柏然包上恩 京洛再无佳人",
+     "hot": "61万",
+     "label": "新",
+     "url": "https://s.weibo.com/weibo?q=%E4%BA%95%E6%9F%8F%E7%84%B6%E5%8C%85%E4%B8%8A%E6%81%A9%20%E4%BA%AC%E6%B4%9B%E5%86%8D%E6%97%A0%E4%BD%B3%E4%BA%BA"
+    },
+    {
+     "rank": 7,
+     "word": "地球超新鲜2群像的含金量",
+     "hot": "51万",
+     "label": "",
+     "url": "https://s.weibo.com/weibo?q=%E5%9C%B0%E7%90%83%E8%B6%85%E6%96%B0%E9%B2%9C2%E7%BE%A4%E5%83%8F%E7%9A%84%E5%90%AB%E9%87%91%E9%87%8F"
+    },
+    {
+     "rank": 8,
      "word": "有钱的家庭该如何富养孩子",
-     "hot": "54万",
+     "hot": "46万",
      "label": "",
      "url": "https://s.weibo.com/weibo?q=%E6%9C%89%E9%92%B1%E7%9A%84%E5%AE%B6%E5%BA%AD%E8%AF%A5%E5%A6%82%E4%BD%95%E5%AF%8C%E5%85%BB%E5%AD%A9%E5%AD%90"
     },
     {
-     "rank": 7,
-     "word": "风云T7犀牛电池600km续航超能跑",
-     "hot": "46万",
-     "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E9%A3%8E%E4%BA%91T7%E7%8A%80%E7%89%9B%E7%94%B5%E6%B1%A0600km%E7%BB%AD%E8%88%AA%E8%B6%85%E8%83%BD%E8%B7%91"
-    },
-    {
-     "rank": 8,
-     "word": "吴敬平回应樊振东输户上隼辅",
-     "hot": "43万",
-     "label": "新",
-     "url": "https://s.weibo.com/weibo?q=%E5%90%B4%E6%95%AC%E5%B9%B3%E5%9B%9E%E5%BA%94%E6%A8%8A%E6%8C%AF%E4%B8%9C%E8%BE%93%E6%88%B7%E4%B8%8A%E9%9A%BC%E8%BE%85"
-    },
-    {
      "rank": 9,
-     "word": "杜塞主帅曝樊振东恢复过程异常艰难",
-     "hot": "37万",
+     "word": "吴敬平回应樊振东输户上隼辅",
+     "hot": "39万",
      "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E6%9D%9C%E5%A1%9E%E4%B8%BB%E5%B8%85%E6%9B%9D%E6%A8%8A%E6%8C%AF%E4%B8%9C%E6%81%A2%E5%A4%8D%E8%BF%87%E7%A8%8B%E5%BC%82%E5%B8%B8%E8%89%B0%E9%9A%BE"
+     "url": "https://s.weibo.com/weibo?q=%E5%90%B4%E6%95%AC%E5%B9%B3%E5%9B%9E%E5%BA%94%E6%A8%8A%E6%8C%AF%E4%B8%9C%E8%BE%93%E6%88%B7%E4%B8%8A%E9%9A%BC%E8%BE%85"
     },
     {
      "rank": 10,
      "word": "初中孩子更需要父母接送上下学",
-     "hot": "34万",
-     "label": "新",
+     "hot": "32万",
+     "label": "",
      "url": "https://s.weibo.com/weibo?q=%E5%88%9D%E4%B8%AD%E5%AD%A9%E5%AD%90%E6%9B%B4%E9%9C%80%E8%A6%81%E7%88%B6%E6%AF%8D%E6%8E%A5%E9%80%81%E4%B8%8A%E4%B8%8B%E5%AD%A6"
     }
    ]
@@ -105,28 +105,28 @@
    "items": [
     {
      "rank": 1,
-     "word": "吉隆口岸大楼只剩钢筋骨架",
-     "hot": "2968万",
+     "word": "西藏泥石流致16人遇难546人失联",
+     "hot": "3006万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679072449947123731/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679072449947123731%22%2C%22hot_board_impr_id%22%3A%2220260830122026D975AF90770387BEA6DE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%90%89%E9%9A%86%E5%8F%A3%E5%B2%B8%E5%A4%A7%E6%A5%BC%E5%8F%AA%E5%89%A9%E9%92%A2%E7%AD%8B%E9%AA%A8%E6%9E%B6%22%7D&rank=&style_id=40132&topic_id=7679072449947123731",
-     "summary": "西藏吉隆口岸大楼只剩钢筋骨架    凤凰网",
-     "sum_src": "凤凰网",
-     "sum_ts": 1788045629
+     "url": "https://www.toutiao.com/trending/7679611609488297522/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679611609488297522%22%2C%22hot_board_impr_id%22%3A%2220260830124240B945A9CA4A1009D388CE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%A5%BF%E8%97%8F%E6%B3%A5%E7%9F%B3%E6%B5%81%E8%87%B416%E4%BA%BA%E9%81%87%E9%9A%BE546%E4%BA%BA%E5%A4%B1%E8%81%94%22%7D&rank=&style_id=40132&topic_id=7679611609488297522",
+     "summary": "尼泊尔边境地区突发冰川崩塌引发严重泥石流灾害，造成中尼两国重大人员伤亡、失联，是近年来两国间发生的最严重跨境灾害，救灾工作复杂性和艰巨性前所未有。据央视新闻报道，8月30日，西藏自",
+     "sum_src": "界面新闻",
+     "sum_ts": 1788063629
     },
     {
      "rank": 2,
-     "word": "湖北急性心梗死亡率连续8年下降背后",
-     "hot": "2685万",
+     "word": "国家动博馆强烈谴责父亲带娃玩标本",
+     "hot": "2720万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679602176649510962/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679602176649510962%22%2C%22hot_board_impr_id%22%3A%2220260830122026D975AF90770387BEA6DE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%B9%96%E5%8C%97%E6%80%A5%E6%80%A7%E5%BF%83%E6%A2%97%E6%AD%BB%E4%BA%A1%E7%8E%87%E8%BF%9E%E7%BB%AD8%E5%B9%B4%E4%B8%8B%E9%99%8D%E8%83%8C%E5%90%8E%22%7D&rank=&style_id=40132&topic_id=7679602176649510962",
-     "summary": "你刷到一个五十岁男人的账号，里面全是摇滚音乐节的现场视频，你会怎么想？ 多半会觉得这大叔挺酷的。 2026年5月17日，舒凯就在自己的社交账号上发了这么一段视频。 台上的贝斯手闭着",
-     "sum_src": "追剧省流侠",
-     "sum_ts": 1788063629
+     "url": "https://www.toutiao.com/trending/7679662125094030899/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679662125094030899%22%2C%22hot_board_impr_id%22%3A%2220260830124240B945A9CA4A1009D388CE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%9B%BD%E5%AE%B6%E5%8A%A8%E5%8D%9A%E9%A6%86%E5%BC%BA%E7%83%88%E8%B0%B4%E8%B4%A3%E7%88%B6%E4%BA%B2%E5%B8%A6%E5%A8%83%E7%8E%A9%E6%A0%87%E6%9C%AC%22%7D&rank=&style_id=40132&topic_id=7679662125094030899",
+     "summary": "国家动博馆强烈谴责父亲带娃玩标本 标本受损事件引关注    中华网",
+     "sum_src": "中华网",
+     "sum_ts": 1788064965
     },
     {
      "rank": 3,
      "word": "中国高水平双向开放不断迈向新高度",
-     "hot": "2430万",
+     "hot": "2461万",
      "label": "热",
      "url": "https://www.toutiao.com/article/7679535854376763938",
      "summary": "中国高水平双向开放不断迈向新高度 外资新设主体稳步扩容    中华网",
@@ -135,58 +135,58 @@
     },
     {
      "rank": 4,
-     "word": "西藏泥石流致16人遇难546人失联",
-     "hot": "2199万",
+     "word": "吉隆口岸大楼只剩钢筋骨架",
+     "hot": "2227万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679611609488297522/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679611609488297522%22%2C%22hot_board_impr_id%22%3A%2220260830122026D975AF90770387BEA6DE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%A5%BF%E8%97%8F%E6%B3%A5%E7%9F%B3%E6%B5%81%E8%87%B416%E4%BA%BA%E9%81%87%E9%9A%BE546%E4%BA%BA%E5%A4%B1%E8%81%94%22%7D&rank=&style_id=40132&topic_id=7679611609488297522",
-     "summary": "尼泊尔边境地区突发冰川崩塌引发严重泥石流灾害，造成中尼两国重大人员伤亡、失联，是近年来两国间发生的最严重跨境灾害，救灾工作复杂性和艰巨性前所未有。据央视新闻报道，8月30日，西藏自",
-     "sum_src": "界面新闻",
-     "sum_ts": 1788063629
+     "url": "https://www.toutiao.com/trending/7679072449947123731/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679072449947123731%22%2C%22hot_board_impr_id%22%3A%2220260830124240B945A9CA4A1009D388CE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%90%89%E9%9A%86%E5%8F%A3%E5%B2%B8%E5%A4%A7%E6%A5%BC%E5%8F%AA%E5%89%A9%E9%92%A2%E7%AD%8B%E9%AA%A8%E6%9E%B6%22%7D&rank=&style_id=40132&topic_id=7679072449947123731",
+     "summary": "西藏吉隆口岸大楼只剩钢筋骨架    凤凰网",
+     "sum_src": "凤凰网",
+     "sum_ts": 1788045629
     },
     {
      "rank": 5,
-     "word": "开学季校园里满是扛着行李的爸爸",
-     "hot": "1989万",
+     "word": "湖北急性心梗死亡率连续8年下降背后",
+     "hot": "2015万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679370299489910810/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679370299489910810%22%2C%22hot_board_impr_id%22%3A%2220260830122026D975AF90770387BEA6DE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%BC%80%E5%AD%A6%E5%AD%A3%E6%A0%A1%E5%9B%AD%E9%87%8C%E6%BB%A1%E6%98%AF%E6%89%9B%E7%9D%80%E8%A1%8C%E6%9D%8E%E7%9A%84%E7%88%B8%E7%88%B8%22%7D&rank=&style_id=40132&topic_id=7679370299489910810",
-     "summary": "今天，“北大报到日校园满是扛床垫的爸爸”登上热搜。十八九岁的孩子拖着行李走进大学，四五十岁的父亲肩上扛着床垫，很多人看完都有点感慨：能送孩子去北大，再替他扛一次床垫，大概也是一种幸",
-     "sum_src": "罗夕夕博士",
+     "url": "https://www.toutiao.com/trending/7679602176649510962/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679602176649510962%22%2C%22hot_board_impr_id%22%3A%2220260830124240B945A9CA4A1009D388CE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%B9%96%E5%8C%97%E6%80%A5%E6%80%A7%E5%BF%83%E6%A2%97%E6%AD%BB%E4%BA%A1%E7%8E%87%E8%BF%9E%E7%BB%AD8%E5%B9%B4%E4%B8%8B%E9%99%8D%E8%83%8C%E5%90%8E%22%7D&rank=&style_id=40132&topic_id=7679602176649510962",
+     "summary": "你刷到一个五十岁男人的账号，里面全是摇滚音乐节的现场视频，你会怎么想？ 多半会觉得这大叔挺酷的。 2026年5月17日，舒凯就在自己的社交账号上发了这么一段视频。 台上的贝斯手闭着",
+     "sum_src": "追剧省流侠",
      "sum_ts": 1788063629
     },
     {
      "rank": 6,
-     "word": "国家动博馆强烈谴责父亲带娃玩标本",
-     "hot": "1800万",
+     "word": "开学季校园里满是扛着行李的爸爸",
+     "hot": "1823万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679662125094030899/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679662125094030899%22%2C%22hot_board_impr_id%22%3A%2220260830122026D975AF90770387BEA6DE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%9B%BD%E5%AE%B6%E5%8A%A8%E5%8D%9A%E9%A6%86%E5%BC%BA%E7%83%88%E8%B0%B4%E8%B4%A3%E7%88%B6%E4%BA%B2%E5%B8%A6%E5%A8%83%E7%8E%A9%E6%A0%87%E6%9C%AC%22%7D&rank=&style_id=40132&topic_id=7679662125094030899"
+     "url": "https://www.toutiao.com/trending/7679370299489910810/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679370299489910810%22%2C%22hot_board_impr_id%22%3A%2220260830124240B945A9CA4A1009D388CE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%BC%80%E5%AD%A6%E5%AD%A3%E6%A0%A1%E5%9B%AD%E9%87%8C%E6%BB%A1%E6%98%AF%E6%89%9B%E7%9D%80%E8%A1%8C%E6%9D%8E%E7%9A%84%E7%88%B8%E7%88%B8%22%7D&rank=&style_id=40132&topic_id=7679370299489910810"
     },
     {
      "rank": 7,
      "word": "西藏泥石流灾害原因查明",
-     "hot": "1629万",
+     "hot": "1650万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679653336089513523/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679653336089513523%22%2C%22hot_board_impr_id%22%3A%2220260830122026D975AF90770387BEA6DE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%A5%BF%E8%97%8F%E6%B3%A5%E7%9F%B3%E6%B5%81%E7%81%BE%E5%AE%B3%E5%8E%9F%E5%9B%A0%E6%9F%A5%E6%98%8E%22%7D&rank=&style_id=40132&topic_id=7679653336089513523"
+     "url": "https://www.toutiao.com/trending/7679653336089513523/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679653336089513523%22%2C%22hot_board_impr_id%22%3A%2220260830124240B945A9CA4A1009D388CE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%A5%BF%E8%97%8F%E6%B3%A5%E7%9F%B3%E6%B5%81%E7%81%BE%E5%AE%B3%E5%8E%9F%E5%9B%A0%E6%9F%A5%E6%98%8E%22%7D&rank=&style_id=40132&topic_id=7679653336089513523"
     },
     {
      "rank": 8,
-     "word": "国防科大学校领导看望新学员及家长",
-     "hot": "1474万",
+     "word": "云南磨憨水库漫坝 群众已转移",
+     "hot": "1493万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679616873973645318/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%220%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679616873973645318%22%2C%22hot_board_impr_id%22%3A%2220260830122026D975AF90770387BEA6DE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%9B%BD%E9%98%B2%E7%A7%91%E5%A4%A7%E5%AD%A6%E6%A0%A1%E9%A2%86%E5%AF%BC%E7%9C%8B%E6%9C%9B%E6%96%B0%E5%AD%A6%E5%91%98%E5%8F%8A%E5%AE%B6%E9%95%BF%22%7D&rank=&style_id=40132&topic_id=7679616873973645318"
+     "url": "https://www.toutiao.com/trending/7679633211357400619/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%225%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679633211357400619%22%2C%22hot_board_impr_id%22%3A%2220260830124240B945A9CA4A1009D388CE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%BA%91%E5%8D%97%E7%A3%A8%E6%86%A8%E6%B0%B4%E5%BA%93%E6%BC%AB%E5%9D%9D+%E7%BE%A4%E4%BC%97%E5%B7%B2%E8%BD%AC%E7%A7%BB%22%7D&rank=&style_id=40132&topic_id=7679633211357400619"
     },
     {
      "rank": 9,
-     "word": "尼日尔军方抓捕多名企图兵变士兵",
-     "hot": "1334万",
+     "word": "中国海警位黄岩岛领海及周边执法巡查",
+     "hot": "1351万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7679643660350443054/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679643660350443054%22%2C%22hot_board_impr_id%22%3A%2220260830122026D975AF90770387BEA6DE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%B0%BC%E6%97%A5%E5%B0%94%E5%86%9B%E6%96%B9%E6%8A%93%E6%8D%95%E5%A4%9A%E5%90%8D%E4%BC%81%E5%9B%BE%E5%85%B5%E5%8F%98%E5%A3%AB%E5%85%B5%22%7D&rank=&style_id=40132&topic_id=7679643660350443054"
+     "url": "https://www.toutiao.com/trending/7679512484293738537/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%220%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679512484293738537%22%2C%22hot_board_impr_id%22%3A%2220260830124240B945A9CA4A1009D388CE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%AD%E5%9B%BD%E6%B5%B7%E8%AD%A6%E4%BD%8D%E9%BB%84%E5%B2%A9%E5%B2%9B%E9%A2%86%E6%B5%B7%E5%8F%8A%E5%91%A8%E8%BE%B9%E6%89%A7%E6%B3%95%E5%B7%A1%E6%9F%A5%22%7D&rank=&style_id=40132&topic_id=7679512484293738537"
     },
     {
      "rank": 10,
-     "word": "吉隆泥石流为何救援难度极大",
-     "hot": "1207万",
+     "word": "西藏公布国内失联人员家属服务热线",
+     "hot": "1222万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7678617811622776361/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227678617811622776361%22%2C%22hot_board_impr_id%22%3A%2220260830122026D975AF90770387BEA6DE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%90%89%E9%9A%86%E6%B3%A5%E7%9F%B3%E6%B5%81%E4%B8%BA%E4%BD%95%E6%95%91%E6%8F%B4%E9%9A%BE%E5%BA%A6%E6%9E%81%E5%A4%A7%22%7D&rank=&style_id=40132&topic_id=7678617811622776361"
+     "url": "https://www.toutiao.com/trending/7679390146185297939/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227679390146185297939%22%2C%22hot_board_impr_id%22%3A%2220260830124240B945A9CA4A1009D388CE%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E8%A5%BF%E8%97%8F%E5%85%AC%E5%B8%83%E5%9B%BD%E5%86%85%E5%A4%B1%E8%81%94%E4%BA%BA%E5%91%98%E5%AE%B6%E5%B1%9E%E6%9C%8D%E5%8A%A1%E7%83%AD%E7%BA%BF%22%7D&rank=&style_id=40132&topic_id=7679390146185297939"
     }
    ]
   },
@@ -213,19 +213,19 @@
      "hot": "",
      "label": "",
      "url": "https://m.baidu.com/s?word=%E8%A5%BF%E8%97%8F%E6%B3%A5%E7%9F%B3%E6%B5%81%E7%81%BE%E5%AE%B3%E5%8E%9F%E5%9B%A0%E7%8E%B0%E5%B7%B2%E6%9F%A5%E6%98%8E&sa=fyb_news",
-     "summary": "记者从西藏自治区人民政府新闻办公室召开的新闻发布会获悉，西藏泥石流灾害原因现已查明，中科院成都山地所冰冻圈应急减灾团队，通过分析遥感监测数据和现场回传资料，结合实地踏勘走访综合认为",
-     "sum_src": "央视新闻",
-     "sum_ts": 1788063629
+     "summary": "西藏泥石流灾害原因现已查明    chinanews.com.cn",
+     "sum_src": "chinanews.com.cn",
+     "sum_ts": 1788064965
     },
     {
      "rank": 3,
-     "word": "多地立法严控学生带手机入校",
+     "word": "宝马5系 不到27万了",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E5%A4%9A%E5%9C%B0%E7%AB%8B%E6%B3%95%E4%B8%A5%E6%8E%A7%E5%AD%A6%E7%94%9F%E5%B8%A6%E6%89%8B%E6%9C%BA%E5%85%A5%E6%A0%A1&sa=fyb_news",
-     "summary": "多地立法严控学生手机入校以制度划定权责边界杜绝“毁灭式管理” 刚性规则之下守住育人底线丨热点即阅    川观新闻",
-     "sum_src": "川观新闻",
-     "sum_ts": 1788054173
+     "url": "https://m.baidu.com/s?word=%E5%AE%9D%E9%A9%AC5%E7%B3%BB+%E4%B8%8D%E5%88%B027%E4%B8%87%E4%BA%86&sa=fyb_news",
+     "summary": "宝马5系 不到27万了 豪车降价潮来袭    中华网",
+     "sum_src": "中华网",
+     "sum_ts": 1788064965
     },
     {
      "rank": 4,
@@ -239,13 +239,13 @@
     },
     {
      "rank": 5,
-     "word": "厦航乘客遭邻座扇耳光 警方介入",
+     "word": "白岩松评临汾公益广告人物形象异常",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E5%8E%A6%E8%88%AA%E4%B9%98%E5%AE%A2%E9%81%AD%E9%82%BB%E5%BA%A7%E6%89%87%E8%80%B3%E5%85%89+%E8%AD%A6%E6%96%B9%E4%BB%8B%E5%85%A5&sa=fyb_news",
-     "summary": "近日，有网友发帖反映称，其乘坐厦门航空从西宁飞往北京的航班时，“遭到邻座乘客扇耳光、击打头部和言语辱骂。”8月22日，该网友称，其乘坐厦门航空航班从西宁飞往北京，“飞行途中，邻座乘",
-     "sum_src": "红星新闻",
-     "sum_ts": 1788063629
+     "url": "https://m.baidu.com/s?word=%E7%99%BD%E5%B2%A9%E6%9D%BE%E8%AF%84%E4%B8%B4%E6%B1%BE%E5%85%AC%E7%9B%8A%E5%B9%BF%E5%91%8A%E4%BA%BA%E7%89%A9%E5%BD%A2%E8%B1%A1%E5%BC%82%E5%B8%B8&sa=fyb_news",
+     "summary": "近日，有网友在社交平台发布一段视频称，在一张标注有“临汾经济开发区管委会宣”的公益广告中，出现人物上下半身朝向截然相反，人物形象因此发生畸变的情况，此事引发关注。8月26日下午，山",
+     "sum_src": "新黄河",
+     "sum_ts": 1788064965
     },
     {
      "rank": 6,
@@ -256,31 +256,31 @@
     },
     {
      "rank": 7,
-     "word": "宝马5系 不到27万了",
+     "word": "多地立法严控学生带手机入校",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E5%AE%9D%E9%A9%AC5%E7%B3%BB+%E4%B8%8D%E5%88%B027%E4%B8%87%E4%BA%86&sa=fyb_news"
+     "url": "https://m.baidu.com/s?word=%E5%A4%9A%E5%9C%B0%E7%AB%8B%E6%B3%95%E4%B8%A5%E6%8E%A7%E5%AD%A6%E7%94%9F%E5%B8%A6%E6%89%8B%E6%9C%BA%E5%85%A5%E6%A0%A1&sa=fyb_news"
     },
     {
      "rank": 8,
-     "word": "未来很难有投资1亿+的大片了",
+     "word": "沈阳警方破获31年前杀人案",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E6%9C%AA%E6%9D%A5%E5%BE%88%E9%9A%BE%E6%9C%89%E6%8A%95%E8%B5%841%E4%BA%BF%2B%E7%9A%84%E5%A4%A7%E7%89%87%E4%BA%86&sa=fyb_news"
+     "url": "https://m.baidu.com/s?word=%E6%B2%88%E9%98%B3%E8%AD%A6%E6%96%B9%E7%A0%B4%E8%8E%B731%E5%B9%B4%E5%89%8D%E6%9D%80%E4%BA%BA%E6%A1%88&sa=fyb_news"
     },
     {
      "rank": 9,
-     "word": "白岩松评临汾公益广告人物形象异常",
+     "word": "小沈阳女儿新歌《WHY》MV上线",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E7%99%BD%E5%B2%A9%E6%9D%BE%E8%AF%84%E4%B8%B4%E6%B1%BE%E5%85%AC%E7%9B%8A%E5%B9%BF%E5%91%8A%E4%BA%BA%E7%89%A9%E5%BD%A2%E8%B1%A1%E5%BC%82%E5%B8%B8&sa=fyb_news"
+     "url": "https://m.baidu.com/s?word=%E5%B0%8F%E6%B2%88%E9%98%B3%E5%A5%B3%E5%84%BF%E6%96%B0%E6%AD%8C%E3%80%8AWHY%E3%80%8BMV%E4%B8%8A%E7%BA%BF&sa=fyb_news"
     },
     {
      "rank": 10,
-     "word": "“来中国之前 我不知道什么叫和平”",
+     "word": "尼泊尔泥石流灾害已致734人死亡",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E2%80%9C%E6%9D%A5%E4%B8%AD%E5%9B%BD%E4%B9%8B%E5%89%8D+%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BB%80%E4%B9%88%E5%8F%AB%E5%92%8C%E5%B9%B3%E2%80%9D&sa=fyb_news"
+     "url": "https://m.baidu.com/s?word=%E5%B0%BC%E6%B3%8A%E5%B0%94%E6%B3%A5%E7%9F%B3%E6%B5%81%E7%81%BE%E5%AE%B3%E5%B7%B2%E8%87%B4734%E4%BA%BA%E6%AD%BB%E4%BA%A1&sa=fyb_news"
     }
    ]
   }
