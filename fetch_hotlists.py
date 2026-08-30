@@ -6,7 +6,8 @@
 抖音：官方接口需签名、第三方聚合当前网络不可达 → 暂不接入（留 key 占位，后续补）。
 """
 import json, re, sys, os, shutil, subprocess, urllib.request
-from fetch_news import google_news, is_low_quality_summary  # 免费搜索源 + 摘要质检
+from fetch_news import (google_news, is_low_quality_summary,
+                        fetch_meta_description)  # 免费搜索源 + 摘要质检 + 网页兜底
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"
 TIMEOUT = 12
@@ -176,7 +177,7 @@ def main():
     cache = load_summary_cache() if enrich else {}
     seen = {}
     reused = enriched = failed = 0
-    src_google = src_tn = src_lowq = 0
+    src_google = src_tn = src_lowq = src_meta = 0
     if enrich:
         for p in platforms:
             for it in p['items'][:5]:
@@ -209,9 +210,17 @@ def main():
                             src_google += 1
                         else:
                             src_lowq += 1
+                            # 免费兜底①：用 Google 命中的原文 URL 抓 meta description，
+                            # 不消耗腾讯积分；失败才交给腾讯 search。
+                            d = fetch_meta_description(g[0].get('url'))
+                            if d and not is_low_quality_summary(w, d):
+                                r = {'title': g[0]['title'], 'summary': d,
+                                     'source': g[0]['source'] or 'Google 新闻'}
+                                src_meta += 1
                 except Exception:
                     r = None
                 if not r:
+                    # 最后兜底：腾讯 search（消耗积分）
                     r = search_tn_summary(w)
                     if r:
                         src_tn += 1
@@ -229,7 +238,7 @@ def main():
                         it['sum_ts'] = cached['ts']
                         seen[w] = cached
                     failed += 1
-    results.append(f"摘要: 新搜{enriched}(Google{src_google}/腾讯{src_tn}/低质丢弃{src_lowq}) 复用{reused} 失败{failed}" if enrich else "摘要反查跳过（ENRICH_SUMMARIES 未开启）")
+    results.append(f"摘要: 新搜{enriched}(Google{src_google}/网页meta{src_meta}/腾讯{src_tn}/低质丢弃{src_lowq}) 复用{reused} 失败{failed}" if enrich else "摘要反查跳过（ENRICH_SUMMARIES 未开启）")
 
     data = {
         "date": f"{now.year}年{now.month}月{now.day}日 星期{'一二三四五六日'[now.weekday()]}",
