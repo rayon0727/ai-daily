@@ -12,6 +12,7 @@
 """
 import argparse
 import json
+import os
 import re
 import sys
 from collections import Counter
@@ -112,6 +113,35 @@ def is_junk_body(full):
     f = (full or '').strip()
     return len(f) >= 15 and any(p in f for p in JUNK_PHRASES)
 
+def translate_with_ds(title, text):
+    """把英文标题/正文用 DeepSeek 译成中文一句话摘要（仅当 DEEPSEEK_API_KEY 配置时）。
+    用于国外板块：用户打不开外链，靠中文摘要掌握海外 IoT/AI 动向。失败返回 None。"""
+    key = os.environ.get('DEEPSEEK_API_KEY')
+    if not key:
+        return None
+    blob = (title + '\n' + (text or '')).strip()
+    if not blob:
+        return None
+    import urllib.request as _ur
+    sys_p = ('你是一名科技情报编辑。请把下面这条海外 IoT/AI 资讯翻译并压缩成一句中文事实摘要'
+             '（不超过 40 字，只陈述事实，不评论、不编造）。若原文与物联网/AI/通信/芯片/卫星无关则回复「不相关」。')
+    try:
+        data = json.dumps({'model': 'deepseek-chat',
+                           'messages': [{'role': 'system', 'content': sys_p},
+                                        {'role': 'user', 'content': blob[:1500]}],
+                           'temperature': 0.3, 'max_tokens': 120}).encode('utf-8')
+        req = _ur.Request('https://api.deepseek.com/v1/chat/completions',
+                          data=data, headers={'Authorization': f'Bearer {key}',
+                                              'Content-Type': 'application/json'})
+        with _ur.urlopen(req, timeout=20) as r:
+            out = json.loads(r.read().decode('utf-8'))
+        txt = out['choices'][0]['message']['content'].strip()
+        if txt == '不相关' or len(_cjk_chars(txt)) < 4:
+            return None
+        return txt
+    except Exception:
+        return None
+
 def main():
     global NOW
     ap = argparse.ArgumentParser()
@@ -155,7 +185,14 @@ def main():
             if label == '国外·全球物联网':
                 blob = r['title'] + full
                 if len(_cjk_chars(full)) < 10 or not any(k in blob for k in FOREIGN_KW):
-                    continue
+                    # 英文/无中文摘要：尝试 DS 译成中文一句话摘要，扩宽海外覆盖
+                    # （用户打不开外链，靠中文摘要掌握动向；非 IoT 或翻译失败则丢弃）
+                    cn = translate_with_ds(r['title'], full)
+                    if cn and len(_cjk_chars(cn)) >= 8 and any(k in (r['title'] + cn) for k in FOREIGN_KW):
+                        full = cn
+                        blob = r['title'] + full
+                    else:
+                        continue
                 foreign_kept += 1
             is_hot = (label == '热点新闻')
             tag = '⚡ 相关' if is_iot(r['title'] + full) else ('🔥 热点' if is_hot else '')
@@ -204,6 +241,38 @@ def main():
                 it['n'] = seq
                 it['old'] = bool(it['ts']) and (NOW.timestamp() - it['ts']) / 86400 > 30
                 ALL.append(it)
+    # ---------- 联通视角·商机竞品（自动打标专栏） ----------
+    # 从全部条目中按联通业务视角筛出「竞品动态 / 政策信号 / 潜在客户行业」三类，
+    # 每个条目只归入其首个命中的类别（去重），按评分排序取前 6 条。
+    BIZ_KW = {
+        '竞品动态': ['中国移动', '移动云', '中国电信', '天翼', '阿里云', '华为云', '华为 ', '中兴通讯',
+                   '腾讯云', '百度智能云', '京东云', 'AWS', 'Azure', '亚马逊云'],
+        '政策信号': ['工信部', '国务院', '发改委', '国资委', '5G专网', '专网', '专项行动', '十四五',
+                   '频谱', '商用牌照', '产业规划', '行动方案'],
+        '潜在客户行业': ['储能', '车联网', '智能网联', '工业互联网', '智慧农业', '智慧医疗', '智慧物流',
+                      '智能电网', '智慧水务', '智慧燃气', '电梯物联', '商用车', '工程机械', '新能源'],
+    }
+    BIZ_COLORS = {'竞品动态': '#dc2626', '政策信号': '#2563eb', '潜在客户行业': '#16a34a'}
+    seen_biz = set()
+    biz_sections = []
+    for c in ['竞品动态', '政策信号', '潜在客户行业']:
+        its = [it for it in ALL if (not it['old']) and it['n'] not in seen_biz
+               and any(k in (it['title'] + ' ' + it['full']) for k in BIZ_KW[c])]
+        its.sort(key=lambda x: (-x['score'], -(x['ts'] or 0)))
+        items_b = []
+        for it in its[:6]:
+            items_b.append({'n': it['n'], 'title': it['title'], 'full': it['full'], 'source': it['source'],
+                            'time': it['time'], 'ts': it['ts'], 'url': it['url'], 'tag': c, 'topic': None,
+                            'reason': c, 'score': it['score'], 'old': False})
+            seen_biz.add(it['n'])
+        if items_b:
+            biz_sections.append({'label': c, 'color': BIZ_COLORS[c], 'items': items_b})
+    if biz_sections:
+        parts.insert(2, {'key': 'biz', 'title': '联通视角·商机竞品',
+                         'desc': '竞品动态 / 政策信号 / 潜在客户行业（自动打标）',
+                         'sourceName': '', 'sourceUrl': '', 'sections': biz_sections})
+    biz_count = sum(len(s['items']) for s in biz_sections)
+
     try:
         wm = json.load(open(f'{D}/wechat_media.json', encoding='utf-8'))
         wm_sections = []
@@ -246,7 +315,7 @@ def main():
     DATA = {'date': f'{NOW.year}年{NOW.month}月{NOW.day}日 星期{weekday}', 'parts': parts, 'total': seq,
             'fetchedAt': f'{NOW.year}年{NOW.month}月{NOW.day}日 {NOW.strftime("%H:%M")}（北京时间）',
             'highlights': highlights, 'hotwords': hotwords, 'topics': topics}
-    print(f'total: {seq} | 相关: {sum(1 for it in ALL if "相关" in it["tag"])} | 往期: {sum(1 for it in ALL if it["old"])} | 串文清空: {mismatch_count} | 垃圾正文清空: {junk_count} | 国外保留: {foreign_kept}条')
+    print(f'total: {seq} | 相关: {sum(1 for it in ALL if "相关" in it["tag"])} | 往期: {sum(1 for it in ALL if it["old"])} | 串文清空: {mismatch_count} | 垃圾正文清空: {junk_count} | 国外保留: {foreign_kept}条 | 联通视角: {biz_count}条')
 
     # ---------- 生成 ----------
     tpl = open(args.template, encoding='utf-8').read()
