@@ -64,7 +64,18 @@ export default {
     if (kind) triggered = await maybeTrigger(env, kind);
 
     const target = ORIGIN + (path === '/' ? '/index.html' : path);
-    const resp = await fetch(target, request);
+
+    // 必须新建 Request，否则原始 Host 头会被转发到 GitHub Pages，导致白屏/404。
+    const upstreamReq = new Request(target, {
+      method: 'GET',
+      headers: {
+        'Accept': request.headers.get('Accept') || '*/*',
+        'Accept-Language': request.headers.get('Accept-Language') || '',
+        'Accept-Encoding': request.headers.get('Accept-Encoding') || '',
+        'User-Agent': request.headers.get('User-Agent') || 'Cloudflare-Worker',
+      },
+    });
+    const resp = await fetch(upstreamReq);
 
     const h = new Headers(resp.headers);
     if (kind) {
