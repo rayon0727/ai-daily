@@ -1,8 +1,11 @@
 name: Hotlists Refresh
 
-# 按需触发：仅当 Cloudflare Worker 判断热搜内容过期（用户访问 /hot 时）才 workflow_dispatch。
-# 已移除每小时 schedule 定时与 cron-job.org 的 repository_dispatch。
+# 双保险：
+#   1) schedule 保底——每天北京时间 09:30 / 21:30 自动刷新一次，确保久未访问时热搜也不会太久没更新。
+#   2) workflow_dispatch——Cloudflare Worker 在用户访问 /hot 且内容过期（>4h）时按需触发。
 on:
+  schedule:
+    - cron: '30 1,13 * * *'   # UTC 01:30 / 13:30 = 北京时间 09:30 / 21:30
   workflow_dispatch:
 
 permissions:
