@@ -1,0 +1,41 @@
+name: AB Test (DS vs Tencent)
+
+# 手动触发：验证「GNews + DeepSeek」摘要管线对比「腾讯反查」的质量/成本。
+# 控制组读取已提交的 hotlists.json（腾讯产物，不重复烧积分）；实验组实时跑 GNews+DS。
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ab:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install tencent-news CLI
+        run: |
+          curl -fsSL https://mat1.gtimg.com/qqcdn/qqnews/cli/hub/tencent-news/setup.sh | sh
+          export PATH="$HOME/.tencent-news-cli/bin:$HOME/.local/bin:$PATH"
+        shell: bash
+
+      - name: Configure API key
+        run: |
+          export PATH="$HOME/.tencent-news-cli/bin:$HOME/.local/bin:$PATH"
+          tencent-news-cli apikey-set "${{ secrets.TN_API_KEY }}" || echo "WARN: API key 配置失败"
+        shell: bash
+
+      - name: Run A/B comparison
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GNEWS_API_KEY: ${{ secrets.GNEWS_API_KEY }}
+        run: python3 ab_test.py
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ab-report
+          path: ab_report.md
