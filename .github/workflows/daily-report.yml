@@ -50,6 +50,8 @@ jobs:
           python3 fetch_wechat_media.py || echo "wechat fetch failed, skip"
 
       - name: Generate daily report
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
           python3 gen_daily.py --data-dir /tmp --template ai-daily-template.html --out-dir .
           python3 rebuild_archive.py
