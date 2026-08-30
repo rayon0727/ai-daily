@@ -84,6 +84,20 @@ def score(title, summary, src, ts, is_hot):
     if is_hot: s += 1
     return s
 
+def _has_cjk(s):
+    return bool(re.search(r'[\u4e00-\u9fff]', s or ''))
+def _cjk_chars(s):
+    return re.findall(r'[\u4e00-\u9fff]', s or '')
+def is_domestic_mismatch(title, full):
+    """串文防护：标题与正文零共享汉字（腾讯 CLI 偶发返回错配文章正文）。
+    仅在高度确信时返回 True——正常新闻标题与正文至少共享一个汉字，
+    零共享几乎必然是不同文章的正文被错配进来；清空正文仅留标题。"""
+    f = (full or '').strip()
+    if len(f) < 30:
+        return False
+    tc, fc = _cjk_chars(title), _cjk_chars(f[:140])
+    return len(tc) >= 3 and len(fc) >= 8 and len(set(tc) & set(fc)) == 0
+
 def main():
     global NOW
     ap = argparse.ArgumentParser()
@@ -105,11 +119,18 @@ def main():
                 ('国内物联网', f'{D}/tn_iot_cn.txt', '#0ea5e9'),
                 ('国外·全球物联网', f'{D}/tn_iot_global.txt', '#0d9488')]
     secs_tn = []
+    mismatch_count = 0
     for label, path, color in tn_files:
+        if label == '国外·全球物联网':
+            continue  # 国外文章用户无法打开（外链不可达 / 多为英文无中文摘要），整段跳过
         items = []
         for r in parse_tn(path):
             ts = ts_from(r['time_raw'])
             full = re.sub(r'\s+', ' ', r['summary']).strip()
+            # 串文防护：腾讯 CLI 偶发返回错配正文（标题与正文零共享汉字），清空正文仅留标题
+            if is_domestic_mismatch(r['title'], full):
+                full = ''
+                mismatch_count += 1
             is_hot = (label == '热点新闻')
             tag = '⚡ 相关' if is_iot(r['title'] + full) else ('🔥 热点' if is_hot else '')
             topic = topic_of(r['title'] + full)
@@ -119,7 +140,8 @@ def main():
                           'reason': reason_of(r['title'], full, r['source'], tag, topic),
                           'score': score(r['title'], full, r['source'], ts, is_hot)})
         items.sort(key=lambda x: (x['ts'] is None, -(x['ts'] or 0)))
-        secs_tn.append({'label': label, 'color': color, 'items': items})
+        if items:
+            secs_tn.append({'label': label, 'color': color, 'items': items})
 
     # ---------- AIHOT ----------
     aihot = json.load(open(f'{D}/aihot_daily_latest.json', encoding='utf-8'))
@@ -198,7 +220,7 @@ def main():
     DATA = {'date': f'{NOW.year}年{NOW.month}月{NOW.day}日 星期{weekday}', 'parts': parts, 'total': seq,
             'fetchedAt': f'{NOW.year}年{NOW.month}月{NOW.day}日 {NOW.strftime("%H:%M")}（北京时间）',
             'highlights': highlights, 'hotwords': hotwords, 'topics': topics}
-    print(f'total: {seq} | 相关: {sum(1 for it in ALL if "相关" in it["tag"])} | 往期: {sum(1 for it in ALL if it["old"])}')
+    print(f'total: {seq} | 相关: {sum(1 for it in ALL if "相关" in it["tag"])} | 往期: {sum(1 for it in ALL if it["old"])} | 串文清空: {mismatch_count} | 国外板块: 已跳过')
 
     # ---------- 生成 ----------
     tpl = open(args.template, encoding='utf-8').read()
