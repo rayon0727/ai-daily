@@ -241,6 +241,26 @@ def main():
                 it['n'] = seq
                 it['old'] = bool(it['ts']) and (NOW.timestamp() - it['ts']) / 86400 > 30
                 ALL.append(it)
+
+    # ---------- 公众号（加载并入 ALL，使联通视角也能扫到公众号源） ----------
+    try:
+        wm = json.load(open(f'{D}/wechat_media.json', encoding='utf-8'))
+        wm_sections = []
+        for i, src in enumerate(wm.get('sources', [])):
+            items = []
+            for it in src.get('items', []):
+                seq += 1
+                entry = {'n': seq, 'title': it['title'], 'full': '', 'source': src['name'],
+                         'time': '', 'ts': None, 'url': it['url'], 'tag': '', 'topic': None,
+                         'reason': '', 'score': 0, 'old': False}
+                items.append(entry)
+                ALL.append(entry)   # 纳入联通视角·商机竞品打标池
+            wm_sections.append({'label': src['name'], 'color': WM_COLORS[i % 2], 'items': items})
+        parts.append({'key': 'wm', 'title': '关注公众号', 'desc': '垂直号最新文章 · 点标题直达原文',
+                      'sourceName': '', 'sourceUrl': '', 'sections': wm_sections})
+    except FileNotFoundError:
+        print('wechat_media.json 缺失，跳过公众号部分')
+
     # ---------- 联通视角·商机竞品（自动打标专栏） ----------
     # 从全部条目中按联通业务视角筛出「竞品动态 / 政策信号 / 潜在客户行业」三类，
     # 每个条目只归入其首个命中的类别（去重），按评分排序取前 6 条。
@@ -272,22 +292,6 @@ def main():
                          'desc': '竞品动态 / 政策信号 / 潜在客户行业（自动打标）',
                          'sourceName': '', 'sourceUrl': '', 'sections': biz_sections})
     biz_count = sum(len(s['items']) for s in biz_sections)
-
-    try:
-        wm = json.load(open(f'{D}/wechat_media.json', encoding='utf-8'))
-        wm_sections = []
-        for i, src in enumerate(wm.get('sources', [])):
-            items = []
-            for it in src.get('items', []):
-                seq += 1
-                items.append({'n': seq, 'title': it['title'], 'full': '', 'source': src['name'],
-                              'time': '', 'ts': None, 'url': it['url'], 'tag': '', 'topic': None,
-                              'reason': '', 'score': 0, 'old': False})
-            wm_sections.append({'label': src['name'], 'color': WM_COLORS[i % 2], 'items': items})
-        parts.append({'key': 'wm', 'title': '关注公众号', 'desc': '垂直号最新文章 · 点标题直达原文',
-                      'sourceName': '', 'sourceUrl': '', 'sections': wm_sections})
-    except FileNotFoundError:
-        print('wechat_media.json 缺失，跳过公众号部分')
 
     # ---------- highlights / hotwords / topics ----------
     cand = [it for it in ALL if not it['old']]
