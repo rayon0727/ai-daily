@@ -191,6 +191,7 @@ def fetch_article_body(url, max_chars=1200):
 
     从 HTML 抽取 <p> 段落文本，过滤脚本/导航/页脚，供 DS 摘要使用真实素材，
     避免纯标题导致的幻觉。Google News 重定向链接先解析真实文章 URL。
+    非网页（图片/PDF）或二进制残留（PNG/JPEG 头）一律返回 None，交上层回退腾讯。
     失败 / 正文过短（<40 字）返回 None。"""
     if not url:
         return None
@@ -198,10 +199,19 @@ def fetch_article_body(url, max_chars=1200):
         url = resolve_google_news_url(url)
     if not url or 'news.google.com' in url:
         return None
+    # 图片直链直接跳过
+    if re.search(r'\.(png|jpe?g|gif|webp|svg|bmp)(\?|$)', url, re.I):
+        return None
     try:
         req = urllib.request.Request(url, headers={'User-Agent': UA})
         with urllib.request.urlopen(req, timeout=10) as r:
-            raw = r.read(1600000).decode('utf-8', 'ignore')
+            ctype = (r.headers.get('Content-Type') or '').lower()
+            if 'text/html' not in ctype and 'text/plain' not in ctype:
+                return None  # 非网页（图片/PDF 等）→ 跳过，回退腾讯
+            raw = r.read(800000)
+        if b'\x00' in raw[:1024]:
+            return None  # 含 NUL → 二进制文件，非 HTML
+        raw = raw.decode('utf-8', 'ignore')
         # 去掉 script/style/head/nav/footer/header/aside/noscript
         cleaned = re.sub(r'<(script|style|head|nav|footer|header|aside|noscript)[^>]*>.*?</\1>',
                          ' ', raw, flags=re.S | re.I)
@@ -212,15 +222,19 @@ def fetch_article_body(url, max_chars=1200):
             t = re.sub(r'<[^>]+>', '', p)
             t = html_mod.unescape(t).strip()
             t = re.sub(r'\s+', ' ', t)
-            if len(t) >= 15:
+            if len(t) >= 15 and not re.search(r'(IHDR|IDAT|JFIF|GIF89|DAT[AM]:IMAGE)', t, re.I):
                 texts.append(t)
         body = ' '.join(texts)[:max_chars]
         if len(body) < 40:
             # 退一步：整页去标签取中段文本
             no_tag = re.sub(r'<[^>]+>', ' ', cleaned)
             no_tag = html_mod.unescape(no_tag)
+            no_tag = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f]', ' ', no_tag)
             no_tag = re.sub(r'\s+', ' ', no_tag).strip()
             body = no_tag[:max_chars]
+        # 终检：仍含图片二进制特征则丢弃
+        if re.search(r'(IHDR|IDAT|JFIF|GIF89|DAT[AM]:IMAGE)', body, re.I):
+            return None
         return body if len(body) >= 40 else None
     except Exception:
         return None
