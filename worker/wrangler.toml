@@ -1,0 +1,15 @@
+name = "ai-daily-worker"
+main = "index.js"
+compatibility_date = "2024-09-23"
+
+# KV 绑定：存储各 workflow 上次触发时间（去抖）
+# 部署前先创建命名空间并把下面的 id 换成实际值：
+#   wrangler kv namespace create ai-daily-kv
+[[kv_namespaces]]
+binding = "KV"
+id = "REPLACE_WITH_YOUR_KV_ID"
+
+# GH_TOKEN 为机密，不要写在这里。部署前用以下命令设置（粘贴 ~/.workbuddy/gh-token 的内容）：
+#   wrangler secret put GH_TOKEN
+#
+# 完整部署步骤见 README（同目录 worker/README.md）。
