@@ -6,7 +6,7 @@
 抖音：官方接口需签名、第三方聚合当前网络不可达 → 暂不接入（留 key 占位，后续补）。
 """
 import json, re, sys, os, shutil, subprocess, urllib.request
-from fetch_news import google_news  # 免费搜索源（Google News RSS，云端境外可达）
+from fetch_news import google_news, is_low_quality_summary  # 免费搜索源 + 摘要质检
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"
 TIMEOUT = 12
@@ -29,12 +29,12 @@ def load_summary_cache():
                     summary = it.get("summary") or ""
                     if not w or not summary or "<" in summary:
                         continue
-                    # 过滤脏 src：长度 > 12 或含摘要关键词 → 视为坏数据丢弃
-                    if len(src) > 12 or any(k in src for k in [
-                        "武警", "西藏", "陈武", "比尔", "规上", "权威", "人口",
-                        "李强", "溃泄", "我国", "韩国", "中共", "近日", "陈", "近日",
-                        "国务院", "向", "女子", "男子", "大雨", "央视",
-                    ]):
+                    # 过滤脏 src：媒体名不会太长，超长说明存的是摘要/URL 片段而非来源
+                    if len(src) > 12:
+                        continue
+                    # 通用质检：缓存里若存的是「热词+来源」拼接的废话摘要，
+                    # 视为无效丢弃，强制本轮重新反查（替代原先按关键词的硬编码黑名单）
+                    if is_low_quality_summary(w, summary):
                         continue
                     cache[w] = {"summary": summary, "source": src,
                                 "ts": it.get("sum_ts") or 0}
@@ -176,7 +176,7 @@ def main():
     cache = load_summary_cache() if enrich else {}
     seen = {}
     reused = enriched = failed = 0
-    src_google = src_tn = 0
+    src_google = src_tn = src_lowq = 0
     if enrich:
         for p in platforms:
             for it in p['items'][:5]:
@@ -201,9 +201,14 @@ def main():
                 try:
                     g = google_news(w, 1)
                     if g:
-                        r = {'title': g[0]['title'], 'summary': g[0]['summary'],
-                             'source': g[0]['source'] or 'Google 新闻'}
-                        src_google += 1
+                        # 质检：Google RSS 的 description 常退化为「标题+来源」拼接，
+                        # 无实质信息则丢弃，回退腾讯 search 反查（消耗积分，换取质量）。
+                        if not is_low_quality_summary(g[0]['title'], g[0]['summary']):
+                            r = {'title': g[0]['title'], 'summary': g[0]['summary'],
+                                 'source': g[0]['source'] or 'Google 新闻'}
+                            src_google += 1
+                        else:
+                            src_lowq += 1
                 except Exception:
                     r = None
                 if not r:
@@ -224,7 +229,7 @@ def main():
                         it['sum_ts'] = cached['ts']
                         seen[w] = cached
                     failed += 1
-    results.append(f"摘要: 新搜{enriched}(Google{src_google}/腾讯{src_tn}) 复用{reused} 失败{failed}" if enrich else "摘要反查跳过（ENRICH_SUMMARIES 未开启）")
+    results.append(f"摘要: 新搜{enriched}(Google{src_google}/腾讯{src_tn}/低质丢弃{src_lowq}) 复用{reused} 失败{failed}" if enrich else "摘要反查跳过（ENRICH_SUMMARIES 未开启）")
 
     data = {
         "date": f"{now.year}年{now.month}月{now.day}日 星期{'一二三四五六日'[now.weekday()]}",
