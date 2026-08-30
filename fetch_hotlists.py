@@ -7,7 +7,8 @@
 """
 import json, re, sys, os, shutil, subprocess, urllib.request
 from fetch_news import (google_news, is_low_quality_summary,
-                        fetch_meta_description)  # 免费搜索源 + 摘要质检 + 网页兜底
+                        fetch_meta_description, gnews_search,
+                        summarize_with_ds)  # 免费搜索源 + 摘要质检 + 网页兜底 + GNews + DS
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"
 TIMEOUT = 12
@@ -174,10 +175,12 @@ def main():
     now_ts = int(now.timestamp())
 
     enrich = os.environ.get('ENRICH_SUMMARIES', '0') == '1'
+    use_ds = os.environ.get('SUMMARIZE_DS', '0') == '1'
+    gnews_key = os.environ.get('GNEWS_API_KEY', '')
     cache = load_summary_cache() if enrich else {}
     seen = {}
     reused = enriched = failed = 0
-    src_google = src_tn = src_lowq = src_meta = 0
+    src_google = src_tn = src_lowq = src_meta = src_ds = src_gnews = 0
     if enrich:
         for p in platforms:
             for it in p['items'][:5]:
@@ -199,32 +202,69 @@ def main():
                     reused += 1
                     continue
                 r = None
+                material = ''
                 try:
-                    g = google_news(w, 1)
-                    if g:
-                        # 质检：Google RSS 的 description 常退化为「标题+来源」拼接，
-                        # 无实质信息则丢弃，回退腾讯 search 反查（消耗积分，换取质量）。
-                        if not is_low_quality_summary(g[0]['title'], g[0]['summary']):
-                            r = {'title': g[0]['title'], 'summary': g[0]['summary'],
-                                 'source': g[0]['source'] or 'Google 新闻'}
-                            src_google += 1
+                    if use_ds and gnews_key:
+                        # 新管线：GNews 免费检索真实摘要+直链 → DS 压缩（省腾讯积分）
+                        gn = gnews_search(w, 1, gnews_key, 'zh', 'cn')
+                        if gn:
+                            art = gn[0]
+                            material = (art.get('summary') or '').strip()
+                            r = {'title': art.get('title', w),
+                                 'summary': material or w,
+                                 'source': art.get('source') or 'GNews',
+                                 'url': art.get('url', '')}
+                            src_gnews += 1
                         else:
-                            src_lowq += 1
-                            # 免费兜底①：用 Google 命中的原文 URL 抓 meta description，
-                            # 不消耗腾讯积分；失败才交给腾讯 search。
-                            d = fetch_meta_description(g[0].get('url'))
-                            if d and not is_low_quality_summary(w, d):
-                                r = {'title': g[0]['title'], 'summary': d,
+                            # GNews 无覆盖 → Google RSS + meta 兜底（免费）
+                            g = google_news(w, 1)
+                            if g:
+                                if not is_low_quality_summary(g[0]['title'], g[0]['summary']):
+                                    material = g[0]['summary']
+                                    r = {'title': g[0]['title'], 'summary': material or w,
+                                         'source': g[0]['source'] or 'Google 新闻'}
+                                    src_google += 1
+                                else:
+                                    src_lowq += 1
+                                    d = fetch_meta_description(g[0].get('url'))
+                                    if d:
+                                        material = d
+                                        r = {'title': g[0]['title'], 'summary': d,
+                                             'source': g[0]['source'] or 'Google 新闻'}
+                                        src_meta += 1
+                    else:
+                        # 原管线（默认）：Google RSS → meta → 腾讯反查
+                        g = google_news(w, 1)
+                        if g:
+                            if not is_low_quality_summary(g[0]['title'], g[0]['summary']):
+                                material = g[0]['summary']
+                                r = {'title': g[0]['title'], 'summary': g[0]['summary'],
                                      'source': g[0]['source'] or 'Google 新闻'}
-                                src_meta += 1
+                                src_google += 1
+                            else:
+                                src_lowq += 1
+                                d = fetch_meta_description(g[0].get('url'))
+                                if d and not is_low_quality_summary(w, d):
+                                    material = d
+                                    r = {'title': g[0]['title'], 'summary': d,
+                                         'source': g[0]['source'] or 'Google 新闻'}
+                                    src_meta += 1
                 except Exception:
                     r = None
-                if not r:
+                # DS 摘要：把检索到的素材压成一句客观事实（仅替换摘要文本，来源保留真实媒体）
+                if r and use_ds and material and len(material) >= 8:
+                    ds = summarize_with_ds(w, material, r.get('source'))
+                    if ds:
+                        r['summary'] = ds
+                        src_ds += 1
+                if not r or not r.get('summary'):
                     # 最后兜底：腾讯 search（消耗积分）
-                    r = search_tn_summary(w)
-                    if r:
+                    tn = search_tn_summary(w)
+                    if tn:
+                        r = {'title': tn.get('title', w), 'summary': tn['summary'],
+                             'source': tn.get('source') or '腾讯新闻'}
                         src_tn += 1
-                if r:
+                if r and r.get('summary'):
                     entry = {'summary': r['summary'], 'source': r['source'], 'ts': now_ts}
                     it['summary'] = r['summary']
                     it['sum_src'] = r['source']
@@ -238,7 +278,8 @@ def main():
                         it['sum_ts'] = cached['ts']
                         seen[w] = cached
                     failed += 1
-    results.append(f"摘要: 新搜{enriched}(Google{src_google}/网页meta{src_meta}/腾讯{src_tn}/低质丢弃{src_lowq}) 复用{reused} 失败{failed}" if enrich else "摘要反查跳过（ENRICH_SUMMARIES 未开启）")
+    results.append("摘要: 新搜%d(GNews %d/Google %d/网页meta %d/腾讯 %d/DS压 %d/低质丢弃 %d) 复用%d 失败%d" % (
+        enriched, src_gnews, src_google, src_meta, src_tn, src_ds, src_lowq, reused, failed) if enrich else "摘要反查跳过（ENRICH_SUMMARIES 未开启）")
 
     data = {
         "date": f"{now.year}年{now.month}月{now.day}日 星期{'一二三四五六日'[now.weekday()]}",
