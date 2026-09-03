@@ -15,11 +15,28 @@ UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML,
 TIMEOUT = 12
 TOP_N = 10
 CACHE_HOURS = 24  # 摘要缓存有效期：24 小时内同一热词不重复搜索
+SUMMARY_MAX = 240       # 反查摘要最大长度（旧版硬截 90 字，导致摘要短且断在半句）
+UPGRADE_BELOW = 100     # 缓存摘要短于此值 → 判定为旧版短摘要，本轮强制重查升级
+
+def smart_trim(s, max_len):
+    """截断到 max_len，但尽量落在句读处，避免「宁静在直播中首次正面回」这类半截句"""
+    s = (s or '').strip()
+    if len(s) <= max_len:
+        return s
+    cut = s[:max_len]
+    for sep in ('。', '！', '？', '；', '，', '、', ' '):
+        p = cut.rfind(sep)
+        if p >= int(max_len * 0.6):
+            return cut[:p + 1].strip()
+    return cut + '…'
 
 def load_summary_cache():
     """从上次结果（仓库 ./hotlists.json 或 /tmp/hotlists.json）读取 word -> 摘要缓存
-    过滤掉缓存里的脏数据（src 异常长、或 sum_src 含摘要关键词 → 视为不可信丢弃）"""
+    过滤掉缓存里的脏数据（src 异常长、或 sum_src 含摘要关键词 → 视为不可信丢弃）
+    另：长度 < UPGRADE_BELOW 的旧版短摘要一律丢弃（强制重查升级）
+    返回 (cache, dropped)"""
     cache = {}
+    dropped = 0
     for cand in (os.path.join(os.getcwd(), "hotlists.json"), "/tmp/hotlists.json"):
         if not os.path.exists(cand):
             continue
@@ -39,12 +56,16 @@ def load_summary_cache():
                     # 视为无效丢弃，强制本轮重新反查（替代原先按关键词的硬编码黑名单）
                     if is_low_quality_summary(w, summary):
                         continue
+                    # 旧版硬截断（90 字）遗留的短摘要：不复用，本轮强制重查升级为长摘要
+                    if len(summary) < UPGRADE_BELOW:
+                        dropped += 1
+                        continue
                     cache[w] = {"summary": summary, "source": src,
                                 "ts": it.get("sum_ts") or 0}
             break
         except Exception:
             continue
-    return cache
+    return cache, dropped
 
 def fetch(url, referer=None):
     headers = {"User-Agent": UA, "Accept": "application/json,text/plain,*/*"}
@@ -153,7 +174,7 @@ def search_tn_summary(word):
     summary = re.sub(r'\s+', ' ', s.group(1)).strip() if s else ''
     if not summary or len(summary) < 8:
         return None
-    return {'title': title, 'summary': summary[:90],
+    return {'title': title, 'summary': smart_trim(summary, SUMMARY_MAX),
             'source': src.group(1).strip() if src else ''}
 
 def main():
@@ -178,7 +199,7 @@ def main():
     enrich = os.environ.get('ENRICH_SUMMARIES', '0') == '1'
     use_ds = os.environ.get('SUMMARIZE_DS', '0') == '1'
     gnews_key = os.environ.get('GNEWS_API_KEY', '')
-    cache = load_summary_cache() if enrich else {}
+    cache, upgrade_dropped = load_summary_cache() if enrich else ({}, 0)
     seen = {}
     reused = enriched = failed = 0
     src_google = src_tn = src_lowq = src_meta = src_ds = src_gnews = src_body = 0
@@ -279,8 +300,8 @@ def main():
                         it['sum_ts'] = cached['ts']
                         seen[w] = cached
                     failed += 1
-    results.append("摘要: 新搜%d(Google正文 %d/Google摘要 %d/网页meta %d/腾讯 %d/DS压 %d/低质丢弃 %d) 复用%d 失败%d" % (
-        enriched, src_body, src_google, src_meta, src_tn, src_ds, src_lowq, reused, failed) if enrich else "摘要反查跳过（ENRICH_SUMMARIES 未开启）")
+    results.append("摘要: 新搜%d(Google正文 %d/Google摘要 %d/网页meta %d/腾讯 %d/DS压 %d/低质丢弃 %d) 复用%d 失败%d 短摘升级%d" % (
+        enriched, src_body, src_google, src_meta, src_tn, src_ds, src_lowq, reused, failed, upgrade_dropped) if enrich else "摘要反查跳过（ENRICH_SUMMARIES 未开启）")
 
     data = {
         "date": f"{now.year}年{now.month}月{now.day}日 星期{'一二三四五六日'[now.weekday()]}",
@@ -293,6 +314,9 @@ def main():
             json.dump(data, f, ensure_ascii=False, indent=1)
     print(" | ".join(results))
     print("total platforms:", len(platforms), "| total items:", sum(len(p["items"]) for p in platforms))
+    lens = [len(it.get("summary") or "") for p in platforms for it in p["items"] if it.get("summary")]
+    if lens:
+        print("摘要长度: 条数%d 平均%.0f字 最短%d 最长%d" % (len(lens), sum(lens) / len(lens), min(lens), max(lens)))
 
 if __name__ == "__main__":
     import urllib.parse  # noqa
