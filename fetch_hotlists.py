@@ -6,7 +6,7 @@
 抖音：官方接口需签名、第三方聚合当前网络不可达 → 暂不接入（留 key 占位，后续补）。
 """
 import json, re, sys, os, shutil, subprocess, urllib.request
-from fetch_news import (google_news, is_low_quality_summary,
+from fetch_news import (google_news, is_low_quality_summary, is_credit_line_only,
                         fetch_meta_description, gnews_search,
                         summarize_with_ds, resolve_google_news_url,
                         fetch_article_body)  # 免费搜索源 + 摘要质检 + 网页/正文兜底 + GNews + DS
@@ -282,7 +282,9 @@ def main():
                 if not r or not r.get('summary'):
                     # 最后兜底：腾讯 search（消耗积分）
                     tn = search_tn_summary(w)
-                    if tn:
+                    # 只拦采编署名行（不用 is_low_quality_summary：其「摘要含标题」规则
+                    # 是针对 Google RSS 拼接摘要的，腾讯真实摘要本就常含标题，会误杀）
+                    if tn and not is_credit_line_only(tn['summary']):
                         r = {'title': tn.get('title', w), 'summary': tn['summary'],
                              'source': tn.get('source') or '腾讯新闻'}
                         src_tn += 1
