@@ -87,8 +87,11 @@ TPL = r'''<!DOCTYPE html>
   [data-theme="dark"] .hl-label.t{color:#93c5fd;background:#16294a}
   .hl-hot{font-size:12px;color:var(--ink-3);flex-shrink:0;white-space:nowrap;display:inline-flex;align-items:center;gap:3px}
   .hl-sum{flex-basis:100%;font-size:12px;color:var(--ink-2);line-height:1.5;min-width:0;
-    display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;
+    display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden;
+    cursor:pointer;
     padding-left:38px;margin-top:-4px;border-left:2px solid var(--line,#e6eaf2)}
+  /* 点按展开全文：摘要平均 160+ 字、最长 240 字，6 行在手机上仍显示不完 */
+  .hl-sum.open{display:block;-webkit-line-clamp:unset;overflow:visible}
 
   .pending{border:1px dashed var(--line);border-radius:14px;padding:22px;text-align:center;color:var(--ink-3);font-size:13px}
 
@@ -210,6 +213,15 @@ DATA.platforms.forEach((p)=>{
 });
 main.innerHTML = html;
 document.getElementById('footTotal').textContent = total;
+
+// 摘要点按展开/收起全文（摘要在 <a> 内，需阻止跳转与冒泡）
+main.addEventListener('click', (e)=>{
+  const s = e.target.closest('.hl-sum');
+  if(!s) return;
+  e.preventDefault();
+  e.stopPropagation();
+  s.classList.toggle('open');
+});
 
 // Back to top
 const toTop = document.getElementById('toTop');
