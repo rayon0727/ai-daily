@@ -1,6 +1,6 @@
 {
  "date": "2026年9月4日 星期五",
- "fetchedAt": "2026年09月04日 08:38（北京时间）",
+ "fetchedAt": "2026年09月04日 08:42（北京时间）",
  "platforms": [
   {
    "key": "weibo",
@@ -12,7 +12,7 @@
     {
      "rank": 1,
      "word": "人人影视变正版了",
-     "hot": "142万",
+     "hot": "149万",
      "label": "热",
      "url": "https://s.weibo.com/weibo?q=%E4%BA%BA%E4%BA%BA%E5%BD%B1%E8%A7%86%E5%8F%98%E6%AD%A3%E7%89%88%E4%BA%86",
      "summary": "9月3日，据蓝鲸新闻报道，近日，有网友晒出“人人影视”向老用户发出的“欢迎老用户回归”邮件，邮件中称“我们终于可以在APP见面了”。目前“人人影视”更名为“人人影视分享精彩”，相关APP已经可以在iOS应用商店、安卓商店等渠道下载。APP信息显示，该应用大小94.0MB，标注适用年龄为16岁以上。该APP的发行公司为华数传...",
@@ -21,18 +21,15 @@
     },
     {
      "rank": 2,
-     "word": "郑钦文首胜普丁塞娃",
-     "hot": "88万",
-     "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E9%83%91%E9%92%A6%E6%96%87%E9%A6%96%E8%83%9C%E6%99%AE%E4%B8%81%E5%A1%9E%E5%A8%83",
-     "summary": "北京时间9月4日，2026年美网女单第二轮，中国选手郑钦文对阵普丁塞娃。郑钦文打满三盘比赛，具体比分是6-4、2-6和6-1，最终郑钦文总分2-1战胜普丁塞娃收获5连胜，生涯3次交锋首次战胜普丁塞娃....",
-     "sum_src": "醉卧浮生",
-     "sum_ts": 1788482281
+     "word": "吉隆口岸淤泥里发现警服",
+     "hot": "93万",
+     "label": "新",
+     "url": "https://s.weibo.com/weibo?q=%E5%90%89%E9%9A%86%E5%8F%A3%E5%B2%B8%E6%B7%A4%E6%B3%A5%E9%87%8C%E5%8F%91%E7%8E%B0%E8%AD%A6%E6%9C%8D"
     },
     {
      "rank": 3,
      "word": "中埃两大文明双向奔赴",
-     "hot": "69万",
+     "hot": "70万",
      "label": "",
      "url": "https://s.weibo.com/weibo?q=%E4%B8%AD%E5%9F%83%E4%B8%A4%E5%A4%A7%E6%96%87%E6%98%8E%E5%8F%8C%E5%90%91%E5%A5%94%E8%B5%B4",
      "summary": "开罗西南，大埃及博物馆伫立。 当地时间9月2日下午，国家主席习近平和夫人彭丽媛在埃及总统塞西和夫人依缇萨尔陪同下参观大埃及博物馆。吉萨高原上，绵延千年的金字塔群同气势恢弘的大埃及博物馆遥相辉映。 新华社记者的镜头记录下难忘瞬间——新华社记者 谢环驰 摄 以不远处的金字塔群为背景，两国元首夫妇在玻璃幕墙前合...",
@@ -41,6 +38,16 @@
     },
     {
      "rank": 4,
+     "word": "神行者8以28.99万再定义豪华旗舰",
+     "hot": "69万",
+     "label": "",
+     "url": "https://s.weibo.com/weibo?q=%E7%A5%9E%E8%A1%8C%E8%80%858%E4%BB%A528.99%E4%B8%87%E5%86%8D%E5%AE%9A%E4%B9%89%E8%B1%AA%E5%8D%8E%E6%97%97%E8%88%B0",
+     "summary": "文｜林珂莹 编辑｜杨布丁 9月3日晚，FREELANDER神行者品牌首款量产车型神行者8正式上市，大五座版限时28.99万元起，大六座版限时29.99万元起。 FREE....",
+     "sum_src": "鹅看新车",
+     "sum_ts": 1788482525
+    },
+    {
+     "rank": 5,
      "word": "没有人会教你真正核心的东西",
      "hot": "55万",
      "label": "",
@@ -50,49 +57,39 @@
      "sum_ts": 1788482281
     },
     {
-     "rank": 5,
-     "word": "GPT6正式发布",
-     "hot": "50万",
-     "label": "新",
-     "url": "https://s.weibo.com/weibo?q=GPT6%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83",
-     "summary": "GPT-6 Astra来了。当地时间9月3日，OpenAI正式发布GPT-6 Astra，并将其定义为“新一代智能”。Astra在拉丁语中意为“星辰、群星”。ChatGPT官方在发布前曾预告：“The stars are almost aligned（星星几乎排列好了）。”OpenAI称，Astra是“当今世界智能水平最高、对齐表现最好的模型”，在电脑操作、浏览器使用、软件工程...",
-     "sum_src": "澎湃新闻",
-     "sum_ts": 1788482281
-    },
-    {
      "rank": 6,
-     "word": "吉隆口岸淤泥里发现警服",
-     "hot": "49万",
+     "word": "GPT6正式发布",
+     "hot": "52万",
      "label": "新",
-     "url": "https://s.weibo.com/weibo?q=%E5%90%89%E9%9A%86%E5%8F%A3%E5%B2%B8%E6%B7%A4%E6%B3%A5%E9%87%8C%E5%8F%91%E7%8E%B0%E8%AD%A6%E6%9C%8D"
+     "url": "https://s.weibo.com/weibo?q=GPT6%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83"
     },
     {
      "rank": 7,
-     "word": "小米手环11",
-     "hot": "41万",
-     "label": "新",
-     "url": "https://s.weibo.com/weibo?q=%E5%B0%8F%E7%B1%B3%E6%89%8B%E7%8E%AF11"
+     "word": "郑钦文首胜普丁塞娃",
+     "hot": "48万",
+     "label": "",
+     "url": "https://s.weibo.com/weibo?q=%E9%83%91%E9%92%A6%E6%96%87%E9%A6%96%E8%83%9C%E6%99%AE%E4%B8%81%E5%A1%9E%E5%A8%83"
     },
     {
      "rank": 8,
-     "word": "普通人没必要追求电子产品顶配",
-     "hot": "38万",
-     "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E6%99%AE%E9%80%9A%E4%BA%BA%E6%B2%A1%E5%BF%85%E8%A6%81%E8%BF%BD%E6%B1%82%E7%94%B5%E5%AD%90%E4%BA%A7%E5%93%81%E9%A1%B6%E9%85%8D"
+     "word": "郑钦文对手气得摔拍子",
+     "hot": "43万",
+     "label": "新",
+     "url": "https://s.weibo.com/weibo?q=%E9%83%91%E9%92%A6%E6%96%87%E5%AF%B9%E6%89%8B%E6%B0%94%E5%BE%97%E6%91%94%E6%8B%8D%E5%AD%90"
     },
     {
      "rank": 9,
-     "word": "宁静内涵花少2有人干涉剪辑",
-     "hot": "29万",
+     "word": "小米手环11",
+     "hot": "42万",
      "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E5%AE%81%E9%9D%99%E5%86%85%E6%B6%B5%E8%8A%B1%E5%B0%912%E6%9C%89%E4%BA%BA%E5%B9%B2%E6%B6%89%E5%89%AA%E8%BE%91"
+     "url": "https://s.weibo.com/weibo?q=%E5%B0%8F%E7%B1%B3%E6%89%8B%E7%8E%AF11"
     },
     {
      "rank": 10,
-     "word": "林俊杰张凌赫逐玉的缘分",
-     "hot": "23万",
-     "label": "新",
-     "url": "https://s.weibo.com/weibo?q=%E6%9E%97%E4%BF%8A%E6%9D%B0%E5%BC%A0%E5%87%8C%E8%B5%AB%E9%80%90%E7%8E%89%E7%9A%84%E7%BC%98%E5%88%86"
+     "word": "宁静内涵花少2有人干涉剪辑",
+     "hot": "30万",
+     "label": "",
+     "url": "https://s.weibo.com/weibo?q=%E5%AE%81%E9%9D%99%E5%86%85%E6%B6%B5%E8%8A%B1%E5%B0%912%E6%9C%89%E4%BA%BA%E5%B9%B2%E6%B6%89%E5%89%AA%E8%BE%91"
     }
    ]
   },
@@ -106,9 +103,9 @@
     {
      "rank": 1,
      "word": "Token经济要开始崩了吗",
-     "hot": "1331万",
+     "hot": "1334万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7681315479033482798/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227681315479033482798%22%2C%22hot_board_impr_id%22%3A%22202609040837593C0DFFE6DEE02099C405%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22Token%E7%BB%8F%E6%B5%8E%E8%A6%81%E5%BC%80%E5%A7%8B%E5%B4%A9%E4%BA%86%E5%90%97%22%7D&rank=&style_id=40132&topic_id=7681315479033482798",
+     "url": "https://www.toutiao.com/trending/7681315479033482798/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2213%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227681315479033482798%22%2C%22hot_board_impr_id%22%3A%22202609040842011E9E1D8CBC5B373A6437%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22Token%E7%BB%8F%E6%B5%8E%E8%A6%81%E5%BC%80%E5%A7%8B%E5%B4%A9%E4%BA%86%E5%90%97%22%7D&rank=&style_id=40132&topic_id=7681315479033482798",
      "summary": "IT时代网9月4日消息，据CNBC报道，SiliconData的大语言模型Token支出指数8月31日跌至每100万token 0.97美元，创历史新低。该指数5月下旬还为2.05美元，三个月内跌幅超过50%。价格崩塌的主要推手是中国开放权重AI模型的激进扩张。开放权重指将模型权重这一关键训练成果对外共享，企业无需自研大模型即可低成本接入，直接拉低...",
      "sum_src": "IT时代网",
      "sum_ts": 1788482281
@@ -116,9 +113,9 @@
     {
      "rank": 2,
      "word": "外交部：已向韩方提出严正交涉",
-     "hot": "1204万",
+     "hot": "1207万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7680859229084647466/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227680859229084647466%22%2C%22hot_board_impr_id%22%3A%22202609040837593C0DFFE6DEE02099C405%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%A4%96%E4%BA%A4%E9%83%A8%EF%BC%9A%E5%B7%B2%E5%90%91%E9%9F%A9%E6%96%B9%E6%8F%90%E5%87%BA%E4%B8%A5%E6%AD%A3%E4%BA%A4%E6%B6%89%22%7D&rank=&style_id=40132&topic_id=7680859229084647466",
+     "url": "https://www.toutiao.com/trending/7680859229084647466/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227680859229084647466%22%2C%22hot_board_impr_id%22%3A%22202609040842011E9E1D8CBC5B373A6437%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%A4%96%E4%BA%A4%E9%83%A8%EF%BC%9A%E5%B7%B2%E5%90%91%E9%9F%A9%E6%96%B9%E6%8F%90%E5%87%BA%E4%B8%A5%E6%AD%A3%E4%BA%A4%E6%B6%89%22%7D&rank=&style_id=40132&topic_id=7680859229084647466",
      "summary": "9月3日，有记者问：中方策展团队因韩国光州双年展涉台错误做法宣布撤展，表达强烈抗议。中国驻韩国大使馆已就此发声。中方对此有何评论? 外交部发言人郭嘉昆表示，中韩建交公报明确指出，大韩民国政府承认中华人民共和国政府为中国的唯一合法政府，并尊重中方只有一个中国、台湾是中国的一部分之立场。今年以来，韩方多次明...",
      "sum_src": "观察者网",
      "sum_ts": 1788482281
@@ -126,9 +123,9 @@
     {
      "rank": 3,
      "word": "促进中小企业发展“十五五”规划发布",
-     "hot": "1089万",
+     "hot": "1092万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7681227409579868223/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227681227409579868223%22%2C%22hot_board_impr_id%22%3A%22202609040837593C0DFFE6DEE02099C405%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%BF%83%E8%BF%9B%E4%B8%AD%E5%B0%8F%E4%BC%81%E4%B8%9A%E5%8F%91%E5%B1%95%E2%80%9C%E5%8D%81%E4%BA%94%E4%BA%94%E2%80%9D%E8%A7%84%E5%88%92%E5%8F%91%E5%B8%83%22%7D&rank=&style_id=40132&topic_id=7681227409579868223",
+     "url": "https://www.toutiao.com/trending/7681227409579868223/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227681227409579868223%22%2C%22hot_board_impr_id%22%3A%22202609040842011E9E1D8CBC5B373A6437%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%BF%83%E8%BF%9B%E4%B8%AD%E5%B0%8F%E4%BC%81%E4%B8%9A%E5%8F%91%E5%B1%95%E2%80%9C%E5%8D%81%E4%BA%94%E4%BA%94%E2%80%9D%E8%A7%84%E5%88%92%E5%8F%91%E5%B8%83%22%7D&rank=&style_id=40132&topic_id=7681227409579868223",
      "summary": "【市场数据】截至9月3日收盘，上证综指涨0.02%，报3942.09点；深证成指涨0.1%，报13625.12点；创业板指涨0.01%，报3312.54点。纽约股市三大股指3日明显上涨。截至当天收盘，道琼斯工业平均指数比前一交易日上涨624.16点，收于53686.11点，涨幅为1.18%；标准普尔500种股票指数上涨81.11点，收于7747.71点，涨幅为1.06%；纳斯...",
      "sum_src": "澎湃新闻",
      "sum_ts": 1788482281
@@ -136,9 +133,9 @@
     {
      "rank": 4,
      "word": "三胞胎迎接退役军爸被一把抱起",
-     "hot": "986万",
+     "hot": "988万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7680466314113531967/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227680466314113531967%22%2C%22hot_board_impr_id%22%3A%22202609040837593C0DFFE6DEE02099C405%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%89%E8%83%9E%E8%83%8E%E8%BF%8E%E6%8E%A5%E9%80%80%E5%BD%B9%E5%86%9B%E7%88%B8%E8%A2%AB%E4%B8%80%E6%8A%8A%E6%8A%B1%E8%B5%B7%22%7D&rank=&style_id=40132&topic_id=7680466314113531967",
+     "url": "https://www.toutiao.com/trending/7680466314113531967/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227680466314113531967%22%2C%22hot_board_impr_id%22%3A%22202609040842011E9E1D8CBC5B373A6437%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%89%E8%83%9E%E8%83%8E%E8%BF%8E%E6%8E%A5%E9%80%80%E5%BD%B9%E5%86%9B%E7%88%B8%E8%A2%AB%E4%B8%80%E6%8A%8A%E6%8A%B1%E8%B5%B7%22%7D&rank=&style_id=40132&topic_id=7680466314113531967",
      "summary": "近期，黎平籍退役军人陆续载誉返乡。黎平县退役军人事务局联合各乡镇（街道），精心组织开展迎接工作，分批迎接返乡老兵，以暖心礼遇致敬最可爱的人。（记者：刘光宏 实习生：刘兆宏 报道 ）新闻编辑：王启寰排版：陆海波统筹：吴思凝审核：杨理显胡 靖核发：罗乔木分享一下吧！“在看”让更多人看到黎平新闻...",
      "sum_src": "黎平融媒体",
      "sum_ts": 1788482281
@@ -146,9 +143,9 @@
     {
      "rank": 5,
      "word": "全国唯一有两所211高校县级市迎新生",
-     "hot": "892万",
+     "hot": "894万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7680914423784751158/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227680914423784751158%22%2C%22hot_board_impr_id%22%3A%22202609040837593C0DFFE6DEE02099C405%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%85%A8%E5%9B%BD%E5%94%AF%E4%B8%80%E6%9C%89%E4%B8%A4%E6%89%80211%E9%AB%98%E6%A0%A1%E5%8E%BF%E7%BA%A7%E5%B8%82%E8%BF%8E%E6%96%B0%E7%94%9F%22%7D&rank=&style_id=40132&topic_id=7680914423784751158",
+     "url": "https://www.toutiao.com/trending/7680914423784751158/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227680914423784751158%22%2C%22hot_board_impr_id%22%3A%22202609040842011E9E1D8CBC5B373A6437%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%85%A8%E5%9B%BD%E5%94%AF%E4%B8%80%E6%9C%89%E4%B8%A4%E6%89%80211%E9%AB%98%E6%A0%A1%E5%8E%BF%E7%BA%A7%E5%B8%82%E8%BF%8E%E6%96%B0%E7%94%9F%22%7D&rank=&style_id=40132&topic_id=7680914423784751158",
      "summary": "9月2日，香港城市大学（东莞）2026年开学典礼在东莞松山湖展演中心大剧院举行，包括183名本科生与1118名研究生在内的1301名新生，正式开启了他们港城大（东莞）的求学之旅。记者了解到，今年是港城大（东莞）办学第三年。学校通过内地高考面向13个省（自治区、直辖市）招收本科生，录取分数线比肩985院校，部分达C9水平；港...",
      "sum_src": "南方都市报",
      "sum_ts": 1788482281
@@ -156,37 +153,37 @@
     {
      "rank": 6,
      "word": "人民日报批饭圈刷爆12345",
-     "hot": "807万",
+     "hot": "809万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7680674050754183222/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227680674050754183222%22%2C%22hot_board_impr_id%22%3A%22202609040837593C0DFFE6DEE02099C405%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%BA%BA%E6%B0%91%E6%97%A5%E6%8A%A5%E6%89%B9%E9%A5%AD%E5%9C%88%E5%88%B7%E7%88%8612345%22%7D&rank=&style_id=40132&topic_id=7680674050754183222"
+     "url": "https://www.toutiao.com/trending/7680674050754183222/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227680674050754183222%22%2C%22hot_board_impr_id%22%3A%22202609040842011E9E1D8CBC5B373A6437%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%BA%BA%E6%B0%91%E6%97%A5%E6%8A%A5%E6%89%B9%E9%A5%AD%E5%9C%88%E5%88%B7%E7%88%8612345%22%7D&rank=&style_id=40132&topic_id=7680674050754183222"
     },
     {
      "rank": 7,
      "word": "广场20多个音响齐轰严重影响小学上课",
-     "hot": "730万",
+     "hot": "732万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7681248980579500038/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227681248980579500038%22%2C%22hot_board_impr_id%22%3A%22202609040837593C0DFFE6DEE02099C405%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%B9%BF%E5%9C%BA20%E5%A4%9A%E4%B8%AA%E9%9F%B3%E5%93%8D%E9%BD%90%E8%BD%B0%E4%B8%A5%E9%87%8D%E5%BD%B1%E5%93%8D%E5%B0%8F%E5%AD%A6%E4%B8%8A%E8%AF%BE%22%7D&rank=&style_id=40132&topic_id=7681248980579500038"
+     "url": "https://www.toutiao.com/trending/7681248980579500038/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227681248980579500038%22%2C%22hot_board_impr_id%22%3A%22202609040842011E9E1D8CBC5B373A6437%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%B9%BF%E5%9C%BA20%E5%A4%9A%E4%B8%AA%E9%9F%B3%E5%93%8D%E9%BD%90%E8%BD%B0%E4%B8%A5%E9%87%8D%E5%BD%B1%E5%93%8D%E5%B0%8F%E5%AD%A6%E4%B8%8A%E8%AF%BE%22%7D&rank=&style_id=40132&topic_id=7681248980579500038"
     },
     {
      "rank": 8,
      "word": "郑钦文2-1普丁塞娃晋级美网32强",
-     "hot": "661万",
+     "hot": "662万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7681443736152198699/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%225%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227681443736152198699%22%2C%22hot_board_impr_id%22%3A%22202609040837593C0DFFE6DEE02099C405%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%83%91%E9%92%A6%E6%96%872-1%E6%99%AE%E4%B8%81%E5%A1%9E%E5%A8%83%E6%99%8B%E7%BA%A7%E7%BE%8E%E7%BD%9132%E5%BC%BA%22%7D&rank=&style_id=40132&topic_id=7681443736152198699"
+     "url": "https://www.toutiao.com/trending/7681443736152198699/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%225%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227681443736152198699%22%2C%22hot_board_impr_id%22%3A%22202609040842011E9E1D8CBC5B373A6437%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E9%83%91%E9%92%A6%E6%96%872-1%E6%99%AE%E4%B8%81%E5%A1%9E%E5%A8%83%E6%99%8B%E7%BA%A7%E7%BE%8E%E7%BD%9132%E5%BC%BA%22%7D&rank=&style_id=40132&topic_id=7681443736152198699"
     },
     {
      "rank": 9,
-     "word": "曾3次参加阅兵的火箭军退役军人返乡",
-     "hot": "598万",
+     "word": "上海多家银行：办40年房贷需35岁以下",
+     "hot": "599万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7681172426996023346/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227681172426996023346%22%2C%22hot_board_impr_id%22%3A%22202609040837593C0DFFE6DEE02099C405%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%9B%BE3%E6%AC%A1%E5%8F%82%E5%8A%A0%E9%98%85%E5%85%B5%E7%9A%84%E7%81%AB%E7%AE%AD%E5%86%9B%E9%80%80%E5%BD%B9%E5%86%9B%E4%BA%BA%E8%BF%94%E4%B9%A1%22%7D&rank=&style_id=40132&topic_id=7681172426996023346"
+     "url": "https://www.toutiao.com/trending/7680703592528875071/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227680703592528875071%22%2C%22hot_board_impr_id%22%3A%22202609040842011E9E1D8CBC5B373A6437%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%8A%E6%B5%B7%E5%A4%9A%E5%AE%B6%E9%93%B6%E8%A1%8C%EF%BC%9A%E5%8A%9E40%E5%B9%B4%E6%88%BF%E8%B4%B7%E9%9C%8035%E5%B2%81%E4%BB%A5%E4%B8%8B%22%7D&rank=&style_id=40132&topic_id=7680703592528875071"
     },
     {
      "rank": 10,
-     "word": "上海多家银行：办40年房贷需35岁以下",
-     "hot": "541万",
+     "word": "曾3次参加阅兵的火箭军退役军人返乡",
+     "hot": "542万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7680703592528875071/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227680703592528875071%22%2C%22hot_board_impr_id%22%3A%22202609040837593C0DFFE6DEE02099C405%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%8A%E6%B5%B7%E5%A4%9A%E5%AE%B6%E9%93%B6%E8%A1%8C%EF%BC%9A%E5%8A%9E40%E5%B9%B4%E6%88%BF%E8%B4%B7%E9%9C%8035%E5%B2%81%E4%BB%A5%E4%B8%8B%22%7D&rank=&style_id=40132&topic_id=7680703592528875071"
+     "url": "https://www.toutiao.com/trending/7681172426996023346/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227681172426996023346%22%2C%22hot_board_impr_id%22%3A%22202609040842011E9E1D8CBC5B373A6437%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%9B%BE3%E6%AC%A1%E5%8F%82%E5%8A%A0%E9%98%85%E5%85%B5%E7%9A%84%E7%81%AB%E7%AE%AD%E5%86%9B%E9%80%80%E5%BD%B9%E5%86%9B%E4%BA%BA%E8%BF%94%E4%B9%A1%22%7D&rank=&style_id=40132&topic_id=7681172426996023346"
     }
    ]
   },
@@ -219,13 +216,13 @@
     },
     {
      "rank": 3,
-     "word": "深夜突发！美国AI大宕机",
+     "word": "OpenAI总裁宣布AGI到来",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E6%B7%B1%E5%A4%9C%E7%AA%81%E5%8F%91%EF%BC%81%E7%BE%8E%E5%9B%BDAI%E5%A4%A7%E5%AE%95%E6%9C%BA&sa=fyb_news",
-     "summary": "记者丨赵云帆编辑丨包芳鸣9月3日，北美人工智能大模型公司OpenAI旗下ChatGPT与Codex、Anthropic旗下Claude、xAI旗下Grok出现大规模宕机事件。据券商中国报道，大规模“宕机”事件持续约3小时40分，截至北京时间9月4日凌晨1点10分，所有服务已经恢复。在AI巨头集体宕机之际，OpenAI正式发布GPT-6 Astra，并称其为“目前全球...",
-     "sum_src": "21世纪经济报道",
-     "sum_ts": 1788482281
+     "url": "https://m.baidu.com/s?word=OpenAI%E6%80%BB%E8%A3%81%E5%AE%A3%E5%B8%83AGI%E5%88%B0%E6%9D%A5&sa=fyb_news",
+     "summary": "头图来源：OpenAI作者｜桦林舞王编辑｜靖宇2026 年 9 月 3 日，OpenAI 总裁 Greg Brockman 在发布会结束后，说了一句在 AI 行业极为罕见的话：「我个人认为，我们可能已经到达 AGI 了，我觉得就是这个模型。」他措辞很谨慎，用的是第一人称，加了「可能」，还专门留了后路说「如果你想说这是第一个，我认为这是合理的」。这...",
+     "sum_src": "极客公园",
+     "sum_ts": 1788482525
     },
     {
      "rank": 4,
@@ -249,10 +246,10 @@
     },
     {
      "rank": 6,
-     "word": "OpenAI总裁宣布实现AGI",
+     "word": "深夜突发！美国AI大宕机",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=OpenAI%E6%80%BB%E8%A3%81%E5%AE%A3%E5%B8%83%E5%AE%9E%E7%8E%B0AGI&sa=fyb_news"
+     "url": "https://m.baidu.com/s?word=%E6%B7%B1%E5%A4%9C%E7%AA%81%E5%8F%91%EF%BC%81%E7%BE%8E%E5%9B%BDAI%E5%A4%A7%E5%AE%95%E6%9C%BA&sa=fyb_news"
     },
     {
      "rank": 7,
