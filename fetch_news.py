@@ -36,12 +36,36 @@ def cli(args, limit):
         return ''
 
 
+# 采编署名行：视频/图片稿常把「记者：X 编导：Y 摄像：Z ……制作」当正文，无实质新闻内容
+_CREDIT_RE = re.compile(r'(记者|编导|编辑|摄像|摄影|制作|主播|配音|剪辑|审校|统筹|责编|合成)[：:]')
+
+
+def is_credit_line_only(summary):
+    """判断摘要是否为采编署名行（如「记者：周圆 编导：季晓庄 新华社音视频部制作」）。
+
+    视频/图片稿常把制作名单当正文，腾讯反查会命中它 → 显示出来是一条没信息量的假摘要。
+    仅对短摘要判定（长正文里出现「记者：」属正常，不误伤）。
+    与 is_low_quality_summary 分开：后者含「摘要重复标题」规则，只适用于 Google RSS 的
+    「标题+来源拼接」；腾讯返回的真实摘要本就常含标题，不能用那条判定。"""
+    if not summary or len(summary) >= 80:
+        return False
+    credits = _CREDIT_RE.findall(summary)
+    if not credits:
+        return False
+    return len(credits) >= 2 or len(_CREDIT_RE.sub('', summary).strip()) < 30
+
+
 def is_low_quality_summary(title, summary):
-    """判断 Google News RSS 的 description 是否无效（与标题重复/过短/仅拼接来源）。
+    """判断摘要是否无效（与标题重复/过短/仅拼接来源/采编署名行）。
 
     Google News 常把 description 设成「标题 + 来源」拼接（如「云汉芯城…新方案- B2B 亿邦动力网」），
-    与标题高度重合，没有实质信息，需要识别出来并用腾讯 CLI 反查替换。"""
+    与标题高度重合，没有实质信息，需要识别出来并用腾讯 CLI 反查替换。
+    腾讯反查偶尔也会命中视频/图片稿的采编署名行（「记者：周圆 编导：季晓庄 新华社音视频部制作」），
+    同样无信息量，一并识别。"""
     if not summary or len(summary) < 15:
+        return True
+    # 采编署名行：复用独立判定（仅短摘要生效，不误伤长正文）
+    if is_credit_line_only(summary):
         return True
     strip = lambda s: re.sub(r'[\s\-—–|｜·,，。、．（）()\[\]【】"\'：:；;]', '', s)
     t = strip(title)
