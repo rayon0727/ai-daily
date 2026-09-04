@@ -153,13 +153,59 @@ def resolve_cli():
     alt = os.path.expanduser('~/.tencent-news-cli/bin/tencent-news-cli')
     return alt if os.path.exists(alt) else None
 
-def search_tn_summary(word):
-    """热词反查腾讯新闻：返回第一条的摘要（摘要/来源），失败或无语义返回 None"""
+def _cjk(s):
+    """提取汉字集合，用于降级查询的相关性校验"""
+    return set(c for c in (s or '') if '\u4e00' <= c <= '\u9fff')
+
+
+def _query_variants(word, prefixes=(8, 6, 4)):
+    """生成降级查询候选（具体到宽泛）。
+
+    热搜词常是很新很具体的长句（如「吉隆口岸淤泥里发现警服」），搜索引擎
+    索引不到完整串 → 一次搜不到就没摘要。降级策略：
+      1) 原词  2) 去引号括号  3) 取分隔符后信息量最大的一段  4) 取核心前缀
+    中文实体的关键信息多落在句首，故前缀截取通常有效。"""
+    w = (word or '').strip()
+    vs = [w]
+    cleaned = re.sub(r'[「」『』《》〈〉"\'“”‘’\[\]（）()【】]', '', w).strip()
+    if cleaned and cleaned != w:
+        vs.append(cleaned)
+    for sep in ('｜', '|', '，', ',', '：', ':', ' '):
+        if sep in cleaned:
+            parts = [p.strip() for p in cleaned.split(sep) if len(p.strip()) >= 4]
+            if parts:
+                vs.append(max(parts, key=len))
+            break
+    for n in prefixes:
+        if len(cleaned) > n:
+            vs.append(cleaned[:n])
+    out, seen = [], set()
+    for v in vs:
+        if v and v not in seen:
+            seen.add(v)
+            out.append(v)
+    return out
+
+
+def _relevant(word, title, summary):
+    """降级查询结果的相关性校验：与原词共享汉字数达标才采信，避免张冠李戴。
+
+    短词（≤6 汉字）阈值放宽到 2，长词要求 3 —— 例如「吉隆口岸淤泥里发现警服」
+    降级搜「吉隆口岸」若误命中「吉隆坡旅游」，共享仅 {吉,隆} 会被 3 字阈值挡下。"""
+    wc = _cjk(word)
+    if not wc:
+        return True  # 纯英文/数字词不做汉字校验
+    shared = len(wc & _cjk(title + ' ' + summary))
+    return shared >= (2 if len(wc) <= 6 else 3)
+
+
+def _tn_search_once(query):
+    """腾讯 CLI 单次反查，返回 {title, summary, source} 或 None"""
     cli = resolve_cli()
     if not cli:
         return None
     try:
-        out = subprocess.run([cli, 'search', word, '--limit', '1'],
+        out = subprocess.run([cli, 'search', query, '--limit', '1'],
                              capture_output=True, text=True, timeout=15).stdout
     except Exception:
         return None
@@ -176,6 +222,22 @@ def search_tn_summary(word):
         return None
     return {'title': title, 'summary': smart_trim(summary, SUMMARY_MAX),
             'source': src.group(1).strip() if src else ''}
+
+
+def search_tn_summary(word):
+    """热词反查腾讯新闻：完整词搜不到时自动降级（缩短查询）重试。
+
+    返回 (result, degraded)；result 为 None 表示彻底失败。
+    degraded=True 表示是靠降级查询救回来的（计入统计便于观察命中率）。"""
+    for i, q in enumerate(_query_variants(word)):
+        r = _tn_search_once(q)
+        if not r:
+            continue
+        if i == 0:
+            return r, False  # 原词直接搜到，完全采信
+        if _relevant(word, r['title'], r['summary']):
+            return r, True   # 降级搜到且相关才采信，否则继续更宽泛的候选
+    return None, False
 
 def main():
     platforms = []
@@ -203,6 +265,7 @@ def main():
     seen = {}
     reused = enriched = failed = 0
     src_google = src_tn = src_lowq = src_meta = src_ds = src_gnews = src_body = 0
+    src_tn_deg = 0  # 腾讯降级查询（缩短词重试）救回的条数
     if enrich:
         for p in platforms:
             for it in p['items'][:5]:
@@ -281,13 +344,16 @@ def main():
                         r = None  # DS 失败 → 走腾讯兜底
                 if not r or not r.get('summary'):
                     # 最后兜底：腾讯 search（消耗积分）
-                    tn = search_tn_summary(w)
+                    # 长词一次搜不到会自动降级（取核心前缀）重试，救回新上榜的具体事件词
+                    tn, degraded = search_tn_summary(w)
                     # 只拦采编署名行（不用 is_low_quality_summary：其「摘要含标题」规则
                     # 是针对 Google RSS 拼接摘要的，腾讯真实摘要本就常含标题，会误杀）
                     if tn and not is_credit_line_only(tn['summary']):
                         r = {'title': tn.get('title', w), 'summary': tn['summary'],
                              'source': tn.get('source') or '腾讯新闻'}
                         src_tn += 1
+                        if degraded:
+                            src_tn_deg += 1
                 if r and r.get('summary'):
                     entry = {'summary': r['summary'], 'source': r['source'], 'ts': now_ts}
                     it['summary'] = r['summary']
@@ -302,8 +368,8 @@ def main():
                         it['sum_ts'] = cached['ts']
                         seen[w] = cached
                     failed += 1
-    results.append("摘要: 新搜%d(Google正文 %d/Google摘要 %d/网页meta %d/腾讯 %d/DS压 %d/低质丢弃 %d) 复用%d 失败%d 短摘升级%d" % (
-        enriched, src_body, src_google, src_meta, src_tn, src_ds, src_lowq, reused, failed, upgrade_dropped) if enrich else "摘要反查跳过（ENRICH_SUMMARIES 未开启）")
+    results.append("摘要: 新搜%d(Google正文 %d/Google摘要 %d/网页meta %d/腾讯 %d(降级救回%d)/DS压 %d/低质丢弃 %d) 复用%d 失败%d 短摘升级%d" % (
+        enriched, src_body, src_google, src_meta, src_tn, src_tn_deg, src_ds, src_lowq, reused, failed, upgrade_dropped) if enrich else "摘要反查跳过（ENRICH_SUMMARIES 未开启）")
 
     data = {
         "date": f"{now.year}年{now.month}月{now.day}日 星期{'一二三四五六日'[now.weekday()]}",
