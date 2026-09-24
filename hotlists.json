@@ -1,6 +1,6 @@
 {
  "date": "2026年9月24日 星期四",
- "fetchedAt": "2026年09月24日 01:55（北京时间）",
+ "fetchedAt": "2026年09月24日 14:35（北京时间）",
  "platforms": [
   {
    "key": "weibo",
@@ -11,88 +11,88 @@
    "items": [
     {
      "rank": 1,
-     "word": "小米电视",
-     "hot": "32万",
-     "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E5%B0%8F%E7%B1%B3%E7%94%B5%E8%A7%86",
-     "summary": "近日有网友表示，小米电视已经可以永久关闭开机广告，具体方法为：小米商城App找到人工客服，称关闭电视广告，客服会让提供MAC地址（以太网MAC、WiFi MAC、BT MAC，在电视设置里找到）。发给客服后，2-3个工作日会永久关闭开机广告。小米客服称，如果还是出现广告没有关闭成功的情况，需要反复开关机尝试，把广告给消耗完毕...",
-     "sum_src": "ZOL中关村在线",
-     "sum_ts": 1790186101
+     "word": "中美元首华盛顿再次见面",
+     "hot": "109万",
+     "label": "新",
+     "url": "https://s.weibo.com/weibo?q=%E4%B8%AD%E7%BE%8E%E5%85%83%E9%A6%96%E5%8D%8E%E7%9B%9B%E9%A1%BF%E5%86%8D%E6%AC%A1%E8%A7%81%E9%9D%A2",
+     "summary": "以下文章来源于大湾区评论，作者郑永年",
+     "sum_src": "文化纵横杂志",
+     "sum_ts": 1790231719
     },
     {
      "rank": 2,
-     "word": "花少2搬箱子楼梯实际长这样",
-     "hot": "24万",
+     "word": "考研",
+     "hot": "92万",
      "label": "新",
-     "url": "https://s.weibo.com/weibo?q=%E8%8A%B1%E5%B0%912%E6%90%AC%E7%AE%B1%E5%AD%90%E6%A5%BC%E6%A2%AF%E5%AE%9E%E9%99%85%E9%95%BF%E8%BF%99%E6%A0%B7",
-     "summary": "封面新闻记者 周琴9月2日，《花儿与少年2026》公布阵容，七位嘉宾踏上横跨墨西哥、秘鲁、阿根廷的28天拉美长途旅程，一场全新的跨国游学之旅徐徐拉开帷幕。并宣布定档9月11日，并将于9月4日播出“首映篇”。而在此之前，关于“花少”过去的经典名场面，已在社交媒体上多次登上热搜，“花学” 二字又一次重回大众视野。如果...",
-     "sum_src": "封面新闻",
-     "sum_ts": 1790186101
+     "url": "https://s.weibo.com/weibo?q=%E8%80%83%E7%A0%94",
+     "summary": "教育部近日印发《2027年全国硕士研究生招生工作管理规定》（以下简称《规定》），部署各地各招生单位做好2027年全国硕士研究生考试招生工作。《规定》明确，2027年全国硕士研究生招生初试时间为2026年12月19日至20日。报名时间为2026年10月15日至10月24日（预报名时间为2026年10月9日至10月12日，相关工作安排由各省级教育...",
+     "sum_src": "扬眼",
+     "sum_ts": 1790231719
     },
     {
      "rank": 3,
-     "word": "中国天眼实现一批原创突破",
-     "hot": "18万",
+     "word": "卫星互联网低轨26组卫星成功发射",
+     "hot": "60万",
      "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E4%B8%AD%E5%9B%BD%E5%A4%A9%E7%9C%BC%E5%AE%9E%E7%8E%B0%E4%B8%80%E6%89%B9%E5%8E%9F%E5%88%9B%E7%AA%81%E7%A0%B4",
-     "summary": "5月7日拍摄的“中国天眼”全景（无人机照片，维护保养期间拍摄）。新华社记者 欧东衢 摄 新华社贵阳9月23日电（记者欧东衢、向定杰）记者从23日开幕的“FAST落成十周年学术交流会”上了解到，9月25日，“中国天眼”——500米口径球面射电望远镜（FAST）将迎来落成十周年。十年来，“中国天眼”以多项全球瞩目的原创科学成果...",
-     "sum_src": "新华社新闻",
-     "sum_ts": 1790186101
+     "url": "https://s.weibo.com/weibo?q=%E5%8D%AB%E6%98%9F%E4%BA%92%E8%81%94%E7%BD%91%E4%BD%8E%E8%BD%A826%E7%BB%84%E5%8D%AB%E6%98%9F%E6%88%90%E5%8A%9F%E5%8F%91%E5%B0%84",
+     "summary": "9月23日21时32分，中国在海南商业航天发射场使用长征八号甲运载火箭，成功将卫星互联网低轨26组卫星发射升空，卫星顺利进入预定轨道，发射任务获得圆满成功。图为长征八号甲运载火箭点火升空。中新社记者 骆云飞 摄9月23日21时32分，中国在海南商业航天发射场使用长征八号甲运载火箭，成功将卫星互联网低轨26组卫星发射升空...",
+     "sum_src": "中国新闻网",
+     "sum_ts": 1790231719
     },
     {
      "rank": 4,
-     "word": "享界G9开启交付",
-     "hot": "13万",
+     "word": "启境GX7全系L3级架构22.99万起",
+     "hot": "59万",
      "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E4%BA%AB%E7%95%8CG9%E5%BC%80%E5%90%AF%E4%BA%A4%E4%BB%98",
-     "summary": "快科技9月23日消息，华为智选车产品总监（享界系列）彭磊官宣，首批享界G9今日在北汽集团内正式交付。该车为鸿蒙智行首款硬派方盒子，于上月20日上市，价格为42.98万起，提供增程和纯电双动力，分为五座和六座布局。该车长宽高为5206（5377）*2050*1897mm，轴距3160mm，定位全尺寸SUV，车内启用了全新一体式三联屏。还提供...",
-     "sum_src": "驱动之家",
-     "sum_ts": 1790186101
+     "url": "https://s.weibo.com/weibo?q=%E5%90%AF%E5%A2%83GX7%E5%85%A8%E7%B3%BBL3%E7%BA%A7%E6%9E%B6%E6%9E%8422.99%E4%B8%87%E8%B5%B7",
+     "summary": "9月23日晚，启境GX7正式上市。新车共推出3款配置车型，限时权益价为22.99-29.19万元。新车定位大五座增程SUV，搭载华为乾崑智驾ADS 5以及20秒后排一键成床功能。上市的同时，官方也为....",
+     "sum_src": "车扯",
+     "sum_ts": 1790231719
     },
     {
      "rank": 5,
-     "word": "降压疫苗要来了",
-     "hot": "12万",
-     "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E9%99%8D%E5%8E%8B%E7%96%AB%E8%8B%97%E8%A6%81%E6%9D%A5%E4%BA%86",
-     "summary": "高血压患者以后可能不用天天吃药了。武汉华纪元生物的“降压疫苗”刚做完一期临床，马上进二期临床实验。这款药不是预防用的，是治病的。它把一段受体短肽包在假病毒外壳里打进人体。免疫系统一看见，就产生抗体去堵住血管上的升压开关。身体记住了，几个月内都能持续降压。国内高血压患者超3.3亿，但控制率不到两成。同济...",
-     "sum_src": "财经大健康",
-     "sum_ts": 1790186101
+     "word": "林绣茹 和离",
+     "hot": "57万",
+     "label": "新",
+     "url": "https://s.weibo.com/weibo?q=%E6%9E%97%E7%BB%A3%E8%8C%B9%20%E5%92%8C%E7%A6%BB",
+     "summary": "很多观众一开始看《兰香如故》的林府小姐，目光总是先被明媚开朗的嫡出二小姐林绣芄吸引，忽略了沉默寡言、最不起眼的三小姐林绣茹。 林绣茹是林家存在感极低的庶女。生母早逝，无亲可依，常年在后宅藏....",
+     "sum_src": "第一滴露珠",
+     "sum_ts": 1790231719
     },
     {
      "rank": 6,
-     "word": "日本男团3比0晋级决赛",
-     "hot": "12万",
-     "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E6%97%A5%E6%9C%AC%E7%94%B7%E5%9B%A23%E6%AF%940%E6%99%8B%E7%BA%A7%E5%86%B3%E8%B5%9B"
+     "word": "国羽女团夺冠后第一反应是抱紧队友",
+     "hot": "50万",
+     "label": "新",
+     "url": "https://s.weibo.com/weibo?q=%E5%9B%BD%E7%BE%BD%E5%A5%B3%E5%9B%A2%E5%A4%BA%E5%86%A0%E5%90%8E%E7%AC%AC%E4%B8%80%E5%8F%8D%E5%BA%94%E6%98%AF%E6%8A%B1%E7%B4%A7%E9%98%9F%E5%8F%8B"
     },
     {
      "rank": 7,
-     "word": "杨幂骗了全网",
-     "hot": "11万",
-     "label": "热",
-     "url": "https://s.weibo.com/weibo?q=%E6%9D%A8%E5%B9%82%E9%AA%97%E4%BA%86%E5%85%A8%E7%BD%91"
+     "word": "原来这才是行李箱的正确装法",
+     "hot": "49万",
+     "label": "新",
+     "url": "https://s.weibo.com/weibo?q=%E5%8E%9F%E6%9D%A5%E8%BF%99%E6%89%8D%E6%98%AF%E8%A1%8C%E6%9D%8E%E7%AE%B1%E7%9A%84%E6%AD%A3%E7%A1%AE%E8%A3%85%E6%B3%95"
     },
     {
      "rank": 8,
-     "word": "蜡笔上新白松露风味汉堡",
-     "hot": "11万",
+     "word": "田曦薇的厨师长福莉丝来啦",
+     "hot": "47万",
      "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E8%9C%A1%E7%AC%94%E4%B8%8A%E6%96%B0%E7%99%BD%E6%9D%BE%E9%9C%B2%E9%A3%8E%E5%91%B3%E6%B1%89%E5%A0%A1"
+     "url": "https://s.weibo.com/weibo?q=%E7%94%B0%E6%9B%A6%E8%96%87%E7%9A%84%E5%8E%A8%E5%B8%88%E9%95%BF%E7%A6%8F%E8%8E%89%E4%B8%9D%E6%9D%A5%E5%95%A6"
     },
     {
      "rank": 9,
-     "word": "一个视频解决所有铁锅粘锅问题",
-     "hot": "11万",
-     "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E4%B8%80%E4%B8%AA%E8%A7%86%E9%A2%91%E8%A7%A3%E5%86%B3%E6%89%80%E6%9C%89%E9%93%81%E9%94%85%E7%B2%98%E9%94%85%E9%97%AE%E9%A2%98"
+     "word": "肖战新剧好多熟人",
+     "hot": "44万",
+     "label": "新",
+     "url": "https://s.weibo.com/weibo?q=%E8%82%96%E6%88%98%E6%96%B0%E5%89%A7%E5%A5%BD%E5%A4%9A%E7%86%9F%E4%BA%BA"
     },
     {
      "rank": 10,
-     "word": "冯小刚回应垃圾观众言论",
-     "hot": "9万",
+     "word": "特朗普夫人说美方要拿出最高礼遇",
+     "hot": "44万",
      "label": "",
-     "url": "https://s.weibo.com/weibo?q=%E5%86%AF%E5%B0%8F%E5%88%9A%E5%9B%9E%E5%BA%94%E5%9E%83%E5%9C%BE%E8%A7%82%E4%BC%97%E8%A8%80%E8%AE%BA"
+     "url": "https://s.weibo.com/weibo?q=%E7%89%B9%E6%9C%97%E6%99%AE%E5%A4%AB%E4%BA%BA%E8%AF%B4%E7%BE%8E%E6%96%B9%E8%A6%81%E6%8B%BF%E5%87%BA%E6%9C%80%E9%AB%98%E7%A4%BC%E9%81%87"
     }
    ]
   },
@@ -105,88 +105,88 @@
    "items": [
     {
      "rank": 1,
-     "word": "中美元首半年内实现互访",
-     "hot": "1960万",
+     "word": "习近平：中美应成为伙伴而不是对手",
+     "hot": "3038万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7687889715441389119/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227687889715441389119%22%2C%22hot_board_impr_id%22%3A%22202609240154599F1338819E8229CBFD40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%AD%E7%BE%8E%E5%85%83%E9%A6%96%E5%8D%8A%E5%B9%B4%E5%86%85%E5%AE%9E%E7%8E%B0%E4%BA%92%E8%AE%BF%22%7D&rank=&style_id=40132&topic_id=7687889715441389119",
-     "summary": "在中美关系发展的关键节点上，两国元首半年内实现互访。中美元首外交将如何引领两国关系发展？凤凰卫视邀请南京大学国际关系学院教授张云点评分析。 张云教授表示，今年5月，中美元首在北京举行历史性....",
-     "sum_src": "凤凰网",
-     "sum_ts": 1790186101
+     "url": "https://www.toutiao.com/article/7688883250584683042",
+     "summary": "“中美青年同处一个地球，共担时代使命。”近日，习近平主席复信来华参加中美青年主题交流活动的美国10所高校青年学生，并对两国青年携手成为中美友好合作的传承者、维护者、发展者提出殷切期望。 近年来，中美人文交流形式不断丰富、机制日益完善，逐步形成多层次、广覆盖的交往格局，成为推动大国关系良性互动的重要力量...",
+     "sum_src": "零时差工作室",
+     "sum_ts": 1790231719
     },
     {
      "rank": 2,
-     "word": "小米18Pro价格",
-     "hot": "1773万",
+     "word": "美总统亲赴机场迎接释放何种讯息",
+     "hot": "2749万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7688701472178966054/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%225%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227688701472178966054%22%2C%22hot_board_impr_id%22%3A%22202609240154599F1338819E8229CBFD40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%B0%8F%E7%B1%B318Pro%E4%BB%B7%E6%A0%BC%22%7D&rank=&style_id=40132&topic_id=7688701472178966054",
-     "summary": "众所周知，我们的老朋友小米每年都会在骁龙峰会同期发布旗舰，新品也自然会搭载高通骁龙最新旗舰芯片。虽然今年隔壁家抢戏，但在骁龙这一块，你雷子依然是雷打不动的Top1客户，坚定的首发厂商。接下来就有请小米18 Pro系列，出场！9月23日，小米在北京举行了手机新品发布会，雷科技专程北上见证了小米18 Pro和小米18 Pro Max两款新品的发布，这俩机子都继续采用背屏设计，也都首发了第六代高通骁龙至尊版处理器，字里行间的潜台词非常明确——我依然是世一骁龙旗舰手机。",
-     "sum_src": "雷科技",
-     "sum_ts": 1790186101
+     "url": "https://www.toutiao.com/trending/7688914826978119194/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227688914826978119194%22%2C%22hot_board_impr_id%22%3A%22202609241435178AACCCD62C4C2A64DF71%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%BE%8E%E6%80%BB%E7%BB%9F%E4%BA%B2%E8%B5%B4%E6%9C%BA%E5%9C%BA%E8%BF%8E%E6%8E%A5%E9%87%8A%E6%94%BE%E4%BD%95%E7%A7%8D%E8%AE%AF%E6%81%AF%22%7D&rank=&style_id=40132&topic_id=7688914826978119194",
+     "summary": "当地时间9月23日下午，国家主席习近平乘专机抵达华盛顿，应美国总统特朗普邀请，对美国进行国事访问。这是习近平自2013年以来第6次赴美。 习近平和夫人彭丽媛抵达华盛顿安德鲁斯空军基地时，特....",
+     "sum_src": "中国新闻周刊",
+     "sum_ts": 1790231719
     },
     {
      "rank": 3,
-     "word": "世界技能博览会在上海开幕",
-     "hot": "1604万",
+     "word": "多地街道闪耀“中国红”",
+     "hot": "2487万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7688537461459419178/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227688537461459419178%22%2C%22hot_board_impr_id%22%3A%22202609240154599F1338819E8229CBFD40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%96%E7%95%8C%E6%8A%80%E8%83%BD%E5%8D%9A%E8%A7%88%E4%BC%9A%E5%9C%A8%E4%B8%8A%E6%B5%B7%E5%BC%80%E5%B9%95%22%7D&rank=&style_id=40132&topic_id=7688537461459419178",
-     "summary": "李强出席2026年世界技能大会开幕式并致辞9月23日上午，国务院总理李强在上海出席2026年世界技能大会开幕式并致辞。新华社记者 黄敬文 摄9月23日上午，国务院总理李强在上海出席2026年世界技能大会开幕式并致辞。开幕式前，李强参观世界技能博览会。新华社记者 黄敬文 摄...",
-     "sum_src": "新华社新闻",
-     "sum_ts": 1790186101
+     "url": "https://www.toutiao.com/article/7688759327598920228",
+     "summary": "国庆节将至，武汉街头节日氛围渐浓，一抹抹“中国红”迎风招展，成为城市中一道亮丽的风景线。 9月22日下午3点，记者在武汉市江汉路步行街看到，安装师傅们正将一面面国旗挂上街头。现场，不少市民....",
+     "sum_src": "经视直播",
+     "sum_ts": 1790231719
     },
     {
      "rank": 4,
-     "word": "5300多万名老年人享受老年人补贴",
-     "hot": "1452万",
+     "word": "新一轮国内油价调整将至",
+     "hot": "2251万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7688654789375214106/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%2215%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227688654789375214106%22%2C%22hot_board_impr_id%22%3A%22202609240154599F1338819E8229CBFD40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%225300%E5%A4%9A%E4%B8%87%E5%90%8D%E8%80%81%E5%B9%B4%E4%BA%BA%E4%BA%AB%E5%8F%97%E8%80%81%E5%B9%B4%E4%BA%BA%E8%A1%A5%E8%B4%B4%22%7D&rank=&style_id=40132&topic_id=7688654789375214106",
-     "summary": "9月23日，国务院新闻办公室举行“开局起步‘十五五’”系列主题新闻发布会，介绍“十五五”时期推进民政事业高质量发展有关情况。民政部部长李常官介绍，民政工作关系民生、连着民心。“十四五”期间，各级民政部门认真贯彻落实党中央、国务院的决策部署，着力推动普惠性、基础性、兜底性民生建设，民政事业取得了明显的成...",
-     "sum_src": "北京日报客户端",
-     "sum_ts": 1790186101
+     "url": "https://www.toutiao.com/trending/7688483338214998066/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%228%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227688483338214998066%22%2C%22hot_board_impr_id%22%3A%22202609241435178AACCCD62C4C2A64DF71%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%96%B0%E4%B8%80%E8%BD%AE%E5%9B%BD%E5%86%85%E6%B2%B9%E4%BB%B7%E8%B0%83%E6%95%B4%E5%B0%86%E8%87%B3%22%7D&rank=&style_id=40132&topic_id=7688483338214998066",
+     "summary": "中新经纬9月24日电 (万可义)国内成品油新一轮调价窗口将在9月24日24时开启。机构预计，本轮成品油零售价将上调。 金联创分析师赵樱涵分析称，由于本轮调价周期前期原油涨幅已锁定，国内成品油零售价将上调，但随着近期国际原油价格连续下跌，最终上调幅度已较前期预期明显收窄。 据金联创测算，截至9月23日第九个工作日，参...",
+     "sum_src": "中新经纬",
+     "sum_ts": 1790231719
     },
     {
      "rank": 5,
-     "word": "中国男足小组第一进8强",
-     "hot": "1314万",
+     "word": "美方战机飞越致敬",
+     "hot": "2037万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7688629009797631538/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227688629009797631538%22%2C%22hot_board_impr_id%22%3A%22202609240154599F1338819E8229CBFD40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%AD%E5%9B%BD%E7%94%B7%E8%B6%B3%E5%B0%8F%E7%BB%84%E7%AC%AC%E4%B8%80%E8%BF%9B8%E5%BC%BA%22%7D&rank=&style_id=40132&topic_id=7688629009797631538",
-     "summary": "在23日进行爱知·名古屋亚运会男足小组赛第三轮比赛中，中国队0:0战平阿联酋队，晋级八强。&nbsp;来源：新华社（摄影：贾浩成）",
-     "sum_src": "红星新闻",
-     "sum_ts": 1790186101
+     "url": "https://www.toutiao.com/trending/7688226810189987866/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227688226810189987866%22%2C%22hot_board_impr_id%22%3A%22202609241435178AACCCD62C4C2A64DF71%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%BE%8E%E6%96%B9%E6%88%98%E6%9C%BA%E9%A3%9E%E8%B6%8A%E8%87%B4%E6%95%AC%22%7D&rank=&style_id=40132&topic_id=7688226810189987866",
+     "summary": "据纽约邮报报道，美国总统特朗普与国防部长皮特·赫格塞斯于周五宣布，美国将启动全球首架第六代战斗机的生产，其命名中蕴含了对这位三军统帅的敬意。 新款F-47战机将接替以卓越隐身性能闻名的F-....",
+     "sum_src": "追着大事跑的人",
+     "sum_ts": 1790231719
     },
     {
      "rank": 6,
-     "word": "教育部点赞13岁于子迪亚运夺2金",
-     "hot": "1189万",
+     "word": "升糖最快的主食不是米饭而是这6种",
+     "hot": "1843万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7688582303215648818/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227688582303215648818%22%2C%22hot_board_impr_id%22%3A%22202609240154599F1338819E8229CBFD40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%95%99%E8%82%B2%E9%83%A8%E7%82%B9%E8%B5%9E13%E5%B2%81%E4%BA%8E%E5%AD%90%E8%BF%AA%E4%BA%9A%E8%BF%90%E5%A4%BA2%E9%87%91%22%7D&rank=&style_id=40132&topic_id=7688582303215648818"
+     "url": "https://www.toutiao.com/trending/7688526158148976676/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227688526158148976676%22%2C%22hot_board_impr_id%22%3A%22202609241435178AACCCD62C4C2A64DF71%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%8D%87%E7%B3%96%E6%9C%80%E5%BF%AB%E7%9A%84%E4%B8%BB%E9%A3%9F%E4%B8%8D%E6%98%AF%E7%B1%B3%E9%A5%AD%E8%80%8C%E6%98%AF%E8%BF%996%E7%A7%8D%22%7D&rank=&style_id=40132&topic_id=7688526158148976676"
     },
     {
      "rank": 7,
-     "word": "小米发布会",
-     "hot": "1075万",
+     "word": "王凯告别《交锋》角色",
+     "hot": "1667万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7687889715441438271/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227687889715441438271%22%2C%22hot_board_impr_id%22%3A%22202609240154599F1338819E8229CBFD40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%B0%8F%E7%B1%B3%E5%8F%91%E5%B8%83%E4%BC%9A%22%7D&rank=&style_id=40132&topic_id=7687889715441438271"
+     "url": "https://www.toutiao.com/trending/7688323201690009641/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%220%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227688323201690009641%22%2C%22hot_board_impr_id%22%3A%22202609241435178AACCCD62C4C2A64DF71%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E7%8E%8B%E5%87%AF%E5%91%8A%E5%88%AB%E3%80%8A%E4%BA%A4%E9%94%8B%E3%80%8B%E8%A7%92%E8%89%B2%22%7D&rank=&style_id=40132&topic_id=7688323201690009641"
     },
     {
      "rank": 8,
-     "word": "打一针管数月的降压疫苗要来了",
-     "hot": "973万",
+     "word": "中国女篮大胜 半决赛将对韩国",
+     "hot": "1509万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7688194631750107190/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%226%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227688194631750107190%22%2C%22hot_board_impr_id%22%3A%22202609240154599F1338819E8229CBFD40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E6%89%93%E4%B8%80%E9%92%88%E7%AE%A1%E6%95%B0%E6%9C%88%E7%9A%84%E9%99%8D%E5%8E%8B%E7%96%AB%E8%8B%97%E8%A6%81%E6%9D%A5%E4%BA%86%22%7D&rank=&style_id=40132&topic_id=7688194631750107190"
+     "url": "https://www.toutiao.com/trending/7688270536492895780/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227688270536492895780%22%2C%22hot_board_impr_id%22%3A%22202609241435178AACCCD62C4C2A64DF71%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%AD%E5%9B%BD%E5%A5%B3%E7%AF%AE%E5%A4%A7%E8%83%9C+%E5%8D%8A%E5%86%B3%E8%B5%9B%E5%B0%86%E5%AF%B9%E9%9F%A9%E5%9B%BD%22%7D&rank=&style_id=40132&topic_id=7688270536492895780"
     },
     {
      "rank": 9,
-     "word": "丰收开新局 实干促振兴",
-     "hot": "881万",
+     "word": "双节假期“菜篮子”有保障",
+     "hot": "1365万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7688700940567776794/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227688700940567776794%22%2C%22hot_board_impr_id%22%3A%22202609240154599F1338819E8229CBFD40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E4%B8%B0%E6%94%B6%E5%BC%80%E6%96%B0%E5%B1%80+%E5%AE%9E%E5%B9%B2%E4%BF%83%E6%8C%AF%E5%85%B4%22%7D&rank=&style_id=40132&topic_id=7688700940567776794"
+     "url": "https://www.toutiao.com/article/7688879650327544354"
     },
     {
      "rank": 10,
-     "word": "徐嘉余中国亚运历史金牌王",
-     "hot": "797万",
+     "word": "华盛顿沿途欢迎人群唱响《我的祖国》",
+     "hot": "1235万",
      "label": "热",
-     "url": "https://www.toutiao.com/trending/7688697852377239090/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%222%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227688697852377239090%22%2C%22hot_board_impr_id%22%3A%22202609240154599F1338819E8229CBFD40%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%BE%90%E5%98%89%E4%BD%99%E4%B8%AD%E5%9B%BD%E4%BA%9A%E8%BF%90%E5%8E%86%E5%8F%B2%E9%87%91%E7%89%8C%E7%8E%8B%22%7D&rank=&style_id=40132&topic_id=7688697852377239090"
+     "url": "https://www.toutiao.com/trending/7688220123244678719/?category_name=topic_innerflow&event_type=hot_board&log_pb=%7B%22category_name%22%3A%22topic_innerflow%22%2C%22cluster_type%22%3A%221%22%2C%22enter_from%22%3A%22click_category%22%2C%22entrance_hotspot%22%3A%22outside%22%2C%22event_type%22%3A%22hot_board%22%2C%22hot_board_cluster_id%22%3A%227688220123244678719%22%2C%22hot_board_impr_id%22%3A%22202609241435178AACCCD62C4C2A64DF71%22%2C%22jump_page%22%3A%22hot_board_page%22%2C%22location%22%3A%22news_hot_card%22%2C%22page_location%22%3A%22hot_board_page%22%2C%22source%22%3A%22trending_tab%22%2C%22style_id%22%3A%2240132%22%2C%22title%22%3A%22%E5%8D%8E%E7%9B%9B%E9%A1%BF%E6%B2%BF%E9%80%94%E6%AC%A2%E8%BF%8E%E4%BA%BA%E7%BE%A4%E5%94%B1%E5%93%8D%E3%80%8A%E6%88%91%E7%9A%84%E7%A5%96%E5%9B%BD%E3%80%8B%22%7D&rank=&style_id=40132&topic_id=7688220123244678719"
     }
    ]
   },
@@ -199,85 +199,88 @@
    "items": [
     {
      "rank": 1,
-     "word": "以正确相处之道推动中美关系行稳致远",
+     "word": "习近平抵达美国首都华盛顿",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E4%BB%A5%E6%AD%A3%E7%A1%AE%E7%9B%B8%E5%A4%84%E4%B9%8B%E9%81%93%E6%8E%A8%E5%8A%A8%E4%B8%AD%E7%BE%8E%E5%85%B3%E7%B3%BB%E8%A1%8C%E7%A8%B3%E8%87%B4%E8%BF%9C&sa=fyb_news",
-     "summary": "从初夏在北京实现历史性会晤，到金秋大国元首外交开启新航程，太平洋两岸的互动，始终牵动着世界的目光。“让2026年成为中美关系继往开来的历史性、标志性年份”，回望来路、眺望未来，习近平主席的这一主张充满深意。历史的年轮，记录大国交往的风雨历程，也见证着两国相处之道。“55年前，中美开展‘乒乓外交’，推开了中...",
-     "sum_src": "人民日报",
-     "sum_ts": 1790186101
+     "url": "https://m.baidu.com/s?word=%E4%B9%A0%E8%BF%91%E5%B9%B3%E6%8A%B5%E8%BE%BE%E7%BE%8E%E5%9B%BD%E9%A6%96%E9%83%BD%E5%8D%8E%E7%9B%9B%E9%A1%BF&sa=fyb_news",
+     "summary": "中新社华盛顿9月23日电 (记者 沙晗汀)美中贸易全国委员会会长谭森(Sean Stein)近日在华盛顿接受中新社等媒体采访时表示，此次中国国家主席习近平访美将为美中两国关系“注入新的活力”。 应美方邀请，习近平于9月23日至25日对美国进行国事访问。这将是中美元首继今年5月北京会晤后，实现半年内互访。 谭森表示，半年内实现...",
+     "sum_src": "中国新闻网",
+     "sum_ts": 1790231719
     },
     {
      "rank": 2,
-     "word": "习近平离京对美国进行国事访问",
+     "word": "习近平：中美应该成为伙伴而不是对手",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E4%B9%A0%E8%BF%91%E5%B9%B3%E7%A6%BB%E4%BA%AC%E5%AF%B9%E7%BE%8E%E5%9B%BD%E8%BF%9B%E8%A1%8C%E5%9B%BD%E4%BA%8B%E8%AE%BF%E9%97%AE&sa=fyb_news"
+     "url": "https://m.baidu.com/s?word=%E4%B9%A0%E8%BF%91%E5%B9%B3%EF%BC%9A%E4%B8%AD%E7%BE%8E%E5%BA%94%E8%AF%A5%E6%88%90%E4%B8%BA%E4%BC%99%E4%BC%B4%E8%80%8C%E4%B8%8D%E6%98%AF%E5%AF%B9%E6%89%8B&sa=fyb_news",
+     "summary": "“中美青年同处一个地球，共担时代使命。”近日，习近平主席复信来华参加中美青年主题交流活动的美国10所高校青年学生，并对两国青年携手成为中美友好合作的传承者、维护者、发展者提出殷切期望。 近年来，中美人文交流形式不断丰富、机制日益完善，逐步形成多层次、广覆盖的交往格局，成为推动大国关系良性互动的重要力量...",
+     "sum_src": "零时差工作室",
+     "sum_ts": 1790231719
     },
     {
      "rank": 3,
-     "word": "打一针管数月的降压疫苗要来了",
+     "word": "特朗普夫妇机场迎接",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E6%89%93%E4%B8%80%E9%92%88%E7%AE%A1%E6%95%B0%E6%9C%88%E7%9A%84%E9%99%8D%E5%8E%8B%E7%96%AB%E8%8B%97%E8%A6%81%E6%9D%A5%E4%BA%86&sa=fyb_news",
-     "summary": "高血压患者以后可能不用天天吃药了。武汉华纪元生物的“降压疫苗”刚做完一期临床，马上进二期临床实验。这款药不是预防用的，是治病的。它把一段受体短肽包在假病毒外壳里打进人体。免疫系统一看见，就产生抗体去堵住血管上的升压开关。身体记住了，几个月内都能持续降压。国内高血压患者超3.3亿，但控制率不到两成。同济...",
-     "sum_src": "财经大健康",
-     "sum_ts": 1790186101
+     "url": "https://m.baidu.com/s?word=%E7%89%B9%E6%9C%97%E6%99%AE%E5%A4%AB%E5%A6%87%E6%9C%BA%E5%9C%BA%E8%BF%8E%E6%8E%A5&sa=fyb_news",
+     "summary": "当地时间9月23日下午，国家主席习近平乘专机抵达华盛顿，应美国总统特朗普邀请，对美国进行国事访问。这是习近平自2013年以来第6次赴美。 习近平和夫人彭丽媛抵达华盛顿安德鲁斯空军基地时，特....",
+     "sum_src": "中国新闻周刊",
+     "sum_ts": 1790231719
     },
     {
      "rank": 4,
-     "word": "中国接受过高等教育人口达2.7亿",
+     "word": "“小球接力” 见证友谊传承",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E4%B8%AD%E5%9B%BD%E6%8E%A5%E5%8F%97%E8%BF%87%E9%AB%98%E7%AD%89%E6%95%99%E8%82%B2%E4%BA%BA%E5%8F%A3%E8%BE%BE2.7%E4%BA%BF&sa=fyb_news",
-     "summary": "在国务院新闻办公室今天（23日）举行的“开局起步‘十五五’”系列主题新闻发布会上，教育部相关负责人介绍，目前，我国已建成世界上规模最大且有质量的教育体系，教育普及和公平程度居世界前列。基础教育达到高收入国家平均水平，学前教育毛入园率达92.9%、义务教育巩固率达96.1%、高中阶段毛入学率达92%，中小学生每天综...",
-     "sum_src": "央广网",
-     "sum_ts": 1790186101
+     "url": "https://m.baidu.com/s?word=%E2%80%9C%E5%B0%8F%E7%90%83%E6%8E%A5%E5%8A%9B%E2%80%9D+%E8%A7%81%E8%AF%81%E5%8F%8B%E8%B0%8A%E4%BC%A0%E6%89%BF&sa=fyb_news",
+     "summary": "中美青年乒乓球友谊赛16日在宁夏体育馆举行，本次比赛采用混合编队团体赛形式，来自宁夏大学和美国西北地区大学生乒乓球队的双方16名队员混编为“和平队”“友谊队”同场竞技。赛事不设金、银、铜牌，赛后为全体选手颁发纪念奖牌，突出交流与友谊。 记者：吕泽 新华社音视频部制作 新华社国际传播融合平台出品...",
+     "sum_src": "新华社新闻",
+     "sum_ts": 1790231719
     },
     {
      "rank": 5,
-     "word": "余额宝将无法直接付款了吗",
+     "word": "特朗普遗憾欢迎晚宴座位不够多",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E4%BD%99%E9%A2%9D%E5%AE%9D%E5%B0%86%E6%97%A0%E6%B3%95%E7%9B%B4%E6%8E%A5%E4%BB%98%E6%AC%BE%E4%BA%86%E5%90%97&sa=fyb_news",
-     "summary": "近期，“平台月付将退出支付选项”“零钱通、余额宝无法直接付款”等话题接连冲上热搜，引发大量网友担忧。针对网络流传的各类解读误区，经记者核实，相关消息均为不实误读。用户日常使用的消费信贷、货币基金等产....",
-     "sum_src": "财途信号灯",
-     "sum_ts": 1790186101
+     "url": "https://m.baidu.com/s?word=%E7%89%B9%E6%9C%97%E6%99%AE%E9%81%97%E6%86%BE%E6%AC%A2%E8%BF%8E%E6%99%9A%E5%AE%B4%E5%BA%A7%E4%BD%8D%E4%B8%8D%E5%A4%9F%E5%A4%9A&sa=fyb_news",
+     "summary": "参考消息网3月7日报道 据德国新闻电视频道网站3月4日报道，要想在海湖庄园举办的特别活动上与美国总统特朗普会面或共进晚餐，客人们得支付上百万美元。据《连线》杂志网站报道，企业家和高管能够以500万美元的价格预约与美国总统私人会面。参加烛光晚餐则便宜一些：根据该网站获取的邀请函，1日的烛光晚餐价格是每个座位收...",
+     "sum_src": "参考消息",
+     "sum_ts": 1790231719
     },
     {
      "rank": 6,
-     "word": "中国女排夺冠 香港记者激动落泪",
+     "word": "升糖最快的主食不是米饭而是这6种",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E4%B8%AD%E5%9B%BD%E5%A5%B3%E6%8E%92%E5%A4%BA%E5%86%A0+%E9%A6%99%E6%B8%AF%E8%AE%B0%E8%80%85%E6%BF%80%E5%8A%A8%E8%90%BD%E6%B3%AA&sa=fyb_news"
+     "url": "https://m.baidu.com/s?word=%E5%8D%87%E7%B3%96%E6%9C%80%E5%BF%AB%E7%9A%84%E4%B8%BB%E9%A3%9F%E4%B8%8D%E6%98%AF%E7%B1%B3%E9%A5%AD%E8%80%8C%E6%98%AF%E8%BF%996%E7%A7%8D&sa=fyb_news"
     },
     {
      "rank": 7,
+     "word": "中国队两小时连夺9金",
+     "hot": "",
+     "label": "",
+     "url": "https://m.baidu.com/s?word=%E4%B8%AD%E5%9B%BD%E9%98%9F%E4%B8%A4%E5%B0%8F%E6%97%B6%E8%BF%9E%E5%A4%BA9%E9%87%91&sa=fyb_news"
+    },
+    {
+     "rank": 8,
      "word": "高端酒水为何卖不动了",
      "hot": "",
      "label": "",
      "url": "https://m.baidu.com/s?word=%E9%AB%98%E7%AB%AF%E9%85%92%E6%B0%B4%E4%B8%BA%E4%BD%95%E5%8D%96%E4%B8%8D%E5%8A%A8%E4%BA%86&sa=fyb_news"
     },
     {
-     "rank": 8,
-     "word": "教育部回应“13岁于子迪亚运夺2金”",
-     "hot": "",
-     "label": "",
-     "url": "https://m.baidu.com/s?word=%E6%95%99%E8%82%B2%E9%83%A8%E5%9B%9E%E5%BA%94%E2%80%9C13%E5%B2%81%E4%BA%8E%E5%AD%90%E8%BF%AA%E4%BA%9A%E8%BF%90%E5%A4%BA2%E9%87%91%E2%80%9D&sa=fyb_news"
-    },
-    {
      "rank": 9,
-     "word": "5300多万名老年人享受老年人补贴",
+     "word": "退伍女兵“走路带风”视频爆火",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=5300%E5%A4%9A%E4%B8%87%E5%90%8D%E8%80%81%E5%B9%B4%E4%BA%BA%E4%BA%AB%E5%8F%97%E8%80%81%E5%B9%B4%E4%BA%BA%E8%A1%A5%E8%B4%B4&sa=fyb_news"
+     "url": "https://m.baidu.com/s?word=%E9%80%80%E4%BC%8D%E5%A5%B3%E5%85%B5%E2%80%9C%E8%B5%B0%E8%B7%AF%E5%B8%A6%E9%A3%8E%E2%80%9D%E8%A7%86%E9%A2%91%E7%88%86%E7%81%AB&sa=fyb_news"
     },
     {
      "rank": 10,
-     "word": "“十五五”时期将推动制定养老服务法",
+     "word": "双节假期“菜篮子”有保障",
      "hot": "",
      "label": "",
-     "url": "https://m.baidu.com/s?word=%E2%80%9C%E5%8D%81%E4%BA%94%E4%BA%94%E2%80%9D%E6%97%B6%E6%9C%9F%E5%B0%86%E6%8E%A8%E5%8A%A8%E5%88%B6%E5%AE%9A%E5%85%BB%E8%80%81%E6%9C%8D%E5%8A%A1%E6%B3%95&sa=fyb_news"
+     "url": "https://m.baidu.com/s?word=%E5%8F%8C%E8%8A%82%E5%81%87%E6%9C%9F%E2%80%9C%E8%8F%9C%E7%AF%AE%E5%AD%90%E2%80%9D%E6%9C%89%E4%BF%9D%E9%9A%9C&sa=fyb_news"
     }
    ]
   }
