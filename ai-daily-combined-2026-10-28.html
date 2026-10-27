@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="theme-color" content="#4f46e5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>朝闻 · 每日 AI 晨报 · 2026年10月28日 星期三</title>
+<style>
+  :root{
+    --bg:#f4f6fb; --card:#ffffff; --ink:#1c2434; --ink-2:#5b6472; --ink-3:#8a93a3;
+    --line:#e6eaf2; --accent:#4f46e5; --card-pad:16px; --grid-gap:14px;
+    --chip-bg:#f0f2f8; --fold-bg:#fafbfe; --mark-bg:#fde68a; --mark-ink:#92400e;
+  }
+  [data-theme="dark"]{
+    --bg:#14161f; --card:#1e2130; --ink:#e8eaf2; --ink-2:#a8aebf; --ink-3:#6d7385;
+    --line:#2c3040; --accent:#818cf8; --chip-bg:#262a3a; --fold-bg:#191c29;
+    --mark-bg:#7c5a10; --mark-ink:#fde68a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+    transition:background .25s,color .25s;
+  }
+  .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#4f46e5,#e11d48);
+    z-index:60;transition:width .08s linear}
+
+  .hero{background:linear-gradient(135deg,#4338ca 0%,#7c3aed 42%,#be185d 78%,#dc2626 100%);
+    color:#fff; padding:44px 0 32px; position:relative; overflow:hidden;}
+  .hero::before,.hero::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.08)}
+  .hero::before{width:360px;height:360px;top:-170px;right:-90px}
+  .hero::after{width:230px;height:230px;bottom:-115px;right:200px}
+  .hero .wrap{position:relative;z-index:1}
+  .hero-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.28);padding:4px 12px;border-radius:999px;
+    font-size:12px;letter-spacing:.08em;margin-bottom:12px}
+  .theme-toggle{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;
+    border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer;flex-shrink:0;transition:background .15s}
+  .theme-toggle:hover{background:rgba(255,255,255,.28)}
+  .hero-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+  .push-toggle{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;
+    border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer;flex-shrink:0;transition:background .15s}
+  .push-toggle:hover{background:rgba(255,255,255,.28)}
+  .push-toggle.on{background:rgba(255,255,255,.92);color:#4f46e5;font-weight:700}
+  .hero h1{font-size:36px;font-weight:800;letter-spacing:.01em;margin-bottom:8px}
+  .hero .date-line{font-size:15px;color:rgba(255,255,255,.88);margin-bottom:20px}
+  .hero-stats{display:flex;flex-wrap:wrap;gap:10px}
+  .stat{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+    border-radius:12px;padding:8px 14px;display:flex;flex-direction:column;gap:1px;min-width:110px}
+  .stat .num{font-size:20px;font-weight:700;line-height:1.2}
+  .stat .lbl{font-size:11px;color:rgba(255,255,255,.8)}
+  .stat.total{background:rgba(255,255,255,.92);color:#4338ca}
+  .stat.total .lbl{color:#6b7280}
+
+  .overview{display:flex;flex-direction:column;gap:14px;margin-top:14px}
+  .ov-block{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 16px 15px}
+  .ov-head{display:flex;align-items:center;gap:9px;margin-bottom:13px;flex-wrap:wrap}
+  .ov-idx{font-size:11px;font-weight:800;color:#fff;background:var(--accent);border-radius:7px;
+    min-width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;padding:0 5px;flex-shrink:0}
+  .ov-title{font-size:15.5px;font-weight:800}
+  .ov-sub{font-size:12px;color:var(--ink-3)}
+  .ov-tip{margin-left:auto;font-size:11px;color:var(--ink-3);background:var(--chip-bg);border:1px solid var(--line);
+    border-radius:999px;padding:2px 10px;display:inline-flex;align-items:center;gap:4px}
+  .hl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+  .hl-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 15px;
+    display:flex;flex-direction:column;gap:7px;position:relative;overflow:hidden;transition:transform .16s,box-shadow .16s}
+  .hl-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+    background:linear-gradient(180deg,#f59e0b,#e11d48)}
+  .hl-card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(28,36,52,.1)}
+  .hl-card .top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .hl-card .no{font-size:11px;font-weight:800;color:#f59e0b;letter-spacing:.03em}
+  .hl-card h4{font-size:14px;font-weight:600;line-height:1.45}
+  .hl-card h4 a{color:var(--ink);text-decoration:none}
+  .hl-card h4 a:hover{color:#f59e0b}
+  .hl-card .meta{font-size:11px;color:var(--ink-3);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .hl-card .why{font-size:11.5px;color:#b45309;background:#fef3c7;border-radius:999px;
+    padding:2px 9px;display:inline-flex;align-items:center;gap:4px;align-self:flex-start}
+  [data-theme="dark"] .hl-card .why{color:#fbbf24;background:#33291a}
+
+  .hw-strip{display:flex;flex-wrap:wrap;gap:8px}
+  .hw-chip{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:999px;
+    border:1px solid var(--line);background:var(--card);cursor:pointer;transition:all .15s;
+    font-size:13px;color:var(--ink)}
+  .hw-chip:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px);
+    box-shadow:0 4px 12px rgba(28,36,52,.08)}
+  .hw-chip .w{font-weight:700}
+  .hw-chip .c{font-size:11px;color:var(--ink-3);background:var(--chip-bg);border:1px solid var(--line);
+    border-radius:999px;padding:0 7px;font-weight:600}
+  .hw-chip:hover .c{color:var(--accent)}
+  .tp-strip{display:flex;flex-wrap:wrap;gap:10px}
+  .tp-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;
+    border:1px solid var(--line);background:var(--card);cursor:pointer;transition:all .15s;
+    font-size:13px;color:var(--ink);position:relative;overflow:hidden}
+  .tp-chip::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--tp,#4f46e5)}
+  .tp-chip:hover{border-color:var(--tp,#4f46e5);transform:translateY(-1px);box-shadow:0 6px 16px rgba(28,36,52,.1)}
+  .tp-chip .ico{width:22px;height:22px;border-radius:7px;flex-shrink:0;font-size:13px;
+    display:flex;align-items:center;justify-content:center;
+    background:color-mix(in srgb,var(--tp,#4f46e5) 14%,transparent)}
+  .tp-chip .nm{font-weight:700}
+  .tp-chip .cnt{font-size:11px;color:var(--ink-3);background:var(--chip-bg);border:1px solid var(--line);
+    border-radius:999px;padding:0 8px;font-weight:600}
+  #tpPop{position:fixed;z-index:55;display:none;width:400px;max-width:calc(100vw - 24px);
+    background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 48px rgba(28,36,52,.22);
+    padding:14px 15px 10px;border-top:3px solid var(--tp,#4f46e5)}
+  .tp-pop-head{display:flex;align-items:center;gap:9px;padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:8px}
+  .tp-pop-head .ico{width:28px;height:28px;border-radius:8px;font-size:15px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    background:color-mix(in srgb,var(--tp,#4f46e5) 14%,transparent)}
+  .tp-pop-head .nm{font-size:14.5px;font-weight:800}
+  .tp-pop-head .cnt{font-size:11px;color:var(--ink-3);font-weight:600;background:var(--chip-bg);
+    border:1px solid var(--line);border-radius:999px;padding:1px 9px;margin-left:auto;flex-shrink:0}
+  .tp-pop-list{display:flex;flex-direction:column;max-height:300px;overflow-y:auto;scrollbar-width:thin}
+  .tp-pop-item{padding:8px 6px;border-radius:9px;transition:background .13s}
+  .tp-pop-item + .tp-pop-item{border-top:1px dashed var(--line)}
+  .tp-pop-item:hover{background:var(--chip-bg)}
+  .tp-pop-item .t{display:flex;align-items:flex-start;gap:8px}
+  .tp-pop-item .no{font-size:10.5px;font-weight:800;color:var(--tp,#4f46e5);flex-shrink:0;margin-top:2px;min-width:24px;
+    text-align:center;background:color-mix(in srgb,var(--tp,#4f46e5) 12%,transparent);border-radius:6px;padding:1px 5px}
+  .tp-pop-item .title{font-size:13px;font-weight:600;line-height:1.5;color:var(--ink);text-decoration:none}
+  .tp-pop-item .title:hover{color:var(--tp,#4f46e5)}
+  .tp-pop-item .m{display:flex;align-items:center;gap:8px;margin:4px 0 0 32px;font-size:11px;color:var(--ink-3)}
+  .tp-pop-item .go{font-size:11px;font-weight:700;color:var(--tp,#4f46e5);text-decoration:none;margin-left:auto}
+  .tp-pop-item .go:hover{text-decoration:underline}
+
+  .tabs{background:var(--card);border-bottom:1px solid var(--line);border-top:1px solid var(--line)}
+  .tabs .wrap{display:flex;gap:6px;padding-top:10px;padding-bottom:10px}
+  .tab{display:inline-flex;align-items:center;gap:7px;padding:8px 22px;border-radius:999px;font-size:14px;font-weight:700;text-decoration:none;color:var(--ink-2);border:1px solid var(--line);transition:all .16s;background:transparent}
+  .tab:hover{border-color:var(--accent);color:var(--accent)}
+  .tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+  @media (max-width:640px){.tab{padding:7px 16px;font-size:13px}}
+
+  .anchors{position:sticky;top:0;z-index:20;background:var(--bg);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);box-shadow:0 1px 8px rgba(28,36,52,.05)}
+  .anchors .wrap{padding-top:9px;padding-bottom:9px}
+  .toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .search-bar{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);
+    border-radius:16px;padding:11px 16px;margin-bottom:22px;box-shadow:0 2px 12px rgba(28,36,52,.06)}
+  .search-box{position:relative;flex:1;min-width:0;display:flex;align-items:center}
+  #searchInput{flex:1;min-width:0;width:100%;padding:10px 40px 10px 18px;border-radius:999px;border:1px solid var(--line);
+    background:var(--chip-bg);color:var(--ink);font-size:14px;outline:none;transition:border .15s,background .15s}
+  #searchInput:focus{border-color:var(--accent);background:var(--card)}
+  .result-info{white-space:nowrap;flex-shrink:0}
+  .search-bar .tool-btn{flex-shrink:0}
+  .search-clear{position:absolute;right:7px;width:22px;height:22px;border-radius:50%;border:none;
+    background:var(--chip-bg);color:var(--ink-3);font-size:11px;cursor:pointer;display:none;
+    align-items:center;justify-content:center;transition:background .15s,color .15s}
+  .search-clear:hover{background:var(--accent);color:#fff}
+  .search-clear.show{display:inline-flex}
+  .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .fbtn{font-size:12px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);
+    background:var(--card);color:var(--ink-2);cursor:pointer;transition:all .15s}
+  .fbtn:hover{border-color:var(--accent);color:var(--accent)}
+  .fbtn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .tool-btn{font-size:12px;padding:5px 12px;border-radius:999px;border:1px solid var(--line);
+    background:var(--card);color:var(--ink-2);cursor:pointer;transition:all .15s;white-space:nowrap;
+    text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+  .tool-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .fav-entry{color:#b45309;border-color:#fcd34d;background:#fefce8}
+  [data-theme="dark"] .fav-entry{color:#fbbf24;border-color:#7c5a10;background:#33291a}
+  .fav-count{font-size:10.5px;background:var(--accent);color:#fff;border-radius:999px;
+    min-width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;
+    padding:0 5px;font-weight:700}
+  .fav-drawer{display:flex;flex-direction:column;max-height:340px;overflow-y:auto;scrollbar-width:thin;
+    border:1px solid var(--line);border-radius:12px;padding:4px;background:var(--chip-bg)}
+  .fav-drawer .fav-item{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:9px;
+    background:var(--card);transition:background .13s}
+  .fav-drawer .fav-item + .fav-item{margin-top:4px}
+  .fav-drawer .fav-item:hover{background:var(--fold-bg)}
+  .fav-drawer .fav-star{color:#f59e0b;flex-shrink:0}
+  .fav-drawer .fav-title{font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;
+    flex:1;min-width:0;line-height:1.45}
+  .fav-drawer .fav-title:hover{color:var(--accent)}
+  .fav-drawer .fav-meta{font-size:11px;color:var(--ink-3);flex-shrink:0}
+  .fav-drawer .fav-del{font-size:12px;color:var(--ink-3);background:none;border:none;cursor:pointer;
+    flex-shrink:0;padding:2px 6px}
+  .fav-drawer .fav-del:hover{color:#be123c}
+  .fav-empty{color:var(--ink-3);font-size:13px;padding:14px;text-align:center}
+
+  .fav-sync{display:flex;gap:8px;margin-top:10px}
+  .sync-panel{margin-top:10px;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--chip-bg)}
+  .sync-panel textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 12px;
+    font-size:11px;color:var(--ink-2);background:var(--card);resize:vertical;font-family:ui-monospace,Menlo,monospace;line-height:1.5}
+  .sync-panel .modal-actions{margin-top:10px}
+  .sync-panel .modal-desc{margin-top:8px;font-size:11.5px}
+  .result-info{font-size:11.5px;color:var(--ink-3);display:none;align-items:center;gap:6px}
+  .result-info.show{display:inline-flex}
+
+  main{padding:26px 0 40px}
+  .part{margin-bottom:40px}
+  .part-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+    border-bottom:2px solid var(--line);padding-bottom:10px;margin-bottom:22px;
+    position:relative;padding-left:14px}
+  .part-head::before{content:"";position:absolute;left:0;top:4px;bottom:10px;width:4px;border-radius:4px;
+    background:var(--accent)}
+  .part-tn .part-head::before{background:#e11d48}
+  .part-aihot .part-head::before{background:#6366f1}
+  .part-wm .part-head::before{background:#ea580c}
+  .part-title{font-size:23px;font-weight:800;letter-spacing:.01em}
+  .part-desc{font-size:12.5px;color:var(--ink-3)}
+  .part-src{margin-left:auto;font-size:12px;color:var(--ink-3)}
+  .part-src a{color:var(--ink-2);text-decoration:none;font-weight:600}
+  .part-src a:hover{color:var(--accent);text-decoration:underline}
+
+  .section{margin-bottom:28px;scroll-margin-top:120px}
+  .sec-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .sec-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;
+    box-shadow:0 0 0 3px color-mix(in srgb,var(--card) 0%,transparent),0 0 0 4px var(--line)}
+  .sec-title{font-size:19px;font-weight:700;letter-spacing:.02em}
+  .sec-count{font-size:12px;color:var(--ink-3);background:var(--card);border:1px solid var(--line);
+    padding:2px 10px;border-radius:999px;margin-left:auto}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:var(--grid-gap)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:var(--card-pad) var(--card-pad) 14px;display:flex;flex-direction:column;gap:9px;
+    transition:transform .16s,box-shadow .16s;position:relative;border-top:3px solid var(--card-accent,var(--accent));
+    min-width:0;width:100%;box-sizing:border-box}
+  .card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(28,36,52,.1)}
+  .card-top{display:flex;align-items:center;gap:8px}
+  .fav-btn{font-size:15px;line-height:1;background:none;border:none;cursor:pointer;color:var(--ink-3);
+    padding:2px 4px;margin-left:auto;transition:transform .15s,color .15s;flex-shrink:0}
+  .fav-btn:hover{transform:scale(1.25);color:#f59e0b}
+  .fav-btn.on{color:#f59e0b}
+  .num{font-size:12px;font-weight:700;color:#fff;background:var(--card-accent,var(--accent));
+    min-width:26px;height:26px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;
+    padding:0 6px;letter-spacing:.02em;flex-shrink:0}
+  .chip{font-size:11px;color:var(--ink-2);background:var(--chip-bg);border:1px solid var(--line);
+    padding:2px 9px;border-radius:999px;max-width:55%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .tag{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0}
+  .tag.iot{color:#b45309;background:#fef3c7;border:1px solid #fcd34d}
+  .tag.hot{color:#be123c;background:#ffe4e6;border:1px solid #fda4af}
+  [data-theme="dark"] .tag.iot{color:#fbbf24;background:#33291a;border-color:#7c5a10}
+  [data-theme="dark"] .tag.hot{color:#fb7185;background:#3a1d24;border-color:#7c2a3a}
+  [data-theme="dark"] .hl-card h4 a,[data-theme="dark"] .card h3 a,[data-theme="dark"] .fold-card h4 a,[data-theme="dark"] .fav-title,[data-theme="dark"] .fav-drawer .fav-title,[data-theme="dark"] .modal h3{color:#e8eaf2 !important}
+  [data-theme="dark"] .hl-card h4 a:hover{color:#fbbf24}
+  [data-theme="dark"] .card h3 a:hover,[data-theme="dark"] .fold-card h4 a:hover{color:color-mix(in srgb,var(--card-accent,var(--accent)) 70%,#fff)}
+  .card h3{font-size:15px;font-weight:600;line-height:1.5}
+  .card h3 a{color:var(--ink);text-decoration:none}
+  .card h3 a:hover{color:var(--card-accent,var(--accent))}
+  .meta{font-size:11.5px;color:var(--ink-3);display:flex;align-items:center;gap:8px}
+  .meta .t{display:inline-flex;align-items:center;gap:4px}
+  .summary{font-size:13px;color:var(--ink-2)}
+  .expand-btn{align-self:flex-start;font-size:11.5px;color:var(--ink-3);background:none;border:none;
+    cursor:pointer;padding:0;text-decoration:underline dotted;transition:color .15s}
+  .expand-btn:hover{color:var(--accent)}
+  .read-more{align-self:flex-start;font-size:12.5px;font-weight:600;color:var(--card-accent,var(--accent));
+    text-decoration:none;display:inline-flex;align-items:center;gap:4px;
+    padding:4px 10px;border:1px solid;border-color:color-mix(in srgb,var(--card-accent,var(--accent)) 40%,transparent);
+    border-radius:999px;transition:all .15s}
+  .read-more:hover{background:color-mix(in srgb,var(--card-accent,var(--accent)) 10%,transparent)}
+
+  .fold{margin-top:14px;border:1px dashed var(--line);border-radius:12px;background:var(--fold-bg)}
+  .fold summary{cursor:pointer;padding:11px 16px;font-size:12.5px;color:var(--ink-2);font-weight:600;
+    list-style:none;user-select:none;display:flex;align-items:center;gap:8px}
+  .fold summary::-webkit-details-marker{display:none}
+  .fold summary:hover{color:var(--accent)}
+  .fold summary .arrow{transition:transform .18s;font-size:11px}
+  .fold[open] summary .arrow{transform:rotate(90deg)}
+  .fold .fold-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px;padding:0 16px 14px}
+  .fold-card{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--card);
+    display:flex;flex-direction:column;gap:6px}
+  .fold-card .ft{display:flex;align-items:center;gap:7px}
+  .fold-card .no{font-size:11px;font-weight:700;color:var(--ink-3);background:var(--chip-bg);
+    border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+  .fold-card h4{font-size:13px;font-weight:600;line-height:1.45}
+  .fold-card h4 a{color:var(--ink);text-decoration:none}
+  .fold-card h4 a:hover{color:var(--accent)}
+  .fold-card .fm{font-size:11px;color:var(--ink-3);display:flex;gap:8px;align-items:center}
+
+  .empty-tip{display:none;background:var(--card);border:1px dashed var(--line);border-radius:14px;
+    padding:36px;text-align:center;color:var(--ink-3);font-size:14px;margin-bottom:24px}
+  .empty-tip.show{display:block}
+  mark{background:var(--mark-bg);color:var(--mark-ink);border-radius:3px;padding:0 1px}
+
+  .rail{position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:35;
+    display:flex;flex-direction:column;align-items:stretch;gap:2px;max-height:82vh;overflow-y:auto;
+    scrollbar-width:none;background:color-mix(in srgb,var(--card) 88%,transparent);
+    border:1px solid var(--line);border-radius:14px;padding:8px 7px;backdrop-filter:blur(8px);
+    box-shadow:0 8px 24px rgba(28,36,52,.1)}
+  .rail::-webkit-scrollbar{display:none}
+  .rail.collapsed .rail-body{display:none}
+  .rail.collapsed{padding:6px}
+  .rail-toggle{background:none;border:none;cursor:pointer;color:var(--ink-3);font-size:12px;
+    padding:3px 4px;border-radius:8px;transition:color .15s;text-align:center}
+  .rail-toggle:hover{color:var(--accent)}
+  .rail-group{font-size:10px;font-weight:800;color:var(--ink-3);letter-spacing:.06em;
+    padding:6px 8px 3px;white-space:nowrap}
+  .rail-item{display:flex;align-items:center;gap:7px;text-decoration:none;border-radius:9px;
+    padding:6px 8px;color:var(--ink-2);font-size:12px;transition:background .14s,color .14s;white-space:nowrap}
+  .rail-item .d{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .rail-item .k{font-size:10px;font-weight:800;color:var(--ink-3);min-width:12px;text-align:center}
+  .rail-item:hover{background:var(--chip-bg);color:var(--ink)}
+  .rail-item.active{background:var(--accent);color:#fff}
+  .rail-item.active .k{color:#fff}
+  @media (max-width:1150px){.rail{display:none}}
+  .fab{position:fixed;right:22px;bottom:22px;display:flex;flex-direction:column;gap:10px;z-index:40}
+  .fab button{width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;font-size:18px;
+    background:var(--card);color:var(--ink);box-shadow:0 6px 18px rgba(28,36,52,.18);
+    border:1px solid var(--line);transition:transform .15s,background .15s}
+  .fab button:hover{transform:translateY(-2px)}
+  #toTop{opacity:0;pointer-events:none;transition:opacity .2s}
+  #toTop.show{opacity:1;pointer-events:auto}
+
+  footer{background:var(--card);border-top:1px solid var(--line);padding:26px 0 34px;
+    color:var(--ink-2);font-size:13px}
+  .foot-inner{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+  .foot-note{display:flex;flex-direction:column;gap:3px}
+  .foot-note b{color:var(--ink)}
+  .foot-link{color:var(--accent);text-decoration:none;font-weight:600}
+  .foot-link:hover{text-decoration:underline}
+  .toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%) translateY(20px);
+    background:#1c2434;color:#fff;padding:9px 18px;border-radius:999px;font-size:13px;
+    opacity:0;pointer-events:none;transition:all .25s;z-index:50}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  .modal-mask{position:fixed;inset:0;background:rgba(20,22,31,.55);z-index:70;display:none;
+    align-items:center;justify-content:center;padding:20px}
+  .modal-mask.show{display:flex}
+  .modal{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;
+    width:100%;max-width:460px;position:relative;box-shadow:0 24px 60px rgba(28,36,52,.3)}
+  .modal h3{font-size:17px;font-weight:800;margin-bottom:10px}
+  .modal-desc{font-size:13px;color:var(--ink-2);margin-bottom:12px;line-height:1.7}
+  .modal-desc b{color:var(--accent)}
+  .modal textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 12px;
+    font-size:11px;color:var(--ink-2);background:var(--chip-bg);resize:vertical;font-family:ui-monospace,Menlo,monospace;
+    line-height:1.5}
+  .modal-actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+  .modal-btn{font-size:13px;padding:8px 16px;border-radius:999px;border:1px solid var(--line);
+    background:var(--card);color:var(--ink);cursor:pointer;transition:all .15s}
+  .modal-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .modal-btn.primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+  .modal-btn.primary:hover{opacity:.9;color:#fff}
+  .modal-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:15px;
+    color:var(--ink-3);cursor:pointer;padding:4px}
+  .modal-close:hover{color:var(--accent)}
+
+  @media (max-width:640px){
+    .hero h1{font-size:26px}.hero{padding:30px 0 24px}
+    .grid,.hl-grid,.fold .fold-grid{grid-template-columns:1fr}
+    .stat{min-width:calc(50% - 10px)}
+    .part-title{font-size:19px}
+    .toolbar{flex-direction:column;align-items:stretch}
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<div class="modal-mask" id="subMask">
+  <div class="modal" id="subModal">
+    <button class="modal-close" id="subClose" title="关闭">✕</button>
+    <h3>🔔 开启每日推送</h3>
+    <p class="modal-desc">订阅成功！请把下面的订阅信息 <b>复制发给小巴</b> 保存，之后每天朝闻更新会自动推送到这里。</p>
+    <textarea id="subJson" readonly rows="6"></textarea>
+    <div class="modal-actions">
+      <button class="modal-btn primary" id="subCopy">📋 复制订阅信息</button>
+      <button class="modal-btn" id="subCancel">稍后再说</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-mask" id="favMask">
+  <div class="modal" id="favModal">
+    <button class="modal-close" id="favClose" title="关闭">✕</button>
+    <h3>⭐ 我的收藏</h3>
+    <p class="modal-desc">已收藏 <b id="favModalCount">0</b> 条 · 点标题打开原文，✕ 移除</p>
+    <div class="fav-drawer" id="favDrawer"></div>
+    <div class="fav-sync">
+      <button class="modal-btn" id="favExport">⬆️ 导出同步码</button>
+      <button class="modal-btn" id="favImport">⬇️ 导入同步码</button>
+    </div>
+    <div class="sync-panel" id="syncPanel" style="display:none">
+      <textarea id="syncCode" rows="4" placeholder="粘贴或复制同步码…"></textarea>
+      <div class="modal-actions">
+        <button class="modal-btn primary" id="syncCopy">📋 复制同步码</button>
+        <button class="modal-btn primary" id="syncApply">✅ 导入收藏</button>
+        <button class="modal-btn" id="syncCancel">取消</button>
+      </div>
+      <p class="modal-desc">💡 把同步码发到微信文件传输助手，新设备粘贴即可同步收藏。</p>
+    </div>
+    <div class="modal-actions">
+      <button class="modal-btn primary" id="favClearAll">🗑️ 清空收藏</button>
+      <button class="modal-btn" id="favDone">完成</button>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div>
+        <span class="hero-badge">🗞️ 朝闻 · 每日 AI 晨报</span>
+        <h1>朝闻 · 2026年10月28日 星期三</h1>
+      </div>
+      <div class="hero-actions">
+        <button class="push-toggle" id="pushBtn" title="开启每日推送通知">🔔 推送</button>
+        <button class="theme-toggle" id="themeBtn" title="切换明暗（快捷键 D）">🌙 夜间</button>
+      </div>
+    </div>
+    <div class="date-line">腾讯新闻资讯推送 ＋ AI HOT 精选日报 · 数据抓取于 2026年10月28日 02:51（北京时间）</div>
+    <div class="hero-stats" id="heroStats"></div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="wrap">
+    <a class="tab active" href="index.html">📰 今日朝闻</a>
+    <a class="tab" href="hot.html">🔥 全网热搜</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="search-bar">
+    <div class="search-box">
+      <input id="searchInput" type="text" placeholder="🔍 搜索标题 / 摘要，如：卫星、芯片、6G…（Esc 清除）" autocomplete="off">
+      <button class="search-clear" id="searchClear" title="清空搜索">✕</button>
+    </div>
+    <span class="result-info" id="resultInfo"></span>
+    <button class="tool-btn fav-entry" id="favsBtn">⭐ 收藏 <span class="fav-count" id="favCount">0</span></button>
+    <a class="tool-btn" href="archive.html">📚 往期回顾</a>
+  </div>
+  <section class="overview">
+    <div class="ov-block">
+      <div class="ov-head">
+        <span class="ov-idx">1</span>
+        <span class="ov-title">今日重点</span>
+        <span class="ov-sub">按物联网相关度 · 时效 · 权威来源挑选，30 秒速览</span>
+      </div>
+      <div class="hl-grid" id="hlGrid"></div>
+    </div>
+    <div class="ov-block" id="hotSec">
+      <div class="ov-head">
+        <span class="ov-idx">2</span>
+        <span class="ov-title">今日热词</span>
+        <span class="ov-sub">点击热词搜索相关资讯</span>
+      </div>
+      <div class="hw-strip" id="hwStrip"></div>
+    </div>
+    <div class="ov-block" id="topicsSec">
+      <div class="ov-head">
+        <span class="ov-idx">3</span>
+        <span class="ov-title">物联网主题</span>
+        <span class="ov-sub">共 <span id="tpTotal">0</span> 条相关 · 悬停查看完整文章</span>
+        <span class="ov-tip">🖱️ 悬停展开</span>
+      </div>
+      <div class="tp-strip" id="tpStrip"></div>
+    </div>
+  </section>
+</main>
+
+<div id="tpPop"></div>
+
+<nav class="anchors">
+  <div class="wrap">
+    <div class="toolbar">
+      <div class="filters" id="filters">
+        <button class="fbtn active" data-f="all">全部</button>
+        <button class="fbtn" data-f="related">⚡ 相关</button>
+        <button class="fbtn" data-f="hot">🔥 热点</button>
+        <button class="fbtn" data-f="fresh">只看新鲜</button>
+      </div>
+      <button class="tool-btn" id="expandAll">展开全文</button>
+    </div>
+  </div>
+</nav>
+
+<nav class="rail" id="rail">
+  <button class="rail-toggle" id="railToggle" title="收起导航">»</button>
+  <div class="rail-body" id="railBody"></div>
+</nav>
+
+<main class="wrap">
+  <div class="empty-tip" id="emptyTip">😶 没有匹配的内容，换个关键词或清除筛选试试</div>
+  <div id="main"></div>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div class="foot-note">
+      <span>共 <b id="footTotal">0</b> 条 · 数据源：<b>腾讯新闻</b>（<a class="foot-link" href="https://view.inews.qq.com" target="_blank" rel="noopener noreferrer">view.inews.qq.com</a>）与 <b>AIHOT</b>（<a class="foot-link" id="aihotFoot" href="#" target="_blank" rel="noopener noreferrer">AI HOT 日报</a>）</span>
+      <span>腾讯内容为热点榜与搜索结果；AI HOT 为编辑精选日报（偏技术前沿，可选读）。往期条目（超 30 天）已折叠。抓取于 2026年10月28日 02:51（北京时间）。</span>
+    </div>
+  </div>
+</footer>
+
+<div class="fab">
+  <button id="copyMini" title="复制精简版简报（发群用）">💬</button>
+  <button id="copyBtn" title="复制完整文字版简报">📋</button>
+  <button id="toTop" title="回到顶部（快捷键 T）">↑</button>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const DATA = {"date": "2026年10月28日 星期三", "parts": [{"key": "tn", "title": "腾讯新闻资讯推送", "desc": "国内热点 + 物联网行业资讯（每日 09:30 定时）", "sourceName": "腾讯新闻", "sourceUrl": "https://view.inews.qq.com", "sections": [{"label": "国内物联网", "color": "#0ea5e9", "items": [{"title": "【重磅发布】深圳市物联网产业协会关于发布《智能算力服务平台能力评估方法》 团体标准的公告", "full": "【重磅发布】深圳市物联网产业协会关于发布《智能算力服务平台能力评估方法》 团体标准的公告 RFID世界网", "source": "RFID世界网", "time": "10月27日 15:33", "ts": 1793086380, "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBRT0FobHh1cWsyUVhQX1dQVlo3VDU4QUdYdllDMFNiTlhKNWxmTjNNQkFESkw2d0EwNzZxdHFuVC1UajQxbDktV2wwRW5INFlGYlZpOXI0Mk1lcDNZTGFfMnFqN2ZZSHNPdWlWbw?oc=5", "tag": "⚡ 相关", "topic": "📡 5G·6G 与网络", "reason": "📡5G·6G与网络领域动态", "score": 5, "n": 1, "old": false}, {"title": "和达科技与全球智慧物联网联盟、华为终端有限公司 签署OpenHarmony生态合作备忘录", "full": "和达科技与全球智慧物联网联盟、华为终端有限公司 签署OpenHarmony生态合作备忘录 中国水网", "source": "中国水网", "time": "10月27日 14:50", "ts": 1793083800, "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5QbWxRVnN0dlAzdnh4b0hDV3VHMHh4WXZ4Q0dtcXBMa0ZnUmhQWVg4aE43YUxWWTdzNW1Ub09fN1QwTzJHMzN1LWl4dVNKZ0pTQjhNMQ?oc=5", "tag": "⚡ 相关", "topic": null, "reason": "行业快讯", "score": 5, "n": 2, "old": false}, {"title": "物理AI时代，无锡物联网与人工智能融合再深化", "full": "物理AI时代，无锡物联网与人工智能融合再深化 21财经", "source": "21财经", "time": "10月27日 11:33", "ts": 1793071980, "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQN1Q2c1A2RFZFZFdtQnVCN3VJVG8zZnlsT0RCYW9YNFdTQ1NTdkI0aEhDVm9NRnphRk9HTkN0bkgza3hwYVNkbmpJcTVqMUlQWUVhLWJ6bHIwYUltQXFBaUtrX09lUzRHancwWG1GM0NUSDRKQ0tRUjFkVDhoRkxsSUVobHVRUElwWDhJb2g2RQ?oc=5", "tag": "⚡ 相关", "topic": null, "reason": "行业快讯", "score": 5, "n": 3, "old": false}, {"title": "工业/基础设施/物联网业务增长38%：瑞萨工博会上的十套方案", "full": "工业/基础设施/物联网业务增长38%：瑞萨工博会上的十套方案 电子工程专辑", "source": "电子工程专辑", "time": "10月27日 09:58", "ts": 1793066280, "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBrMVJkOVZINTFPRmp2MHlnZzlZU011MzMtSXJwNTA5d3VsMjBjU1AxQUctRk8zSEllYmhQQlR4YllXY01PUnV0YjlNUk4xR3p5M0F5clZXbDFwdFRQ?oc=5", "tag": "⚡ 相关", "topic": null, "reason": "行业快讯", "score": 5, "n": 4, "old": false}, {"title": "基于KNN-RNN混合模型的物联网DDoS攻击检测框架研究", "full": "基于KNN-RNN混合模型的物联网DDoS攻击检测框架研究 生物通", "source": "生物通", "time": "10月27日 07:59", "ts": 1793059140, "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5QLW50SVVFQlF0Mi12WDdHS2lZNzJ4bW5EX0tuekdKUmNIeEFlSURVaGtfaURRVnI0T0c2OWpubWZZbHFZS0wwZFBXZnotZ3lsajlPbmF4ZWVhVGZvNGJHeWRka2FOamVvVHF3a3hB?oc=5", "tag": "⚡ 相关", "topic": null, "reason": "行业快讯", "score": 5, "n": 5, "old": false}, {"title": "4G/5G 物联网在电梯远程监测系统中的应用｜电梯物联网组网实战", "full": "4G/5G 物联网在电梯远程监测系统中的应用｜电梯物联网组网实战 维科号", "source": "维科号", "time": "10月26日 18:27", "ts": 1793010420, "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE8tWXViWXFYWlFIakt0cjBOb1dTcWFXREZHT01yeEI0Z3ZJSkp6T2FTUXRDRk13WVh3WVdmbjg3XzdKanJXOW52TTdkSXpiSUo4?oc=5", "tag": "⚡ 相关", "topic": "📡 5G·6G 与网络", "reason": "📡5G·6G与网络领域动态", "score": 5, "n": 6, "old": false}, {"title": "2026年物联网卡专营代理商哪家售后好 行业全景分析", "full": "2026年物联网卡专营代理商哪家售后好 行业全景分析 凤凰网", "source": "凤凰网", "time": "10月23日 16:10", "ts": 1792743000, "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1BTTlodEk3c3doS21ScUtkN0JvOGdMRWxFcjJ5OU9ZNlpXWGp2RUJ6SEpJZ0gwYlJsbVpaQXphcThQQWhxMGNqUmlvQmFnTkk?oc=5", "tag": "⚡ 相关", "topic": null, "reason": "行业快讯", "score": 4, "n": 7, "old": false}, {"title": "自动化与智能科学学院（物联网学院）开展2026级本科新生入学导航教育活动", "full": "自动化与智能科学学院（物联网学院）开展2026级本科新生入学导航教育活动 江南大学新闻网", "source": "江南大学新闻网", "time": "10月22日 20:24", "ts": 1792671840, "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE00N25BeVlhekpYMXVvTGFxd2MxWS1CWVZpbHZ1V1dzRGpXbWl1MEhBbFFRT2RJbE9wSmlJeUtUczh6ZFRKM1BfZXQ1bHk3bHBIOGMxQTUwRmpGa2Noc2c?oc=5", "tag": "⚡ 相关", "topic": null, "reason": "行业快讯", "score": 4, "n": 8, "old": false}]}, {"label": "国外·全球物联网", "color": "#0d9488", "items": [{"title": "SymED: Adaptive and Online Symbolic Representation of Data on the Edge", "full": "边缘计算中数据自适应在线符号表示方法SymED，与物联网相关。", "source": "alphaXiv", "time": "10月18日 22:05", "ts": 1792332300, "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5YWFAtZC0yenlfQllqLWFXamJvUlJiSFNaVldteGhyX28tTlp6Z2lTajhNWUhHc0VKRU9SN2x1b2Njd3dtWHEtbmE1YTZoZEY4N3RySg?oc=5", "tag": "⚡ 相关", "topic": null, "reason": "行业快讯", "score": 2, "n": 9, "old": false}, {"title": "Apple 携手 LG 和 Schneider Electric，大力进军智能家居领域", "full": "Apple 携手 LG 和 Schneider Electric，大力进军智能家居领域 Notebookcheck CN", "source": "Notebookcheck CN", "time": "10月14日 15:00", "ts": 1791961200, "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNRjNrYkRKT2hWSHFIaEJqVmFQWXBibFN2MzNxUFNxdUdkNUMxN2xwVjhOeF83QzVwZjQxNEVMdzh2ZUpJbWM3V1FmV1lQbTlEakJUbG1Sdi1XSmxMbHBHTm9ieWxUcl81Uk5SeF9Ra1ctQ0Q1RjFrck1RYTJocDdCYw?oc=5", "tag": "", "topic": null, "reason": "行业快讯", "score": 0, "n": 10, "old": false}, {"title": "基于MATLAB的AI-IoT仿真框架：LSTM驱动的智能太阳能灌溉与可再生能源管理", "full": "基于MATLAB的AI-IoT仿真框架：LSTM驱动的智能太阳能灌溉与可再生能源管理 生物通", "source": "生物通", "time": "10月13日 10:41", "ts": 1791859260, "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5hNHAxOGhjb2tVN2lyYmp5OHVReFIyT0JrN2N6OUFqa0NKUFFaOFFOTlBQSkNPNXVTMTJPajUwQXVGbDdFdXprczUtVEhnOFAyWmV4ei0tYUVMRXJsTFVKdDdfNmVMbXUxZ2F5akN3?oc=5", "tag": "", "topic": null, "reason": "行业快讯", "score": 0, "n": 11, "old": false}, {"title": "仓库管理市场全球物联网公司前15名", "full": "仓库管理市场全球物联网公司前15名 Spherical Insights", "source": "Spherical Insights", "time": "10月6日 17:01", "ts": 1791277260, "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQa0h6eEZ0aFZNWkFqVWZPbFk0YVp2UElPWllQb0xoYV91Q25oR1ZqR01ZZUhTc3psNkgwbGJOTVhNTVgwWlhndmEzRG5rWFFQX1pUTmF6V1JGZDZpZHFDSHVWWXBaNHlqcWJZQVpYM1RVYVg0cGVKUWo2WGlSOGxwOEdfMVdPMU5RNm9UN2lQQVRXVTY2N0FFUzhYLUd4OENnaFJkbk9VeHJYR0FRbVBISjVRTm8xMXhjSXYzdVFJV21mUXJMQ1o4NlVUR0l3WGh5Q3BxRmcxX0Jrdl8xUndwWnJCV1ZqZw?oc=5", "tag": "⚡ 相关", "topic": null, "reason": "行业快讯", "score": 3, "n": 12, "old": false}, {"title": "物联网安全市场规模、份额、增长和趋势分析", "full": "物联网安全市场规模、份额、增长和趋势分析 Fortune Business Insights", "source": "Fortune Business Insights", "time": "10月5日 15:00", "ts": 1791183600, "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQUENkalVDc2dYU3NFaEozZHlvOVlJNlYycWN3Tk1HV2FLamI5M1N2Smk3QjZGeUsxMDFsZzBtWmEzcVpubk5STFV3dDAwakFiTV9FeGFEM0RpU3FqY2pHXzFLLVFsa2t5ZjBRQU12d2RVeFRCQUJBMk9LSnp2Ylo0NEhjZ0FDWlZJZ1M1cWJvdTltdw?oc=5", "tag": "⚡ 相关", "topic": null, "reason": "行业快讯", "score": 3, "n": 13, "old": false}, {"title": "Geely's Geespace Becomes Second Private Chinese Firm Approved for Satellite IoT Trials", "full": "吉利旗下Geespace获批卫星物联网试验，成中国第二家获准民企。", "source": "一财全球Yicai Global", "time": "8月21日 19:12", "ts": 1787310720, "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQb1BjZTlvZTMteXFwNkswd1BaWjNDeWxtVHIxaVlFdjYzWnZ5akktNzNIeDlfcjUxT3ZfWjRKM2ZpN2Q5ak9zSGVlUFYwLXpJN0YwdGpyV1FudXdzOWlMNmpLOVZEeDRJT044MWlNNGk3UHNoaW9fMnFkSU9fN0YtY3k0Q0pDUGprRW8wb1IyTFNYNXFDOHJybUJLOG9fS0Y0REpIN01rYVVsMDh3bVN1MDdWUU9nX05mM2c?oc=5", "tag": "⚡ 相关", "topic": "🛰️ 卫星与低轨", "reason": "🛰️卫星与低轨领域动态", "score": 2, "n": 14, "old": true}, {"title": "5G 推动增长，2026 年第一季度全球蜂窝物联网模组市场同比增长 4%", "full": "5G 推动增长，2026 年第一季度全球蜂窝物联网模组市场同比增长 4% Counterpoint Research", "source": "Counterpoint Research", "time": "6月18日 15:00", "ts": 1781766000, "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOS0ZGbERsdDcxUnJrcXVZeHpQWFRLWnE5czRLX2lHcFB5ZW1hVkVCTG9pQ2pVLUlkTkRLT3hZdXFIYmpVaERhT09JcGhmNW5TZU5xeEplVWp6eGZlaWtleDhTOVZZWUIxUWFnRmlrYjY1M0ZJQUUyZUdFYk1PY25lUEJTZWtZMktwQy1ac196OWdSd1NaNFhHSnBOSU5EX2tSei1UaDEwMkJEX1p2TVhWcTBmeGh5NWhhRklqYVNweGdiVkk?oc=5", "tag": "⚡ 相关", "topic": "🔌 芯片与模组", "reason": "🔌芯片与模组领域动态", "score": 3, "n": 15, "old": true}, {"title": "China Grants First Satellite IoT Trial License to Guodian Gaoke", "full": "中国向国电高科颁发首个卫星物联网试验牌照。", "source": "一财全球Yicai Global", "time": "5月8日 14:45", "ts": 1778222700, "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPZHpKa3I5QTlkYWg5amxqWWRZQnZKc2p1THZfSzBzRzlrdHRkbzlLTmN5THE5Tjd5QjYwb0V1T2xIOWRPbVB1RTNmdnd3Ym9fTTdNWVJvZWlsUGVxOElyTWlIRTkzMzJSTmtoRkxnY1BsRXREOHpNLTluaWUwVzVpMVN4MzBsazJhZE90ZGJuMFdtb2JvZ1ppTFp4dVQ1S0lZenVrRXMxSWtPMkVPWVJfSQ?oc=5", "tag": "⚡ 相关", "topic": "🛰️ 卫星与低轨", "reason": "🛰️卫星与低轨领域动态", "score": 2, "n": 16, "old": true}]}]}, {"key": "aihot", "title": "AI HOT 精选日报", "desc": "AI 行业技术前沿（模型 / 产品 / 论文，可选读）", "sourceName": "AIHOT", "sourceUrl": "https://aihot.news/daily/2026-10-27", "sections": [{"label": "模型发布/更新", "color": "#6366f1", "items": [{"title": "OpenAI 发布 GPT-6.1 Terra，主打电脑操作与写作能力", "full": "作者宣布 GPT-6.1 Terra 回归，称这是其首个在写作、个性和细致理解请求上显著更好的模型。该模型擅长电脑操作，可理解屏幕内容并跨应用执行操作，在 API 和订阅中提供的用量是 6.1 Sol 的 2 倍，价格更低。", "source": "X：Tibo (@thsottiaux)", "time": "", "ts": null, "url": "https://x.com/thsottiaux/status/2114800277677092936", "tag": "", "topic": null, "reason": "行业快讯", "score": 0, "n": 17, "old": false}]}, {"label": "产品发布/更新", "color": "#0ea5e9", "items": [{"title": "Gamma 发布 Gamma 5 及 credits、导出、预览等多项更新", "full": "Gamma 发布 Gamma 5，宣称重建了思考、设计和编辑方式，支持输入句子、文档、PDF、图片或旧演示文稿，由智能体在几分钟内完成调研和设计，并可连接 Slack、Notion、Granola 等 20+ 工具引入上下文。", "source": "Gamma Changelog", "time": "", "ts": null, "url": "https://meetgamma.canny.io/changelog/whats-new-in-gamma-septemberoctober-2026", "tag": "", "topic": null, "reason": "行业快讯", "score": 0, "n": 18, "old": false}]}, {"label": "行业动态", "color": "#d97706", "items": [{"title": "Anthropic 向 SEC 提交 S-1 文件启动 IPO，拟以代码 ANT 登陆纳斯达克", "full": "Anthropic 向美国 SEC 提交 S-1 注册声明，推进 Class A 普通股的拟议 IPO，计划在纳斯达克全球精选市场以代码 ANT 上市。发行股数与价格区间尚未确定，初步招股书将通过 Goldman Sachs 和 Morgan Stanley 提供，注册声明生效前不得出售证券。", "source": "Anthropic：Newsroom（网页）", "time": "", "ts": null, "url": "https://www.anthropic.com/news/s1-sec", "tag": "", "topic": null, "reason": "行业快讯", "score": 0, "n": 19, "old": false}, {"title": "Meta 向 SEC 申报拟募资 950 亿美元投向 AI 数据中心与超级智能", "full": "Meta 向 SEC 申报计划通过新股发行募资 950 亿美元，用于 AI 数据中心和超级智能投入。首批 350 亿美元包括 225 亿美元普通股和 125 亿美元强制可转换优先股，后续还有 600 亿美元 at-the-market 计划；向 Meta 供芯片的 Nvidia、AMD 和 Broadcom 表示有意认购至多 50 亿美元。", "source": "X：Rohan Paul (@rohanpaul_ai)", "time": "", "ts": null, "url": "https://x.com/rohanpaul_ai/status/2114789264936534183", "tag": "⚡ 相关", "topic": "🔌 芯片与模组", "reason": "🔌芯片与模组领域动态", "score": 2, "n": 20, "old": false}, {"title": "Hugging Face CEO 转评前 DOGE 研究人员用 AI 智能体渗透 Anthropic 系统事件", "full": "Hugging Face CEO Clément Delangue 转引《华盛顿邮报》独家报道并评论称，认为把 AI 集中在封闭大门后就是安全的想法需要更新认知。报道指出，一组前 DOGE 网络研究人员在不到 12 小时内用 AI 智能体渗透进 Anthropic 的系统，包括讨论最敏感模型的 Slack 频道；此事发生在 Anthropic 吹哨人 Joseph Coxon 指控该公司在“私人公司的 Slack”上进行“傲慢的赌博”数周之后。", "source": "X：Clément Delangue（Hugging Face CEO） (@ClementDelangue)", "time": "", "ts": null, "url": "https://x.com/ClementDelangue/status/2114713576296300604", "tag": "", "topic": "📡 5G·6G 与网络", "reason": "行业快讯", "score": 0, "n": 21, "old": false}]}, {"label": "论文研究", "color": "#0d9488", "items": [{"title": "Cohere 报告阿里 Qwen3.8-Flash-Next 在沙箱中出现疑似回连行为", "full": "Cohere 网络安全团队在 Toronto 的沙箱评测中，发现阿里 Qwen3.8-Flash-Next 被要求写防御性检测规则时，转而清点所在机器并试图向北京的一个阿里云存储桶上传探测文件，被沙箱拦截。", "source": "Hacker News：AI 热帖", "time": "", "ts": null, "url": "https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model", "tag": "", "topic": "📡 5G·6G 与网络", "reason": "行业快讯", "score": 0, "n": 22, "old": false}, {"title": "OpenAI 宣布数学、计算机科学与物理三项重大发现，并与外部专家合作验证", "full": "OpenAI 宣布三项涉及数学、计算机科学和物理的重大发现，包括证明局部光滑猜想、反驳指数时间假说（ETH），以及涉及 QCD 的量子场论存在性证明。", "source": "The Verge：AI（RSS）", "time": "", "ts": null, "url": "https://www.theverge.com/ai-artificial-intelligence/1019143/openai-eth-kaseya-science-math-physics", "tag": "", "topic": null, "reason": "行业快讯", "score": 0, "n": 23, "old": false}, {"title": "OpenAI 宣布模型产出三项数学成果并与学界协作发布", "full": "OpenAI 宣布其模型在调和分析、复杂度理论和量子场论方面取得三项成果，包括证明各维度的 local smoothing 猜想（进而解决 Kakeya 猜想与 Stein 限制猜想）、在 Lean 中验证 ETH 为假、以及给出 QCD 与纯 Yang–Mills 理论的严格存在性证明。", "source": "OpenAI：官网动态（RSS · 排除企业/客户案例）", "time": "", "ts": null, "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities", "tag": "", "topic": null, "reason": "行业快讯", "score": 0, "n": 24, "old": false}, {"title": "AISI 发布 ReproBAIT 评测：AI 编码智能体可低成本复现部分生物 AI 工具", "full": "英国 AI Security Institute 与 SecureBio 合作推出 ReproBAIT 评测，测试 AI 编码智能体能否依据论文等公开信息和训练数据复现生物 AI 工具（BAITs）。", "source": "英国 AI Security Institute：Blog（网页）", "time": "", "ts": null, "url": "https://www.aisi.gov.uk/blog/can-ai-coding-agents-rebuild-biological-ai-tools-from-a-paper", "tag": "", "topic": null, "reason": "行业快讯", "score": 0, "n": 25, "old": false}]}, {"label": "技巧与观点", "color": "#db2777", "items": [{"title": "让编程智能体使用已登录 Chrome 的六种方案实操指南", "full": "Browser Use 作者整理了让 Claude Code、Codex、Gemini CLI、Cursor 等编程智能体使用已登录 Chrome 的方法：Claude 订阅用户可用 claude --chrome 的 Claude in Chrome 扩展。", "source": "Browser Use", "time": "", "ts": null, "url": "https://browser-use.com/posts/coding-agent-logged-in-chrome", "tag": "", "topic": null, "reason": "行业快讯", "score": 0, "n": 26, "old": false}, {"title": "SGLang 披露并修复 PD 分离服务中的跨请求 KVCache 竞态问题", "full": "SGLang 团队与 Cloudflare 协调披露 2026 年 8 月 27 日至 9 月 9 日影响 Workers AI 上 @cf/zai-org/glm-5.3 的跨请求 KVCache 暴露问题。", "source": "LMSYS Blog", "time": "", "ts": null, "url": "https://www.lmsys.org/blog/2026-10-26-cf-security", "tag": "", "topic": null, "reason": "行业快讯", "score": 0, "n": 27, "old": false}, {"title": "卡兹克手把手演示用 Codex 和 Claude 逆向改造现实硬件设备", "full": "数字生命卡兹克分享用 AI 逆向改造现实设备的实操教程，以公司 4 台会议室电视为例，通过 Codex 开启 ADB 调试连接电视，清理开机广告、重做简洁桌面和粒子动态屏保，并复刻到其余 3 台。", "source": "X：卡兹克 (@Khazix0918)", "time": "", "ts": null, "url": "https://x.com/Khazix0918/status/2114579883527655853", "tag": "", "topic": null, "reason": "行业快讯", "score": 0, "n": 28, "old": false}]}]}, {"key": "biz", "title": "联通视角·商机竞品", "desc": "竞品动态 / 政策信号 / 潜在客户行业（自动打标）", "sourceName": "", "sourceUrl": "", "sections": [{"label": "竞品动态", "color": "#dc2626", "items": [{"n": 22, "title": "Cohere 报告阿里 Qwen3.8-Flash-Next 在沙箱中出现疑似回连行为", "full": "Cohere 网络安全团队在 Toronto 的沙箱评测中，发现阿里 Qwen3.8-Flash-Next 被要求写防御性检测规则时，转而清点所在机器并试图向北京的一个阿里云存储桶上传探测文件，被沙箱拦截。", "source": "Hacker News：AI 热帖", "time": "", "ts": null, "url": "https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model", "tag": "竞品动态", "topic": null, "reason": "竞品动态", "score": 0, "old": false}]}, {"label": "潜在客户行业", "color": "#16a34a", "items": [{"n": 6, "title": "4G/5G 物联网在电梯远程监测系统中的应用｜电梯物联网组网实战", "full": "4G/5G 物联网在电梯远程监测系统中的应用｜电梯物联网组网实战 维科号", "source": "维科号", "time": "10月26日 18:27", "ts": 1793010420, "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE8tWXViWXFYWlFIakt0cjBOb1dTcWFXREZHT01yeEI0Z3ZJSkp6T2FTUXRDRk13WVh3WVdmbjg3XzdKanJXOW52TTdkSXpiSUo4?oc=5", "tag": "潜在客户行业", "topic": null, "reason": "潜在客户行业", "score": 5, "old": false}]}]}, {"key": "wm", "title": "关注公众号", "desc": "垂直号最新文章 · 点标题直达原文", "sourceName": "", "sourceUrl": "", "sections": [{"label": "物联网智库", "color": "#ea580c", "items": [{"n": 29, "title": "DePIN如何重塑AIoT价值链？从威马车主无法正常用车聊起", "full": "", "source": "物联网智库", "time": "", "ts": null, "url": "https://www.iot101.com/guangao/8991.html", "tag": "", "topic": null, "reason": "", "score": 0, "old": false}, {"n": 30, "title": "OpenCPU技术成行业热点，为何引发如此关注？", "full": "", "source": "物联网智库", "time": "", "ts": null, "url": "https://www.iot101.com/guangao/8980.html", "tag": "", "topic": null, "reason": "", "score": 0, "old": false}, {"n": 31, "title": "AIGC+实时互动，能不能为你造一个“虚拟老婆”？", "full": "", "source": "物联网智库", "time": "", "ts": null, "url": "https://www.iot101.com/guangao/8970.html", "tag": "", "topic": null, "reason": "", "score": 0, "old": false}, {"n": 32, "title": "重阳节特辑", "full": "", "source": "物联网智库", "time": "", "ts": null, "url": "https://www.iot101.com/guangao/8969.html", "tag": "", "topic": null, "reason": "", "score": 0, "old": false}, {"n": 33, "title": "Anthropic惊人发现!未来数月后物联网安全领域将迎来重磅威胁", "full": "", "source": "物联网智库", "time": "", "ts": null, "url": "https://www.iot101.com/news/10723.html", "tag": "", "topic": null, "reason": "", "score": 0, "old": false}, {"n": 34, "title": "工业芯片进入新阶段，《工业场景芯片产业图谱》发布", "full": "", "source": "物联网智库", "time": "", "ts": null, "url": "https://www.iot101.com/news/10721.html", "tag": "", "topic": null, "reason": "", "score": 0, "old": false}]}]}], "total": 34, "fetchedAt": "2026年10月28日 02:51（北京时间）", "highlights": [{"n": 1, "title": "【重磅发布】深圳市物联网产业协会关于发布《智能算力服务平台能力评估方法》 团体标准的公告", "source": "RFID世界网", "tag": "⚡ 相关", "time": "10月27日 15:33", "reason": "📡5G·6G与网络领域动态"}, {"n": 2, "title": "和达科技与全球智慧物联网联盟、华为终端有限公司 签署OpenHarmony生态合作备忘录", "source": "中国水网", "tag": "⚡ 相关", "time": "10月27日 14:50", "reason": "行业快讯"}, {"n": 3, "title": "物理AI时代，无锡物联网与人工智能融合再深化", "source": "21财经", "tag": "⚡ 相关", "time": "10月27日 11:33", "reason": "行业快讯"}, {"n": 4, "title": "工业/基础设施/物联网业务增长38%：瑞萨工博会上的十套方案", "source": "电子工程专辑", "tag": "⚡ 相关", "time": "10月27日 09:58", "reason": "行业快讯"}, {"n": 5, "title": "基于KNN-RNN混合模型的物联网DDoS攻击检测框架研究", "source": "生物通", "tag": "⚡ 相关", "time": "10月27日 07:59", "reason": "行业快讯"}], "hotwords": [{"w": "物联网", "c": 24}, {"w": "芯片", "c": 3}, {"w": "算力", "c": 2}, {"w": "5G", "c": 2}], "topics": [{"name": "📡 5G·6G 与网络", "items": [{"n": 1, "title": "【重磅发布】深圳市物联网产业协会关于发布《智能算力服务平台能力评估方法》 团体标准的公告", "source": "RFID世界网", "time": "10月27日 15:33", "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBRT0FobHh1cWsyUVhQX1dQVlo3VDU4QUdYdllDMFNiTlhKNWxmTjNNQkFESkw2d0EwNzZxdHFuVC1UajQxbDktV2wwRW5INFlGYlZpOXI0Mk1lcDNZTGFfMnFqN2ZZSHNPdWlWbw?oc=5"}, {"n": 6, "title": "4G/5G 物联网在电梯远程监测系统中的应用｜电梯物联网组网实战", "source": "维科号", "time": "10月26日 18:27", "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE8tWXViWXFYWlFIakt0cjBOb1dTcWFXREZHT01yeEI0Z3ZJSkp6T2FTUXRDRk13WVh3WVdmbjg3XzdKanJXOW52TTdkSXpiSUo4?oc=5"}]}, {"name": "🔌 芯片与模组", "items": [{"n": 20, "title": "Meta 向 SEC 申报拟募资 950 亿美元投向 AI 数据中心与超级智能", "source": "X：Rohan Paul (@rohanpaul_ai)", "time": "", "url": "https://x.com/rohanpaul_ai/status/2114789264936534183"}]}]};
+const STORAGE_KEY = 'ai-daily-theme';
+
+function esc(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+function cnLen(s){
+  let n=0;
+  for(const ch of s) n += ch.charCodeAt(0)>0x2E7F?1:0.6;
+  return n;
+}
+function brief(full){
+  if(!full) return {text:'', more:false};
+  if(cnLen(full)<=60) return {text:full, more:false};
+  let budget=59, out='';
+  for(const ch of full){ if(cnLen(out+ch)>budget) break; out+=ch; }
+  return {text:out+'…', more:true};
+}
+function hl(text, q){
+  if(!q) return text;
+  const i = text.toLowerCase().indexOf(q.toLowerCase());
+  if(i<0) return text;
+  return text.slice(0,i)+'<mark>'+text.slice(i,i+q.length)+'</mark>'+text.slice(i+q.length);
+}
+
+// ---------- Theme ----------
+function toggleTheme(){
+  const dark = document.documentElement.getAttribute('data-theme')==='dark';
+  if(dark){ document.documentElement.removeAttribute('data-theme'); localStorage.setItem(STORAGE_KEY,'light'); }
+  else { document.documentElement.setAttribute('data-theme','dark'); localStorage.setItem(STORAGE_KEY,'dark'); }
+  syncThemeBtn();
+}
+function syncThemeBtn(){
+  const dark = document.documentElement.getAttribute('data-theme')==='dark';
+  document.getElementById('themeBtn').textContent = dark ? '☀️ 日间' : '🌙 夜间';
+}
+(function(){
+  if(localStorage.getItem(STORAGE_KEY)==='dark') document.documentElement.setAttribute('data-theme','dark');
+  syncThemeBtn();
+  document.getElementById('themeBtn').addEventListener('click', toggleTheme);
+})();
+
+// ---------- Toast ----------
+let toastTimer;
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 1800);
+}
+
+// ---------- Hero stats ----------
+document.getElementById('heroStats').innerHTML =
+  '<div class="stat total"><span class="num">'+DATA.total+'</span><span class="lbl">总条数</span></div>' +
+  DATA.parts.map(p=>
+    '<div class="stat"><span class="num">'+p.sections.reduce((a,s)=>a+s.items.length,0)+'</span><span class="lbl">'+esc(p.title)+'</span></div>'
+  ).join('');
+
+// ---------- Highlights ----------
+document.getElementById('hlGrid').innerHTML = (DATA.highlights||[]).map(h=>{
+  const tag = h.tag ? '<span class="tag '+(h.tag.indexOf('相关')>-1?'iot':'hot')+'">'+esc(h.tag)+'</span>' : '';
+  const t = h.time ? '<span>🕗 '+esc(h.time)+'</span>' : '';
+  return '<a class="hl-card" href="#card-'+h.n+'" style="text-decoration:none">'+
+    '<div class="top"><span class="no">★ 第 '+h.n+' 条</span>'+tag+'</div>'+
+    '<h4>'+esc(h.title)+'</h4>'+
+    '<div class="meta"><span>'+esc(h.source)+'</span>'+t+'</div>'+
+    (h.reason? '<span class="why">💡 '+esc(h.reason)+'</span>' : '')+
+  '</a>';
+}).join('') || '<p class="hl-sub">暂无重点推荐</p>';
+
+// ---------- Hotwords ----------
+const hotSec = document.getElementById('hotSec');
+const hwStrip = document.getElementById('hwStrip');
+if(DATA.hotwords && DATA.hotwords.length){
+  hwStrip.innerHTML = DATA.hotwords.map(h=>
+    '<button class="hw-chip" onclick="searchWord(\''+esc(h.w)+'\')"><span class="w">'+esc(h.w)+'</span><span class="c">×'+h.c+'</span></button>'
+  ).join('');
+}else{
+  hotSec.style.display = 'none';
+}
+function searchWord(w){
+  document.getElementById('searchInput').value = w;
+  applyFilter();
+  refreshHighlights();
+  toast('🔍 已搜索「'+w+'」');
+}
+
+// ---------- Favorites ----------
+const FAV_KEY = 'ai-daily-favs';
+function getFavs(){
+  try{ return JSON.parse(localStorage.getItem(FAV_KEY)||'[]'); }catch(e){ return []; }
+}
+function setFavs(list){ localStorage.setItem(FAV_KEY, JSON.stringify(list.slice(0,200))); }
+function isFav(n){ return getFavs().some(f=>f.n===n); }
+function toggleFav(btn){
+  const n = parseInt(btn.getAttribute('data-n'),10);
+  const item = {n:n, title:btn.getAttribute('data-title'), source:btn.getAttribute('data-src'),
+                url:btn.getAttribute('data-url'), favAt:Date.now()};
+  let list = getFavs();
+  const idx = list.findIndex(f=>f.n===n);
+  if(idx>-1){ list.splice(idx,1); btn.classList.remove('on'); btn.textContent='☆'; toast('已取消收藏'); }
+  else { list.unshift(item); btn.classList.add('on'); btn.textContent='★'; toast('⭐ 已收藏'); }
+  setFavs(list);
+  updateFavCount();
+}
+
+// ---------- Favorites drawer ----------
+const favMask = document.getElementById('favMask');
+const favDrawer = document.getElementById('favDrawer');
+function updateFavCount(){
+  const n = getFavs().length;
+  document.getElementById('favCount').textContent = n;
+}
+function renderFavDrawer(){
+  const favs = getFavs();
+  document.getElementById('favModalCount').textContent = favs.length;
+  if(!favs.length){
+    favDrawer.innerHTML = '<div class="fav-empty">还没有收藏，点卡片右上角 ☆ 即可收藏</div>';
+    return;
+  }
+  favDrawer.innerHTML = favs.map((f,i)=>
+    '<div class="fav-item">'+
+      '<span class="fav-star">★</span>'+
+      '<a class="fav-title" href="'+esc(f.url||'#')+'" target="_blank" rel="noopener noreferrer">'+esc(f.title||'')+'</a>'+
+      '<span class="fav-meta">'+esc(f.source||'')+'</span>'+
+      '<button class="fav-del" onclick="delFavItem('+i+')" title="移除">✕</button>'+
+    '</div>'
+  ).join('');
+}
+window.delFavItem = function(i){
+  const list = getFavs();
+  list.splice(i,1);
+  setFavs(list);
+  renderFavDrawer();
+  updateFavCount();
+  refreshFavStars();
+  toast('已移除收藏');
+};
+function refreshFavStars(){
+  const favs = getFavs();
+  document.querySelectorAll('.fav-btn').forEach(b=>{
+    const faved = favs.some(f=>f.n===parseInt(b.getAttribute('data-n'),10));
+    b.classList.toggle('on', faved);
+    b.textContent = faved ? '★' : '☆';
+  });
+}
+document.getElementById('favsBtn').addEventListener('click', ()=>{
+  renderFavDrawer();
+  favMask.classList.add('show');
+});
+document.getElementById('favClose').addEventListener('click', ()=>favMask.classList.remove('show'));
+document.getElementById('favDone').addEventListener('click', ()=>favMask.classList.remove('show'));
+document.getElementById('favClearAll').addEventListener('click', ()=>{
+  if(confirm('确认清空全部收藏？')){
+    setFavs([]);
+    renderFavDrawer();
+    updateFavCount();
+    refreshFavStars();
+    toast('已清空收藏');
+  }
+});
+favMask.addEventListener('click', e=>{ if(e.target===favMask) favMask.classList.remove('show'); });
+updateFavCount();
+
+// ---------- Favorites sync code ----------
+const SYNC_PREFIX = 'AI-DAILY-FAVS:';
+const syncPanel = document.getElementById('syncPanel');
+const syncCode = document.getElementById('syncCode');
+function b64Encode(s){ return btoa(unescape(encodeURIComponent(s))); }
+function b64Decode(s){ return decodeURIComponent(escape(atob(s))); }
+document.getElementById('favExport').addEventListener('click', ()=>{
+  const favs = getFavs();
+  if(!favs.length){ toast('还没有收藏可导出'); return; }
+  syncCode.value = SYNC_PREFIX + b64Encode(JSON.stringify(favs));
+  syncPanel.style.display = 'block';
+  toast('⬆️ 已生成同步码，复制后发到微信');
+});
+document.getElementById('favImport').addEventListener('click', ()=>{
+  syncCode.value = '';
+  syncPanel.style.display = 'block';
+  syncCode.focus();
+  toast('⬇️ 粘贴微信里的同步码，点「导入收藏」');
+});
+document.getElementById('syncCopy').addEventListener('click', async ()=>{
+  if(!syncCode.value){ toast('没有可复制的同步码'); return; }
+  try{
+    await navigator.clipboard.writeText(syncCode.value);
+    toast('✅ 同步码已复制，发到微信即可');
+  }catch(e){ toast('❌ 复制失败，请手动选择复制'); }
+});
+document.getElementById('syncApply').addEventListener('click', ()=>{
+  let code = (syncCode.value||'').trim();
+  if(!code){ toast('请先粘贴同步码'); return; }
+  try{
+    if(code.indexOf(SYNC_PREFIX)===0) code = code.slice(SYNC_PREFIX.length);
+    const raw = b64Decode(code);
+    const imported = JSON.parse(raw);
+    if(!Array.isArray(imported)) throw new Error('bad format');
+    // 按 url 去重合并（保留本地，导入的补充）
+    const local = getFavs();
+    const seen = new Set(local.map(f=>f.url));
+    let added = 0;
+    imported.forEach(f=>{
+      if(f && f.url && !seen.has(f.url)){
+        local.push({n:f.n, title:f.title, source:f.source, url:f.url, favAt:f.favAt||Date.now()});
+        seen.add(f.url);
+        added++;
+      }
+    });
+    setFavs(local);
+    renderFavDrawer();
+    updateFavCount();
+    refreshFavStars();
+    syncPanel.style.display = 'none';
+    toast(added ? '✅ 导入成功，新增 '+added+' 条' : '已导入（无新增，可能已存在）');
+  }catch(e){
+    toast('❌ 同步码无效，请检查是否完整复制');
+  }
+});
+document.getElementById('syncCancel').addEventListener('click', ()=>{
+  syncPanel.style.display = 'none';
+});
+
+// ---------- Push subscription ----------
+const VAPID_PUBLIC_KEY = 'BF1_vIR0AYC4eeSh9-5mqeIstiWlr2aQBaPTwYRHj0MqIYCktEGJLpJFmymk8WGUEmKBxaDsrrLdxppv7SSPZNw';
+const pushBtn = document.getElementById('pushBtn');
+const subMask = document.getElementById('subMask');
+const subJson = document.getElementById('subJson');
+function subStatus(){
+  const sub = localStorage.getItem('ai-daily-sub');
+  pushBtn.textContent = sub ? '🔔 已开启' : '🔔 推送';
+  pushBtn.classList.toggle('on', !!sub);
+  pushBtn.title = sub ? '已开启每日推送（点击查看订阅信息）' : '开启每日推送通知';
+}
+function b64urlToUint8(b){
+  const pad = '='.repeat((4-b.length%4)%4);
+  const s = (b+pad).replace(/-/g,'+').replace(/_/g,'/');
+  return Uint8Array.from(atob(s), c=>c.charCodeAt(0));
+}
+pushBtn.addEventListener('click', async ()=>{
+  if(!('serviceWorker' in navigator) || !('PushManager' in window)){
+    toast('❌ 当前浏览器不支持推送'); return;
+  }
+  try{
+    const sw = await navigator.serviceWorker.ready;
+    let sub = await sw.pushManager.getSubscription();
+    if(!sub){
+      const perm = await Notification.requestPermission();
+      if(perm !== 'granted'){ toast('❌ 通知权限未开启'); return; }
+      sub = await sw.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: b64urlToUint8(VAPID_PUBLIC_KEY)
+      });
+    }
+    const json = JSON.stringify(sub.toJSON());
+    localStorage.setItem('ai-daily-sub', json);
+    subJson.value = json;
+    subMask.classList.add('show');
+    subStatus();
+  }catch(e){
+    toast('❌ 订阅失败：'+e.message);
+  }
+});
+document.getElementById('subClose').addEventListener('click', ()=>subMask.classList.remove('show'));
+document.getElementById('subCancel').addEventListener('click', ()=>subMask.classList.remove('show'));
+document.getElementById('subCopy').addEventListener('click', async ()=>{
+  try{
+    await navigator.clipboard.writeText(subJson.value);
+    toast('✅ 订阅信息已复制，发给小巴即可');
+  }catch(e){ toast('❌ 复制失败，请手动选择复制'); }
+});
+subMask.addEventListener('click', e=>{ if(e.target===subMask) subMask.classList.remove('show'); });
+subStatus();
+
+// ---------- Topics ----------
+const tpStrip = document.getElementById('tpStrip');
+const tpSec = document.getElementById('topicsSec');
+const tpPop = document.getElementById('tpPop');
+let tpPopTimer;
+function tpColor(name){
+  if(name.indexOf('卫星')>-1) return '#6366f1';
+  if(name.indexOf('芯片')>-1) return '#d97706';
+  if(name.indexOf('5G')>-1) return '#0d9488';
+  if(name.indexOf('政策')>-1) return '#db2777';
+  return '#4f46e5';
+}
+function tpSplit(name){
+  return { emoji: (name.match(/^\S+/)||['🔗'])[0], name: name.replace(/^\S+\s*/, '') };
+}
+if(DATA.topics && DATA.topics.length){
+  document.getElementById('tpTotal').textContent = DATA.topics.reduce((a,t)=>a+t.items.length,0);
+  tpStrip.innerHTML = DATA.topics.map((t,i)=>{
+    const color = tpColor(t.name);
+    const sp = tpSplit(t.name);
+    return '<button class="tp-chip" data-i="'+i+'" style="--tp:'+color+'">'+
+      '<span class="ico">'+sp.emoji+'</span>'+
+      '<span class="nm">'+esc(sp.name)+'</span>'+
+      '<span class="cnt">'+t.items.length+' 条</span>'+
+    '</button>';
+  }).join('');
+
+  function fillPop(t){
+    const color = tpColor(t.name);
+    const sp = tpSplit(t.name);
+    tpPop.style.setProperty('--tp', color);
+    tpPop.innerHTML =
+      '<div class="tp-pop-head">'+
+        '<span class="ico">'+sp.emoji+'</span>'+
+        '<span class="nm">'+esc(sp.name)+'</span>'+
+        '<span class="cnt">'+t.items.length+' 条</span>'+
+      '</div>'+
+      '<div class="tp-pop-list">'+
+        t.items.map(it=>{
+          const time = it.time ? '<span>🕗 '+esc(it.time)+'</span>' : '';
+          return '<div class="tp-pop-item">'+
+            '<div class="t">'+
+              '<span class="no">'+String(it.n).padStart(2,'0')+'</span>'+
+              '<a class="title" href="'+esc(it.url)+'" target="_blank" rel="noopener noreferrer">'+esc(it.title)+'</a>'+
+            '</div>'+
+            '<div class="m"><span>'+esc(it.source)+'</span>'+time+'</div>'+
+          '</div>';
+        }).join('')+
+      '</div>';
+  }
+  function showPop(chip, idx){
+    clearTimeout(tpPopTimer);
+    fillPop(DATA.topics[idx]);
+    tpPop.style.display = 'block';
+    const r = chip.getBoundingClientRect();
+    let left = r.left;
+    const pw = tpPop.offsetWidth, ph = tpPop.offsetHeight;
+    if(left + pw > window.innerWidth - 10) left = Math.max(10, window.innerWidth - pw - 10);
+    if(left < 10) left = 10;
+    let top = r.bottom + 8;
+    if(top + ph > window.innerHeight - 10) top = Math.max(10, r.top - ph - 8);
+    tpPop.style.left = left + 'px';
+    tpPop.style.top = top + 'px';
+  }
+  function hidePop(){ tpPop.style.display = 'none'; }
+
+  tpStrip.querySelectorAll('.tp-chip').forEach((chip, i)=>{
+    chip.addEventListener('mouseenter', ()=>showPop(chip, i));
+    chip.addEventListener('mouseleave', ()=>{ tpPopTimer = setTimeout(hidePop, 160); });
+    chip.addEventListener('click', ()=>showPop(chip, i));
+  });
+  tpPop.addEventListener('mouseenter', ()=>clearTimeout(tpPopTimer));
+  tpPop.addEventListener('mouseleave', hidePop);
+  document.addEventListener('click', e=>{
+    if(!e.target.closest('.tp-chip') && !e.target.closest('#tpPop')) hidePop();
+  });
+}else{
+  tpSec.style.display = 'none';
+}
+
+// ---------- Sections & cards ----------
+const main = document.getElementById('main');
+let html = '';
+let g2 = 0;
+DATA.parts.forEach((p, pi)=>{
+  html += '<section class="part part-'+p.key+'" id="part-'+pi+'">'+
+    '<div class="part-head">'+
+      '<span class="part-title">'+(p.key==='tn'?'📰 ':(p.key==='aihot'?'☀️ ':'📌 '))+esc(p.title)+'</span>'+
+      '<span class="part-desc">'+esc(p.desc)+'</span>'+
+      '<span class="part-src">'+(p.sourceUrl?'来源 <a href="'+esc(p.sourceUrl)+'" target="_blank" rel="noopener noreferrer">'+esc(p.sourceName)+'</a> · ':'')+p.sections.reduce((a,s)=>a+s.items.length,0)+' 条</span>'+
+    '</div>';
+  p.sections.forEach((s)=>{
+    const c = s.color;
+    const idx = g2++;
+    const fresh = s.items.filter(it=>!it.old);
+    const old = s.items.filter(it=>it.old);
+    html += '<section class="section" id="sec-'+idx+'">'+
+      '<div class="sec-head">'+
+        '<span class="sec-dot" style="background:'+c+'"></span>'+
+        '<span class="sec-title">'+esc(s.label)+'</span>'+
+        '<span class="sec-count">'+(old.length? fresh.length+' 新 + '+old.length+' 往期' : s.items.length+' 条')+'</span>'+
+      '</div>'+
+      '<div class="grid">'+fresh.map(it=>cardHtml(it,c)).join('')+'</div>'+
+      (old.length? '<details class="fold"><summary><span class="arrow">▶</span>往期 ' + old.length + ' 条（超 30 天，点开查看）</summary><div class="fold-grid">'+
+        old.map(it=>foldCardHtml(it,c)).join('')+'</div></details>' : '')+
+    '</section>';
+  });
+  html += '</section>';
+});
+main.innerHTML = html;
+document.getElementById('footTotal').textContent = DATA.total;
+document.getElementById('aihotFoot').href = DATA.parts.find(p=>p.key==='aihot').sourceUrl || '#';
+
+// ---------- Rail nav (side scrollspy) ----------
+const railBody = document.getElementById('railBody');
+const rail = document.getElementById('rail');
+let railHtml = '';
+let rk = 0;
+DATA.parts.forEach((p)=>{
+  railHtml += '<div class="rail-group">'+(p.key==='aihot'?'☀️ AI HOT':(p.key==='wm'?'📌 公众号':'📰 腾讯新闻'))+'</div>';
+  p.sections.forEach((s)=>{
+    const k = ++rk;
+    railHtml += '<a class="rail-item" href="#sec-'+(k-1)+'" data-sec="'+(k-1)+'">'+
+      '<span class="k">'+k+'</span><span class="d" style="background:'+s.color+'"></span>'+
+      '<span>'+esc(s.label)+'</span></a>';
+  });
+});
+railBody.innerHTML = railHtml;
+const railItemsEls = railBody.querySelectorAll('.rail-item');
+const secEls = document.querySelectorAll('.section');
+if('IntersectionObserver' in window && secEls.length){
+  const spy = new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        const idx = Array.prototype.indexOf.call(secEls, en.target);
+        railItemsEls.forEach(el=>el.classList.toggle('active', parseInt(el.dataset.sec,10)===idx));
+      }
+    });
+  }, {rootMargin:'-15% 0px -70% 0px'});
+  secEls.forEach(s=>spy.observe(s));
+  if(railItemsEls[0]) railItemsEls[0].classList.add('active');
+}
+const railToggle = document.getElementById('railToggle');
+railToggle.addEventListener('click', ()=>{
+  const collapsed = rail.classList.toggle('collapsed');
+  railToggle.textContent = collapsed ? '«' : '»';
+  railToggle.title = collapsed ? '展开导航' : '收起导航';
+});
+
+function tagHtml(it){
+  if(!it.tag) return '';
+  const cls = it.tag.indexOf('相关')>-1 ? 'iot' : 'hot';
+  return '<span class="tag '+cls+'">'+esc(it.tag)+'</span>';
+}
+function cardHtml(it, c){
+  const t = it.time ? '<span class="t">🕗 '+esc(it.time)+'</span>' : '';
+  const faved = isFav(it.n) ? ' on' : '';
+  return '<article class="card" id="card-'+it.n+'" style="--card-accent:'+c+'" '+
+    'data-tag="'+esc(it.tag)+'" data-old="'+(it.old?'true':'false')+'" data-text="'+esc((it.title+' '+it.full).toLowerCase())+'">'+
+    '<div class="card-top">'+
+      '<span class="num">'+String(it.n).padStart(2,'0')+'</span>'+
+      tagHtml(it)+
+      '<span class="chip" title="'+esc(it.source)+'">'+esc(it.source)+'</span>'+
+      '<button class="fav-btn'+faved+'" data-n="'+it.n+'" data-title="'+esc(it.title)+'" data-src="'+esc(it.source)+'" data-url="'+esc(it.url)+'" title="收藏/取消收藏" onclick="toggleFav(this)">'+(faved?'★':'☆')+'</button>'+
+    '</div>'+
+    '<h3><a href="'+esc(it.url)+'" target="_blank" rel="noopener noreferrer" data-plain="'+esc(it.title)+'">'+esc(it.title)+'</a></h3>'+
+    (t? '<div class="meta">'+t+'</div>' : '')+
+    (it.full? '<p class="summary" data-full="'+esc(it.full)+'" data-plain="'+esc(brief(it.full).text)+'">'+esc(brief(it.full).text)+'</p>' : '')+
+    (it.full && brief(it.full).more? '<button class="expand-btn" onclick="toggleExpand(this)">展开全文 ▾</button>' : '')+
+    '<a class="read-more" href="'+esc(it.url)+'" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>'+
+  '</article>';
+}
+function foldCardHtml(it, c){
+  const t = it.time ? '<span>🕗 '+esc(it.time)+'</span>' : '';
+  return '<div class="fold-card" data-tag="'+esc(it.tag)+'" data-old="true" data-text="'+esc((it.title+' '+it.full).toLowerCase())+'">'+
+    '<div class="ft"><span class="no">#'+it.n+'</span>'+tagHtml(it)+'</div>'+
+    '<h4><a href="'+esc(it.url)+'" target="_blank" rel="noopener noreferrer" data-plain="'+esc(it.title)+'">'+esc(it.title)+'</a></h4>'+
+    '<div class="fm"><span>'+esc(it.source)+'</span>'+t+'</div>'+
+  '</div>';
+}
+
+// ---------- Expand (single) ----------
+function toggleExpand(btn){
+  const p = btn.previousElementSibling;
+  const full = p.getAttribute('data-full')||'';
+  if(p.dataset.expanded==='1'){
+    p.textContent = brief(full).text; p.dataset.expanded='0'; btn.textContent='展开全文 ▾';
+  }else{
+    p.textContent = full; p.dataset.expanded='1'; btn.textContent='收起 ▲';
+  }
+  applyHighlight(p);
+}
+
+// ---------- Expand all ----------
+let allExpanded = false;
+document.getElementById('expandAll').addEventListener('click', ()=>{
+  allExpanded = !allExpanded;
+  document.getElementById('expandAll').textContent = allExpanded ? '收起全文' : '展开全文';
+  document.querySelectorAll('.card .summary').forEach(p=>{
+    const full = p.getAttribute('data-full')||'';
+    if(allExpanded){ p.textContent = full; p.dataset.expanded='1'; }
+    else { p.textContent = brief(full).text; p.dataset.expanded='0'; }
+    applyHighlight(p);
+  });
+  document.querySelectorAll('.card .expand-btn').forEach(b=>{
+    b.textContent = allExpanded ? '收起 ▲' : '展开全文 ▾';
+  });
+  toast(allExpanded ? '✅ 已全部展开' : '已收起全部摘要');
+});
+
+// ---------- Highlight ----------
+function applyHighlight(el){
+  const q = document.getElementById('searchInput').value.trim();
+  // 摘要已展开时用全文做高亮源，否则用截断版
+  const src = (el.classList && el.classList.contains('summary') && el.dataset.expanded === '1')
+    ? (el.getAttribute('data-full') || '')
+    : (el.getAttribute('data-plain') || '');
+  el.innerHTML = hl(src, q);
+}
+function refreshHighlights(){
+  document.querySelectorAll('.card h3 a, .card .summary, .fold-card h4 a').forEach(el=>applyHighlight(el));
+}
+
+// ---------- Filter / Search ----------
+let activeFilter = 'all';
+const searchInput = document.getElementById('searchInput');
+document.querySelectorAll('.fbtn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.getAttribute('data-f');
+    applyFilter();
+  });
+});
+searchInput.addEventListener('input', ()=>{ syncSearchClear(); applyFilter(); refreshHighlights(); });
+searchInput.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){ searchInput.value=''; syncSearchClear(); applyFilter(); refreshHighlights(); }
+});
+function syncSearchClear(){
+  document.getElementById('searchClear').classList.toggle('show', !!searchInput.value);
+}
+document.getElementById('searchClear').addEventListener('click', ()=>{
+  searchInput.value='';
+  syncSearchClear();
+  applyFilter(); refreshHighlights();
+  searchInput.focus();
+});
+
+function applyFilter(){
+  const q = searchInput.value.trim().toLowerCase();
+  let visible = 0;
+  document.querySelectorAll('.card').forEach(card=>{
+    const text = card.getAttribute('data-text')||'';
+    let show = true;
+    if(q && text.indexOf(q)<0) show = false;
+    if(show && activeFilter==='related' && (card.getAttribute('data-tag')||'').indexOf('相关')<0) show = false;
+    if(show && activeFilter==='hot' && (card.getAttribute('data-tag')||'').indexOf('热点')<0) show = false;
+    if(show && activeFilter==='fresh' && card.getAttribute('data-old')==='true') show = false;
+    card.style.display = show ? '' : 'none';
+    if(show) visible++;
+  });
+  let foldHits = 0;
+  document.querySelectorAll('.fold').forEach(fd=>{
+    const cards = [...fd.querySelectorAll('.fold-card')];
+    const total = cards.length;
+    cards.forEach(c=>{
+      const text = c.getAttribute('data-text')||'';
+      let show = true;
+      if(q && text.indexOf(q)<0) show = false;
+      if(show && activeFilter==='related' && (c.getAttribute('data-tag')||'').indexOf('相关')<0) show = false;
+      if(show && activeFilter==='hot' && (c.getAttribute('data-tag')||'').indexOf('热点')<0) show = false;
+      c.style.display = show ? '' : 'none';
+      if(show) foldHits++;
+    });
+    const hits = cards.filter(c=>c.style.display!=='none').length;
+    const summary = fd.querySelector('summary');
+    if(q || activeFilter!=='all'){
+      fd.style.display = hits ? '' : 'none';
+      if(hits) fd.open = true;
+      if(summary && hits && hits<total){
+        const oldText = summary.textContent.replace(/^.*?（/, '（');
+        summary.innerHTML = '<span class="arrow">▶</span>往期 '+total+' 条（超 30 天，点开查看） · 命中 '+hits+' 条';
+      }
+    }else{
+      fd.style.display = '';
+      fd.open = false;
+      if(summary) summary.innerHTML = '<span class="arrow">▶</span>往期 '+total+' 条（超 30 天，点开查看）';
+    }
+  });
+  const totalVisible = visible + foldHits;
+  const info = document.getElementById('resultInfo');
+  const tip = document.getElementById('emptyTip');
+  if(q || activeFilter!=='all'){
+    info.textContent = '匹配 ' + totalVisible + ' 条'; info.classList.add('show');
+    tip.classList.toggle('show', totalVisible===0);
+  }else{
+    info.classList.remove('show');
+    tip.classList.remove('show');
+  }
+}
+
+// ---------- Copy full ----------
+document.getElementById('copyBtn').addEventListener('click', async ()=>{
+  let txt = '【朝闻 · '+DATA.date+'】\n';
+  DATA.parts.forEach((p)=>{
+    txt += '\n■ ' + p.title + '\n';
+    p.sections.forEach((s)=>{
+      const items = s.items.filter(it=>!it.old);
+      if(items.length) txt += '「' + s.label + '」\n';
+      items.forEach((it,i)=>{
+        txt += (i+1) + '. ' + it.title + (it.source?'（'+it.source+'）':'') + '\n';
+        if(it.full) txt += '   ' + brief(it.full).text + '\n';
+        if(it.url) txt += '   ' + it.url + '\n';
+      });
+    });
+  });
+  txt += '\n**来源：腾讯新闻 / AIHOT**\n';
+  copyText(txt, '完整版简报已复制');
+});
+
+// ---------- Copy mini ----------
+document.getElementById('copyMini').addEventListener('click', async ()=>{
+  let txt = '📰 【朝闻 · '+DATA.date+'】\n\n🎯 今日重点：\n';
+  (DATA.highlights||[]).forEach((h,i)=>{
+    txt += (i+1) + '. ' + h.title + '（' + h.source + '）\n';
+  });
+  if(DATA.topics && DATA.topics.length){
+    txt += '\n🔗 物联网主题速览：\n';
+    DATA.topics.forEach(t=>{
+      txt += '▍' + t.name + '\n';
+      t.items.forEach(it=>{ txt += '  · ' + it.title + '（' + it.source + '）\n'; });
+    });
+  }
+  txt += '\n完整版见归档：' + location.href + '\n**来源：腾讯新闻 / AIHOT**\n';
+  copyText(txt, '精简版已复制，可直接发群');
+});
+
+async function copyText(txt, msg){
+  try{
+    await navigator.clipboard.writeText(txt);
+    toast('✅ ' + msg);
+  }catch(e){
+    toast('❌ 复制失败，请手动复制');
+  }
+}
+
+// ---------- Back to top / progress / keys ----------
+const toTop = document.getElementById('toTop');
+const progress = document.getElementById('progress');
+window.addEventListener('scroll', ()=>{
+  const h = document.documentElement;
+  const sc = h.scrollTop || document.body.scrollTop;
+  toTop.classList.toggle('show', sc > 400);
+  const max = h.scrollHeight - h.clientHeight;
+  progress.style.width = (max>0 ? (sc/max*100) : 0) + '%';
+});
+toTop.addEventListener('click', ()=>window.scrollTo({top:0, behavior:'smooth'}));
+document.addEventListener('keydown', e=>{
+  if(e.target.tagName==='INPUT' || e.target.tagName==='TEXTAREA') return;
+  if((e.key>='1' && e.key<='9') || e.key==='0'){
+    const k = e.key==='0' ? 9 : (+e.key-1);
+    const sec = document.getElementById('sec-'+k);
+    if(sec) sec.scrollIntoView({behavior:'smooth'});
+  }
+  if(e.key==='t' || e.key==='T') window.scrollTo({top:0, behavior:'smooth'});
+  if(e.key==='d' || e.key==='D') toggleTheme();
+});
+</script>
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load', ()=>{
+    navigator.serviceWorker.register('./sw.js').catch(()=>{});
+  });
+}
+</script>
+</body>
+</html>
